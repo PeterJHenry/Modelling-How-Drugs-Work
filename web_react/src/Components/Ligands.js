@@ -44,9 +44,6 @@ class Ligands extends React.Component {
             values: logK[currentRowSelection]
         });
 
-
-        console.log(this.state)
-
     }
 
     renderCell(cellValue) {
