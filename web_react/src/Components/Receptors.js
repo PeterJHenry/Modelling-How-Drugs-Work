@@ -13,7 +13,8 @@ class Receptors extends React.Component {
 
     componentWillMount() {
         this.setState({
-            selectedBox: [false, false, false, false, false]
+            selectedBox: [false, false, false, false, false],
+            receptorRatio: [null, null, null, null, null]
         });
     }
 
@@ -28,6 +29,7 @@ class Receptors extends React.Component {
 
     checkExceedBox(selectedBoxIndex) {
         const boxArray = this.state.selectedBox;
+        const relInput = this.state.receptorRatio;
 
 
         if (boxArray[selectedBoxIndex] === false) {
@@ -35,21 +37,48 @@ class Receptors extends React.Component {
             boxArray.forEach(v => v ? trueCounter++ : v);
             if (trueCounter < 2) {
                 boxArray[selectedBoxIndex] = true;
-                this.setState({selectedBox: boxArray});
+                // this.setState({selectedBox: boxArray});
             } else {
                 alert('You can only select two boxes!')
             }
         } else {
             boxArray[selectedBoxIndex] = false;
-            this.setState({selectedBox: boxArray});
+            relInput[selectedBoxIndex] = null;
         }
+        this.setState({
+            selectedBox: boxArray,
+            receptorRatio: relInput
+        });
+    }
+
+    checkRatioTotal(boxIndex, event) {
+
+        const inputValue = parseInt(event.target.value);
+        // var total = 0;
+        var total = 0;
+        const relInput = this.state.receptorRatio;
+        this.state.receptorRatio.forEach(v => total+= v);
+        total += inputValue;
+        console.log(total);
+
+        if(total > 100){
+            alert('too Much')
+        } else {
+            relInput[boxIndex] = inputValue;
+            this.setState({receptorRatio:relInput})
+        }
+
+
+
     }
 
     renderRelativeDensity(boxIndex) {
         return (
             <td>
                 <input type="text" className="relativeDensityInput"
-                       disabled={!this.state.selectedBox[boxIndex]}/>
+                       disabled={!this.state.selectedBox[boxIndex]}
+                       value={this.state.receptorRatio[boxIndex]}
+                       onBlur={this.checkRatioTotal.bind(this, boxIndex)}/>
             </td>
         )
     }
