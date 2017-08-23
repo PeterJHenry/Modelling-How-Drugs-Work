@@ -6,7 +6,8 @@ class Receptors extends React.Component {
     constructor() {
         super();
         this.state = ({
-            selectedBox: []
+            selectedBox: [],
+            receptorRatio: []
         });
 
     }
