@@ -38,11 +38,14 @@ class App extends Component {
         });
     }
 
+    handleLigandChange(rowIndex,ligandIndex){
+        let originalLigandState = this.state.ligands;
+        originalLigandState[rowIndex] = logK[ligandIndex];
+        this.setState({
+            ligands: originalLigandState
+        });
 
-    renderLigandRow(rowIndex) {
-        return (<tr>
-            <Ligands currentRowIndex={rowIndex}/>
-        </tr>);
+
     }
 
     render() {
@@ -50,25 +53,13 @@ class App extends Component {
             <div>
 
                 <div className="mainUI">
+
                     <div className="receptors">
                         <Receptors/>
                     </div>
+
                     <div className="ligands">
-                        <fieldset className="ligands_fieldset">
-                            <legend>Ligands</legend>
-                            <div className="ligands">
-                                <table>
-
-                                    {this.renderLigandRow(1)}
-                                    {this.renderLigandRow(2)}
-                                    {this.renderLigandRow(3)}
-                                    {this.renderLigandRow(4)}
-                                    {this.renderLigandRow(5)}
-                                    {this.renderLigandRow(6)}
-
-                                </table>
-                            </div>
-                        </fieldset>
+                        <Ligands ligandState={this.state.ligands} ligandChange={this.handleLigandChange.bind(this)}/>
                     </div>
 
 
