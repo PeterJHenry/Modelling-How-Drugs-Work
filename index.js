@@ -33,6 +33,11 @@ const state = {
     ]
 };
 
+
+// TODO: use functional programming.
+
+
+// <---->
 // Autofills the receptors according to the selected
 // TODO  --- make it less dirty
 // TODO -- change select receptor 12th index
@@ -42,28 +47,22 @@ function receptorAutoFill(e, rowIndex) {
     for (var i = 0; i < 5; i++) {
         table.children[rowIndex].children[i + 1].children[0].value = logK[e.value][i];
         state.receptors[rowIndex][i] = logK[e.value][i];
-        if (e.value < 10 || e.value == 12) {
-            table.children[rowIndex].children[i + 1].children[0].disabled = true;
-        } else {
-            table.children[rowIndex].children[i + 1].children[0].disabled = false;
-        }
+        table.children[rowIndex].children[i + 1].children[0].disabled = (e.value < 10 || e.value == 12);
     }
 }
 
 // Updates graph and data, call this function when DOM updates needed
 // this function also updates state
+// currently not yet in use
 function updateDOM() {
     var receptorTable = document.getElementById('receptorTable').children[0];
-    for (var y = 0; y < 6; y++) {
-        for (var x = 0; x < 5; x++) {
-            state.receptors[y][x] = receptorTable.children[y].children[x + 1].children[0].value
-        }
-    }
+    for (var y = 0; y < 6; y++) for (var x = 0; x < 5; x++) state.receptors[y][x] = receptorTable.children[y].children[x + 1].children[0].value
 
 
 }
 
 // validate if check box can be selected
+// TODO - someone make this pretty
 function validateCheckBox(checkingBox) {
     var checkBoxRow = document.getElementById('subtypeCheckbox');
     var relDensityRow = document.getElementById('relDensity');
@@ -86,23 +85,20 @@ function validateCheckBox(checkingBox) {
             checkBoxRow.children[checkingBox + 1].children[0].checked = true;
             relDensityRow.children[checkingBox + 1].children[0].disabled = false;
         }
-    } else {
-        alert('Error')
-    }
+    } else alert('Error')
 }
 
 // clean input for individual cell
 function validateIndividualCell(cellNumber) {
     var currentCell = document.getElementById('relDensity').children[cellNumber + 1].children[0];
 
-    if (currentCell.value > 100) {
-        currentCell.value = 100;
-    }
+    if (currentCell.value > 100) currentCell.value = 100;
 
     validateRelDensityRow(cellNumber);
 }
 
 // validate and clean density row
+// TODO - add third input
 function validateRelDensityRow(currentCellNumber) {
     var currentCell = document.getElementById('relDensity').children[currentCellNumber + 1].children[0];
     var otherCell;
@@ -121,9 +117,7 @@ function validateRelDensityRow(currentCellNumber) {
     var currentTotal = 0;
 
     for (var i = 0; i < 5; i++) {
-        if (state.subTypePresent[i]) {
-            currentTotal = currentTotal + state.relDensity[i];
-        }
+        if (state.subTypePresent[i]) currentTotal = currentTotal + state.relDensity[i];
     }
 
     console.log(currentTotal);
@@ -141,12 +135,11 @@ function validateRelDensityRow(currentCellNumber) {
 }
 
 
+// TODO -fix graph
 function plotGraph(logValue) {
 
     // temporary
     var dataSet = exportData(9.3);
-    
-
     var graph = {
         x: dataSet[0],
         y: dataSet[1],
@@ -162,7 +155,7 @@ function plotGraph(logValue) {
         }
     };
 
-    var data = [graph,forceY];
+    var data = [graph, forceY];
 
 
     Plotly.newPlot('myDiv', data);
