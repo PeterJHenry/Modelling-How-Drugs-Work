@@ -40,3 +40,6 @@ td {
     background-color: #f7f7f7;
 }
 
+#receptorTable>tbody>tr>td>input:disabled{
+    background-color: #f7f7f7;
+}
