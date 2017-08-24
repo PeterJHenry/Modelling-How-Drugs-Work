@@ -55,6 +55,7 @@
             <!--</div>-->
 
             <table>
+                <tbody>
                 <tr>
                     <td></td>
                     <td>M<sub>1</sub></td>
@@ -63,24 +64,27 @@
                     <td>M<sub>4</sub></td>
                     <td>M<sub>5</sub></td>
                 </tr>
-                <tr>
+                <tr id="subtypeCheckbox">
                     <td class="leftInput">Subtypes present:</td>
-                    <td><input type="checkbox"></td>
-                    <td><input type="checkbox"></td>
-                    <td><input type="checkbox"></td>
-                    <td><input type="checkbox"></td>
-                    <td><input type="checkbox"></td>
+                    <td><input type="checkbox" onclick="validateCheckBox(0)"></td>
+                    <td><input type="checkbox" onclick="validateCheckBox(1)"></td>
+                    <td><input type="checkbox" onclick="validateCheckBox(2)"></td>
+                    <td><input type="checkbox" onclick="validateCheckBox(3)"></td>
+                    <td><input type="checkbox" onclick="validateCheckBox(4)"></td>
                 </tr>
 
-                <tr>
+
+                <tr id="relDensity">
                     <td class="leftInput">Relative Density:</td>
-                    <td><input type="text" class="ligandInput"></td>
-                    <td><input type="text" class="ligandInput"></td>
-                    <td><input type="text" class="ligandInput"></td>
-                    <td><input type="text" class="ligandInput"></td>
-                    <td><input type="text" class="ligandInput"></td>
+                    <td><input type="number" class="ligandInput" disabled max="100" min="0" step="10"></td>
+                    <td><input type="number" class="ligandInput" disabled max="100" min="0" step="10"></td>
+                    <td><input type="number" class="ligandInput" disabled max="100" min="0" step="10"></td>
+                    <td><input type="number" class="ligandInput" disabled max="100" min="0" step="10"></td>
+                    <td><input type="number" class="ligandInput" disabled max="100" min="0" step="10"></td>
 
                 </tr>
+                </tbody>
+
             </table>
 
         </fieldset>
@@ -89,27 +93,28 @@
     <div class="container-fluid receptors">
         <fieldset class="sectionContainer">
             <legend>Receptors</legend>
-            <table>
+            <table id="receptorTable">
+                <tbody>
                 <tr>
                     <td>
                         <div class="leftInput">1.
-                            <select>
+                            <select onchange="receptorAutoFill(this,0)">
                                 <option></option>
                                 <optgroup label="Established">
-                                    <option>Atropine</option>
-                                    <option>Pirenzipine</option>
-                                    <option>Methoctromine</option>
-                                    <option>Darifenacin</option>
-                                    <option>MT-3</option>
-                                    <option>S-secoverine</option>
-                                    <option>Solifenacin</option>
-                                    <option>DAU-5884</option>
+                                    <option value="0">Atropine</option>
+                                    <option value="1">Pirenzipine</option>
+                                    <option value="2">Methoctromine</option>
+                                    <option value="3">Darifenacin</option>
+                                    <option value="4">MT-3</option>
+                                    <option value="5">S-secoverine</option>
+                                    <option value="6">Solifenacin</option>
+                                    <option value="7">DAU-5884</option>
                                 </optgroup>
                                 <optgroup label="Hypothetical">
-                                    <option>Ligand A</option>
-                                    <option>Ligand B</option>
-                                    <option>Ligand C</option>
-                                    <option>Ligand D</option>
+                                    <option value="8">Ligand A</option>
+                                    <option value="9">Ligand B</option>
+                                    <option value="10">Ligand C</option>
+                                    <option value="11">Ligand D</option>
                                 </optgroup>
 
                             </select>
@@ -126,23 +131,23 @@
                 <tr>
                     <td>
                         <div class="leftInput">2.
-                            <select>
+                            <select onchange="receptorAutoFill(this,1)">
                                 <option></option>
                                 <optgroup label="Established">
-                                    <option>Atropine</option>
-                                    <option>Pirenzipine</option>
-                                    <option>Methoctromine</option>
-                                    <option>Darifenacin</option>
-                                    <option>MT-3</option>
-                                    <option>S-secoverine</option>
-                                    <option>Solifenacin</option>
-                                    <option>DAU-5884</option>
+                                    <option value="0">Atropine</option>
+                                    <option value="1">Pirenzipine</option>
+                                    <option value="2">Methoctromine</option>
+                                    <option value="3">Darifenacin</option>
+                                    <option value="4">MT-3</option>
+                                    <option value="5">S-secoverine</option>
+                                    <option value="6">Solifenacin</option>
+                                    <option value="7">DAU-5884</option>
                                 </optgroup>
                                 <optgroup label="Hypothetical">
-                                    <option>Ligand A</option>
-                                    <option>Ligand B</option>
-                                    <option>Ligand C</option>
-                                    <option>Ligand D</option>
+                                    <option value="8">Ligand A</option>
+                                    <option value="9">Ligand B</option>
+                                    <option value="10">Ligand C</option>
+                                    <option value="11">Ligand D</option>
                                 </optgroup>
 
                             </select>
@@ -157,23 +162,23 @@
                 <tr>
                     <td>
                         <div class="leftInput">3.
-                            <select>
+                            <select onchange="receptorAutoFill(this,2)">
                                 <option></option>
                                 <optgroup label="Established">
-                                    <option>Atropine</option>
-                                    <option>Pirenzipine</option>
-                                    <option>Methoctromine</option>
-                                    <option>Darifenacin</option>
-                                    <option>MT-3</option>
-                                    <option>S-secoverine</option>
-                                    <option>Solifenacin</option>
-                                    <option>DAU-5884</option>
+                                    <option value="0">Atropine</option>
+                                    <option value="1">Pirenzipine</option>
+                                    <option value="2">Methoctromine</option>
+                                    <option value="3">Darifenacin</option>
+                                    <option value="4">MT-3</option>
+                                    <option value="5">S-secoverine</option>
+                                    <option value="6">Solifenacin</option>
+                                    <option value="7">DAU-5884</option>
                                 </optgroup>
                                 <optgroup label="Hypothetical">
-                                    <option>Ligand A</option>
-                                    <option>Ligand B</option>
-                                    <option>Ligand C</option>
-                                    <option>Ligand D</option>
+                                    <option value="8">Ligand A</option>
+                                    <option value="9">Ligand B</option>
+                                    <option value="10">Ligand C</option>
+                                    <option value="11">Ligand D</option>
                                 </optgroup>
 
                             </select>
@@ -188,23 +193,23 @@
                 <tr>
                     <td>
                         <div class="leftInput">4.
-                            <select>
+                            <select onchange="receptorAutoFill(this,3)">
                                 <option></option>
                                 <optgroup label="Established">
-                                    <option>Atropine</option>
-                                    <option>Pirenzipine</option>
-                                    <option>Methoctromine</option>
-                                    <option>Darifenacin</option>
-                                    <option>MT-3</option>
-                                    <option>S-secoverine</option>
-                                    <option>Solifenacin</option>
-                                    <option>DAU-5884</option>
+                                    <option value="0">Atropine</option>
+                                    <option value="1">Pirenzipine</option>
+                                    <option value="2">Methoctromine</option>
+                                    <option value="3">Darifenacin</option>
+                                    <option value="4">MT-3</option>
+                                    <option value="5">S-secoverine</option>
+                                    <option value="6">Solifenacin</option>
+                                    <option value="7">DAU-5884</option>
                                 </optgroup>
                                 <optgroup label="Hypothetical">
-                                    <option>Ligand A</option>
-                                    <option>Ligand B</option>
-                                    <option>Ligand C</option>
-                                    <option>Ligand D</option>
+                                    <option value="8">Ligand A</option>
+                                    <option value="9">Ligand B</option>
+                                    <option value="10">Ligand C</option>
+                                    <option value="11">Ligand D</option>
                                 </optgroup>
 
                             </select>
@@ -219,23 +224,23 @@
                 <tr>
                     <td>
                         <div class="leftInput">5.
-                            <select>
+                            <select onchange="receptorAutoFill(this,4)">
                                 <option></option>
                                 <optgroup label="Established">
-                                    <option>Atropine</option>
-                                    <option>Pirenzipine</option>
-                                    <option>Methoctromine</option>
-                                    <option>Darifenacin</option>
-                                    <option>MT-3</option>
-                                    <option>S-secoverine</option>
-                                    <option>Solifenacin</option>
-                                    <option>DAU-5884</option>
+                                    <option value="0">Atropine</option>
+                                    <option value="1">Pirenzipine</option>
+                                    <option value="2">Methoctromine</option>
+                                    <option value="3">Darifenacin</option>
+                                    <option value="4">MT-3</option>
+                                    <option value="5">S-secoverine</option>
+                                    <option value="6">Solifenacin</option>
+                                    <option value="7">DAU-5884</option>
                                 </optgroup>
                                 <optgroup label="Hypothetical">
-                                    <option>Ligand A</option>
-                                    <option>Ligand B</option>
-                                    <option>Ligand C</option>
-                                    <option>Ligand D</option>
+                                    <option value="8">Ligand A</option>
+                                    <option value="9">Ligand B</option>
+                                    <option value="10">Ligand C</option>
+                                    <option value="11">Ligand D</option>
                                 </optgroup>
 
                             </select>
@@ -247,6 +252,39 @@
                     <td><input type="text" class="receptorInput"></td>
                     <td><input type="text" class="receptorInput"></td>
                 </tr>
+                <tr>
+                    <td>
+                        <div class="leftInput">6.
+                            <select onchange="receptorAutoFill(this,5)">
+                                <option></option>
+                                <optgroup label="Established">
+                                    <option value="0">Atropine</option>
+                                    <option value="1">Pirenzipine</option>
+                                    <option value="2">Methoctromine</option>
+                                    <option value="3">Darifenacin</option>
+                                    <option value="4">MT-3</option>
+                                    <option value="5">S-secoverine</option>
+                                    <option value="6">Solifenacin</option>
+                                    <option value="7">DAU-5884</option>
+                                </optgroup>
+                                <optgroup label="Hypothetical">
+                                    <option value="8">Ligand A</option>
+                                    <option value="9">Ligand B</option>
+                                    <option value="10">Ligand C</option>
+                                    <option value="11">Ligand D</option>
+                                </optgroup>
+
+                            </select>
+                        </div>
+                    </td>
+                    <td><input type="text" class="receptorInput"></td>
+                    <td><input type="text" class="receptorInput"></td>
+                    <td><input type="text" class="receptorInput"></td>
+                    <td><input type="text" class="receptorInput"></td>
+                    <td><input type="text" class="receptorInput"></td>
+                </tr>
+                </tbody>
+
             </table>
 
         </fieldset>
@@ -262,7 +300,9 @@
 
 
 <!--Bootstrap includes(Beta)-->
-<!--<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>-->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
 <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>-->
 <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>-->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css"
