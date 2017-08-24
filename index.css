@@ -1,0 +1,38 @@
+fieldset.sectionContainer{
+    border: solid 3px #4ba89f;
+    padding: 0 10px 10px 10px;
+    border-radius: 5px;
+    text-align: center;
+    /*margin-right: 40vw;*/
+}
+
+.sectionContainer > legend{
+    width: auto;
+    border: none;
+    font-size: 30px;
+    padding: 0px 10px 0px 10px;
+    font-family: "Arial Black", serif;
+    color: #336b63;
+    text-align: left
+;
+}
+
+.ligandInput{
+    width: 50px;
+}
+
+.receptorInput{
+    width: 50px;
+}
+
+td {
+    /*width: 100px;*/
+    text-align: center;
+}
+
+.leftInput{
+    /*width: 300px;*/
+    text-align: left;
+    font-size: 17px;
+    width: 200px;
+}
