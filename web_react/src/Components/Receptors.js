@@ -3,83 +3,50 @@ import React from 'react';
 
 class Receptors extends React.Component {
 
-    constructor() {
-        super();
-        this.state = ({
-            selectedBox: [],
-            receptorRatio: []
-        });
-
-    }
-
-    componentWillMount() {
-        this.setState({
-            selectedBox: [false, false, false, false, false],
-            receptorRatio: [null, null, null, null, null]
-        });
-    }
-
     renderBoxes(selectedBoxIndex) {
-        return (<td>
+        return (
+            <td>
                 <input type="checkbox"
-                       onClick={this.checkExceedBox.bind(this, selectedBoxIndex)}
-                       checked={this.state.selectedBox[selectedBoxIndex]}/>
+                       onClick={this.props.checkExceedBox.bind(this, selectedBoxIndex)}
+                       checked={this.props.selectedBox[selectedBoxIndex]}/>
             </td>
         );
     }
 
-    checkExceedBox(selectedBoxIndex) {
-        const boxArray = this.state.selectedBox;
-        const relInput = this.state.receptorRatio;
 
-
-        if (boxArray[selectedBoxIndex] === false) {
-            let trueCounter = 0;
-            boxArray.forEach(v => v ? trueCounter++ : v);
-            if (trueCounter < 2) {
-                boxArray[selectedBoxIndex] = true;
-                // this.setState({selectedBox: boxArray});
-            } else {
-                alert('You can only select two boxes!')
-            }
-        } else {
-            boxArray[selectedBoxIndex] = false;
-            relInput[selectedBoxIndex] = null;
-        }
-        this.setState({
-            selectedBox: boxArray,
-            receptorRatio: relInput
-        });
-    }
 
     checkRatioTotal(boxIndex, event) {
-
         const inputValue = parseInt(event.target.value);
         // var total = 0;
         var total = 0;
-        const relInput = this.state.receptorRatio;
-        this.state.receptorRatio.forEach(v => total+= v);
+        const relInput = this.props.receptorRatio;
+        this.props.receptorRatio.forEach(v => total += v);
         total += inputValue;
-        console.log(total);
 
-        if(total > 100){
-            alert('too Much')
-        } else {
-            relInput[boxIndex] = inputValue;
-            this.setState({receptorRatio:relInput})
-        }
-
+        // if(total > 100){
+        //     alert('too Much')
+        // } else {
+        //     relInput[boxIndex] = inputValue;
+        //     this.setState({receptorRatio:relInput})
+        // }
 
 
+    }
+
+    handleInputChange(e) {
+        // console.log(e.target.value);
     }
 
     renderRelativeDensity(boxIndex) {
         return (
             <td>
+                <button className="receptorButtons decrement">-</button>
                 <input type="text" className="relativeDensityInput"
-                       disabled={!this.state.selectedBox[boxIndex]}
-                       value={this.state.receptorRatio[boxIndex]}
-                       onBlur={this.checkRatioTotal.bind(this, boxIndex)}/>
+                       disabled={!this.props.selectedBox[boxIndex]}
+                       value={this.props.receptorRatio[boxIndex]}
+                       onBlur={this.checkRatioTotal.bind(this, boxIndex)}
+                       onChange={this.handleInputChange.bind(this)}/>
+                <button className="receptorButtons increment">+</button>
             </td>
         )
     }
@@ -95,7 +62,7 @@ class Receptors extends React.Component {
 
     render() {
         return (
-            <fieldset className="receptors_fieldset">
+            <fieldset className="fieldSet">
                 <legend>Receptors</legend>
 
 
@@ -111,7 +78,7 @@ class Receptors extends React.Component {
                     </tr>
 
                     <tr>
-                        <td>Subtypes present:</td>
+                        <td className="leftInput receptorSubtitle">Subtypes present:</td>
                         {this.renderBoxes(0)}
                         {this.renderBoxes(1)}
                         {this.renderBoxes(2)}
@@ -120,7 +87,7 @@ class Receptors extends React.Component {
                     </tr>
 
                     <tr>
-                        <td>Relative density:</td>
+                        <td className="leftInput receptorSubtitle">Relative density:</td>
                         {this.renderRelativeDensity(0)}
                         {this.renderRelativeDensity(1)}
                         {this.renderRelativeDensity(2)}

@@ -1,31 +1,71 @@
+td {
+    width: 100px;
+    text-align: center;
+    vertical-align: middle;
+}
+
 .relativeDensityInput {
     width: 20px;
+    border-color: #56afae;
+    border-radius: 3px;
+}
+
+.relativeDensityInput:disabled{
+    border-color: inherit;
 }
 
 .logValues {
     width: 20px;
 }
 
-.receptors {
-    width: 300px;
+.UISection{
+    width: 600px;
     margin: 20px;
 }
 
-.ligands {
-    width: 300px;
-    margin: 20px;
+
+.receptorsInputCell {
+    width: 40px;
+    text-align: center;
 }
 
-.graph {
-    width: 300px;
-    margin: 20px;
+.receptorButtons{
+    background-color: #56afae;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 10px;
+    cursor: pointer;
+    margin-left: 3px;
+    border-radius: 10px;
+}
+.decrement {
+    margin-right: 3px;
 }
 
-td {
-    text-align: center; /* center checkbox horizontally */
-    vertical-align: middle; /* center checkbox vertically */
+.increment {
+    margin-left: 3px;
 }
 
-.receptorsInputCell{
-    width: 20px;
+.leftInput {
+    width: 200px;
+}
+
+
+.fieldSet{
+    border-radius: 5px;
+    border-color: #56afae;
+}
+
+.fieldSet > legend{
+    font-family: "Arial Black";
+    font-size: 20px;
+    color: #316362;
+}
+
+.receptorSubtitle{
+    font-family: Calibri;
+    text-align: left;
 }

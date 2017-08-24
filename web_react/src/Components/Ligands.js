@@ -21,9 +21,7 @@ class Ligands extends React.Component {
 
 
     static disableZero(cellValue) {
-        if (cellValue == '0') {
-            return '';
-        }
+        if (cellValue == '0') return null;
         return cellValue;
     }
 
@@ -35,8 +33,8 @@ class Ligands extends React.Component {
 
         return (
             <tr>
-                <td><a>{rowNumber + 1}. </a>
-                    <select ref="ligandOptions" onChange={this.handleChange.bind(this, rowNumber)}>
+                <td className="leftInput"><a>{rowNumber + 1}. </a>
+                    <select ref="ligandOptions" className="ligandOptions" onChange={this.handleChange.bind(this, rowNumber)}>
                         {ligandOptions}
                     </select>
                 </td>
@@ -45,8 +43,6 @@ class Ligands extends React.Component {
                 {this.renderCell(this.props.ligandState[rowNumber][2])}
                 {this.renderCell(this.props.ligandState[rowNumber][3])}
                 {this.renderCell(this.props.ligandState[rowNumber][4])}
-
-
             </tr>
 
         );
@@ -56,9 +52,8 @@ class Ligands extends React.Component {
 
     render() {
         return (
-            <fieldset className="ligands_fieldset">
+            <fieldset className="fieldSet">
                 <legend>Ligands</legend>
-                <div className="ligands">
                     <table>
 
                         {this.renderRow(0)}
@@ -69,7 +64,6 @@ class Ligands extends React.Component {
                         {this.renderRow(5)}
 
                     </table>
-                </div>
             </fieldset>
 
         );

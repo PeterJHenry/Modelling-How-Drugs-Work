@@ -3,7 +3,7 @@ import React from 'react';
 class Graph extends React.Component {
     render() {
         return (
-            <fieldset className="graph_fieldset">
+            <fieldset className="fieldSet">
                 <legend>Graph</legend>
             </fieldset>
         );

@@ -33,37 +33,75 @@ class App extends Component {
         this.setState({
             selectedBox: [false, false, false, false, false],
             receptorRatio: [null, null, null, null, null],
-            ligands: [[0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0]]
+            ligands: [
+                [0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0]
+            ]
 
         });
     }
 
-    handleLigandChange(rowIndex,ligandIndex){
+    handleLigandChange(rowIndex, ligandIndex) {
         let originalLigandState = this.state.ligands;
         originalLigandState[rowIndex] = logK[ligandIndex];
         this.setState({
             ligands: originalLigandState
         });
+    }
 
+    checkExceedBox(selectedBoxIndex) {
+        const boxArray = this.state.selectedBox;
+        const relInput = this.state.receptorRatio;
+
+        if (boxArray[selectedBoxIndex] === false) {
+            let trueCounter = 0;
+            boxArray.forEach(v => v ? trueCounter++ : v);
+            if (trueCounter < 2) {
+                boxArray[selectedBoxIndex] = true;
+            } else {
+                alert('You can only select two boxes!')
+            }
+        } else {
+            boxArray[selectedBoxIndex] = false;
+            relInput[selectedBoxIndex] = null;
+        }
+
+        this.setState({
+            selectedBox: boxArray,
+            receptorRatio: relInput
+        });
+    }
+
+    setCheckBox(selectedBoxIndex) {
+        const boxArray = this.state.selectedBox;
+        const relInput = this.state.receptorRatio;
+        boxArray[selectedBoxIndex] = true;
+
+        this.setState({
+            selectedBox: boxArray,
+        });
 
     }
 
     render() {
         return (
             <div>
-
                 <div className="mainUI">
-
-                    <div className="receptors">
-                        <Receptors/>
+                    <div className="UISection">
+                        <Receptors selectedBox={this.state.selectedBox}
+                                   receptorRatio={this.state.receptorRatio}
+                                   checkExceedBox={this.checkExceedBox.bind(this)}
+                                   setCheckBox={this.setCheckBox.bind(this)}/>
                     </div>
-
-                    <div className="ligands">
+                    <div className="UISection">
                         <Ligands ligandState={this.state.ligands} ligandChange={this.handleLigandChange.bind(this)}/>
                     </div>
 
-
-                    <div className="graph">
+                    <div className="UISection">
                         <Graph/>
                     </div>
 
