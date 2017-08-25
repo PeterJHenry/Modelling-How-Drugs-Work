@@ -6,9 +6,9 @@
 </head>
 <body onload="plotGraph()">
 <div class="mainUI">
-    <div class="container-fluid ligands">
+    <div class="container-fluid receptors">
         <fieldset class="sectionContainer">
-            <legend>Ligands</legend>
+            <legend>Receptor</legend>
             <!--TODO might need to use Bootstrap to make it repsonsive-->
             <!--<div class="container-fluid">-->
             <!--<div class="row">-->
@@ -66,7 +66,7 @@
                     <td>M<sub>5</sub></td>
                 </tr>
                 <tr id="subtypeCheckbox">
-                    <td class="leftInput">Subtypes present:</td>
+                    <td class="leftInput">Subtypes Present </td>
                     <td><input type="checkbox" onclick="validateCheckBox(0)"></td>
                     <td><input type="checkbox" onclick="validateCheckBox(1)"></td>
                     <td><input type="checkbox" onclick="validateCheckBox(2)"></td>
@@ -76,16 +76,16 @@
 
 
                 <tr id="relDensity">
-                    <td class="leftInput">Relative Density:</td>
-                    <td><input type="number" class="ligandInput" disabled max="100" min="0"
+                    <td class="leftInput">Relative Density %</td>
+                    <td><input type="number" class="receptorInput" disabled max="100" min="0"
                                onblur="validateIndividualCell(0)"></td>
-                    <td><input type="number" class="ligandInput" disabled max="100" min="0"
+                    <td><input type="number" class="receptorInput" disabled max="100" min="0"
                                onblur="validateIndividualCell(1)"></td>
-                    <td><input type="number" class="ligandInput" disabled max="100" min="0"
+                    <td><input type="number" class="receptorInput" disabled max="100" min="0"
                                onblur="validateIndividualCell(2)"></td>
-                    <td><input type="number" class="ligandInput" disabled max="100" min="0"
+                    <td><input type="number" class="receptorInput" disabled max="100" min="0"
                                onblur="validateIndividualCell(3)"></td>
-                    <td><input type="number" class="ligandInput" disabled max="100" min="0"
+                    <td><input type="number" class="receptorInput" disabled max="100" min="0"
                                onblur="validateIndividualCell(4)"></td>
 
                 </tr>
@@ -96,16 +96,16 @@
         </fieldset>
     </div>
 
-    <div class="container-fluid receptors">
+    <div class="container-fluid ligands">
         <fieldset class="sectionContainer">
-            <legend>Receptors</legend>
-            <table id="receptorTable">
+            <legend>Ligands</legend>
+            <table id="ligandTable">
                 <tbody>
                 <tr>
                     <td>
                         <div class="leftInput">1.
-                            <select onchange="receptorAutoFill(this,0)">
-                                <option value="12">Select Receptor</option>
+                            <select onchange="ligandAutoFill(this,0)">
+                                <option value="12">Select</option>
                                 <optgroup label="Established">
                                     <option value="0">Atropine</option>
                                     <option value="1">Pirenzipine</option>
@@ -126,19 +126,19 @@
                             </select>
                         </div>
                     </td>
-                    <td><input class="receptorInput" disabled></td>
-                    <td><input class="receptorInput" disabled></td>
-                    <td><input class="receptorInput" disabled></td>
-                    <td><input class="receptorInput" disabled></td>
-                    <td><input class="receptorInput" disabled></td>
+                    <td><input class="ligandInput" disabled></td>
+                    <td><input class="ligandInput" disabled></td>
+                    <td><input class="ligandInput" disabled></td>
+                    <td><input class="ligandInput" disabled></td>
+                    <td><input class="ligandInput" disabled></td>
                 </tr>
 
 
                 <tr>
                     <td>
                         <div class="leftInput">2.
-                            <select onchange="receptorAutoFill(this,1)">
-                                <option>Select Receptor</option>
+                            <select onchange="ligandAutoFill(this,1)">
+                                <option>Select</option>
                                 <optgroup label="Established">
                                     <option value="0">Atropine</option>
                                     <option value="1">Pirenzipine</option>
@@ -159,17 +159,17 @@
                             </select>
                         </div>
                     </td>
-                    <td><input class="receptorInput" disabled></td>
-                    <td><input class="receptorInput" disabled></td>
-                    <td><input class="receptorInput" disabled></td>
-                    <td><input class="receptorInput" disabled></td>
-                    <td><input class="receptorInput" disabled></td>
+                    <td><input class="ligandInput" disabled></td>
+                    <td><input class="ligandInput" disabled></td>
+                    <td><input class="ligandInput" disabled></td>
+                    <td><input class="ligandInput" disabled></td>
+                    <td><input class="ligandInput" disabled></td>
                 </tr>
                 <tr>
                     <td>
                         <div class="leftInput">3.
-                            <select onchange="receptorAutoFill(this,2)">
-                                <option>Select Receptor</option>
+                            <select onchange="ligandAutoFill(this,2)">
+                                <option>Select</option>
                                 <optgroup label="Established">
                                     <option value="0">Atropine</option>
                                     <option value="1">Pirenzipine</option>
@@ -190,17 +190,17 @@
                             </select>
                         </div>
                     </td>
-                    <td><input class="receptorInput" disabled></td>
-                    <td><input class="receptorInput" disabled></td>
-                    <td><input class="receptorInput" disabled></td>
-                    <td><input class="receptorInput" disabled></td>
-                    <td><input class="receptorInput" disabled></td>
+                    <td><input class="ligandInput" disabled></td>
+                    <td><input class="ligandInput" disabled></td>
+                    <td><input class="ligandInput" disabled></td>
+                    <td><input class="ligandInput" disabled></td>
+                    <td><input class="ligandInput" disabled></td>
                 </tr>
                 <tr>
                     <td>
                         <div class="leftInput">4.
-                            <select onchange="receptorAutoFill(this,3)">
-                                <option>Select Receptor</option>
+                            <select onchange="ligandAutoFill(this,3)">
+                                <option>Select</option>
                                 <optgroup label="Established">
                                     <option value="0">Atropine</option>
                                     <option value="1">Pirenzipine</option>
@@ -221,17 +221,17 @@
                             </select>
                         </div>
                     </td>
-                    <td><input class="receptorInput" disabled></td>
-                    <td><input class="receptorInput" disabled></td>
-                    <td><input class="receptorInput" disabled></td>
-                    <td><input class="receptorInput" disabled></td>
-                    <td><input class="receptorInput" disabled></td>
+                    <td><input class="ligandInput" disabled></td>
+                    <td><input class="ligandInput" disabled></td>
+                    <td><input class="ligandInput" disabled></td>
+                    <td><input class="ligandInput" disabled></td>
+                    <td><input class="ligandInput" disabled></td>
                 </tr>
                 <tr>
                     <td>
                         <div class="leftInput">5.
-                            <select onchange="receptorAutoFill(this,4)">
-                                <option>Select Receptor</option>
+                            <select onchange="ligandAutoFill(this,4)">
+                                <option>Select</option>
                                 <optgroup label="Established">
                                     <option value="0">Atropine</option>
                                     <option value="1">Pirenzipine</option>
@@ -252,17 +252,17 @@
                             </select>
                         </div>
                     </td>
-                    <td><input class="receptorInput" disabled></td>
-                    <td><input class="receptorInput" disabled></td>
-                    <td><input class="receptorInput" disabled></td>
-                    <td><input class="receptorInput" disabled></td>
-                    <td><input class="receptorInput" disabled></td>
+                    <td><input class="ligandInput" disabled></td>
+                    <td><input class="ligandInput" disabled></td>
+                    <td><input class="ligandInput" disabled></td>
+                    <td><input class="ligandInput" disabled></td>
+                    <td><input class="ligandInput" disabled></td>
                 </tr>
                 <tr>
                     <td>
                         <div class="leftInput">6.
-                            <select onchange="receptorAutoFill(this,5)">
-                                <option>Select Receptor</option>
+                            <select onchange="ligandAutoFill(this,5)">
+                                <option>Select</option>
                                 <optgroup label="Established">
                                     <option value="0">Atropine</option>
                                     <option value="1">Pirenzipine</option>
@@ -283,11 +283,11 @@
                             </select>
                         </div>
                     </td>
-                    <td><input class="receptorInput" disabled></td>
-                    <td><input class="receptorInput" disabled></td>
-                    <td><input class="receptorInput" disabled></td>
-                    <td><input class="receptorInput" disabled></td>
-                    <td><input class="receptorInput" disabled></td>
+                    <td><input class="ligandInput" disabled></td>
+                    <td><input class="ligandInput" disabled></td>
+                    <td><input class="ligandInput" disabled></td>
+                    <td><input class="ligandInput" disabled></td>
+                    <td><input class="ligandInput" disabled></td>
                 </tr>
                 </tbody>
 

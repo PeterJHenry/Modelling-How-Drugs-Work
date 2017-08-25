@@ -1,4 +1,4 @@
-// Holds the receptor ratio table
+// Holds the ligand -logki table
 const logK = [
     [9.0, 8.8, 9.3, 8.9, 9.2],
     [8.2, 6.5, 6.9, 7.4, 7.2],
@@ -23,7 +23,7 @@ var subTypeCheckedCount = 0;
 const state = {
     subTypePresent: [false, false, false, false, false],
     relDensity: [null, null, null, null, null],
-    receptors: [
+    ligands: [
         ['', '', '', '', ''],
         ['', '', '', '', ''],
         ['', '', '', '', ''],
@@ -38,15 +38,15 @@ const state = {
 
 
 // <---->
-// Autofills the receptors according to the selected
+// Autofills the ligands according to the selected
 // TODO  --- make it less dirty
 // TODO -- change select receptor 12th index
-function receptorAutoFill(e, rowIndex) {
-    var table = document.getElementById('receptorTable').children[0];
+function ligandAutoFill(e, rowIndex) {
+    var table = document.getElementById('ligandTable').children[0];
 
     for (var i = 0; i < 5; i++) {
         table.children[rowIndex].children[i + 1].children[0].value = logK[e.value][i];
-        state.receptors[rowIndex][i] = logK[e.value][i];
+        state.ligands[rowIndex][i] = logK[e.value][i];
         table.children[rowIndex].children[i + 1].children[0].disabled = (e.value < 10 || e.value == 12);
     }
 }
@@ -55,8 +55,8 @@ function receptorAutoFill(e, rowIndex) {
 // this function also updates state
 // currently not yet in use
 function updateDOM() {
-    var receptorTable = document.getElementById('receptorTable').children[0];
-    for (var y = 0; y < 6; y++) for (var x = 0; x < 5; x++) state.receptors[y][x] = receptorTable.children[y].children[x + 1].children[0].value
+    var ligandTable = document.getElementById('ligandTable').children[0];
+    for (var y = 0; y < 6; y++) for (var x = 0; x < 5; x++) state.ligand[y][x] = ligandTable.children[y].children[x + 1].children[0].value
 
 
 }
