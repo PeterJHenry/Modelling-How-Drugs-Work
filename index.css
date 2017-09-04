@@ -37,9 +37,9 @@ td {
     width: 200px;
 }
 #relDensity>td>input:disabled{
-    background-color: #f7f7f7;
+    background-color: #dbdbdb;
 }
 
-#receptorTable>tbody>tr>td>input:disabled{
-    background-color: #f7f7f7;
+#ligandTable>tbody>tr>td>input:disabled{
+    background-color: #dbdbdb;
 }

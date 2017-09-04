@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>PHAR3311 - Drugs Model</title>
+    <link rel="stylesheet" type="text/css" href="index.css"/>
 </head>
 <body onload="plotGraph()">
 <div class="mainUI">
@@ -66,7 +67,7 @@
                     <td>M<sub>5</sub></td>
                 </tr>
                 <tr id="subtypeCheckbox">
-                    <td class="leftInput">Subtypes Present </td>
+                    <td class="leftInput">Subtypes Present</td>
                     <td><input type="checkbox" onclick="validateCheckBox(0)"></td>
                     <td><input type="checkbox" onclick="validateCheckBox(1)"></td>
                     <td><input type="checkbox" onclick="validateCheckBox(2)"></td>
@@ -126,11 +127,11 @@
                             </select>
                         </div>
                     </td>
-                    <td><input class="ligandInput" disabled></td>
-                    <td><input class="ligandInput" disabled></td>
-                    <td><input class="ligandInput" disabled></td>
-                    <td><input class="ligandInput" disabled></td>
-                    <td><input class="ligandInput" disabled></td>
+                    <td><input class="ligandInput" disabled onblur="updateCustomValue(0)"></td>
+                    <td><input class="ligandInput" disabled onblur="updateCustomValue(0)"></td>
+                    <td><input class="ligandInput" disabled onblur="updateCustomValue(0)"></td>
+                    <td><input class="ligandInput" disabled onblur="updateCustomValue(0)"></td>
+                    <td><input class="ligandInput" disabled onblur="updateCustomValue(0)"></td>
                 </tr>
 
 
@@ -159,11 +160,11 @@
                             </select>
                         </div>
                     </td>
-                    <td><input class="ligandInput" disabled></td>
-                    <td><input class="ligandInput" disabled></td>
-                    <td><input class="ligandInput" disabled></td>
-                    <td><input class="ligandInput" disabled></td>
-                    <td><input class="ligandInput" disabled></td>
+                    <td><input class="ligandInput" disabled onblur="updateCustomValue(1)"></td>
+                    <td><input class="ligandInput" disabled onblur="updateCustomValue(1)"></td>
+                    <td><input class="ligandInput" disabled onblur="updateCustomValue(1)"></td>
+                    <td><input class="ligandInput" disabled onblur="updateCustomValue(1)"></td>
+                    <td><input class="ligandInput" disabled onblur="updateCustomValue(1)"></td>
                 </tr>
                 <tr>
                     <td>
@@ -190,11 +191,11 @@
                             </select>
                         </div>
                     </td>
-                    <td><input class="ligandInput" disabled></td>
-                    <td><input class="ligandInput" disabled></td>
-                    <td><input class="ligandInput" disabled></td>
-                    <td><input class="ligandInput" disabled></td>
-                    <td><input class="ligandInput" disabled></td>
+                    <td><input class="ligandInput" disabled onblur="updateCustomValue(2)"></td>
+                    <td><input class="ligandInput" disabled onblur="updateCustomValue(2)"></td>
+                    <td><input class="ligandInput" disabled onblur="updateCustomValue(2)"></td>
+                    <td><input class="ligandInput" disabled onblur="updateCustomValue(2)"></td>
+                    <td><input class="ligandInput" disabled onblur="updateCustomValue(2)"></td>
                 </tr>
                 <tr>
                     <td>
@@ -221,11 +222,11 @@
                             </select>
                         </div>
                     </td>
-                    <td><input class="ligandInput" disabled></td>
-                    <td><input class="ligandInput" disabled></td>
-                    <td><input class="ligandInput" disabled></td>
-                    <td><input class="ligandInput" disabled></td>
-                    <td><input class="ligandInput" disabled></td>
+                    <td><input class="ligandInput" disabled onblur="updateCustomValue(3)"></td>
+                    <td><input class="ligandInput" disabled onblur="updateCustomValue(3)"></td>
+                    <td><input class="ligandInput" disabled onblur="updateCustomValue(3)"></td>
+                    <td><input class="ligandInput" disabled onblur="updateCustomValue(3)"></td>
+                    <td><input class="ligandInput" disabled onblur="updateCustomValue(3)"></td>
                 </tr>
                 <tr>
                     <td>
@@ -252,11 +253,11 @@
                             </select>
                         </div>
                     </td>
-                    <td><input class="ligandInput" disabled></td>
-                    <td><input class="ligandInput" disabled></td>
-                    <td><input class="ligandInput" disabled></td>
-                    <td><input class="ligandInput" disabled></td>
-                    <td><input class="ligandInput" disabled></td>
+                    <td><input class="ligandInput" disabled onblur="updateCustomValue(4)"></td>
+                    <td><input class="ligandInput" disabled onblur="updateCustomValue(4)"></td>
+                    <td><input class="ligandInput" disabled onblur="updateCustomValue(4)"></td>
+                    <td><input class="ligandInput" disabled onblur="updateCustomValue(4)"></td>
+                    <td><input class="ligandInput" disabled onblur="updateCustomValue(4)"></td>
                 </tr>
                 <tr>
                     <td>
@@ -283,11 +284,11 @@
                             </select>
                         </div>
                     </td>
-                    <td><input class="ligandInput" disabled></td>
-                    <td><input class="ligandInput" disabled></td>
-                    <td><input class="ligandInput" disabled></td>
-                    <td><input class="ligandInput" disabled></td>
-                    <td><input class="ligandInput" disabled></td>
+                    <td><input class="ligandInput" disabled onblur="updateCustomValue(5)"></td>
+                    <td><input class="ligandInput" disabled onblur="updateCustomValue(5)"></td>
+                    <td><input class="ligandInput" disabled onblur="updateCustomValue(5)"></td>
+                    <td><input class="ligandInput" disabled onblur="updateCustomValue(5)"></td>
+                    <td><input class="ligandInput" disabled onblur="updateCustomValue(5)"></td>
                 </tr>
                 </tbody>
 
@@ -318,13 +319,12 @@
 <!--Bootstrap Basic-->
 <!--<script type="text/javascript" src="bootstrap.min.js"></script>-->
 <!--<link rel="stylesheet" type="text/css" href="bootstrap.min.css"/>-->
-<!--<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.bundle.js"></script>-->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.bundle.js"></script>
 <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 
 <!--Custom includes-->
 <script type="text/javascript" src="index.js"></script>
 
-<link rel="stylesheet" type="text/css" href="index.css"/>
 
 </body>
 </html>
