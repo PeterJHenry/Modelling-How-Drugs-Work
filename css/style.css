@@ -1,0 +1,140 @@
+/*!
+ * Start Bootstrap - Landing Page (http://startbootstrap.com/template-overviews/landing-page)
+ * Copyright 2013-2017 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-landing-page/blob/master/LICENSE)
+ */
+
+body, html {
+  width: 100%;
+  height: 100%;
+}
+
+body, h1, h2, h3, h4, h5, h6 {
+  font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 700;
+}
+
+.intro-header {
+  padding-top: 150px;
+  padding-bottom: 50px;
+  text-align: center;
+  color: #f8f8f8;
+  background: url(../img/intro-bg.png) no-repeat center center;
+  background-size: cover;
+}
+
+.dev-header {
+  padding-top: 100px;
+  padding-bottom: 50px;
+  text-align: center;
+  background: url(../img/intro-bg.png) no-repeat center center;
+  background-size: cover;
+}
+
+.intro-message {
+  position: relative;
+  padding-top: 5%;
+  padding-bottom: 20%;
+}
+
+.intro-message>h1 {
+  margin: 0;
+  text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.6);
+  font-size: 5em;
+}
+
+.intro-divider {
+  width: 400px;
+  border-top: 1px solid #f8f8f8;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.intro-social-buttons i {
+  font-size: 80%;
+}
+
+
+.tool-name {
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 2px;
+}
+
+.lihead{
+  font-style: italic;
+  color:#4286f4;
+}
+
+ul>li,p,td {
+  font-size: 13px;
+}
+
+.ligTitle {
+  text-align:left;
+}
+
+th {
+  background-color: #e6f2ff;
+  font-size: 14px;
+}
+
+.th1 {
+  background-color: #cce5ff;
+}
+
+footer {
+  padding: 30px 0;
+  background-color: #f8f8f8;
+}
+
+p.cc {
+  margin: 15px 0 0;
+}
+
+fieldset.sectionContainer{
+    border: solid 3px #4ba89f;
+    padding: 0 10px 10px 10px;
+    border-radius: 5px;
+    text-align: center;
+    background-color: white;
+    /*margin-right: 40vw;*/
+}
+
+.sectionContainer > legend{
+    width: auto;
+    border: none;
+    font-size: 30px;
+    padding: 0px 10px 0px 10px;
+    font-family: "Arial Black", serif;
+    color: #336b63;
+    text-align: left
+;
+}
+
+.ligandInput{
+    width: 50px;
+}
+
+.receptorInput{
+    width: 50px;
+}
+
+td,.th1 {
+    /*width: 100px;*/
+    text-align: center;
+}
+
+.leftInput{
+    /*width: 300px;*/
+    text-align: left;
+    font-size: 17px;
+    width: 200px;
+}
+#relDensity>td>input:disabled{
+    background-color: #f7f7f7;
+}
+
+#receptorTable>tbody>tr>td>input:disabled{
+    background-color: #f7f7f7;
+}
