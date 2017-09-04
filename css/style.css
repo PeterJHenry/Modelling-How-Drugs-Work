@@ -93,11 +93,13 @@ p.cc {
 }
 
 fieldset.sectionContainer{
-    border: solid 3px #4ba89f;
+    border: solid 3px #77a6ff;
     padding: 0 10px 10px 10px;
     border-radius: 5px;
     text-align: center;
     background-color: white;
+    display: inline-block;
+    margin: 0 auto;
     /*margin-right: 40vw;*/
 }
 
@@ -107,7 +109,7 @@ fieldset.sectionContainer{
     font-size: 30px;
     padding: 0px 10px 0px 10px;
     font-family: "Arial Black", serif;
-    color: #336b63;
+    color: #3078ff;
     text-align: left
 ;
 }
