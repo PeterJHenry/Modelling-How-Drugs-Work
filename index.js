@@ -81,6 +81,7 @@ function updateCustomValue(rowIndex) {
     state.ligands[rowIndex] = row;
     plotGraph();
 }
+
 // Updates graph and data, call this function when DOM updates needed
 // this function also updates state
 // currently not yet in use
@@ -99,6 +100,13 @@ function updateDOM() {
 function validateCheckBox(checkingBox) {
     var checkBoxRow = document.getElementById('subtypeCheckbox');
     var relDensityRow = document.getElementById('relDensity');
+    if (subTypeCheckedCount === 0) {
+        state.relDensity[checkingBox] = 100;
+        relDensityRow.children[checkingBox + 1].children[0].value = 100;
+        plotGraph();
+        // console.log("ran here");
+    }
+
     if (state.subTypePresent[checkingBox]) {
         subTypeCheckedCount--;
         state.subTypePresent[checkingBox] = false;
@@ -106,17 +114,21 @@ function validateCheckBox(checkingBox) {
         relDensityRow.children[checkingBox + 1].children[0].disabled = true;
         relDensityRow.children[checkingBox + 1].children[0].value = '';
         state.relDensity[checkingBox] = '';
+        plotGraph();
     } else if (!state.subTypePresent[checkingBox]) {
         if (subTypeCheckedCount >= 2) {
             alert('You can only check two boxes');
             checkBoxRow.children[checkingBox + 1].children[0].checked = false;
             relDensityRow.children[checkingBox + 1].children[0].disabled = true;
             state.relDensity[checkingBox] = '';
+            plotGraph();
         } else {
             subTypeCheckedCount++;
             state.subTypePresent[checkingBox] = true;
             checkBoxRow.children[checkingBox + 1].children[0].checked = true;
             relDensityRow.children[checkingBox + 1].children[0].disabled = false;
+            plotGraph();
+
         }
     } else alert('Error')
 }
@@ -177,7 +189,6 @@ function plotGraph(logValue) {
     };
 
 
-
     var data = [];
 
     if (subtypeIndex().length === 1) {
@@ -198,15 +209,15 @@ function plotGraph(logValue) {
             }
         }
     }
-    var forceY = {
-        x: [-11, -2],
-        y: [0, 0],
-        line: {
-            color: 'rgb(0, 0, 0)',
-            width: 1
-        }
-    };
-    data.push(forceY);
+    // var forceY = {
+    //     x: [-11, -2],
+    //     y: [0, 0],
+    //     line: {
+    //         color: 'rgb(0, 0, 0)',
+    //         width: 1
+    //     }
+    // };
+    // data.push(forceY);
 
     // Plotly.purge('myDiv', data);
     Plotly.newPlot('myDiv', data);
