@@ -1,27 +1,25 @@
-fieldset.sectionContainer{
+fieldset.sectionContainer {
     border: solid 3px #4ba89f;
     padding: 0 10px 10px 10px;
     border-radius: 5px;
     text-align: center;
-    /*margin-right: 40vw;*/
 }
 
-.sectionContainer > legend{
+.sectionContainer > legend {
     width: auto;
     border: none;
     font-size: 30px;
     padding: 0px 10px 0px 10px;
     font-family: "Arial Black", serif;
     color: #336b63;
-    text-align: left
-;
+    text-align: left;
 }
 
-.ligandInput{
+.ligandInput {
     width: 50px;
 }
 
-.receptorInput{
+.receptorInput {
     width: 50px;
 }
 
@@ -30,52 +28,48 @@ td {
     text-align: center;
 }
 
-.leftInput{
-    /*width: 300px;*/
+.leftInput {
     text-align: left;
     font-size: 17px;
-    width: 200px;
+    width: 190px;
     background: white;
     margin: 0px 20px 0px 10px;
 }
-#relDensity>td>input:disabled{
+
+#ligandTable > tbody > tr > td > input {
+    background-color: rgba(255, 255, 255, 0.79);
+}
+
+#relDensity > td > input:disabled {
     background-color: #efefef;
 }
 
-#ligandTable>tbody>tr>td>input:disabled{
-    background-color: #efefef;
+#ligandTable > tbody > tr > td > input:disabled {
+    background-color: rgba(219, 219, 219, 0.79);
 }
 
-
-
-/*.strikeout{*/
-    /*background: red; !* For browsers that do not support gradients *!*/
-    /*background: -webkit-linear-gradient(white, black, white); !* For Safari 5.1 to 6.0 *!*/
-    /*background: -o-linear-gradient(white, black, white);!* For Opera 11.1 to 12.0 *!*/
-    /*background: -moz-linear-gradient(white, black, white); !* For Firefox 3.6 to 15 *!*/
-    /*background: linear-gradient(white, black, white);*/
-    /*background: linear-gradient(0deg, transparent 40%, #000 50%, transparent 60%);!* Standard syntax *!*/
-/*}*/
-
-.strikeout.row0{
-    background: linear-gradient(0deg, transparent 40%, #ff9933 50%, transparent 60%);/* Standard syntax */
+.strikeout.row0 {
+    background: linear-gradient(0deg, transparent 40%, #ff9933 50%, transparent 60%); /* Standard syntax */
 }
 
-.strikeout.row1{
-    background: linear-gradient(0deg, transparent 40%, #ff5050 50%, transparent 60%);/* Standard syntax */
-}
-.strikeout.row2{
-    background: linear-gradient(0deg, transparent 40%, #33ccff 50%, transparent 60%);/* Standard syntax */
+.strikeout.row1 {
+    background: linear-gradient(0deg, transparent 40%, #ff5050 50%, transparent 60%); /* Standard syntax */
 }
 
-.strikeout.row3{
-    background: linear-gradient(0deg, transparent 40%, #00cc00 50%, transparent 60%);/* Standard syntax */
+.strikeout.row2 {
+    background: linear-gradient(0deg, transparent 40%, #33ccff 50%, transparent 60%); /* Standard syntax */
 }
-.strikeout.row4{
-    background: linear-gradient(0deg, transparent 40%, #996633 50%, transparent 60%);/* Standard syntax */
+
+.strikeout.row3 {
+    background: linear-gradient(0deg, transparent 40%, #00cc00 50%, transparent 60%); /* Standard syntax */
 }
-.strikeout.row5{
-    background: linear-gradient(0deg, transparent 40%, #99339f 50%, transparent 60%);/* Standard syntax */
+
+.strikeout.row4 {
+    background: linear-gradient(0deg, transparent 40%, #996633 50%, transparent 60%); /* Standard syntax */
+}
+
+.strikeout.row5 {
+    background: linear-gradient(0deg, transparent 40%, #99339f 50%, transparent 60%); /* Standard syntax */
 }
 
 input {

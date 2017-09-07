@@ -11,7 +11,6 @@
         <fieldset class="sectionContainer">
             <legend>Receptor</legend>
 
-
             <table>
                 <tbody>
                 <tr>
@@ -23,7 +22,9 @@
                     <td>M<sub>5</sub></td>
                 </tr>
                 <tr id="subtypeCheckbox">
-                    <td class="leftInput"><div class="subtypeLeft">Subtypes Present</div></td>
+                    <td class="leftInput">
+                        <div class="subtypeLeft">Subtypes:</div>
+                    </td>
                     <td><input type="checkbox" onclick="validateCheckBox(0)"></td>
                     <td><input type="checkbox" onclick="validateCheckBox(1)"></td>
                     <td><input type="checkbox" onclick="validateCheckBox(2)"></td>
@@ -35,15 +36,15 @@
                 <tr id="relDensity">
                     <td class="leftInput">Relative Density %</td>
                     <td><input type="number" class="receptorInput" disabled max="100" min="0"
-                               onblur="validateIndividualCell(0)" onkeyup="validateIndividualCell(0)"></td>
+                               onblur="validateIndividualCell(0)"></td>
                     <td><input type="number" class="receptorInput" disabled max="100" min="0"
-                               onblur="validateIndividualCell(0)" onkeyup="validateIndividualCell(1)"></td>
+                               onblur="validateIndividualCell(1)"></td>
                     <td><input type="number" class="receptorInput" disabled max="100" min="0"
-                               onblur="validateIndividualCell(0)" onkeyup="validateIndividualCell(2)"></td>
+                               onblur="validateIndividualCell(2)"></td>
                     <td><input type="number" class="receptorInput" disabled max="100" min="0"
-                               onblur="validateIndividualCell(0)" onkeyup="validateIndividualCell(3)"></td>
+                               onblur="validateIndividualCell(3)"></td>
                     <td><input type="number" class="receptorInput" disabled max="100" min="0"
-                               onblur="validateIndividualCell(0)" onkeyup="validateIndividualCell(4)"></td>
+                               onblur="validateIndividualCell(4)"></td>
 
                 </tr>
                 </tbody>
@@ -80,22 +81,27 @@
                                     <option value="10">Ligand C</option>
                                     <option value="11">Ligand D</option>
                                 </optgroup>
-
                             </select>
                         </div>
                     </td>
 
-                    <td><input class="ligandInput" disabled onblur="updateCustomValue(0)" onkeyup="updateCustomValue(0)" min="0" max="11"></td>
-                    <td><input class="ligandInput" disabled onblur="updateCustomValue(0)" onkeyup="updateCustomValue(0)"></td>
-                    <td><input class="ligandInput" disabled onblur="updateCustomValue(0)" onkeyup="updateCustomValue(0)"></td>
-                    <td><input class="ligandInput" disabled onblur="updateCustomValue(0)" onkeyup="updateCustomValue(0)"></td>
-                    <td><input class="ligandInput" disabled onblur="updateCustomValue(0)" onkeyup="updateCustomValue(0)"></td>
+                    <td><input class="ligandInput" disabled onblur="updateCustomValue(0)" onkeyup="updateCustomValue(0)"
+                               min="0" max="11"></td>
+                    <td><input class="ligandInput" disabled onblur="updateCustomValue(0)"
+                               onkeyup="updateCustomValue(0)"></td>
+                    <td><input class="ligandInput" disabled onblur="updateCustomValue(0)"
+                               onkeyup="updateCustomValue(0)"></td>
+                    <td><input class="ligandInput" disabled onblur="updateCustomValue(0)"
+                               onkeyup="updateCustomValue(0)"></td>
+                    <td><input class="ligandInput" disabled onblur="updateCustomValue(0)"
+                               onkeyup="updateCustomValue(0)"></td>
                 </tr>
 
 
                 <tr class="strikeout row1">
                     <td>
                         <div class="leftInput">2.
+
                             <select onchange="ligandAutoFill(this,1)">
                                 <option>Select</option>
                                 <optgroup label="Established">
@@ -116,13 +122,20 @@
                                 </optgroup>
 
                             </select>
+
+
                         </div>
                     </td>
-                    <td><input class="ligandInput" disabled onblur="updateCustomValue(0)" onkeyup="updateCustomValue(1)"></td>
-                    <td><input class="ligandInput" disabled onblur="updateCustomValue(0)" onkeyup="updateCustomValue(1)"></td>
-                    <td><input class="ligandInput" disabled onblur="updateCustomValue(0)" onkeyup="updateCustomValue(1)"></td>
-                    <td><input class="ligandInput" disabled onblur="updateCustomValue(0)" onkeyup="updateCustomValue(1)"></td>
-                    <td><input class="ligandInput" disabled onblur="updateCustomValue(0)" onkeyup="updateCustomValue(1)"></td>
+                    <td><input class="ligandInput" disabled onblur="updateCustomValue(0)"
+                               onkeyup="updateCustomValue(1)"></td>
+                    <td><input class="ligandInput" disabled onblur="updateCustomValue(0)"
+                               onkeyup="updateCustomValue(1)"></td>
+                    <td><input class="ligandInput" disabled onblur="updateCustomValue(0)"
+                               onkeyup="updateCustomValue(1)"></td>
+                    <td><input class="ligandInput" disabled onblur="updateCustomValue(0)"
+                               onkeyup="updateCustomValue(1)"></td>
+                    <td><input class="ligandInput" disabled onblur="updateCustomValue(0)"
+                               onkeyup="updateCustomValue(1)"></td>
                 </tr>
                 <tr class="strikeout row2">
                     <td>
@@ -149,15 +162,22 @@
                             </select>
                         </div>
                     </td>
-                    <td><input class="ligandInput" disabled onblur="updateCustomValue(0)" onkeyup="updateCustomValue(2)"></td>
-                    <td><input class="ligandInput" disabled onblur="updateCustomValue(0)" onkeyup="updateCustomValue(2)"></td>
-                    <td><input class="ligandInput" disabled onblur="updateCustomValue(0)" onkeyup="updateCustomValue(2)"></td>
-                    <td><input class="ligandInput" disabled onblur="updateCustomValue(0)" onkeyup="updateCustomValue(2)"></td>
-                    <td><input class="ligandInput" disabled onblur="updateCustomValue(0)" onkeyup="updateCustomValue(2)"></td>
+                    <td><input class="ligandInput" disabled onblur="updateCustomValue(0)"
+                               onkeyup="updateCustomValue(2)"></td>
+                    <td><input class="ligandInput" disabled onblur="updateCustomValue(0)"
+                               onkeyup="updateCustomValue(2)"></td>
+                    <td><input class="ligandInput" disabled onblur="updateCustomValue(0)"
+                               onkeyup="updateCustomValue(2)"></td>
+                    <td><input class="ligandInput" disabled onblur="updateCustomValue(0)"
+                               onkeyup="updateCustomValue(2)"></td>
+                    <td><input class="ligandInput" disabled onblur="updateCustomValue(0)"
+                               onkeyup="updateCustomValue(2)"></td>
                 </tr>
                 <tr class="strikeout row3">
                     <td>
                         <div class="leftInput">4.
+
+
                             <select onchange="ligandAutoFill(this,3)">
                                 <option>Select</option>
                                 <optgroup label="Established">
@@ -180,11 +200,16 @@
                             </select>
                         </div>
                     </td>
-                    <td><input class="ligandInput" disabled onblur="updateCustomValue(0)" onkeyup="updateCustomValue(3)"></td>
-                    <td><input class="ligandInput" disabled onblur="updateCustomValue(0)" onkeyup="updateCustomValue(3)"></td>
-                    <td><input class="ligandInput" disabled onblur="updateCustomValue(0)" onkeyup="updateCustomValue(3)"></td>
-                    <td><input class="ligandInput" disabled onblur="updateCustomValue(0)" onkeyup="updateCustomValue(3)"></td>
-                    <td><input class="ligandInput" disabled onblur="updateCustomValue(0)" onkeyup="updateCustomValue(3)"></td>
+                    <td><input class="ligandInput" disabled onblur="updateCustomValue(0)"
+                               onkeyup="updateCustomValue(3)"></td>
+                    <td><input class="ligandInput" disabled onblur="updateCustomValue(0)"
+                               onkeyup="updateCustomValue(3)"></td>
+                    <td><input class="ligandInput" disabled onblur="updateCustomValue(0)"
+                               onkeyup="updateCustomValue(3)"></td>
+                    <td><input class="ligandInput" disabled onblur="updateCustomValue(0)"
+                               onkeyup="updateCustomValue(3)"></td>
+                    <td><input class="ligandInput" disabled onblur="updateCustomValue(0)"
+                               onkeyup="updateCustomValue(3)"></td>
                 </tr>
                 <tr class="strikeout row4">
                     <td>
@@ -211,11 +236,16 @@
                             </select>
                         </div>
                     </td>
-                    <td><input class="ligandInput" disabled onblur="updateCustomValue(0)" onkeyup="updateCustomValue(4)"></td>
-                    <td><input class="ligandInput" disabled onblur="updateCustomValue(0)" onkeyup="updateCustomValue(4)"></td>
-                    <td><input class="ligandInput" disabled onblur="updateCustomValue(0)" onkeyup="updateCustomValue(4)"></td>
-                    <td><input class="ligandInput" disabled onblur="updateCustomValue(0)" onkeyup="updateCustomValue(4)"></td>
-                    <td><input class="ligandInput" disabled onblur="updateCustomValue(0)" onkeyup="updateCustomValue(4)"></td>
+                    <td><input class="ligandInput" disabled onblur="updateCustomValue(0)"
+                               onkeyup="updateCustomValue(4)"></td>
+                    <td><input class="ligandInput" disabled onblur="updateCustomValue(0)"
+                               onkeyup="updateCustomValue(4)"></td>
+                    <td><input class="ligandInput" disabled onblur="updateCustomValue(0)"
+                               onkeyup="updateCustomValue(4)"></td>
+                    <td><input class="ligandInput" disabled onblur="updateCustomValue(0)"
+                               onkeyup="updateCustomValue(4)"></td>
+                    <td><input class="ligandInput" disabled onblur="updateCustomValue(0)"
+                               onkeyup="updateCustomValue(4)"></td>
                 </tr>
                 <tr class="strikeout row5">
                     <td>
@@ -242,11 +272,16 @@
                             </select>
                         </div>
                     </td>
-                    <td><input class="ligandInput" disabled onblur="updateCustomValue(0)" onkeyup="updateCustomValue(5)"></td>
-                    <td><input class="ligandInput" disabled onblur="updateCustomValue(0)" onkeyup="updateCustomValue(5)"></td>
-                    <td><input class="ligandInput" disabled onblur="updateCustomValue(0)" onkeyup="updateCustomValue(5)"></td>
-                    <td><input class="ligandInput" disabled onblur="updateCustomValue(0)" onkeyup="updateCustomValue(5)"></td>
-                    <td><input class="ligandInput" disabled onblur="updateCustomValue(0)" onkeyup="updateCustomValue(5)"></td>
+                    <td><input class="ligandInput" disabled onblur="updateCustomValue(0)"
+                               onkeyup="updateCustomValue(5)"></td>
+                    <td><input class="ligandInput" disabled onblur="updateCustomValue(0)"
+                               onkeyup="updateCustomValue(5)"></td>
+                    <td><input class="ligandInput" disabled onblur="updateCustomValue(0)"
+                               onkeyup="updateCustomValue(5)"></td>
+                    <td><input class="ligandInput" disabled onblur="updateCustomValue(0)"
+                               onkeyup="updateCustomValue(5)"></td>
+                    <td><input class="ligandInput" disabled onblur="updateCustomValue(0)"
+                               onkeyup="updateCustomValue(5)"></td>
                 </tr>
                 </tbody>
 
@@ -257,7 +292,7 @@
 
     <div class="container-fluid ligands">
         <fieldset class="sectionContainer">
-            <legend>Graph</legend>
+            <legend>Competition Binding Curves</legend>
             <!--<canvas id="myChart" width="800" height="400"></canvas>-->
             <div id="myDiv"></div>
         </fieldset>
