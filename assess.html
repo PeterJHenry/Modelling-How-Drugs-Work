@@ -20,10 +20,31 @@
 
     <!-- Custom JavaScript -->
     <script type="text/javascript" src="index.js"></script>
+    <script>
+      var ctx = document.getElementById('myChart').getContext('2d');
+      var chart = new Chart(ctx, {
+        // The type of chart we want to create
+        type: 'line',
+
+        // The data for our dataset
+        data: {
+            labels: ["January", "February", "March", "April", "May", "June", "July"],
+            datasets: [{
+                label: "My First dataset",
+                backgroundColor: 'rgb(255, 99, 132)',
+                borderColor: 'rgb(255, 99, 132)',
+                data: [0, 10, 5, 2, 20, 30, 45],
+            }]
+        },
+
+        // Configuration options go here
+        options: {}
+      });
+          </script>
 
   </head>
 
-  <body onload="plotGraph()">
+  <body>
 
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
@@ -447,8 +468,8 @@
             <div class="container-fluid ligands">
                 <fieldset class="sectionContainer">
                     <legend>Graph</legend>
-                    <!--<canvas id="myChart" width="800" height="400"></canvas>-->
-                    <div id="myDiv"></div>
+                    <canvas id="myChart" width="400" height="400"></canvas>
+                    <!--<div id="myDiv"></div>-->
                 </fieldset>
             </div>
 
@@ -486,7 +507,8 @@
     });
     </script>
 
-    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js" />
+    <!--<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>-->
 
   </body>
 

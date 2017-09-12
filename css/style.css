@@ -24,11 +24,11 @@ body, h1, h2, h3, h4, h5, h6 {
 }
 
 .dev-header {
-  padding-top: 100px;
+  padding-top: 80px;
   padding-bottom: 50px;
   text-align: center;
-  background: url(../img/intro-bg.png) no-repeat center center;
-  background-size: cover;
+  /*background: url(../img/intro-bg.png) no-repeat center center;
+  background-size: cover;*/
 }
 
 .intro-message {
@@ -106,7 +106,7 @@ fieldset.sectionContainer{
 .sectionContainer > legend{
     width: auto;
     border: none;
-    font-size: 30px;
+    font-size: 20px;
     padding: 0px 10px 0px 10px;
     font-family: "Arial Black", serif;
     color: #3078ff;
@@ -127,16 +127,51 @@ td,.th1 {
     text-align: center;
 }
 
-.leftInput{
-    /*width: 300px;*/
+.leftInput {
     text-align: left;
     font-size: 17px;
-    width: 200px;
-}
-#relDensity>td>input:disabled{
-    background-color: #f7f7f7;
+    width: 190px;
+    background: white;
+    margin: 0px 20px 0px 10px;
 }
 
-#receptorTable>tbody>tr>td>input:disabled{
-    background-color: #f7f7f7;
+#ligandTable > tbody > tr > td > input {
+    background-color: rgba(255, 255, 255, 0.79);
+}
+
+#relDensity > td > input:disabled {
+    background-color: #efefef;
+}
+
+#ligandTable > tbody > tr > td > input:disabled {
+    background-color: rgba(219, 219, 219, 0.79);
+}
+
+.strikeout.row0 {
+    background: linear-gradient(0deg, transparent 40%, #ff9933 50%, transparent 60%); /* Standard syntax */
+}
+
+.strikeout.row1 {
+    background: linear-gradient(0deg, transparent 40%, #ff5050 50%, transparent 60%); /* Standard syntax */
+}
+
+.strikeout.row2 {
+    background: linear-gradient(0deg, transparent 40%, #33ccff 50%, transparent 60%); /* Standard syntax */
+}
+
+.strikeout.row3 {
+    background: linear-gradient(0deg, transparent 40%, #00cc00 50%, transparent 60%); /* Standard syntax */
+}
+
+.strikeout.row4 {
+    background: linear-gradient(0deg, transparent 40%, #996633 50%, transparent 60%); /* Standard syntax */
+}
+
+.strikeout.row5 {
+    background: linear-gradient(0deg, transparent 40%, #99339f 50%, transparent 60%); /* Standard syntax */
+}
+
+input {
+    border-radius: 15px;
+    text-align: center;
 }
