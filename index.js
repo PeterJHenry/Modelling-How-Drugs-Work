@@ -39,7 +39,8 @@ const ligandNames = [
     "Ligand A",
     "Ligand B",
     "Ligand C",
-    "Ligand D"
+    "Ligand D",
+    "Select"
 ];
 
 // Holds current DOM state(makes generating graph easier)
@@ -60,7 +61,6 @@ const state = {
 
 // Autofills the ligands according to the selected
 function ligandAutoFill(selectedLigand, rowIndex) {
-
 
     for (var i = 0; i < 5; i++) {
         ligandTableCell(i + 1, rowIndex).value = logK[selectedLigand.value][i];
