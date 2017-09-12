@@ -16,10 +16,11 @@ body, h1, h2, h3, h4, h5, h6 {
 
 .intro-header {
   padding-top: 150px;
-  padding-bottom: 50px;
+  padding-bottom: 0px;
   text-align: center;
-  color: #f8f8f8;
+  color: #f8f8f8 /*#cce5ff*/;
   background: url(../img/intro-bg.png) no-repeat center center;
+  /*background-color: white;*/
   background-size: cover;
 }
 
@@ -93,13 +94,13 @@ p.cc {
 }
 
 fieldset.sectionContainer{
-    border: solid 3px #77a6ff;
+    border: solid 2px #77a6ff;
     padding: 0 10px 10px 10px;
     border-radius: 5px;
     text-align: center;
-    background-color: white;
-    display: inline-block;
+    /*display: inline-block;*/
     margin: 0 auto;
+    width: 60%;
     /*margin-right: 40vw;*/
 }
 
@@ -108,7 +109,6 @@ fieldset.sectionContainer{
     border: none;
     font-size: 20px;
     padding: 0px 10px 0px 10px;
-    font-family: "Arial Black", serif;
     color: #3078ff;
     text-align: left
 ;
@@ -127,11 +127,11 @@ td,.th1 {
     text-align: center;
 }
 
-.leftInput {
+.leftInput, .leftInput1, .leftInput2, .leftInput3, .leftInput4, .leftInput5, .leftInput6 {
     text-align: left;
-    font-size: 17px;
+    font-size: 15px;
+    background-color: transparent;
     width: 190px;
-    background: white;
     margin: 0px 20px 0px 10px;
 }
 
@@ -147,27 +147,27 @@ td,.th1 {
     background-color: rgba(219, 219, 219, 0.79);
 }
 
-.strikeout.row0 {
+.leftInput1, .strikeout.row0 {
     background: linear-gradient(0deg, transparent 40%, #ff9933 50%, transparent 60%); /* Standard syntax */
 }
 
-.strikeout.row1 {
+.leftInput2, .strikeout.row1 {
     background: linear-gradient(0deg, transparent 40%, #ff5050 50%, transparent 60%); /* Standard syntax */
 }
 
-.strikeout.row2 {
+.leftInput3, .strikeout.row2 {
     background: linear-gradient(0deg, transparent 40%, #33ccff 50%, transparent 60%); /* Standard syntax */
 }
 
-.strikeout.row3 {
+.leftInput4, .strikeout.row3 {
     background: linear-gradient(0deg, transparent 40%, #00cc00 50%, transparent 60%); /* Standard syntax */
 }
 
-.strikeout.row4 {
+.leftInput5, .strikeout.row4 {
     background: linear-gradient(0deg, transparent 40%, #996633 50%, transparent 60%); /* Standard syntax */
 }
 
-.strikeout.row5 {
+.leftInput6, .strikeout.row5 {
     background: linear-gradient(0deg, transparent 40%, #99339f 50%, transparent 60%); /* Standard syntax */
 }
 
