@@ -123,8 +123,9 @@ function checkAnswer(){
 window.onload = function() {
   timelimit = 600;
   var quiz = $_("sectionContainer");
-  quiz.innerHTML = "<h3>Ready to be quizzed?</h3>"
-  quiz.innerHTML += "<p class='quiztext'></p>"
+  quiz.innerHTML = "<h3>Ready to be quizzed?</h3><br>"
+  quiz.innerHTML += "<p class='quiztext' style='text-align:justify; padding: 0px 10px 0px 10px'>This quiz is based on the assessment tool, however you may use it to practice a series of questions under test conditions.<br></p>"
+  quiz.innerHTML += "<p class='quiztext' style='text-align:justify; padding: 0px 10px 0px 10px'>A graph will be presented to you, with the specific binding % plotted with a few different ligands. You are required to select the correct answer for which receptor subtype and density combination is present.<br></p>"
   quiz.innerHTML += "<li class='quiztext'>You will be asked "+questions.length+" questions</li>";
   quiz.innerHTML += "<li class='quiztext'>You will have four multi-choice option answers</li>";
   quiz.innerHTML += "<li class='quiztext'>You must select an answer to progress to the next question</li>";
