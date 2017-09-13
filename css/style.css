@@ -135,6 +135,12 @@ td,.th1 {
     margin: 0px 20px 0px 10px;
 }
 
+.quiz {
+  border-radius: 15px;
+  background-color: #e6f2ff;
+  border-color: #cce5ff;
+}
+
 #ligandTable > tbody > tr > td > input {
     background-color: rgba(255, 255, 255, 0.79);
 }

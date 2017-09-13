@@ -23,8 +23,6 @@ function myTimer() {
   timelimit--;
 }
 
-// Modified from: http://www.webdeveloper.com/forum/showthread.php?304231-HTML-Random-Quiz-Game-w-Timer
-
 var pos = 0, posn, choice, correct = 0, rscore = 0;
 var maxtimelimit = 600, timelimit = maxtimelimit;  // 10 minutes entire quiz
 
@@ -67,9 +65,9 @@ function randOrd(){
 function renderResults(){
   var quiz = $_("sectionContainer");
   quiz.innerHTML = "<h2>You got "+correct+" of "+maxNumberOfQuestions+" questions correct</h2>";
-  $_("quiz_status").innerHTML = "quiz Completed";
+  $_("quiz_status").innerHTML = "Quiz Completed";
   $_('timeleft').innerHTML = '';
-  quiz.innerHTML += '<button onclick="location.reload()">Restart</a> ';
+  quiz.innerHTML += "<button class='quiz' onclick='location.reload()'>Restart</a>";
   setQuestionOrder();
   correct = 0;
   clearInterval(myVar);
@@ -90,7 +88,7 @@ function renderQuestion() {
   quiz.innerHTML += "<label><input type='radio' name='choices' value='A'> "+chA+"</label><br>";
   quiz.innerHTML += "<label><input type='radio' name='choices' value='B'> "+chB+"</label><br>";
   quiz.innerHTML += "<label><input type='radio' name='choices' value='C'> "+chC+"</label><br><br>";
-  quiz.innerHTML += "<button onclick='checkAnswer()'>Submit Answer</button>";
+  quiz.innerHTML += "<button class='quiz' onclick='checkAnswer()'>Submit Answer</button>";
 }
 
 function checkAnswer(){
@@ -120,8 +118,12 @@ function checkAnswer(){
 
 window.onload = function() {
   timelimit = maxtimelimit;
-  clearInterval(myVar);
-  startTimer();
-  setQuestionOrder();
-  renderQuestion();
+  var quiz = $_("sectionContainer");
+  quiz.innerHTML = "<button class='quiz' onclick='clearInterval(myVar),startTimer(),setQuestionOrder(),renderQuestion();'>Start Quiz</button>";
+  /*if (start) {
+    clearInterval(myVar);
+    startTimer();
+    setQuestionOrder();
+    renderQuestion();
+  }*/
 }
