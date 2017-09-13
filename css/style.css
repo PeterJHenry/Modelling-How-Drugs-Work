@@ -135,10 +135,22 @@ td,.th1 {
     margin: 0px 20px 0px 10px;
 }
 
-.quiz {
+.quizbutton {
   border-radius: 15px;
   background-color: #e6f2ff;
   border-color: #cce5ff;
+  margin-top: 20px;
+}
+
+.quiztext {
+  text-align: center;
+  font-size: 16px;
+}
+
+li.quiztext {
+  font-size: 14px;
+  text-align: left;
+  padding-left: 20%;
 }
 
 #ligandTable > tbody > tr > td > input {
