@@ -147,6 +147,10 @@ td,.th1 {
     background-color: rgba(219, 219, 219, 0.79);
 }
 
+#sectionContainer > input{
+  text-align: left;
+}
+
 .leftInput1, .strikeout.row0 {
     background: linear-gradient(0deg, transparent 40%, #ff9933 50%, transparent 60%); /* Standard syntax */
 }
