@@ -68,7 +68,7 @@ function renderResults(){
   quiz.innerHTML = "<h2>You got "+correct+" of "+maxNumberOfQuestions+" questions correct</h2>";
   $_("quiz_status").innerHTML = "Quiz Completed";
   $_('timeleft').innerHTML = '';
-  quiz.innerHTML += "<button class='quizbutton' onclick='location.reload()'>Restart</a>";
+  quiz.innerHTML += "<button class='btn' onclick='location.reload()'><span class='tool-name'>Restart</span></button>";
   setQuestionOrder();
   correct = 0;
   clearInterval(myVar);
@@ -92,7 +92,7 @@ function renderQuestion() {
   quiz.innerHTML += "<label><input type='radio' name='choices' value='B'> "+chB+"</label><br>";
   quiz.innerHTML += "<label><input type='radio' name='choices' value='C'> "+chC+"</label><br>";
   quiz.innerHTML += "<label><input type='radio' name='choices' value='D'> "+chD+"</label><br>";
-  quiz.innerHTML += "<button class='quizbutton' onclick='checkAnswer()'>Submit Answer</button>";
+  quiz.innerHTML += "<button class='btn' onclick='checkAnswer()'><span class='tool-name'>Submit Answer</span></button>";
 }
 
 function checkAnswer(){
@@ -134,5 +134,5 @@ window.onload = function() {
   quiz.innerHTML += "<li class='quiztext'>You will be awarded one mark per correct answer</li>";
   quiz.innerHTML += "<li class='quiztext'>You will have "+timelimit/60+" minutes to complete the quiz</li><br>";
   quiz.innerHTML += "<p class='quiztext'>Click start to begin.<br>Good luck!</p>";
-  quiz.innerHTML += "<button class='quizbutton' onclick='clearInterval(myVar),startTimer(),setQuestionOrder(),renderQuestion();'>Start Quiz</button>";
+  quiz.innerHTML += "<button class='btn' onclick='clearInterval(myVar),startTimer(),setQuestionOrder(),renderQuestion();'><span class='tool-name'>Start Quiz</span></button>";
 }
