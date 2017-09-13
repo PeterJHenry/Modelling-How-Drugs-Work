@@ -127,7 +127,7 @@ td,.th1 {
     text-align: center;
 }
 
-.leftInput, .leftInput1, .leftInput2, .leftInput3, .leftInput4, .leftInput5, .leftInput6 {
+.leftInput {
     text-align: left;
     font-size: 15px;
     background-color: transparent;
@@ -162,34 +162,34 @@ li.quiztext {
 }
 
 #ligandTable > tbody > tr > td > input:disabled {
-    background-color: rgba(219, 219, 219, 0.79);
+    background-color: rgba(239, 239, 239, 0.79);
 }
 
 #sectionContainer > input{
   text-align: left;
 }
 
-.leftInput1, .strikeout.row0 {
+.strikeout.row0 {
     background: linear-gradient(0deg, transparent 40%, #ff9933 50%, transparent 60%); /* Standard syntax */
 }
 
-.leftInput2, .strikeout.row1 {
+.strikeout.row1 {
     background: linear-gradient(0deg, transparent 40%, #ff5050 50%, transparent 60%); /* Standard syntax */
 }
 
-.leftInput3, .strikeout.row2 {
+.strikeout.row2 {
     background: linear-gradient(0deg, transparent 40%, #33ccff 50%, transparent 60%); /* Standard syntax */
 }
 
-.leftInput4, .strikeout.row3 {
+.strikeout.row3 {
     background: linear-gradient(0deg, transparent 40%, #00cc00 50%, transparent 60%); /* Standard syntax */
 }
 
-.leftInput5, .strikeout.row4 {
+.strikeout.row4 {
     background: linear-gradient(0deg, transparent 40%, #996633 50%, transparent 60%); /* Standard syntax */
 }
 
-.leftInput6, .strikeout.row5 {
+.strikeout.row5 {
     background: linear-gradient(0deg, transparent 40%, #99339f 50%, transparent 60%); /* Standard syntax */
 }
 

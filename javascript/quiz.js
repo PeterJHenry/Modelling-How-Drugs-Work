@@ -87,6 +87,7 @@ function renderQuestion() {
   var chC = questions[posn][3];
   var chD = questions[posn][4];
   quiz.innerHTML = "<h3>"+question+"</h3>";
+  quiz.innerHTML += "<p>obviously questions will be changed lol</p>";
   quiz.innerHTML += "<label><input type='radio' name='choices' value='A'> "+chA+"</label><br>";
   quiz.innerHTML += "<label><input type='radio' name='choices' value='B'> "+chB+"</label><br>";
   quiz.innerHTML += "<label><input type='radio' name='choices' value='C'> "+chC+"</label><br>";
