@@ -4,13 +4,14 @@ function startTimer() {
 }
 
 function myTimer() {
-  if (timelimit > 0) {
+  if (timelimit > -1) {
     curmin=Math.floor(timelimit/60);
     cursec=timelimit%60;
-    if (cursec.toString().length == 1){
+    if (cursec[1] === 0){
       cursec = cursec+"0";
-    }
-    if (curmin!=0) {
+    } else if (cursec.toString().length === 1) {
+      cursec = "0"+cursec;
+    } if (curmin!=0) {
       curtime="Time: "+curmin+":"+cursec;
     } else {
       curtime="Time: "+"0:"+cursec;
@@ -18,6 +19,7 @@ function myTimer() {
     $_('timeleft').innerHTML = curtime;
   } else {
     $_('timeleft').innerHTML = timelimit+'Out of time';
+    alert("Time's up!");
     clearInterval(myVar);
     checkAnswer();
     renderResults();
@@ -115,13 +117,13 @@ function checkAnswer(){
     } else {
       renderResults();
     }
-  } else {
+  } else if (timelimit>-1) {
     alert("Please select an answer");
   }
 }
 
 window.onload = function() {
-  timelimit = 600;
+  timelimit = 5;
   var quiz = $_("sectionContainer");
   quiz.innerHTML = "<h3>Ready to be quizzed?</h3><br>"
   quiz.innerHTML += "<p class='quiztext'>This quiz is based on the assessment tool, however you may use it to practice a series of questions under test conditions.<br></p>"
