@@ -24,7 +24,7 @@ body, h1, h2, h3, h4, h5, h6 {
   padding-top: 150px;
   padding-bottom: 0px;
   text-align: center;
-  color: #414447;
+  color: #003972;
   background: url(../img/bg-pattern.png);
 }
 /*linear-gradient(to bottom right, white, #edf4ff)*/
@@ -38,9 +38,9 @@ body, h1, h2, h3, h4, h5, h6 {
 }
 
 .btn {
-  color: #858c96;
+  color: #003972;
   border: 1px solid;
-  border-color: #858c96;
+  border-color: #003972;
   background-color: transparent;
   border-radius: 20px;
 }
@@ -48,7 +48,7 @@ body, h1, h2, h3, h4, h5, h6 {
 .btn:hover, .btn:focus, .btn:active, .btn.active {
   color: white;
   border-color: white;
-  background-color: #858c96;
+  background-color: #003972;
 }
 
 .intro-message {

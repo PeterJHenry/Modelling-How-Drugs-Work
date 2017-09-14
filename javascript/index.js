@@ -115,8 +115,10 @@ function validateCheckBox(checkingBox) {
             subTypeCheckedCount++;
             state.subTypePresent[checkingBox] = true;
             receptorCheckBoxTableCell(checkingBox).checked = true;
-            receptorRelDenTableCell(checkingBox).disabled = false;
-
+            receptorRelDenTableCell(checkingBox).disabled = true;
+            if (subTypeCheckedCount === 2) {
+              receptorRelDenTableCell(checkingBox).disabled = false;
+            }
         }
     } else alert('Error, Contact Administrator');
 
