@@ -5,7 +5,9 @@
  */
 
  /*
+#003972 navy
 #70a6ff blue
+#99ccff light blue
 #414447 dark grey
 #858c96 light grey
  */
@@ -38,17 +40,16 @@ body, h1, h2, h3, h4, h5, h6 {
 }
 
 .btn {
-  color: #003972;
-  border: 1px solid;
-  border-color: #003972;
-  background-color: transparent;
+  color: #858c96;
+  border: 1.5px solid #858c96;
+  background-color: white;
   border-radius: 20px;
 }
 
 .btn:hover, .btn:focus, .btn:active, .btn.active {
-  color: white;
-  border-color: white;
-  background-color: #003972;
+  color: #e7e7e7;
+  border-color: #e7e7e7;
+  background-color: #858c96;
 }
 
 .intro-message {
@@ -73,12 +74,41 @@ body, h1, h2, h3, h4, h5, h6 {
   font-size: 90%;
 }
 
+#development {
+  padding: 50px 0;
+  background-color: #003972;
+}
+
+#assessment {
+  padding: 50px 0;
+  border-top: 1px solid #e7e7e7;
+  border-bottom: 1px solid #e7e7e7;
+}
+
+#quiz {
+  padding: 50px 0;
+  background-color: #99ccff;
+  border-bottom: 1px solid #e7e7e7;
+}
+
+.section-heading {
+  margin-bottom: 30px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 350;
+}
+
+.section-heading-spacer {
+  float: left;
+  width: 200px;
+  border-top: 3px solid #e7e7e7;
+}
 
 .tool-name {
   text-transform: uppercase;
-  font-size: 14px;
-  font-weight: 400;
   letter-spacing: 2px;
+  font-size: 14px;
+  font-weight: 500;
 }
 
 .lihead{
@@ -209,6 +239,7 @@ li.quiztext {
 }
 
 input {
-    border-radius: 15px;
+    border-radius: 5px;
     text-align: center;
+    border: 1.5px solid #858c96;
 }

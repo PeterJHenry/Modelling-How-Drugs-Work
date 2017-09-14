@@ -20,10 +20,10 @@
 
     <!-- Custom JavaScript -->
     <script type="text/javascript" src="javascript/index.js"></script>
-
+    <script type="text/javascript" src="javascript/assessment.js"></script>
   </head>
 
-  <body onload="generateGraph()">
+  <body onload="randomiseSubType()">
 
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
@@ -253,7 +253,7 @@
 
                           <td>
                               <div class="leftInput">1.
-                                  <select onchange="ligandAutoFill(this,0)">
+                                  <select onchange="ligandAutoFill(this,0,redrawGraph)">
                                       <option value="12">Select</option>
                                       <optgroup label="Established">
                                           <option value="0">Atropine</option>
@@ -275,15 +275,15 @@
                               </div>
                           </td>
 
-                          <td><input class="ligandInput" disabled onblur="updateCustomValue(0)" onkeyup="updateCustomValue(0)"
+                          <td><input class="ligandInput" disabled onblur="updateCustomValue(0,redrawGraph)" onkeyup="updateCustomValue(0)"
                                      min="0" max="11"></td>
-                          <td><input class="ligandInput" disabled onblur="updateCustomValue(0)"
+                          <td><input class="ligandInput" disabled onblur="updateCustomValue(0,redrawGraph)"
                                      onkeyup="updateCustomValue(0)"></td>
-                          <td><input class="ligandInput" disabled onblur="updateCustomValue(0)"
+                          <td><input class="ligandInput" disabled onblur="updateCustomValue(0,redrawGraph)"
                                      onkeyup="updateCustomValue(0)"></td>
-                          <td><input class="ligandInput" disabled onblur="updateCustomValue(0)"
+                          <td><input class="ligandInput" disabled onblur="updateCustomValue(0,redrawGraph)"
                                      onkeyup="updateCustomValue(0)"></td>
-                          <td><input class="ligandInput" disabled onblur="updateCustomValue(0)"
+                          <td><input class="ligandInput" disabled onblur="updateCustomValue(0,redrawGraph)"
                                      onkeyup="updateCustomValue(0)"></td>
                       </tr>
 
@@ -292,7 +292,7 @@
                           <td>
                               <div class="leftInput">2.
 
-                                  <select onchange="ligandAutoFill(this,1)">
+                                  <select onchange="ligandAutoFill(this,1,redrawGraph)">
                                       <option value="12">Select</option>
                                       <optgroup label="Established">
                                           <option value="0">Atropine</option>
@@ -316,21 +316,21 @@
 
                               </div>
                           </td>
-                          <td><input class="ligandInput" disabled onblur="updateCustomValue(0)"
-                                     onkeyup="updateCustomValue(1)"></td>
-                          <td><input class="ligandInput" disabled onblur="updateCustomValue(0)"
-                                     onkeyup="updateCustomValue(1)"></td>
-                          <td><input class="ligandInput" disabled onblur="updateCustomValue(0)"
-                                     onkeyup="updateCustomValue(1)"></td>
-                          <td><input class="ligandInput" disabled onblur="updateCustomValue(0)"
-                                     onkeyup="updateCustomValue(1)"></td>
-                          <td><input class="ligandInput" disabled onblur="updateCustomValue(0)"
-                                     onkeyup="updateCustomValue(1)"></td>
+                          <td><input class="ligandInput" disabled onblur="updateCustomValue(0,redrawGraph)"
+                                     onkeyup="updateCustomValue(1,redrawGraph)"></td>
+                          <td><input class="ligandInput" disabled onblur="updateCustomValue(0,redrawGraph)"
+                                     onkeyup="updateCustomValue(1,redrawGraph)"></td>
+                          <td><input class="ligandInput" disabled onblur="updateCustomValue(0,redrawGraph)"
+                                     onkeyup="updateCustomValue(1,redrawGraph)"></td>
+                          <td><input class="ligandInput" disabled onblur="updateCustomValue(0,redrawGraph)"
+                                     onkeyup="updateCustomValue(1,redrawGraph)"></td>
+                          <td><input class="ligandInput" disabled onblur="updateCustomValue(0,redrawGraph)"
+                                     onkeyup="updateCustomValue(1,redrawGraph)"></td>
                       </tr>
                       <tr class="strikeout row2">
                           <td>
                               <div class="leftInput">3.
-                                  <select onchange="ligandAutoFill(this,2)">
+                                  <select onchange="ligandAutoFill(this,2,redrawGraph)">
                                       <option value="12">Select</option>
                                       <optgroup label="Established">
                                           <option value="0">Atropine</option>
@@ -352,23 +352,23 @@
                                   </select>
                               </div>
                           </td>
-                          <td><input class="ligandInput" disabled onblur="updateCustomValue(0)"
-                                     onkeyup="updateCustomValue(2)"></td>
-                          <td><input class="ligandInput" disabled onblur="updateCustomValue(0)"
-                                     onkeyup="updateCustomValue(2)"></td>
-                          <td><input class="ligandInput" disabled onblur="updateCustomValue(0)"
-                                     onkeyup="updateCustomValue(2)"></td>
-                          <td><input class="ligandInput" disabled onblur="updateCustomValue(0)"
-                                     onkeyup="updateCustomValue(2)"></td>
-                          <td><input class="ligandInput" disabled onblur="updateCustomValue(0)"
-                                     onkeyup="updateCustomValue(2)"></td>
+                          <td><input class="ligandInput" disabled onblur="updateCustomValue(0,redrawGraph)"
+                                     onkeyup="updateCustomValue(2,redrawGraph)"></td>
+                          <td><input class="ligandInput" disabled onblur="updateCustomValue(0,redrawGraph)"
+                                     onkeyup="updateCustomValue(2,redrawGraph)"></td>
+                          <td><input class="ligandInput" disabled onblur="updateCustomValue(0,redrawGraph)"
+                                     onkeyup="updateCustomValue(2,redrawGraph)"></td>
+                          <td><input class="ligandInput" disabled onblur="updateCustomValue(0,redrawGraph)"
+                                     onkeyup="updateCustomValue(2,redrawGraph)"></td>
+                          <td><input class="ligandInput" disabled onblur="updateCustomValue(0,redrawGraph)"
+                                     onkeyup="updateCustomValue(2,redrawGraph)"></td>
                       </tr>
                       <tr class="strikeout row3">
                           <td>
                               <div class="leftInput">4.
 
 
-                                  <select onchange="ligandAutoFill(this,3)">
+                                  <select onchange="ligandAutoFill(this,3,redrawGraph)">
                                       <option value="12">Select</option>
                                       <optgroup label="Established">
                                           <option value="0">Atropine</option>
@@ -390,21 +390,21 @@
                                   </select>
                               </div>
                           </td>
-                          <td><input class="ligandInput" disabled onblur="updateCustomValue(0)"
-                                     onkeyup="updateCustomValue(3)"></td>
-                          <td><input class="ligandInput" disabled onblur="updateCustomValue(0)"
-                                     onkeyup="updateCustomValue(3)"></td>
-                          <td><input class="ligandInput" disabled onblur="updateCustomValue(0)"
-                                     onkeyup="updateCustomValue(3)"></td>
-                          <td><input class="ligandInput" disabled onblur="updateCustomValue(0)"
-                                     onkeyup="updateCustomValue(3)"></td>
-                          <td><input class="ligandInput" disabled onblur="updateCustomValue(0)"
-                                     onkeyup="updateCustomValue(3)"></td>
+                          <td><input class="ligandInput" disabled onblur="updateCustomValue(0,redrawGraph)"
+                                     onkeyup="updateCustomValue(3,redrawGraph)"></td>
+                          <td><input class="ligandInput" disabled onblur="updateCustomValue(0,redrawGraph)"
+                                     onkeyup="updateCustomValue(3,redrawGraph)"></td>
+                          <td><input class="ligandInput" disabled onblur="updateCustomValue(0,redrawGraph)"
+                                     onkeyup="updateCustomValue(3,redrawGraph)"></td>
+                          <td><input class="ligandInput" disabled onblur="updateCustomValue(0,redrawGraph)"
+                                     onkeyup="updateCustomValue(3,redrawGraph)"></td>
+                          <td><input class="ligandInput" disabled onblur="updateCustomValue(0,redrawGraph)"
+                                     onkeyup="updateCustomValue(3,redrawGraph)"></td>
                       </tr>
                       <tr class="strikeout row4">
                           <td>
                               <div class="leftInput">5.
-                                  <select onchange="ligandAutoFill(this,4)">
+                                  <select onchange="ligandAutoFill(this,4,redrawGraph)">
                                       <option value="12">Select</option>
                                       <optgroup label="Established">
                                           <option value="0">Atropine</option>
@@ -426,21 +426,21 @@
                                   </select>
                               </div>
                           </td>
-                          <td><input class="ligandInput" disabled onblur="updateCustomValue(0)"
-                                     onkeyup="updateCustomValue(4)"></td>
-                          <td><input class="ligandInput" disabled onblur="updateCustomValue(0)"
-                                     onkeyup="updateCustomValue(4)"></td>
-                          <td><input class="ligandInput" disabled onblur="updateCustomValue(0)"
-                                     onkeyup="updateCustomValue(4)"></td>
-                          <td><input class="ligandInput" disabled onblur="updateCustomValue(0)"
-                                     onkeyup="updateCustomValue(4)"></td>
-                          <td><input class="ligandInput" disabled onblur="updateCustomValue(0)"
-                                     onkeyup="updateCustomValue(4)"></td>
+                          <td><input class="ligandInput" disabled onblur="updateCustomValue(0,redrawGraph)"
+                                     onkeyup="updateCustomValue(4,redrawGraph)"></td>
+                          <td><input class="ligandInput" disabled onblur="updateCustomValue(0,redrawGraph)"
+                                     onkeyup="updateCustomValue(4,redrawGraph)"></td>
+                          <td><input class="ligandInput" disabled onblur="updateCustomValue(0,redrawGraph)"
+                                     onkeyup="updateCustomValue(4,redrawGraph)"></td>
+                          <td><input class="ligandInput" disabled onblur="updateCustomValue(0,redrawGraph)"
+                                     onkeyup="updateCustomValue(4,redrawGraph)"></td>
+                          <td><input class="ligandInput" disabled onblur="updateCustomValue(0,redrawGraph)"
+                                     onkeyup="updateCustomValue(4,redrawGraph)"></td>
                       </tr>
                       <tr class="strikeout row5">
                           <td>
                               <div class="leftInput">6.
-                                  <select onchange="ligandAutoFill(this,5)">
+                                  <select onchange="ligandAutoFill(this,5,redrawGraph)">
                                       <option value="12">Select</option>
                                       <optgroup label="Established">
                                           <option value="0">Atropine</option>
@@ -462,16 +462,16 @@
                                   </select>
                               </div>
                           </td>
-                          <td><input class="ligandInput" disabled onblur="updateCustomValue(0)"
-                                     onkeyup="updateCustomValue(5)"></td>
-                          <td><input class="ligandInput" disabled onblur="updateCustomValue(0)"
-                                     onkeyup="updateCustomValue(5)"></td>
-                          <td><input class="ligandInput" disabled onblur="updateCustomValue(0)"
-                                     onkeyup="updateCustomValue(5)"></td>
-                          <td><input class="ligandInput" disabled onblur="updateCustomValue(0)"
-                                     onkeyup="updateCustomValue(5)"></td>
-                          <td><input class="ligandInput" disabled onblur="updateCustomValue(0)"
-                                     onkeyup="updateCustomValue(5)"></td>
+                          <td><input class="ligandInput" disabled onblur="updateCustomValue(0,redrawGraph)"
+                                     onkeyup="updateCustomValue(5,redrawGraph)"></td>
+                          <td><input class="ligandInput" disabled onblur="updateCustomValue(0,redrawGraph)"
+                                     onkeyup="updateCustomValue(5,redrawGraph)"></td>
+                          <td><input class="ligandInput" disabled onblur="updateCustomValue(0,redrawGraph)"
+                                     onkeyup="updateCustomValue(5,redrawGraph)"></td>
+                          <td><input class="ligandInput" disabled onblur="updateCustomValue(0,redrawGraph)"
+                                     onkeyup="updateCustomValue(5,redrawGraph)"></td>
+                          <td><input class="ligandInput" disabled onblur="updateCustomValue(0,redrawGraph)"
+                                     onkeyup="updateCustomValue(5,redrawGraph)"></td>
                       </tr>
                       </tbody>
 

@@ -246,19 +246,19 @@
           <hr class="intro-divider">
           <ul class="list-inline intro-social-buttons">
             <li class="list-inline-item">
-              <a href="development.html" class="btn">
+              <a href="#development" class="btn">
                 <i class="fa fa-book fa-fw"></i>
                 <span class="tool-name">Development Tool</span>
               </a>
             </li>
             <li class="list-inline-item">
-              <a href="assessment.html" class="btn">
+              <a href="#assessment" class="btn">
                 <i class="fa fa-pencil-square-o fa-fw"></i>
                 <span class="tool-name">Self-Assessment Tool</span>
               </a>
             </li>
             <li class="list-inline-item">
-              <a href="quiz.html" class="btn">
+              <a href="#quiz" class="btn">
                 <i class="fa fa-hourglass-1 fa-fw"></i>
                 <span class="tool-name">Quiz</span>
               </a>
@@ -267,6 +267,67 @@
         </div>
       </div>
     </header>
+
+    <!-- Page Content -->
+    <section id="development">
+
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-5 ml-auto">
+            <hr class="section-heading-spacer">
+            <div class="clearfix"></div>
+            <h2 class="section-heading" style="color:white">The Development Tool</h2>
+            <p class="lead" style="color:white">This is used to view graphs etc
+              <br>Insert image</p>
+          </div>
+          <div class="col-lg-5 mr-auto">
+            <img class="img-fluid" src="img/ipad.png" alt="">
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section id="assessment">
+
+      <div class="container">
+
+        <div class="row">
+          <div class="col-lg-5 mr-auto order-lg-2">
+            <hr class="section-heading-spacer">
+            <div class="clearfix"></div>
+            <h2 class="section-heading">The Self-Assessment Tool</h2>
+            <p class="lead">Assess yourself here blah blah
+              <br>insert photo</p>
+          </div>
+          <div class="col-lg-5 ml-auto order-lg-1">
+            <img class="img-fluid" src="img/dog.png" alt="">
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section id="quiz">
+
+      <div class="container">
+
+        <div class="row">
+          <div class="col-lg-5 ml-auto">
+            <hr class="section-heading-spacer">
+            <div class="clearfix"></div>
+            <h2 class="section-heading" style="color:white">The Quiz Tool</h2>
+            <p class="lead" style="color:white">Quiz used to practise under test conditions etc
+              <br>Insert photo</p>
+          </div>
+          <div class="col-lg-5 mr-auto ">
+            <img class="img-fluid" src="img/phones.png" alt="">
+          </div>
+        </div>
+
+      </div>
+    </section>
+
 
     <!-- Footer -->
     <footer>
@@ -399,9 +460,18 @@
     <script src="vendor/popper/popper.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
     <script>
-    $(document).ready(function(){
+      $(document).ready(function(){
         $('[data-toggle="tooltip"]').tooltip();
     });
+    </script>
+    <script>
+      $("ul.list-inline").find("a").click(function(e) {
+        e.preventDefault();
+        var section = $(this).attr("href");
+        $("html, body").animate({
+          scrollTop: $(section).offset().top
+        });
+      });
     </script>
 
   </body>
