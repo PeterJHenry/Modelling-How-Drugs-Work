@@ -91,37 +91,69 @@ function updateCustomValue(rowIndex) {
 // validate if check box can be selected
 // TODO - change the value to 100 after uncheck
 function validateCheckBox(checkingBox) {
+
+
+//// If no boxes has been selected
     if (subTypeCheckedCount === 0) {
-        state.relDensity[checkingBox] = 100;
-        receptorRelDenTableCell(checkingBox).value = 100;
-    }
+        state.relDensity[checkingBox] = receptorRelDenTableCell(checkingBox).value = 100;
+        state.subTypePresent[checkingBox] = receptorCheckBoxTableCell(checkingBox).checked = true;
+        subTypeCheckedCount++;
 
-    if (state.subTypePresent[checkingBox]) {
-        subTypeCheckedCount--;
-        state.subTypePresent[checkingBox] = false;
-        receptorCheckBoxTableCell(checkingBox).checked = false;
-        receptorRelDenTableCell(checkingBox).disabled = true;
-        receptorRelDenTableCell(checkingBox).value = '';
-        // relDensityRow.children[checkingBox + 1].children[0].disabled = true;
-        // relDensityRow.children[checkingBox + 1].children[0].value = '';
-        state.relDensity[checkingBox] = '';
-    } else if (!state.subTypePresent[checkingBox]) {
-        if (subTypeCheckedCount >= 2) {
-            alert('You can only check two boxes');
-            receptorCheckBoxTableCell(checkingBox).checked = false;
-            receptorRelDenTableCell(checkingBox).disabled = true;
-            receptorRelDenTableCell(checkingBox).value = '';
+
+        // if one box was selected before
+    } else if (subTypeCheckedCount === 1) {
+        var previousCheckedBox = getCheckboxRow()[0];
+
+
+        // if the previous box is the same that is going to be unselected (unchecking the only box)
+        if (previousCheckedBox === checkingBox) {
+            state.relDensity[checkingBox] = receptorRelDenTableCell(checkingBox).value = '';
+            state.subTypePresent[checkingBox] = receptorCheckBoxTableCell(checkingBox).checked = false;
+            subTypeCheckedCount--;
+
+            // If its not the same (checking a new box)
         } else {
+            state.subTypePresent[checkingBox] = receptorCheckBoxTableCell(checkingBox).checked = true;
+            state.relDensity[checkingBox] = receptorRelDenTableCell(checkingBox).value = 50;
+            receptorRelDenTableCell(checkingBox).disabled = receptorRelDenTableCell(previousCheckedBox).disabled = false;
+            state.relDensity[previousCheckedBox] = receptorRelDenTableCell(previousCheckedBox).value = 50;
             subTypeCheckedCount++;
-            state.subTypePresent[checkingBox] = true;
-            receptorCheckBoxTableCell(checkingBox).checked = true;
-            receptorRelDenTableCell(checkingBox).disabled = true;
-            if (subTypeCheckedCount === 2) {
-              receptorRelDenTableCell(checkingBox).disabled = false;
-            }
         }
-    } else alert('Error, Contact Administrator');
 
+
+        // two boxes has been selected
+    } else if (subTypeCheckedCount === 2) {
+        var previousCheckedBox0 = getCheckboxRow()[0];
+        var previousCheckedBox1 = getCheckboxRow()[1];
+
+        switch (checkingBox) {
+
+            // if unchecking box 1
+            case previousCheckedBox0:
+                state.subTypePresent[previousCheckedBox0] = receptorCheckBoxTableCell(previousCheckedBox0).checked = false;
+                state.subTypePresent[previousCheckedBox1] = receptorRelDenTableCell(previousCheckedBox0).disabled = receptorRelDenTableCell(checkingBox).disabled = true;
+
+                state.relDensity[previousCheckedBox0] = receptorRelDenTableCell(previousCheckedBox0).value = '';
+                state.relDensity[previousCheckedBox1] = receptorRelDenTableCell(previousCheckedBox1).value = 100;
+
+                subTypeCheckedCount--;
+                break;
+
+            // if unchecking box 2
+            case previousCheckedBox1:
+                state.subTypePresent[previousCheckedBox1] = receptorCheckBoxTableCell(previousCheckedBox1).checked = false;
+                state.subTypePresent[previousCheckedBox0] = receptorRelDenTableCell(previousCheckedBox0).disabled = receptorRelDenTableCell(checkingBox).disabled = true;
+
+                state.relDensity[previousCheckedBox1] = receptorRelDenTableCell(previousCheckedBox1).value = '';
+                state.relDensity[previousCheckedBox0] = receptorRelDenTableCell(previousCheckedBox0).value = 100;
+                subTypeCheckedCount--;
+                break;
+            default:
+                alert("You can only select two Boxes");
+                receptorCheckBoxTableCell(checkingBox).checked = false;
+                break;
+        }
+    }
     generateGraph();
 }
 
@@ -132,34 +164,38 @@ function validateIndividualCell(cellNumber) {
     validateRelDensityRow(cellNumber);
 }
 
-// validate and clean density row
-// TODO - add third input
+// Validate and clean density row
+// TODO - rewrite
 function validateRelDensityRow(currentCellNumber) {
-    var currentCell = receptorRelDenTableCell(currentCellNumber);
-    var otherCell;
-    var otherCellIndex;
+    // var currentCell = receptorRelDenTableCell(currentCellNumber);
+    // var otherCell;
+    // var otherCellIndex;
+    //
+    // for (var x = 0; x < 5; x++) {
+    //     if (document.getElementById('relDensity').children[x + 1].children[0].value > 0 && x !== currentCellNumber) {
+    //         otherCell = document.getElementById('relDensity').children[x + 1].children[0];
+    //         otherCellIndex = x;
+    //         break;
+    //     }
+    // }
+    //
+    //
+    // var currentTotal = 0;
+    //
+    // for (var i = 0; i < 5; i++) if (state.subTypePresent[i]) currentTotal = currentTotal + state.relDensity[i];
+    //
+    // if (currentTotal == 0) {
+    //     currentCell.value = 100;
+    //     state.relDensity[currentCellNumber] = 100;
+    // } else {
+    //     otherCell.value = 100 - currentCell.value;
+    //     state.relDensity[currentCellNumber] = parseInt(currentCell.value);
+    //     state.relDensity[otherCellIndex] = 100 - parseInt(currentCell.value);
+    // }
 
-    for (var x = 0; x < 5; x++) {
-        if (document.getElementById('relDensity').children[x + 1].children[0].value > 0 && x !== currentCellNumber) {
-            otherCell = document.getElementById('relDensity').children[x + 1].children[0];
-            otherCellIndex = x;
-            break;
-        }
-    }
 
+    var currentCellIndex = currentCellNumber
 
-    var currentTotal = 0;
-
-    for (var i = 0; i < 5; i++) if (state.subTypePresent[i]) currentTotal = currentTotal + state.relDensity[i];
-
-    if (currentTotal == 0) {
-        currentCell.value = 100;
-        state.relDensity[currentCellNumber] = 100;
-    } else {
-        otherCell.value = 100 - currentCell.value;
-        state.relDensity[currentCellNumber] = parseInt(currentCell.value);
-        state.relDensity[otherCellIndex] = 100 - parseInt(currentCell.value);
-    }
 }
 
 // This function will take the data from the page and then draw the graph.
@@ -336,4 +372,10 @@ function receptorRelDenTableCell(colIndex) {
 // Gets cell from the check box table
 function receptorCheckBoxTableCell(colIndex) {
     return document.getElementById('subtypeCheckbox').children[colIndex + 1].children[0];
+}
+
+function getCheckboxRow() {
+    var output = [];
+    for (var i = 0; i < 5; i++) if (state.subTypePresent[i]) output.push(i);
+    return output;
 }
