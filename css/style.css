@@ -4,6 +4,12 @@
  * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-landing-page/blob/master/LICENSE)
  */
 
+ /*
+#70a6ff blue
+#414447 dark grey
+#858c96 light grey
+ */
+
 body, html {
   width: 100%;
   height: 100%;
@@ -18,7 +24,7 @@ body, h1, h2, h3, h4, h5, h6 {
   padding-top: 150px;
   padding-bottom: 0px;
   text-align: center;
-  color: #70a6ff;
+  color: #414447;
   background: url(../img/bg-pattern.png);
 }
 /*linear-gradient(to bottom right, white, #edf4ff)*/
@@ -32,9 +38,9 @@ body, h1, h2, h3, h4, h5, h6 {
 }
 
 .btn {
-  color: #70a6ff;
+  color: #858c96;
   border: 1px solid;
-  border-color: #70a6ff;
+  border-color: #858c96;
   background-color: transparent;
   border-radius: 20px;
 }
@@ -42,7 +48,7 @@ body, h1, h2, h3, h4, h5, h6 {
 .btn:hover, .btn:focus, .btn:active, .btn.active {
   color: white;
   border-color: white;
-  background-color: #70a6ff;
+  background-color: #858c96;
 }
 
 .intro-message {
@@ -107,7 +113,7 @@ p.cc {
 }
 
 fieldset.sectionContainer{
-    border: solid 2px #70a6ff;
+    border: solid 2px #858c96;
     padding: 0 10px 10px 10px;
     border-radius: 5px;
     text-align: center;
@@ -123,7 +129,7 @@ fieldset.sectionContainer{
     border: none;
     font-size: 20px;
     padding: 0px 10px 0px 10px;
-    color: #70a6ff;
+    color: #858c96;
     text-align: left
 ;
 }
@@ -179,27 +185,27 @@ li.quiztext {
 }
 
 .strikeout.row0 {
-    background: linear-gradient(0deg, transparent 40%, #ff9933 50%, transparent 60%); /* Standard syntax */
+    background: linear-gradient(to bottom, white, white 43%, #ff9933, #ff9933 57%, white, white 72%); /* Standard syntax */
 }
 
 .strikeout.row1 {
-    background: linear-gradient(0deg, transparent 40%, #ff5050 50%, transparent 60%); /* Standard syntax */
+    background: linear-gradient(to bottom, white, white 43%, #ff5050, #ff5050 57%, white, white 72%); /* Standard syntax */
 }
 
 .strikeout.row2 {
-    background: linear-gradient(0deg, transparent 40%, #33ccff 50%, transparent 60%); /* Standard syntax */
+    background: linear-gradient(to bottom, white, white 43%, #33ccff, #33ccff 57%, white, white 72%); /* Standard syntax */
 }
 
 .strikeout.row3 {
-    background: linear-gradient(0deg, transparent 40%, #00cc00 50%, transparent 60%); /* Standard syntax */
+    background: linear-gradient(to bottom, white, white 43%, #00cc00, #00cc00 57%, white, white 72%); /* Standard syntax */
 }
 
 .strikeout.row4 {
-    background: linear-gradient(0deg, transparent 40%, #996633 50%, transparent 60%); /* Standard syntax */
+    background: linear-gradient(to bottom, white, white 43%, #996633, #996633 57%, white, white 72%); /* Standard syntax */
 }
 
 .strikeout.row5 {
-    background: linear-gradient(0deg, transparent 40%, #99339f 50%, transparent 60%); /* Standard syntax */
+    background: linear-gradient(to bottom, white, white 43%, #99339f, #99339f 57%, white, white 72%); /* Standard syntax */
 }
 
 input {
