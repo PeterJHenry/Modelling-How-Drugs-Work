@@ -61,13 +61,12 @@ const state = {
 
 // Autofills the ligands according to the selected
 function ligandAutoFill(selectedLigand, rowIndex) {
-
     for (var i = 0; i < 5; i++) {
         ligandTableCell(i + 1, rowIndex).value = logK[selectedLigand.value][i];
         ligandTableCell(i + 1, rowIndex).disabled = (selectedLigand.value < 10 || selectedLigand.value == 12);
         state.ligands[rowIndex][i] = logK[selectedLigand.value][i];
     }
-    state.activeLigandRow[rowIndex] = selectedLigand !== 12;
+    state.activeLigandRow[rowIndex] = selectedLigand.value != 12;
     plotGraph();
 }
 
