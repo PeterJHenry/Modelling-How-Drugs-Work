@@ -211,4 +211,5 @@ li.quiztext {
 input {
     border-radius: 15px;
     text-align: center;
+    border: 2px solid #858c96;
 }
