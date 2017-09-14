@@ -60,21 +60,21 @@ const state = {
 
 
 // Autofills the ligands according to the selected
-function ligandAutoFill(selectedLigand, rowIndex) {
+function ligandAutoFill(selectedLigand, rowIndex, graphCallback=generateGraph) {
     for (var i = 0; i < 5; i++) {
         ligandTableCell(i + 1, rowIndex).value = logK[selectedLigand.value][i];
         ligandTableCell(i + 1, rowIndex).disabled = (selectedLigand.value < 10 || selectedLigand.value == 12);
         state.ligands[rowIndex][i] = logK[selectedLigand.value][i];
     }
     state.activeLigandRow[rowIndex] = selectedLigand.value != 12;
-    generateGraph();
+    graphCallback();
 }
 
-function updateCustomValue(rowIndex) {
+function updateCustomValue(rowIndex, graphCallback=generateGraph) {
     var row = [];
     for (var i = 0; i < 5; i++) row.push(parseInt(ligandTableCell(i + 1, rowIndex).value));
     state.ligands[rowIndex] = row;
-    generateGraph();
+    graphCallback();
 }
 
 // Updates graph and data, call this function when DOM updates needed
@@ -90,7 +90,7 @@ function updateCustomValue(rowIndex) {
 
 // validate if check box can be selected
 // TODO - change the value to 100 after uncheck
-function validateCheckBox(checkingBox) {
+function validateCheckBox(checkingBox, graphCallback=generateGraph) {
     if (subTypeCheckedCount === 0) {
         state.relDensity[checkingBox] = 100;
         receptorRelDenTableCell(checkingBox).value = 100;
@@ -122,7 +122,7 @@ function validateCheckBox(checkingBox) {
         }
     } else alert('Error, Contact Administrator');
 
-    generateGraph();
+    graphCallback();
 }
 
 // clean input for individual cell
