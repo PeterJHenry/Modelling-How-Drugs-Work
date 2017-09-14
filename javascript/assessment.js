@@ -7,8 +7,7 @@ var subtypePercentage = null;
 
 // Chooose a random subtype and then the draw the graph for it.
 function randomiseSubType() {
-	subtypeIndex = Math.floor((Math.random() * 5)); // Random int from 0 to 4
-	console.log("Subtype set to: " + subtypeIndex);
+	subtypeIndex = Math.floor((Math.random() * 4)); // Random int from 0 to 4
 	redrawGraph()
 }
 
@@ -22,7 +21,6 @@ function updateCustomValue(rowIndex) {
 // Redraws the graph with current ligand values, does not affect subtype.
 function redrawGraph() {
 	// Generate data to pass to the graph.
-	console.log(subtypeIndex)
 	var data = []
     for (var i = 0; i < 6; i++) {
         if (state.activeLigandRow[i]) {
@@ -41,6 +39,5 @@ function redrawGraph() {
             data.push(graph);
         }
     }
-    console.log(data)
 	plotGraph(data)
 }
