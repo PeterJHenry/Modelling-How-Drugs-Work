@@ -67,14 +67,14 @@ function ligandAutoFill(selectedLigand, rowIndex) {
         state.ligands[rowIndex][i] = logK[selectedLigand.value][i];
     }
     state.activeLigandRow[rowIndex] = selectedLigand.value != 12;
-    plotGraph();
+    generateGraph();
 }
 
 function updateCustomValue(rowIndex) {
     var row = [];
     for (var i = 0; i < 5; i++) row.push(parseInt(ligandTableCell(i + 1, rowIndex).value));
     state.ligands[rowIndex] = row;
-    plotGraph();
+    generateGraph();
 }
 
 // Updates graph and data, call this function when DOM updates needed
@@ -120,7 +120,7 @@ function validateCheckBox(checkingBox) {
         }
     } else alert('Error, Contact Administrator');
 
-    plotGraph();
+    generateGraph();
 }
 
 // clean input for individual cell
@@ -160,10 +160,10 @@ function validateRelDensityRow(currentCellNumber) {
     }
 }
 
-
+// This function will take the data from the page and then draw the graph.
 // TODO - fix graph
 // TODO -  this only works with one graph
-function plotGraph() {
+function generateGraph() {
     var subtypeIndex = function () {
         var arrayTrue = [];
         for (var i = 0; i < 5; i++) if (state.subTypePresent[i]) arrayTrue.push(i);
@@ -219,10 +219,12 @@ function plotGraph() {
                     data.push(graph2);
                 }
             }
-
     }
+    plotGraph(data)
+}
 
-
+// Draw a graph from an 
+function plotGraph(data) {
     var layout = {
         xaxis: {
             title: '- log [ Ligand ] (M)',
