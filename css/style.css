@@ -239,7 +239,7 @@ li.quiztext {
 }
 
 input {
-    border-radius: 10px;
+    border-radius: 5px;
     text-align: center;
-    border: 1px solid #99ccff;
+    border: 1.5px solid #858c96;
 }

@@ -123,7 +123,7 @@ function checkAnswer(){
 }
 
 window.onload = function() {
-  timelimit = 5;
+  timelimit = 60;
   var quiz = $_("sectionContainer");
   quiz.innerHTML = "<h3>Ready to be quizzed?</h3><br>"
   quiz.innerHTML += "<p class='quiztext'>This quiz is based on the assessment tool, however you may use it to practice a series of questions under test conditions.<br></p>"
