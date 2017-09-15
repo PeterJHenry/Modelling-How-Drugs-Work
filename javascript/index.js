@@ -46,7 +46,6 @@ const ligandNames = [
 // Holds current DOM state(makes generating graph easier)
 const state = {
     subTypePresent: [false, false, false, false, false],
-    relDensity: ['', '', '', '', ''],
     ligands: [
         ['', '', '', '', ''],
         ['', '', '', '', ''],
@@ -77,28 +76,14 @@ function updateCustomValue(rowIndex, graphCallback=generateGraph) {
     graphCallback();
 }
 
-// Updates graph and data, call this function when DOM updates needed
-// this function also updates state
-// currently not yet in use
-// function updateDOM() {
-//     var ligandTable = document.getElementById('ligandTable').children[0];
-//
-//     //copy ligand values to state
-//     // for (var y = 0; y < 6; y++) for (var x = 0; x < 5; x++) state.ligands[y][x] = ligandTable.children[y].children[x + 1].children[0].value;
-//     plotGraph();
-// }
-
 // validate if check box can be selected
 // TODO - change the value to 100 after uncheck
-function validateCheckBox(checkingBox) {
-
-}
 
 
 //// If no boxes has been selected
 function validateCheckBox(checkingBox, graphCallback=generateGraph) {
     if (subTypeCheckedCount === 0) {
-        state.relDensity[checkingBox] = receptorRelDenTableCell(checkingBox).value = 100;
+        receptorRelDenTableCell(checkingBox).value = 100;
         state.subTypePresent[checkingBox] = receptorCheckBoxTableCell(checkingBox).checked = true;
         subTypeCheckedCount++;
 
@@ -110,16 +95,16 @@ function validateCheckBox(checkingBox, graphCallback=generateGraph) {
 
         // if the previous box is the same that is going to be unselected (unchecking the only box)
         if (previousCheckedBox === checkingBox) {
-            state.relDensity[checkingBox] = receptorRelDenTableCell(checkingBox).value = '';
+            receptorRelDenTableCell(checkingBox).value = '';
             state.subTypePresent[checkingBox] = receptorCheckBoxTableCell(checkingBox).checked = false;
             subTypeCheckedCount--;
 
             // If its not the same (checking a new box)
         } else {
             state.subTypePresent[checkingBox] = receptorCheckBoxTableCell(checkingBox).checked = true;
-            state.relDensity[checkingBox] = receptorRelDenTableCell(checkingBox).value = 50;
+            receptorRelDenTableCell(checkingBox).value = receptorRelDenTableCell(previousCheckedBox).value = 50;
             receptorRelDenTableCell(checkingBox).disabled = receptorRelDenTableCell(previousCheckedBox).disabled = false;
-            state.relDensity[previousCheckedBox] = receptorRelDenTableCell(previousCheckedBox).value = 50;
+
             subTypeCheckedCount++;
         }
 
@@ -136,8 +121,8 @@ function validateCheckBox(checkingBox, graphCallback=generateGraph) {
                 state.subTypePresent[previousCheckedBox0] = receptorCheckBoxTableCell(previousCheckedBox0).checked = false;
                 state.subTypePresent[previousCheckedBox1] = receptorRelDenTableCell(previousCheckedBox1).disabled = receptorRelDenTableCell(checkingBox).disabled = true;
 
-                state.relDensity[previousCheckedBox0] = receptorRelDenTableCell(previousCheckedBox0).value = '';
-                state.relDensity[previousCheckedBox1] = receptorRelDenTableCell(previousCheckedBox1).value = 100;
+                receptorRelDenTableCell(previousCheckedBox0).value = '';
+                receptorRelDenTableCell(previousCheckedBox1).value = 100;
 
                 subTypeCheckedCount--;
                 break;
@@ -147,8 +132,8 @@ function validateCheckBox(checkingBox, graphCallback=generateGraph) {
                 state.subTypePresent[previousCheckedBox1] = receptorCheckBoxTableCell(previousCheckedBox1).checked = false;
                 state.subTypePresent[previousCheckedBox0] = receptorRelDenTableCell(previousCheckedBox0).disabled = receptorRelDenTableCell(checkingBox).disabled = true;
 
-                state.relDensity[previousCheckedBox1] = receptorRelDenTableCell(previousCheckedBox1).value = '';
-                state.relDensity[previousCheckedBox0] = receptorRelDenTableCell(previousCheckedBox0).value = 100;
+                receptorRelDenTableCell(previousCheckedBox1).value = '';
+                receptorRelDenTableCell(previousCheckedBox0).value = 100;
                 subTypeCheckedCount--;
                 break;
             default:
@@ -158,6 +143,7 @@ function validateCheckBox(checkingBox, graphCallback=generateGraph) {
         }
     }
     graphCallback();
+    console.log(state.subTypePresent);
 }
 
 // clean input for individual cell
@@ -167,8 +153,6 @@ function validateIndividualCell(cellNumber) {
     validateRelDensityRow(cellNumber);
 }
 
-// Validate and clean density row
-// TODO - rewrite
 
 // TODO - This only works on two receptors
 function validateRelDensityRow(currentCellNumber) {
@@ -176,10 +160,8 @@ function validateRelDensityRow(currentCellNumber) {
     var previousCheckedBox1 = getCheckboxRow()[1];
     var currentCellValue = parseInt(receptorRelDenTableCell(currentCellNumber).value);
 
-    if (currentCellNumber === previousCheckedBox0) receptorRelDenTableCell(previousCheckedBox1).value = state.relDensity[previousCheckedBox1] = 100 - currentCellValue;
-    else receptorRelDenTableCell(previousCheckedBox0).value = state.relDensity[previousCheckedBox0] = 100 - currentCellValue;
-
-    state.relDensity[currentCellNumber] = currentCellValue;
+    if (currentCellNumber === previousCheckedBox0) receptorRelDenTableCell(previousCheckedBox1).value = 100 - currentCellValue;
+    else receptorRelDenTableCell(previousCheckedBox0).value = 100 - currentCellValue;
 }
 
 // This function will take the data from the page and then draw the graph.
