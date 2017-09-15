@@ -11,13 +11,6 @@ function randomiseSubType() {
 	redrawGraph()
 }
 
-function updateCustomValue(rowIndex) {
-    var row = [];
-    for (var i = 0; i < 5; i++) row.push(parseInt(ligandTableCell(i + 1, rowIndex).value));
-    state.ligands[rowIndex] = row;
-    redrawGraph();
-}
-
 // Redraws the graph with current ligand values, does not affect subtype.
 function redrawGraph() {
 	// Generate data to pass to the graph.
@@ -39,5 +32,5 @@ function redrawGraph() {
             data.push(graph);
         }
     }
-	plotGraph(data)
+	plotGraph(data, false, {staticPlot: true})
 }

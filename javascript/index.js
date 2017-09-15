@@ -245,8 +245,10 @@ function generateGraph() {
     plotGraph(data)
 }
 
-// Draw a graph from an 
-function plotGraph(data) {
+// Draw/Update the graph from a data object.
+// Legend visible by default, allows an options object to be 
+// passed to Plotly.newPlot() 
+function plotGraph(data, showlegend=true, options={}) {
     var layout = {
         xaxis: {
             title: '- log [ Ligand ] (M)',
@@ -274,9 +276,9 @@ function plotGraph(data) {
             t: 50,
             pad: 4
         },
-        showlegend: true,
+        showlegend: showlegend,
     };
-    Plotly.newPlot('myDiv', data, layout);
+    Plotly.newPlot('myDiv', data, layout, options);
 }
 
 
