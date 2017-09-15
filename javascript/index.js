@@ -46,14 +46,6 @@ const ligandNames = [
 // Holds current DOM state(makes generating graph easier)
 const state = {
     subTypePresent: [false, false, false, false, false],
-    ligands: [
-        ['', '', '', '', ''],
-        ['', '', '', '', ''],
-        ['', '', '', '', ''],
-        ['', '', '', '', ''],
-        ['', '', '', '', ''],
-        ['', '', '', '', '']
-    ],
     activeLigandRow: [false, false, false, false, false, false]
 };
 
@@ -63,7 +55,7 @@ function ligandAutoFill(selectedLigand, rowIndex, graphCallback=generateGraph) {
     for (var i = 0; i < 5; i++) {
         ligandTableCell(i + 1, rowIndex).value = logK[selectedLigand.value][i];
         ligandTableCell(i + 1, rowIndex).disabled = (selectedLigand.value < 10 || selectedLigand.value == 12);
-        state.ligands[rowIndex][i] = logK[selectedLigand.value][i];
+
     }
     state.activeLigandRow[rowIndex] = selectedLigand.value != 12;
     graphCallback();
@@ -72,7 +64,7 @@ function ligandAutoFill(selectedLigand, rowIndex, graphCallback=generateGraph) {
 function updateCustomValue(rowIndex, graphCallback=generateGraph) {
     var row = [];
     for (var i = 0; i < 5; i++) row.push(parseInt(ligandTableCell(i + 1, rowIndex).value));
-    state.ligands[rowIndex] = row;
+
     graphCallback();
 }
 
