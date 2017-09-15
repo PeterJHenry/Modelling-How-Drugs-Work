@@ -58,17 +58,15 @@ function ligandAutoFill(selectedLigand, rowIndex, graphCallback=generateGraph) {
     graphCallback();
 }
 
+
 function updateCustomValue(rowIndex, graphCallback=generateGraph) {
     var row = [];
     for (var i = 0; i < 5; i++) row.push(parseInt(ligandTableCell(i + 1, rowIndex).value));
     graphCallback();
 }
 
-// validate if check box can be selected
-// TODO - change the value to 100 after uncheck
 
-
-//// If no boxes has been selected
+//// Check if the box can be checked
 function validateCheckBox(checkingBox, graphCallback=generateGraph) {
     if (subTypeCheckedCount === 0) {
         receptorRelDenTableCell(checkingBox).value = 100;
@@ -201,6 +199,32 @@ function generateGraph() {
                     data.push(graph2);
                 }
             }
+            break;
+        case 3:
+            var column1 = activeCheckBoxes()[0];
+            var column2 = activeCheckBoxes()[1];
+            var column3 = activeCheckBoxes()[2];
+
+
+            for (var q = 0; q < 6; q++) {
+                if (activeLigandRow()[q]) {
+                    var dataSet3 = calculateGraphPoints(2, parseInt(receptorRelDenTableCell(column1).value), parseFloat(ligandTableCell(column1 + 1, x).value),
+                        parseInt(receptorRelDenTableCell(column2).value), parseFloat(ligandTableCell(column2 + 1, x).value),
+                        parseInt(receptorRelDenTableCell(column3).value), parseFloat(ligandTableCell(column3 + 1, x).value));
+                    var graph3 = {
+                        x: dataSet3[0],
+                        y: dataSet3[1],
+                        mode: 'lines',
+                        line: {
+                            color: colorTable[q],
+                            width: 1
+                        },
+                        name: ligandNames[ligandTableCell(0, x).value]
+
+                    };
+                    data.push(graph3);
+                }
+            }
     }
     plotGraph(data)
 }
@@ -213,7 +237,7 @@ function plotGraph(data, showlegend=true, options={}) {
         xaxis: {
             title: '- log [ Ligand ] (M)',
             titlefont: {
-                family: 'Courier New, monospace',
+                family: 'Lato, Helvetica Neue, Helvetica, Arial, sans-serif',
                 size: 18,
                 color: '#7f7f7f'
             }
@@ -221,7 +245,7 @@ function plotGraph(data, showlegend=true, options={}) {
         yaxis: {
             title: 'Specific Binding (%)',
             titlefont: {
-                family: 'Courier New, monospace',
+                family: 'Lato, Helvetica Neue, Helvetica, Arial, sans-serif',
                 size: 18,
                 color: '#7f7f7f'
             }
@@ -264,17 +288,16 @@ function calculateGraphPoints(numberOfReceptor, den1, logVal1, den2, logVal2, de
                 dataSet[1].push(j);
             }
             break;
-        // case 3:
-        //     for (var x = -11; x < -2; x = x + STEP) {
-        //         var y = oneReceptorFunction(x, den1, logVal1, den2, logVal2, den3, logVal3);
-        //         if (y > 0.001) {
-        //             dataSet[0].push(x);
-        //             dataSet[1].push(y);
-        //         }
-        //     }
-        //     break;
+        case 3:
+            for (var q = -11; q < -2; q = q + STEP) {
+                var w = oneReceptorFunction(q, den1, logVal1, den2, logVal2, den3, logVal3);
+                if (w > 0.001) {
+                    dataSet[0].push(q);
+                    dataSet[1].push(w);
+                }
+            }
+            break;
         default:
-            console.log("neither");
             break;
     }
 
@@ -294,14 +317,12 @@ function oneReceptorFunction(x, den1, logVal1) {
 
 // Function to calculate graph of two receptors
 function twoReceptorFunction(x, den1, logVal1, den2, logVal2) {
-    console.log(x, den1, logVal1, den2, logVal2);
-    // console.log((den1 / (1 + Math.pow(10, x + logVal1))) + (den2 / (1 + Math.pow(10, x + logVal2))));
     return (den1 / (1 + Math.pow(10, x + logVal1))) + (den2 / (1 + Math.pow(10, x + logVal2)));
 }
 
 // Function to calculate graph of three receptors
 function threeReceptorFunction(x, den1, logVal1, den2, logVal2, den3, logVal3) {
-    return (den1 / (1 + Math.pow(10, x + logVal1))) + (den2 / (1 + Math.pow(10, x + logVal2))) + (den3 / (1 + Math.pow(10, x + logVal3)))
+    return (den1 / (1 + Math.pow(10, x + logVal1))) + (den2 / (1 + Math.pow(10, x + logVal2))) + (den3 / (1 + Math.pow(10, x + logVal3)));
 }
 
 // <-------->
@@ -323,7 +344,6 @@ function receptorRelDenTableCell(colIndex) {
 function receptorCheckBoxTableCell(colIndex) {
     return document.getElementById('subtypeCheckbox').children[colIndex + 1].children[0];
 }
-
 
 // Returns array of index of checkboxes that are checked
 function activeCheckBoxes() {
