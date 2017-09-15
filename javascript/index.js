@@ -45,8 +45,7 @@ const ligandNames = [
 
 // Holds current DOM state(makes generating graph easier)
 const state = {
-    subTypePresent: [false, false, false, false, false],
-    activeLigandRow: [false, false, false, false, false, false]
+    subTypePresent: [false, false, false, false, false]
 };
 
 
@@ -54,17 +53,14 @@ const state = {
 function ligandAutoFill(selectedLigand, rowIndex, graphCallback=generateGraph) {
     for (var i = 0; i < 5; i++) {
         ligandTableCell(i + 1, rowIndex).value = logK[selectedLigand.value][i];
-        ligandTableCell(i + 1, rowIndex).disabled = (selectedLigand.value < 10 || selectedLigand.value == 12);
-
+        ligandTableCell(i + 1, rowIndex).disabled = (selectedLigand.value < 10 || parseInt(selectedLigand.value) === 12);
     }
-    state.activeLigandRow[rowIndex] = selectedLigand.value != 12;
     graphCallback();
 }
 
 function updateCustomValue(rowIndex, graphCallback=generateGraph) {
     var row = [];
     for (var i = 0; i < 5; i++) row.push(parseInt(ligandTableCell(i + 1, rowIndex).value));
-
     graphCallback();
 }
 
@@ -82,8 +78,7 @@ function validateCheckBox(checkingBox, graphCallback=generateGraph) {
 
         // if one box was selected before
     } else if (subTypeCheckedCount === 1) {
-        var previousCheckedBox = getCheckboxRow()[0];
-
+        var previousCheckedBox = activeCheckBoxes()[0];
 
         // if the previous box is the same that is going to be unselected (unchecking the only box)
         if (previousCheckedBox === checkingBox) {
@@ -103,8 +98,8 @@ function validateCheckBox(checkingBox, graphCallback=generateGraph) {
 
         // two boxes has been selected
     } else if (subTypeCheckedCount === 2) {
-        var previousCheckedBox0 = getCheckboxRow()[0];
-        var previousCheckedBox1 = getCheckboxRow()[1];
+        var previousCheckedBox0 = activeCheckBoxes()[0];
+        var previousCheckedBox1 = activeCheckBoxes()[1];
 
         switch (checkingBox) {
 
@@ -115,7 +110,6 @@ function validateCheckBox(checkingBox, graphCallback=generateGraph) {
 
                 receptorRelDenTableCell(previousCheckedBox0).value = '';
                 receptorRelDenTableCell(previousCheckedBox1).value = 100;
-
                 subTypeCheckedCount--;
                 break;
 
@@ -128,6 +122,7 @@ function validateCheckBox(checkingBox, graphCallback=generateGraph) {
                 receptorRelDenTableCell(previousCheckedBox0).value = 100;
                 subTypeCheckedCount--;
                 break;
+
             default:
                 alert("You can only select two Boxes");
                 receptorCheckBoxTableCell(checkingBox).checked = false;
@@ -135,7 +130,6 @@ function validateCheckBox(checkingBox, graphCallback=generateGraph) {
         }
     }
     graphCallback();
-    console.log(state.subTypePresent);
 }
 
 // clean input for individual cell
@@ -148,8 +142,8 @@ function validateIndividualCell(cellNumber) {
 
 // TODO - This only works on two receptors
 function validateRelDensityRow(currentCellNumber) {
-    var previousCheckedBox0 = getCheckboxRow()[0];
-    var previousCheckedBox1 = getCheckboxRow()[1];
+    var previousCheckedBox0 = activeCheckBoxes()[0];
+    var previousCheckedBox1 = activeCheckBoxes()[1];
     var currentCellValue = parseInt(receptorRelDenTableCell(currentCellNumber).value);
 
     if (currentCellNumber === previousCheckedBox0) receptorRelDenTableCell(previousCheckedBox1).value = 100 - currentCellValue;
@@ -160,22 +154,12 @@ function validateRelDensityRow(currentCellNumber) {
 // TODO - fix graph
 // TODO -  this only works with one graph
 function generateGraph() {
-    var subtypeIndex = function () {
-        var arrayTrue = [];
-        for (var i = 0; i < 5; i++) if (state.subTypePresent[i]) arrayTrue.push(i);
-        return arrayTrue;
-    };
     var data = [];
-
-
-    switch (subtypeIndex().length) {
+    switch (activeCheckBoxes().length) {
         case 1:
-
-            var activeColumn = subtypeIndex()[0];
-
             for (var i = 0; i < 6; i++) {
-                if (state.activeLigandRow[i]) {
-                    var dataSet = calculateGraphPoints(1, 100, state.ligands[i][activeColumn]);
+                if (activeLigandRow()[i]) {
+                    var dataSet = calculateGraphPoints(1, 100, parseFloat(ligandTableCell(activeCheckBoxes()[0] + 1, i).value));
                     var graph = {
                         x: dataSet[0],
                         y: dataSet[1],
@@ -191,30 +175,32 @@ function generateGraph() {
                 }
             }
             break;
-        case 2:
-
-            var activeColumn1 = subtypeIndex()[0];
-            var activeColumn2 = subtypeIndex()[1];
 
 
-            for (var i2 = 0; i2 < 6; i2++) {
-                if (state.activeLigandRow[i2]) {
-                    var dataSet2 = calculateGraphPoints(2, receptorRelDenTableCell(activeColumn1).value, ligandTableCell(activeColumn1 + 1, i2).value,
-                        receptorRelDenTableCell(activeColumn2).value, ligandTableCell(activeColumn2 + 1, i2).value);
-                    var graph2 = {
-                        x: dataSet2[0],
-                        y: dataSet2[1],
-                        mode: 'lines',
-                        line: {
-                            color: colorTable[i],
-                            width: 1
-                        },
-                        name: ligandNames[ligandTableCell(0, i2).value]
-
-                    };
-                    data.push(graph2);
-                }
-            }
+        // case 2:
+        //
+        //     var activeColumn1 = subtypeIndex()[0];
+        //     var activeColumn2 = subtypeIndex()[1];
+        //
+        //
+        //     for (var i2 = 0; i2 < 6; i2++) {
+        //         if (state.activeLigandRow[i2]) {
+        //             var dataSet2 = calculateGraphPoints(2, receptorRelDenTableCell(activeColumn1).value, ligandTableCell(activeColumn1 + 1, i2).value,
+        //                 receptorRelDenTableCell(activeColumn2).value, ligandTableCell(activeColumn2 + 1, i2).value);
+        //             var graph2 = {
+        //                 x: dataSet2[0],
+        //                 y: dataSet2[1],
+        //                 mode: 'lines',
+        //                 line: {
+        //                     color: colorTable[i],
+        //                     width: 1
+        //                 },
+        //                 name: ligandNames[ligandTableCell(0, i2).value]
+        //
+        //             };
+        //             data.push(graph2);
+        //         }
+        //     }
     }
     plotGraph(data)
 }
@@ -271,11 +257,10 @@ function calculateGraphPoints(numberOfReceptor, den1, logVal1, den2, logVal2, de
             }
             break;
         case 2:
-            for (var x = -11; x < -2; x = x + STEP) {
-                var y = twoReceptorFunction(x, den1, logVal1, den2, logVal2);
-                dataSet[0].push(x);
-                dataSet[1].push(y);
-                console.log(y)
+            for (var i = -11; i < -2; i = i + STEP) {
+                var j = twoReceptorFunction(x, den1, logVal1, den2, logVal2);
+                dataSet[0].push(i);
+                dataSet[1].push(j);
             }
             break;
         // case 3:
@@ -299,7 +284,6 @@ function calculateGraphPoints(numberOfReceptor, den1, logVal1, den2, logVal2, de
 // These functions can be changed into a loop
 
 // Function to calculate graph of one receptor
-// Density is assumed to be 100
 function oneReceptorFunction(x, den1, logVal1) {
     return den1 / (1 + Math.pow(10, x + logVal1))
 }
@@ -318,6 +302,7 @@ function threeReceptorFunction(x, den1, logVal1, den2, logVal2, den3, logVal3) {
 
 
 // Gets a cell from the ligand table
+// this includes the first index. i.e. the selector
 function ligandTableCell(colIndex, rowIndex) {
     if (colIndex === 0) return document.getElementById('ligandTable').children[0].children[rowIndex].children[colIndex].children[0].children[0];
     else return document.getElementById('ligandTable').children[0].children[rowIndex].children[colIndex].children[0];
@@ -333,8 +318,17 @@ function receptorCheckBoxTableCell(colIndex) {
     return document.getElementById('subtypeCheckbox').children[colIndex + 1].children[0];
 }
 
-function getCheckboxRow() {
+
+// Returns array of index of checkboxes that are checked
+function activeCheckBoxes() {
     var output = [];
     for (var i = 0; i < 5; i++) if (state.subTypePresent[i]) output.push(i);
     return output;
+}
+
+// Returns array with rows that are
+function activeLigandRow() {
+    var outputArray = [];
+    for (var i = 0; i < 6; i++) outputArray[i] = parseInt(ligandTableCell(0, i).value) !== 12;
+    return outputArray;
 }

@@ -16,7 +16,7 @@ function redrawGraph() {
 	// Generate data to pass to the graph.
 	var data = []
     for (var i = 0; i < 6; i++) {
-        if (state.activeLigandRow[i]) {
+        if (activeLigandRow()[i]) {
             var dataSet = calculateGraphPoints(1, 100, state.ligands[i][subtypeIndex]);
             var graph = {
                 x: dataSet[0],
