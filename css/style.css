@@ -149,19 +149,18 @@ fieldset.sectionContainer{
     text-align: center;
     /*display: inline-block;*/
     margin: 0 auto;
-    width: 60%;
+    /*width: 60%;*/
     background-color: white;
     /*margin-right: 40vw;*/
 }
 
 .sectionContainer > legend{
-    width: auto;
+    /*width: auto;*/
     border: none;
     font-size: 20px;
     padding: 0px 10px 0px 10px;
     color: #858c96;
-    text-align: left
-;
+    text-align: left;
 }
 
 .ligandInput{
@@ -181,9 +180,10 @@ td,.th1 {
     text-align: left;
     font-size: 15px;
     background-color: transparent;
-    width: 190px;
+    width: 160px;
     margin: 0px 20px 0px 10px;
 }
+
 
 .quiztext {
   text-align: center;
@@ -243,3 +243,5 @@ input {
     text-align: center;
     border: 1.5px solid #858c96;
 }
+
+
