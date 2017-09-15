@@ -148,6 +148,7 @@ function validateRelDensityRow(currentCellNumber) {
 
     if (currentCellNumber === previousCheckedBox0) receptorRelDenTableCell(previousCheckedBox1).value = 100 - currentCellValue;
     else receptorRelDenTableCell(previousCheckedBox0).value = 100 - currentCellValue;
+    generateGraph();
 }
 
 // This function will take the data from the page and then draw the graph.
@@ -177,30 +178,29 @@ function generateGraph() {
             break;
 
 
-        // case 2:
-        //
-        //     var activeColumn1 = subtypeIndex()[0];
-        //     var activeColumn2 = subtypeIndex()[1];
-        //
-        //
-        //     for (var i2 = 0; i2 < 6; i2++) {
-        //         if (state.activeLigandRow[i2]) {
-        //             var dataSet2 = calculateGraphPoints(2, receptorRelDenTableCell(activeColumn1).value, ligandTableCell(activeColumn1 + 1, i2).value,
-        //                 receptorRelDenTableCell(activeColumn2).value, ligandTableCell(activeColumn2 + 1, i2).value);
-        //             var graph2 = {
-        //                 x: dataSet2[0],
-        //                 y: dataSet2[1],
-        //                 mode: 'lines',
-        //                 line: {
-        //                     color: colorTable[i],
-        //                     width: 1
-        //                 },
-        //                 name: ligandNames[ligandTableCell(0, i2).value]
-        //
-        //             };
-        //             data.push(graph2);
-        //         }
-        //     }
+        case 2:
+            var activeColumn1 = activeCheckBoxes()[0];
+            var activeColumn2 = activeCheckBoxes()[1];
+
+
+            for (var x = 0; x < 6; x++) {
+                if (activeLigandRow()[x]) {
+                    var dataSet2 = calculateGraphPoints(2, parseInt(receptorRelDenTableCell(activeColumn1).value), parseFloat(ligandTableCell(activeColumn1 + 1, x).value),
+                        parseInt(receptorRelDenTableCell(activeColumn2).value), parseFloat(ligandTableCell(activeColumn2 + 1, x).value));
+                    var graph2 = {
+                        x: dataSet2[0],
+                        y: dataSet2[1],
+                        mode: 'lines',
+                        line: {
+                            color: colorTable[x],
+                            width: 1
+                        },
+                        name: ligandNames[ligandTableCell(0, x).value]
+
+                    };
+                    data.push(graph2);
+                }
+            }
     }
     plotGraph(data)
 }
@@ -247,6 +247,7 @@ function calculateGraphPoints(numberOfReceptor, den1, logVal1, den2, logVal2, de
     var dataSet = [[], []];
 
     switch (numberOfReceptor) {
+
         case 1:
             for (var x = -11; x < -2; x = x + STEP) {
                 var y = oneReceptorFunction(x, den1, logVal1);
@@ -258,7 +259,7 @@ function calculateGraphPoints(numberOfReceptor, den1, logVal1, den2, logVal2, de
             break;
         case 2:
             for (var i = -11; i < -2; i = i + STEP) {
-                var j = twoReceptorFunction(x, den1, logVal1, den2, logVal2);
+                var j = twoReceptorFunction(i, den1, logVal1, den2, logVal2);
                 dataSet[0].push(i);
                 dataSet[1].push(j);
             }
@@ -272,6 +273,9 @@ function calculateGraphPoints(numberOfReceptor, den1, logVal1, den2, logVal2, de
         //         }
         //     }
         //     break;
+        default:
+            console.log("neither");
+            break;
     }
 
     return dataSet;
@@ -290,6 +294,8 @@ function oneReceptorFunction(x, den1, logVal1) {
 
 // Function to calculate graph of two receptors
 function twoReceptorFunction(x, den1, logVal1, den2, logVal2) {
+    console.log(x, den1, logVal1, den2, logVal2);
+    // console.log((den1 / (1 + Math.pow(10, x + logVal1))) + (den2 / (1 + Math.pow(10, x + logVal2))));
     return (den1 / (1 + Math.pow(10, x + logVal1))) + (den2 / (1 + Math.pow(10, x + logVal2)));
 }
 
@@ -326,7 +332,7 @@ function activeCheckBoxes() {
     return output;
 }
 
-// Returns array with rows that are
+// Returns array with true iff the row is active i.e. not 'Selected'
 function activeLigandRow() {
     var outputArray = [];
     for (var i = 0; i < 6; i++) outputArray[i] = parseInt(ligandTableCell(0, i).value) !== 12;
