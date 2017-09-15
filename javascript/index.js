@@ -46,7 +46,7 @@ const ligandNames = [
 // Holds current DOM state(makes generating graph easier)
 const state = {
     subTypePresent: [false, false, false, false, false],
-    relDensity: [null, null, null, null, null],
+    relDensity: ['', '', '', '', ''],
     ligands: [
         ['', '', '', '', ''],
         ['', '', '', '', ''],
@@ -92,6 +92,8 @@ function updateCustomValue(rowIndex, graphCallback=generateGraph) {
 // TODO - change the value to 100 after uncheck
 function validateCheckBox(checkingBox) {
 
+}
+
 
 //// If no boxes has been selected
 function validateCheckBox(checkingBox, graphCallback=generateGraph) {
@@ -132,7 +134,7 @@ function validateCheckBox(checkingBox, graphCallback=generateGraph) {
             // if unchecking box 1
             case previousCheckedBox0:
                 state.subTypePresent[previousCheckedBox0] = receptorCheckBoxTableCell(previousCheckedBox0).checked = false;
-                state.subTypePresent[previousCheckedBox1] = receptorRelDenTableCell(previousCheckedBox0).disabled = receptorRelDenTableCell(checkingBox).disabled = true;
+                state.subTypePresent[previousCheckedBox1] = receptorRelDenTableCell(previousCheckedBox1).disabled = receptorRelDenTableCell(checkingBox).disabled = true;
 
                 state.relDensity[previousCheckedBox0] = receptorRelDenTableCell(previousCheckedBox0).value = '';
                 state.relDensity[previousCheckedBox1] = receptorRelDenTableCell(previousCheckedBox1).value = 100;
@@ -167,36 +169,17 @@ function validateIndividualCell(cellNumber) {
 
 // Validate and clean density row
 // TODO - rewrite
+
+// TODO - This only works on two receptors
 function validateRelDensityRow(currentCellNumber) {
-    // var currentCell = receptorRelDenTableCell(currentCellNumber);
-    // var otherCell;
-    // var otherCellIndex;
-    //
-    // for (var x = 0; x < 5; x++) {
-    //     if (document.getElementById('relDensity').children[x + 1].children[0].value > 0 && x !== currentCellNumber) {
-    //         otherCell = document.getElementById('relDensity').children[x + 1].children[0];
-    //         otherCellIndex = x;
-    //         break;
-    //     }
-    // }
-    //
-    //
-    // var currentTotal = 0;
-    //
-    // for (var i = 0; i < 5; i++) if (state.subTypePresent[i]) currentTotal = currentTotal + state.relDensity[i];
-    //
-    // if (currentTotal == 0) {
-    //     currentCell.value = 100;
-    //     state.relDensity[currentCellNumber] = 100;
-    // } else {
-    //     otherCell.value = 100 - currentCell.value;
-    //     state.relDensity[currentCellNumber] = parseInt(currentCell.value);
-    //     state.relDensity[otherCellIndex] = 100 - parseInt(currentCell.value);
-    // }
+    var previousCheckedBox0 = getCheckboxRow()[0];
+    var previousCheckedBox1 = getCheckboxRow()[1];
+    var currentCellValue = parseInt(receptorRelDenTableCell(currentCellNumber).value);
 
+    if (currentCellNumber === previousCheckedBox0) receptorRelDenTableCell(previousCheckedBox1).value = state.relDensity[previousCheckedBox1] = 100 - currentCellValue;
+    else receptorRelDenTableCell(previousCheckedBox0).value = state.relDensity[previousCheckedBox0] = 100 - currentCellValue;
 
-    var currentCellIndex = currentCellNumber
-
+    state.relDensity[currentCellNumber] = currentCellValue;
 }
 
 // This function will take the data from the page and then draw the graph.
@@ -347,7 +330,6 @@ function oneReceptorFunction(x, den1, logVal1) {
 
 // Function to calculate graph of two receptors
 function twoReceptorFunction(x, den1, logVal1, den2, logVal2) {
-    console.log();
     return (den1 / (1 + Math.pow(10, x + logVal1))) + (den2 / (1 + Math.pow(10, x + logVal2)));
 }
 
