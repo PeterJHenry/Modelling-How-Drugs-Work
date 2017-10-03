@@ -122,7 +122,7 @@ function validateCheckBox(checkingBox, graphCallback=generateGraph) {
                 break;
 
             default:
-                alert("You can only select two Boxes");
+                alert("You can only select two boxes");
                 receptorCheckBoxTableCell(checkingBox).checked = false;
                 break;
         }
@@ -230,8 +230,8 @@ function generateGraph() {
 }
 
 // Draw/Update the graph from a data object.
-// Legend visible by default, allows an options object to be 
-// passed to Plotly.newPlot() 
+// Legend visible by default, allows an options object to be
+// passed to Plotly.newPlot()
 function plotGraph(data, showlegend=true, options={}) {
     var layout = {
         xaxis: {
