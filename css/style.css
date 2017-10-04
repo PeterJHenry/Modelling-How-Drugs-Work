@@ -47,9 +47,9 @@ body, h1, h2, h3, h4, h5, h6 {
 }
 
 .btn:hover, .btn:focus, .btn:active, .btn.active {
-  color: #e7e7e7;
-  border-color: #e7e7e7;
-  background-color: #858c96;
+  color: #f2f2f2;
+  border-color: #f2f2f2;
+  background-color: #99ccff;
 }
 
 .intro-message {
@@ -243,5 +243,3 @@ input {
     text-align: center;
     border: 1.5px solid #858c96;
 }
-
-
