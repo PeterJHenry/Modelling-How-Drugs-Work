@@ -17,7 +17,6 @@ function redrawGraph() {
 	var data = []
     for (var i = 0; i < 6; i++) {
         if (activeLigandRow()[i]) {
-            // var dataSet = calculateGraphPoints(1, 100, state.ligands[i][subtypeIndex]);
             var dataSet = calculateGraphPoints(1, 100, parseFloat(ligandTableCell(subtypeIndex + 1, i).value));
             var graph = {
                 x: dataSet[0],
