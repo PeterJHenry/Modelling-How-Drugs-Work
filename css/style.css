@@ -39,8 +39,6 @@ body, h1, h2, h3, h4, h5, h6 {
   background-color: white;
 }
 
-
-
 .btn {
   color: #858c96;
   border: 1.5px solid #858c96;
@@ -238,6 +236,11 @@ li.quiztext {
   text-align: left;
   padding-left: 25%;
   list-style-type:circle;
+}
+
+.footer-link {
+  color: blue;
+  text-decoration-color: underline;
 }
 
 #ligandTable > tbody > tr > td > input {
