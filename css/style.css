@@ -30,6 +30,7 @@ body, h1, h2, h3, h4, h5, h6 {
     background: url(../img/bg-pattern.png);
 }
 
+
 .dev-header {
     padding-top: 80px;
     padding-bottom: 50px;
@@ -234,13 +235,13 @@ li.quiztext {
 }
 
 .footer-link {
-    color: blue;
-    text-decoration-color: underline;
+  color: blue;
+  text-decoration-color: underline;
 }
 
-/*#ligandTable > tbody > tr > td > input {*/
-/*background-color: rgba(255, 255, 255, 0.79);*/
-/*}*/
+#ligandTable > tbody > tr > td > input {
+    background-color: rgba(255, 255, 255, 0.79);
+}
 
 /*#relDensity > td > input:disabled {*/
 /*background-color: #efefef;*/
@@ -283,36 +284,3 @@ input {
     text-align: center;
     border: 1.5px solid #858c96;
 }
-
-.ligandInput.activeColumn {
-    background-color: rgb(255, 255, 255);
-}
-
-.ligandInput:disabled.activeColumn {
-    background-color: rgba(236, 236, 236, 0.79);
-}
-
-.ligandInput {
-    background-color: rgba(182, 182, 182, 0.79);
-}
-
-.ligandInput:disabled {
-    background-color: rgba(182, 182, 182, 0.79);
-}
-
-.receptorInput.activeColumn {
-    background-color: rgb(255, 255, 255);
-}
-
-.receptorInput:disabled.activeColumn {
-    background-color: rgba(236, 236, 236, 0.79);;
-}
-
-.receptorInput {
-    background-color: rgba(182, 182, 182, 0.79);
-}
-
-.receptorInput:disabled {
-    background-color: rgba(182, 182, 182, 0.79);
-}
-

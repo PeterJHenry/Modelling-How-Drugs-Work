@@ -246,7 +246,7 @@ function generateGraph() {
 // passed to Plotly.newPlot()
 function plotGraph(data, showlegend, options) {
     if (typeof showlegend === "undefined")
-        showlegend = true;
+        showlegend = false;
     if (typeof options === "undefined")
         options = {};
     var layout = {
