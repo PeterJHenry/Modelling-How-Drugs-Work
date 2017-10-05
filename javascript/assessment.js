@@ -1,25 +1,28 @@
 // This file requires that index.js be included in the html first
 // As it requires several functions and variables from index.js
 
-var subtypeIndex = [null, null];
-var subtypePercentage = [null, null];
+var subtypeIndex;
+var subtypePercentage;
 
 // Chooose a random subtype and then the draw the graph for it.
 function randomiseSubType() {
+    subtypeIndex = [null, null];
+    subtypePercentage = [null, null];
+
     // 50/50 chance of there being 1 or 2 subtype.
     if (Math.random() > 0.5) {
         // 1 Subtype
-	   subtypeIndex[0] = Math.floor((Math.random() * 4)); // Random int from 0 to 4
+	   subtypeIndex[0] = Math.floor((Math.random() * 5)); // Random int from 0 to 4
        subtypePercentage[0] = 100;
 	   redrawGraph();
     } else {
         //2 Subtypes
-        subtypeIndex[0] = Math.floor((Math.random() * 4)); 
-        subtypeIndex[1] = Math.floor((Math.random() * 4)); 
+        subtypeIndex[0] = Math.floor((Math.random() * 5)); 
+        subtypeIndex[1] = Math.floor((Math.random() * 5)); 
         if (subtypeIndex[1] === subtypeIndex[0]) {
             subtypeIndex[0] = subtypeIndex[0]+1 % 5
         }
-        subtypePercentage[0] = 20 + 10 * Math.floor((Math.random() * 6));
+        subtypePercentage[0] = 20 + 10 * Math.floor((Math.random() * 7));
         subtypePercentage[1] = 100 - subtypePercentage[0];
         redrawGraph();        
     }
