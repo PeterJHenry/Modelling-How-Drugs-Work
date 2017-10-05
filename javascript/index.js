@@ -384,11 +384,11 @@ function validateLigandValue() {
     generateGraph();
 }
 
-$(document).ready(function () {
-    $('.ligandInput').blur(function () {
-        validateLigandValue();
-    }).keyup(function () {
-        validateLigandValue()
-    });
-    $('[data-toggle="tooltip"]').tooltip();
-});
+// $(document).ready(function () {
+//     $('.ligandInput').blur(function () {
+//         validateLigandValue();
+//     }).keyup(function () {
+//         validateLigandValue()
+//     });
+//     $('[data-toggle="tooltip"]').tooltip();
+// });

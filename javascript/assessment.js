@@ -1,28 +1,62 @@
 // This file requires that index.js be included in the html first
 // As it requires several functions and variables from index.js
 
-// TODO - Support more than 1 subtype.
-var subtypeIndex = null;
-var subtypePercentage = null;
+var subtypeIndex = [null, null];
+var subtypePercentage = [null, null];
 
 // Chooose a random subtype and then the draw the graph for it.
 function randomiseSubType() {
-	subtypeIndex = Math.floor((Math.random() * 4)); // Random int from 0 to 4
-	redrawGraph()
+    // 50/50 chance of there being 1 or 2 subtype.
+    if (Math.random() > 0.5) {
+        // 1 Subtype
+	   subtypeIndex[0] = Math.floor((Math.random() * 4)); // Random int from 0 to 4
+       subtypePercentage[0] = 100;
+	   redrawGraph();
+    } else {
+        //2 Subtypes
+        subtypeIndex[0] = Math.floor((Math.random() * 4)); 
+        subtypeIndex[1] = Math.floor((Math.random() * 4)); 
+        if (subtypeIndex[1] === subtypeIndex[0]) {
+            subtypeIndex[0] = subtypeIndex[0]+1 % 5
+        }
+        subtypePercentage[0] = 20 + 10 * Math.floor((Math.random() * 6));
+        subtypePercentage[1] = 100 - subtypePercentage[0];
+        redrawGraph();        
+    }
 }
 
 function revealSubtype() {
     var subtypeReveal = document.getElementById("subtypeReveal");
-    subtypeReveal.innerHTML = "M" + (subtypeIndex+1) + " (100%)";
+    var subtypeString = ""
+    if (subtypeIndex[1] === null) {
+        subtypeString = "M" + (subtypeIndex[0]+1) + " (100%)";
+    } else {
+        subtypeString = "M" + (subtypeIndex[0]+1) + " (" + subtypePercentage[0]+ "%) , "
+        subtypeString += "M" + (subtypeIndex[1]+1) + " (" + subtypePercentage[1]+ "%)"
+    }
+    subtypeReveal.innerHTML = subtypeString;
+}
+
+function get_dataset(i) {
+    var dataSet
+    if (subtypeIndex[1] === null) {
+        dataSet = calculateGraphPoints(1, 100, parseFloat(ligandTableCell(subtypeIndex[0] + 1, i).value));
+    } else {
+        dataSet = calculateGraphPoints(2,  
+            subtypePercentage[0],parseFloat(ligandTableCell(subtypeIndex[0] + 1, i).value),
+            subtypePercentage[1],parseFloat(ligandTableCell(subtypeIndex[1]+1, i).value));
+    }
+    return dataSet    
 }
 
 // Redraws the graph with current ligand values, does not affect subtype.
 function redrawGraph() {
 	// Generate data to pass to the graph.
 	var data = []
+
     for (var i = 0; i < 6; i++) {
         if (activeLigandRow()[i]) {
-            var dataSet = calculateGraphPoints(1, 100, parseFloat(ligandTableCell(subtypeIndex + 1, i).value));
+            var dataSet = get_dataset(i);
             var graph = {
                 x: dataSet[0],
                 y: dataSet[1],
