@@ -11,7 +11,6 @@ function randomiseSubType() {
 	redrawGraph()
 }
 
-// Create 
 function revealSubtype() {
     var subtypeReveal = document.getElementById("subtypeReveal");
     subtypeReveal.innerHTML = "M" + (subtypeIndex+1) + " (100%)";
