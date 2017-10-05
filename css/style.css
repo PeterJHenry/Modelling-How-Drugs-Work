@@ -30,8 +30,19 @@ body, h1, h2, h3, h4, h5, h6 {
     background: url(../img/bg-pattern.png);
 }
 
+.section{
+    min-height: 100vh;
 
-.dev-header {
+}
+.developmentSection{
+    padding-top: 80px;
+    padding-bottom: 50px;
+    text-align: center;
+    background: url(../img/bg-pattern.png) repeat;
+    background-color: white;
+}
+
+.assessmentSection{
     padding-top: 80px;
     padding-bottom: 50px;
     text-align: center;
@@ -188,12 +199,6 @@ p.cc {
   color: #4286f4;
   font-size: 30px;
   text-align: center;
-}
-
-.contact {
-  color: black;
-  text-align: justify;
-  padding-left: 10%;
 }
 
 .email {
