@@ -392,4 +392,5 @@ $(document).ready(function () {
     }).keyup(function () {
         validateLigandValue()
     });
+    $('[data-toggle="tooltip"]').tooltip();
 });
