@@ -239,18 +239,6 @@ li.quiztext {
   text-decoration-color: underline;
 }
 
-#ligandTable > tbody > tr > td > input {
-    background-color: rgba(255, 255, 255, 0.79);
-}
-
-#relDensity > td > input:disabled {
-    background-color: #efefef;
-}
-
-#ligandTable > tbody > tr > td > input:disabled {
-    background-color: rgba(239, 239, 239, 0.79);
-}
-
 #sectionContainer > input {
     text-align: left;
 }
