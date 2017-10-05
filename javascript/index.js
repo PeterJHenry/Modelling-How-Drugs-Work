@@ -239,11 +239,11 @@ function generateGraph() {
 // Draw/Update the graph from a data object.
 // Legend visible by default, allows an options object to be
 // passed to Plotly.newPlot()
-function plotGraph(data, showlegend=true, options={}) {
+function plotGraph(data, showlegend, options) {
     if (typeof showlegend === "undefined")
         showlegend = true;
     if (typeof option === "undefined")
-        option = {}
+        options = {};
     var layout = {
         xaxis: {
             title: '- log [ Ligand ] (M)',
