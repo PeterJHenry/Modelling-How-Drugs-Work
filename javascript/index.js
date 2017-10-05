@@ -78,6 +78,7 @@ function validateCheckBox(checkingBox, graphCallback) {
     if (subTypeCheckedCount === 0) {
         receptorRelDenTableCell(checkingBox).value = 100;
         state.subTypePresent[checkingBox] = receptorCheckBoxTableCell(checkingBox).checked = true;
+        enableColumn(checkingBox+1);
         subTypeCheckedCount++;
 
 
@@ -89,6 +90,7 @@ function validateCheckBox(checkingBox, graphCallback) {
         if (previousCheckedBox === checkingBox) {
             receptorRelDenTableCell(checkingBox).value = '';
             state.subTypePresent[checkingBox] = receptorCheckBoxTableCell(checkingBox).checked = false;
+            disableColumn(checkingBox+1);
             subTypeCheckedCount--;
 
             // If its not the same (checking a new box)
@@ -96,7 +98,7 @@ function validateCheckBox(checkingBox, graphCallback) {
             state.subTypePresent[checkingBox] = receptorCheckBoxTableCell(checkingBox).checked = true;
             receptorRelDenTableCell(checkingBox).value = receptorRelDenTableCell(previousCheckedBox).value = 50;
             receptorRelDenTableCell(checkingBox).disabled = receptorRelDenTableCell(previousCheckedBox).disabled = false;
-
+            enableColumn(checkingBox+1);
             subTypeCheckedCount++;
         }
 
@@ -115,6 +117,8 @@ function validateCheckBox(checkingBox, graphCallback) {
 
                 receptorRelDenTableCell(previousCheckedBox0).value = '';
                 receptorRelDenTableCell(previousCheckedBox1).value = 100;
+
+                disableColumn(checkingBox+1);
                 subTypeCheckedCount--;
                 break;
 
@@ -125,6 +129,7 @@ function validateCheckBox(checkingBox, graphCallback) {
 
                 receptorRelDenTableCell(previousCheckedBox1).value = '';
                 receptorRelDenTableCell(previousCheckedBox0).value = 100;
+                disableColumn(checkingBox+1);
                 subTypeCheckedCount--;
                 break;
 
@@ -241,7 +246,7 @@ function generateGraph() {
 // passed to Plotly.newPlot()
 function plotGraph(data, showlegend, options) {
     if (typeof showlegend === "undefined")
-        showlegend = true;
+        showlegend = false;
     if (typeof options === "undefined")
         options = {};
     var layout = {
@@ -384,11 +389,32 @@ function validateLigandValue() {
     generateGraph();
 }
 
-$(document).ready(function () {
+function addLigandListener() {
+
     $('.ligandInput').blur(function () {
         validateLigandValue();
     }).keyup(function () {
-        validateLigandValue()
+        validateLigandValue();
     });
+
+}
+
+function enableColumn(col) {
+    for (var i = 0; i < 6; i++) {
+        ligandTableCell(col, i).classList.add('activeColumn');
+        receptorRelDenTableCell(col-1).classList.add('activeColumn');
+    }
+}
+
+function disableColumn(col) {
+    for (var i = 0; i < 6; i++) {
+        ligandTableCell(col, i).classList.remove('activeColumn');
+        receptorRelDenTableCell(col-1).classList.remove('activeColumn');
+    }
+}
+
+$(document).ready(function () {
+    addLigandListener();
+
     $('[data-toggle="tooltip"]').tooltip();
 });
