@@ -379,9 +379,9 @@ function activeLigandRow() {
 function validateLigandValue() {
     for (var j = 0; j < 6; j++) {
         for (var i = 1; i < 6; i++) {
-            if (parseInt(ligandTableCell(i, j).value) > 11) {
+            if (parseInt(ligandTableCell(i, j).value) > 10) {
                 ligandTableCell(i, j).value = 11;
-            } else if (parseInt(ligandTableCell(i, j).value) < 2) {
+            } else if (parseInt(ligandTableCell(i, j).value) < 3) {
                 ligandTableCell(i, j).value = 0;
             }
         }
