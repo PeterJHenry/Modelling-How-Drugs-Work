@@ -11,6 +11,12 @@ function randomiseSubType() {
 	redrawGraph()
 }
 
+// Create 
+function revealSubtype() {
+    var subtypeReveal = document.getElementById("subtypeReveal");
+    subtypeReveal.innerHTML = "M" + (subtypeIndex+1) + " (100%)";
+}
+
 // Redraws the graph with current ligand values, does not affect subtype.
 function redrawGraph() {
 	// Generate data to pass to the graph.

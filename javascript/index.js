@@ -242,7 +242,7 @@ function generateGraph() {
 function plotGraph(data, showlegend, options) {
     if (typeof showlegend === "undefined")
         showlegend = true;
-    if (typeof option === "undefined")
+    if (typeof options === "undefined")
         options = {};
     var layout = {
         xaxis: {
