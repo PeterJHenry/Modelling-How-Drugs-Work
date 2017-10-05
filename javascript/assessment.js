@@ -9,23 +9,20 @@ function randomiseSubType() {
     subtypeIndex = [null, null];
     subtypePercentage = [null, null];
 
-    // 50/50 chance of there being 1 or 2 subtype.
-    if (Math.random() > 0.5) {
-        // 1 Subtype
-	   subtypeIndex[0] = Math.floor((Math.random() * 5)); // Random int from 0 to 4
-       subtypePercentage[0] = 100;
-	   redrawGraph();
+    subtypeIndex[0] = Math.floor((Math.random() * 5)); 
+    subtypePercentage[0] = 20 + 10 * Math.floor((Math.random() * 8)); // Generates a random percentage between 20 and 90, always a multiple of 10.
+    
+    if (subtypePercentage[0] === 90) {
+        // Treat 90 as one subtype.
+        subtypePercentage[0] = 100;
     } else {
-        //2 Subtypes
-        subtypeIndex[0] = Math.floor((Math.random() * 5)); 
         subtypeIndex[1] = Math.floor((Math.random() * 5)); 
         if (subtypeIndex[1] === subtypeIndex[0]) {
             subtypeIndex[0] = subtypeIndex[0]+1 % 5
         }
-        subtypePercentage[0] = 20 + 10 * Math.floor((Math.random() * 7));
         subtypePercentage[1] = 100 - subtypePercentage[0];
-        redrawGraph();        
     }
+    redrawGraph();        
     // Clear the previously revealed subtype
     document.getElementById("subtypeReveal").innerHTML = "";
 }
