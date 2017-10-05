@@ -31,10 +31,8 @@ var pos = 0, posn, choice, correct = 0, rscore = 0;
 
 var questions = [
 //  EACH QUESTION WE WILL RANDOMISE SUBTYPE RECEPTOR / DENSITY VALUES FOR QUESTIONS
-    [ "Hello",
-      "Hi","Ok","Bye","hello","D"],
-    [ "Hi",
-      "ok","hi","hi","hi","C"],
+    [ "Hello","Hi","Ok","Bye","hello","D"],
+    [ "Hi","ok","hi","hi","hi","C"],
     [ "What is 10 + 4?", "hiya", "14", "16","hello", "B" ],
     [ "What is 20 - 9?", "7", "13", "11","hello", "C" ],
     [ "What is 7 x 3?", "21", "24", "25","hello", "A" ],
@@ -124,15 +122,16 @@ window.onload = function() {
   timelimit = 60;
   var quiz = $_("sectionContainer");
   quiz.innerHTML = "<h3>Ready to be quizzed?</h3><br>"
-  quiz.innerHTML += "<p class='quiztext'>This quiz is based on the assessment tool, however you may use it to practice a series of questions under test conditions.<br></p>"
-  quiz.innerHTML += "<p class='quiztext'>A graph will be presented to you, with the specific binding % plotted with a few different ligands. You are required to select the correct answer for which receptor subtype and density combination is present.<br></p>"
+  quiz.innerHTML += "<p class='quiztext'>This quiz is based on the assessment tool, however you may use it to practice a series of questions under test conditions.<br></p>";
+  quiz.innerHTML += "<p class='quiztext'>A graph will be presented to you, with the specific binding % plotted with a few different ligands.</p>";
+  quiz.innerHTML += "<p class='quiztext'>You are required to select the correct answer for which receptor subtype and density combination is present.<br></p>";
   quiz.innerHTML += "<p class='quiztext'>You will have the opportunity to review the answers at completion of the quiz.";
-  quiz.innerHTML += "<p class='quiztext'>The quiz rules are as follows:";
+  quiz.innerHTML += "<p class='quiztext'>The quiz rules are as follows:</p>";
   quiz.innerHTML += "<li class='quiztext'>You will be asked "+questions.length+" questions</li>";
   quiz.innerHTML += "<li class='quiztext'>You will have four multi-choice option answers</li>";
   quiz.innerHTML += "<li class='quiztext'>You must select an answer to progress to the next question</li>";
   quiz.innerHTML += "<li class='quiztext'>You will be awarded one mark per correct answer</li>";
   quiz.innerHTML += "<li class='quiztext'>You will have "+timelimit/60+" minutes to complete the quiz</li><br>";
   quiz.innerHTML += "<p class='quiztext'>Click start to begin.<br>Good luck!</p>";
-  quiz.innerHTML += "<br><button class='btn' onclick='clearInterval(myVar),startTimer(),setQuestionOrder(),renderQuestion();'><span class='tool-name'>Start Quiz</span></button><br>";
+  quiz.innerHTML += "<button class='btn' onclick='clearInterval(myVar),startTimer(),setQuestionOrder(),renderQuestion();'><span class='tool-name'>Start Quiz</span></button><br>";
 }
