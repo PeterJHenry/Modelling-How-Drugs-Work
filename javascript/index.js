@@ -64,8 +64,8 @@ function ligandAutoFill(selectedLigand, rowIndex, graphCallback) {
 function updateCustomValue(rowIndex, graphCallback) {
     if (typeof graphCallback === "undefined")
         graphCallback = generateGraph;
-    var row = [];
-    for (var i = 0; i < 5; i++) row.push(parseInt(ligandTableCell(i + 1, rowIndex).value));
+    // var row = [];
+    // for (var i = 0; i < 5; i++) row.push(parseInt(ligandTableCell(i + 1, rowIndex).value));
     graphCallback();
 }
 
@@ -271,7 +271,7 @@ function plotGraph(data, showlegend, options) {
             t: 50,
             pad: 4
         },
-        showlegend: showlegend,
+        showlegend: showlegend
     };
     Plotly.newPlot('myDiv', data, layout, options);
 }
@@ -369,3 +369,28 @@ function activeLigandRow() {
     for (var i = 0; i < 6; i++) outputArray[i] = parseInt(ligandTableCell(0, i).value) !== 12;
     return outputArray;
 }
+
+
+function validateLigandValue() {
+    for (var j = 0; j < 6; j++) {
+        for (var i = 1; i < 6; i++) {
+            if (parseInt(ligandTableCell(i, j).value) > 11) {
+                ligandTableCell(i, j).value = 11;
+            } else if (parseInt(ligandTableCell(i, j).value) < 0) {
+                ligandTableCell(i, j).value = 0;
+            }
+
+        }
+
+    }
+
+    generateGraph();
+}
+
+$(document).ready(function () {
+    $('.ligandInput').blur(function () {
+        validateLigandValue();
+    }).keyup(function () {
+        validateLigandValue()
+    });
+});
