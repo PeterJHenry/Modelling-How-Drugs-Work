@@ -239,10 +239,10 @@ function generateGraph() {
 // Draw/Update the graph from a data object.
 // Legend visible by default, allows an options object to be
 // passed to Plotly.newPlot()
-function plotGraph(data, showlegend, options) {
+function plotGraph(data, showlegend=true, options={}) {
     if (typeof showlegend === "undefined")
         showlegend = true;
-    if (typeof option === "undefined")
+    if (typeof options === "undefined")
         options = {};
     var layout = {
         xaxis: {
