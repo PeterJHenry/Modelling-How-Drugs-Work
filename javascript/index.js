@@ -415,6 +415,6 @@ function disableColumn(col) {
 
 $(document).ready(function () {
     addLigandListener();
-
+    generateGraph();
     $('[data-toggle="tooltip"]').tooltip();
 });
