@@ -51,8 +51,8 @@ const state = {
 
 // Autofills the ligands according to the selected
 function ligandAutoFill(selectedLigand, rowIndex, graphCallback) {
-    if (typeof graphCallback === undefined)
-        graphCallback = generateGraph
+    if (typeof graphCallback === "undefined")
+        graphCallback = generateGraph;
     for (var i = 0; i < 5; i++) {
         ligandTableCell(i + 1, rowIndex).value = logK[selectedLigand.value][i];
         ligandTableCell(i + 1, rowIndex).disabled = (selectedLigand.value < 10 || parseInt(selectedLigand.value) === 12);
@@ -62,8 +62,8 @@ function ligandAutoFill(selectedLigand, rowIndex, graphCallback) {
 
 
 function updateCustomValue(rowIndex, graphCallback) {
-    if (typeof graphCallback === undefined)
-        graphCallback = generateGraph
+    if (typeof graphCallback === "undefined")
+        graphCallback = generateGraph;
     var row = [];
     for (var i = 0; i < 5; i++) row.push(parseInt(ligandTableCell(i + 1, rowIndex).value));
     graphCallback();
@@ -72,9 +72,9 @@ function updateCustomValue(rowIndex, graphCallback) {
 
 //// Check if the box can be checked
 function validateCheckBox(checkingBox, graphCallback) {
-    if (typeof graphCallback === undefined)
-        graphCallback = generateGraph
-    
+    if (typeof graphCallback === "undefined")
+        graphCallback = generateGraph;
+
     if (subTypeCheckedCount === 0) {
         receptorRelDenTableCell(checkingBox).value = 100;
         state.subTypePresent[checkingBox] = receptorCheckBoxTableCell(checkingBox).checked = true;
@@ -240,6 +240,10 @@ function generateGraph() {
 // Legend visible by default, allows an options object to be
 // passed to Plotly.newPlot()
 function plotGraph(data, showlegend=true, options={}) {
+    if (typeof showlegend === "undefined")
+        showlegend = true;
+    if (typeof option === "undefined")
+        option = {}
     var layout = {
         xaxis: {
             title: '- log [ Ligand ] (M)',
