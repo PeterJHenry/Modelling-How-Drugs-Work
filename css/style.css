@@ -309,11 +309,11 @@ input {
 }
 
 .ligandInput {
-    background-color: rgba(182, 182, 182, 0.79);
+    background-color: rgba(213, 213, 213, 0.79);
 }
 
 .ligandInput:disabled {
-    background-color: rgba(182, 182, 182, 0.79);
+    background-color: rgba(213, 213, 213, 0.79);
 }
 
 .receptorInput.activeColumn {
@@ -325,9 +325,9 @@ input {
 }
 
 .receptorInput {
-    background-color: rgba(182, 182, 182, 0.79);
+    background-color: rgba(213, 213, 213, 0.79);
 }
 
 .receptorInput:disabled {
-    background-color: rgba(182, 182, 182, 0.79);
+    background-color: rgba(213, 213, 213, 0.79);
 }

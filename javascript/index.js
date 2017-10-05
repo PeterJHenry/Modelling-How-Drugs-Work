@@ -78,7 +78,7 @@ function validateCheckBox(checkingBox, graphCallback) {
     if (subTypeCheckedCount === 0) {
         receptorRelDenTableCell(checkingBox).value = 100;
         state.subTypePresent[checkingBox] = receptorCheckBoxTableCell(checkingBox).checked = true;
-        enableColumn(checkingBox+1);
+        enableColumn(checkingBox + 1);
         subTypeCheckedCount++;
 
 
@@ -90,7 +90,7 @@ function validateCheckBox(checkingBox, graphCallback) {
         if (previousCheckedBox === checkingBox) {
             receptorRelDenTableCell(checkingBox).value = '';
             state.subTypePresent[checkingBox] = receptorCheckBoxTableCell(checkingBox).checked = false;
-            disableColumn(checkingBox+1);
+            disableColumn(checkingBox + 1);
             subTypeCheckedCount--;
 
             // If its not the same (checking a new box)
@@ -98,7 +98,7 @@ function validateCheckBox(checkingBox, graphCallback) {
             state.subTypePresent[checkingBox] = receptorCheckBoxTableCell(checkingBox).checked = true;
             receptorRelDenTableCell(checkingBox).value = receptorRelDenTableCell(previousCheckedBox).value = 50;
             receptorRelDenTableCell(checkingBox).disabled = receptorRelDenTableCell(previousCheckedBox).disabled = false;
-            enableColumn(checkingBox+1);
+            enableColumn(checkingBox + 1);
             subTypeCheckedCount++;
         }
 
@@ -118,7 +118,7 @@ function validateCheckBox(checkingBox, graphCallback) {
                 receptorRelDenTableCell(previousCheckedBox0).value = '';
                 receptorRelDenTableCell(previousCheckedBox1).value = 100;
 
-                disableColumn(checkingBox+1);
+                disableColumn(checkingBox + 1);
                 subTypeCheckedCount--;
                 break;
 
@@ -129,7 +129,7 @@ function validateCheckBox(checkingBox, graphCallback) {
 
                 receptorRelDenTableCell(previousCheckedBox1).value = '';
                 receptorRelDenTableCell(previousCheckedBox0).value = 100;
-                disableColumn(checkingBox+1);
+                disableColumn(checkingBox + 1);
                 subTypeCheckedCount--;
                 break;
 
@@ -390,31 +390,47 @@ function validateLigandValue() {
 }
 
 function addLigandListener() {
-
     $('.ligandInput').blur(function () {
         validateLigandValue();
     }).keyup(function () {
         validateLigandValue();
     });
+}
 
+function addReceptorListener() {
+    $('#relDensity').find("td").each(function (count) {
+        if (count > 0) {
+            $(this).blur(function () {
+                validateIndividualCell(count - 1);
+            }).mouseup(function () {
+                validateIndividualCell(count - 1);
+            }).change(function () {
+                validateIndividualCell(count - 1);
+            });
+        }
+    });
 }
 
 function enableColumn(col) {
     for (var i = 0; i < 6; i++) {
         ligandTableCell(col, i).classList.add('activeColumn');
-        receptorRelDenTableCell(col-1).classList.add('activeColumn');
+        receptorRelDenTableCell(col - 1).classList.add('activeColumn');
     }
 }
 
 function disableColumn(col) {
     for (var i = 0; i < 6; i++) {
         ligandTableCell(col, i).classList.remove('activeColumn');
-        receptorRelDenTableCell(col-1).classList.remove('activeColumn');
+        receptorRelDenTableCell(col - 1).classList.remove('activeColumn');
     }
 }
 
+
+
 $(document).ready(function () {
     addLigandListener();
+    addReceptorListener();
     generateGraph();
     $('[data-toggle="tooltip"]').tooltip();
 });
+
