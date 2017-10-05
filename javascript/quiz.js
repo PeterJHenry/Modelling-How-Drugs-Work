@@ -31,13 +31,11 @@ var pos = 0, posn, choice, correct = 0, rscore = 0;
 
 var questions = [
 //  EACH QUESTION WE WILL RANDOMISE SUBTYPE RECEPTOR / DENSITY VALUES FOR QUESTIONS
-    [ "Who's this snacc? <br> <img src='https://scontent.fper2-1.fna.fbcdn.net/v/t1.0-9/16426292_10209372721888231_7079148437469311035_n.jpg?oh=1e81ce5b1930308d36a38795708ebcb6&oe=5A59AAC7' alt='friend' height='300' width='300'>",
-      "Rork","Roarke","Roarrrr XD a hehe","hello","B"],
-    [ "Which is ur pal Roarke?",
-      "<img src='http://www.nova.edu/hpd/otm/pics/4fun/RUNNOSE.JPG' alt=''>",
-      "<img src='http://www.nova.edu/hpd/otm/pics/4fun/Gumby.JPG' alt=''>",
-      "<img src='https://scontent.fper2-1.fna.fbcdn.net/v/t1.0-9/16426292_10209372721888231_7079148437469311035_n.jpg?oh=1e81ce5b1930308d36a38795708ebcb6&oe=5A59AAC7' alt='friend' height='160' width='160'>","hi","C"],
-    [ "What is 10 + 4?", "<img src='https://scontent.fper2-1.fna.fbcdn.net/v/t1.0-9/16426292_10209372721888231_7079148437469311035_n.jpg?oh=1e81ce5b1930308d36a38795708ebcb6&oe=5A59AAC7' alt='friend' height='160' width='160'>", "14", "16","hello", "B" ],
+    [ "Hello",
+      "Hi","Ok","Bye","hello","D"],
+    [ "Hi",
+      "ok","hi","hi","hi","C"],
+    [ "What is 10 + 4?", "hiya", "14", "16","hello", "B" ],
     [ "What is 20 - 9?", "7", "13", "11","hello", "C" ],
     [ "What is 7 x 3?", "21", "24", "25","hello", "A" ],
     [ "What is 8 / 2?", "10", "2", "4","hello", "C" ],
@@ -70,7 +68,7 @@ function renderResults(){
   quiz.innerHTML = "<h2>You got "+correct+" of "+maxNumberOfQuestions+" questions correct</h2>";
   $_("quiz_status").innerHTML = "Quiz Completed";
   $_('timeleft').innerHTML = '';
-  quiz.innerHTML += "<button class='btn' onclick='location.reload()'><span class='tool-name'>Restart</span></button>";
+  quiz.innerHTML += "<br><button class='btn' onclick='location.reload()'><span class='tool-name'>Restart</span></button><br>";
   setQuestionOrder();
   correct = 0;
   clearInterval(myVar);
@@ -94,7 +92,7 @@ function renderQuestion() {
   quiz.innerHTML += "<label><input type='radio' name='choices' value='B'> "+chB+"</label><br>";
   quiz.innerHTML += "<label><input type='radio' name='choices' value='C'> "+chC+"</label><br>";
   quiz.innerHTML += "<label><input type='radio' name='choices' value='D'> "+chD+"</label><br>";
-  quiz.innerHTML += "<button class='btn' onclick='checkAnswer()'><span class='tool-name'>Submit Answer</span></button>";
+  quiz.innerHTML += "<br><button class='btn' onclick='checkAnswer()'><span class='tool-name'>Submit Answer</span></button><br>";
 }
 
 function checkAnswer(){
@@ -136,5 +134,5 @@ window.onload = function() {
   quiz.innerHTML += "<li class='quiztext'>You will be awarded one mark per correct answer</li>";
   quiz.innerHTML += "<li class='quiztext'>You will have "+timelimit/60+" minutes to complete the quiz</li><br>";
   quiz.innerHTML += "<p class='quiztext'>Click start to begin.<br>Good luck!</p>";
-  quiz.innerHTML += "<button class='btn' onclick='clearInterval(myVar),startTimer(),setQuestionOrder(),renderQuestion();'><span class='tool-name'>Start Quiz</span></button>";
+  quiz.innerHTML += "<br><button class='btn' onclick='clearInterval(myVar),startTimer(),setQuestionOrder(),renderQuestion();'><span class='tool-name'>Start Quiz</span></button><br>";
 }

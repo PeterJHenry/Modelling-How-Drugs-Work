@@ -39,17 +39,49 @@ body, h1, h2, h3, h4, h5, h6 {
   background-color: white;
 }
 
+
+
 .btn {
   color: #858c96;
   border: 1.5px solid #858c96;
   background-color: white;
   border-radius: 20px;
+  padding:.5rem .5rem;
+  font-size:.875rem;
+  line-height:1.5;
+  border-radius:1.5rem
 }
 
 .btn:hover, .btn:focus, .btn:active, .btn.active {
   color: #f2f2f2;
   border-color: #f2f2f2;
   background-color: #99ccff;
+  text-decoration: none;
+}
+
+.btn2, .btn3 {
+  color: #f2f2f2;
+  border: 1.5px solid #f2f2f2;
+  background-color: transparent;
+  border-radius: 20px;
+  padding:.6rem .5rem;
+  font-size:.875rem;
+  line-height:1.5;
+  border-radius:1.5rem
+}
+
+.btn2:hover, .btn2:focus, .btn2:active, .btn2.active {
+  color: #003972;
+  border-color: transparent;
+  background-color: #f2f2f2;
+  text-decoration: none;
+}
+
+.btn3:hover, .btn3:focus, .btn3:active, .btn3.active {
+  color: #99ccff;
+  border-color: transparent;
+  background-color: #f2f2f2;
+  text-decoration: none;
 }
 
 .intro-message {
