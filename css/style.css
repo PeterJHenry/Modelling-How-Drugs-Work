@@ -152,6 +152,11 @@ ul>li,p,td {
   font-size: 13px;
 }
 
+ol {
+  text-align: justify;
+  padding-right: 25px;
+}
+
 .ligTitle {
   text-align:left;
 }
@@ -172,6 +177,11 @@ footer {
 
 p.cc {
   margin: 15px 0 0;
+}
+
+.text {
+  text-align: justify;
+  padding-right: 10px;
 }
 
 fieldset.sectionContainer{
