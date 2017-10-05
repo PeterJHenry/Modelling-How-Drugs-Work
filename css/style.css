@@ -4,217 +4,212 @@
  * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-landing-page/blob/master/LICENSE)
  */
 
- /*
+/*
 #003972 navy
 #70a6ff blue
 #99ccff light blue
 #414447 dark grey
 #858c96 light grey
- */
+*/
 
 body, html {
-  width: 100%;
-  height: 100%;
+    width: 100%;
+    height: 100%;
 }
 
 body, h1, h2, h3, h4, h5, h6 {
-  font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-weight: 500;
+    font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 500;
 }
 
 .intro-header {
-  padding-top: 150px;
-  padding-bottom: 0px;
-  text-align: center;
-  color: #003972;
-  background: url(../img/bg-pattern.png);
+    padding-top: 150px;
+    padding-bottom: 0px;
+    text-align: center;
+    color: #003972;
+    background: url(../img/bg-pattern.png);
 }
-/*linear-gradient(to bottom right, white, #edf4ff)*/
+
 
 .dev-header {
-  padding-top: 80px;
-  padding-bottom: 50px;
-  text-align: center;
-  background: url(../img/bg-pattern.png) repeat;
-  background-color: white;
+    padding-top: 80px;
+    padding-bottom: 50px;
+    text-align: center;
+    background: url(../img/bg-pattern.png) repeat;
+    background-color: white;
 }
 
-
-
 .btn {
-  color: #858c96;
-  border: 1.5px solid #858c96;
-  background-color: white;
-  border-radius: 20px;
-  padding:.5rem .5rem;
-  font-size:.875rem;
-  line-height:1.5;
-  border-radius:1.5rem
+    color: #858c96;
+    border: 1.5px solid #858c96;
+    background-color: white;
+    border-radius: 20px;
+    padding: .5rem .5rem;
+    font-size: .875rem;
+    line-height: 1.5;
+    border-radius: 1.5rem;
+
 }
 
 .btn:hover, .btn:focus, .btn:active, .btn.active {
-  color: #f2f2f2;
-  border-color: #f2f2f2;
-  background-color: #99ccff;
-  text-decoration: none;
+    color: #f2f2f2;
+    border-color: #f2f2f2;
+    background-color: #99ccff;
+    text-decoration: none;
 }
 
 .btn2, .btn3 {
-  color: #f2f2f2;
-  border: 1.5px solid #f2f2f2;
-  background-color: transparent;
-  border-radius: 20px;
-  padding:.6rem .5rem;
-  font-size:.875rem;
-  line-height:1.5;
-  border-radius:1.5rem
+    color: #f2f2f2;
+    border: 1.5px solid #f2f2f2;
+    background-color: transparent;
+    border-radius: 20px;
+    padding: .6rem .5rem;
+    font-size: .875rem;
+    line-height: 1.5;
+    border-radius: 1.5rem
 }
 
 .btn2:hover, .btn2:focus, .btn2:active, .btn2.active {
-  color: #003972;
-  border-color: transparent;
-  background-color: #f2f2f2;
-  text-decoration: none;
+    color: #003972;
+    border-color: transparent;
+    background-color: #f2f2f2;
+    text-decoration: none;
 }
 
 .btn3:hover, .btn3:focus, .btn3:active, .btn3.active {
-  color: #99ccff;
-  border-color: transparent;
-  background-color: #f2f2f2;
-  text-decoration: none;
+    color: #99ccff;
+    border-color: transparent;
+    background-color: #f2f2f2;
+    text-decoration: none;
 }
 
 .intro-message {
-  position: relative;
-  padding-top: 5%;
-  padding-bottom: 20%;
+    position: relative;
+    padding-top: 5%;
+    padding-bottom: 20%;
 }
 
-.intro-message>h1 {
-  margin: 0;
-  text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.6);
-  font-size: 5em;
+.intro-message > h1 {
+    margin: 0;
+    text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.6);
+    font-size: 5em;
 }
 
 .intro-divider {
-  width: 400px;
-  border-top: 1px solid #f8f8f8;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    width: 400px;
+    border-top: 1px solid #f8f8f8;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 }
 
 .intro-social-buttons i {
-  font-size: 90%;
+    font-size: 90%;
 }
 
 #development {
-  padding: 50px 0;
-  background-color: #003972;
+    padding: 50px 0;
+    background-color: #003972;
 }
 
 #assessment {
-  padding: 50px 0;
-  border-top: 1px solid #e7e7e7;
-  border-bottom: 1px solid #e7e7e7;
+    padding: 50px 0;
+    border-top: 1px solid #e7e7e7;
+    border-bottom: 1px solid #e7e7e7;
 }
 
 #quiz {
-  padding: 50px 0;
-  background-color: #99ccff;
-  border-bottom: 1px solid #e7e7e7;
+    padding: 50px 0;
+    background-color: #99ccff;
+    border-bottom: 1px solid #e7e7e7;
 }
 
 .section-heading {
-  margin-bottom: 30px;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  font-weight: 350;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 350;
 }
 
 .section-heading-spacer {
-  float: left;
-  width: 200px;
-  border-top: 3px solid #e7e7e7;
+    float: left;
+    width: 200px;
+    border-top: 3px solid #e7e7e7;
 }
 
 .tool-name {
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  font-size: 14px;
-  font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 14px;
+    font-weight: 500;
 }
 
-.lihead{
-  font-style: italic;
-  color:#4286f4;
+.lihead {
+    font-style: italic;
+    color: #4286f4;
 }
 
-ul>li,p,td {
-  font-size: 13px;
+ul > li, p, td {
+    font-size: 13px;
 }
 
 ol {
-  text-align: justify;
-  padding-right: 25px;
+    text-align: justify;
+    padding-right: 25px;
 }
 
 .ligTitle {
-  text-align:left;
+    text-align: left;
 }
 
 th {
-  background-color: #e6f2ff;
-  font-size: 14px;
+    background-color: #e6f2ff;
+    font-size: 14px;
 }
 
 .th1 {
-  background-color: #cce5ff;
+    background-color: #cce5ff;
 }
 
 footer {
-  padding: 30px 0;
-  background-color: #f8f8f8;
+    padding: 30px 0;
+    background-color: #f8f8f8;
 }
 
 p.cc {
-  margin: 15px 0 0;
+    margin: 15px 0 0;
 }
 
 .text {
-  text-align: justify;
-  padding-right: 10px;
+    text-align: justify;
+    padding-right: 10px;
 }
 
-fieldset.sectionContainer{
+fieldset.sectionContainer {
     border: solid 2px #858c96;
     padding: 0 10px 10px 10px;
     border-radius: 5px;
     text-align: center;
-    /*display: inline-block;*/
     margin: 0 auto;
-    /*width: 60%;*/
     background-color: white;
-    /*margin-right: 40vw;*/
 }
 
-.sectionContainer > legend{
-    /*width: auto;*/
+.sectionContainer > legend {
+    width: auto;
     border: none;
     font-size: 20px;
-    padding: 0px 10px 0px 10px;
+    padding: 0 10px 0 10px;
     color: #858c96;
     text-align: left;
 }
 
-.ligandInput{
+.ligandInput {
     width: 50px;
 }
 
-.receptorInput{
+.receptorInput {
     width: 50px;
 }
 
-td,.th1 {
-    /*width: 100px;*/
+td, .th1 {
     text-align: center;
 }
 
@@ -223,21 +218,20 @@ td,.th1 {
     font-size: 15px;
     background-color: transparent;
     width: 160px;
-    margin: 0px 20px 0px 10px;
+    margin: 0 20px 0 10px;
 }
 
-
 .quiztext {
-  text-align: center;
-  padding: 0px 30px 0px 30px;
-  font-size: 16px;
+    text-align: center;
+    padding: 0 30px 0 30px;
+    font-size: 16px;
 }
 
 li.quiztext {
-  font-size: 14px;
-  text-align: left;
-  padding-left: 25%;
-  list-style-type:circle;
+    font-size: 14px;
+    text-align: left;
+    padding-left: 25%;
+    list-style-type: circle;
 }
 
 #ligandTable > tbody > tr > td > input {
@@ -252,8 +246,8 @@ li.quiztext {
     background-color: rgba(239, 239, 239, 0.79);
 }
 
-#sectionContainer > input{
-  text-align: left;
+#sectionContainer > input {
+    text-align: left;
 }
 
 .strikeout.row0 {

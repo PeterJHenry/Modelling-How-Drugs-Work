@@ -379,9 +379,7 @@ function validateLigandValue() {
             } else if (parseInt(ligandTableCell(i, j).value) < 2) {
                 ligandTableCell(i, j).value = 0;
             }
-
         }
-
     }
     generateGraph();
 }
