@@ -178,6 +178,29 @@ p.cc {
     margin: 15px 0 0;
 }
 
+.box {
+  border:1px solid #99ccff;
+  padding: 10px;
+}
+
+.icon {
+  font-style: bold;
+  color: #4286f4;
+  font-size: 30px;
+  text-align: center;
+}
+
+.contact {
+  color: black;
+  text-align: justify;
+  padding-left: 10%;
+}
+
+.email {
+  text-align: left;
+  padding-left: 0%;
+}
+
 .text {
     text-align: justify;
     padding-right: 10px;
