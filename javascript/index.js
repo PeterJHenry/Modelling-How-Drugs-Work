@@ -376,14 +376,13 @@ function validateLigandValue() {
         for (var i = 1; i < 6; i++) {
             if (parseInt(ligandTableCell(i, j).value) > 11) {
                 ligandTableCell(i, j).value = 11;
-            } else if (parseInt(ligandTableCell(i, j).value) < 0) {
+            } else if (parseInt(ligandTableCell(i, j).value) < 2) {
                 ligandTableCell(i, j).value = 0;
             }
 
         }
 
     }
-
     generateGraph();
 }
 
