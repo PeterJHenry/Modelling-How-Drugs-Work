@@ -50,7 +50,9 @@ const state = {
 
 
 // Autofills the ligands according to the selected
-function ligandAutoFill(selectedLigand, rowIndex, graphCallback=generateGraph) {
+function ligandAutoFill(selectedLigand, rowIndex, graphCallback) {
+    if (typeof graphCallback === undefined)
+        graphCallback = generateGraph
     for (var i = 0; i < 5; i++) {
         ligandTableCell(i + 1, rowIndex).value = logK[selectedLigand.value][i];
         ligandTableCell(i + 1, rowIndex).disabled = (selectedLigand.value < 10 || parseInt(selectedLigand.value) === 12);
@@ -59,7 +61,9 @@ function ligandAutoFill(selectedLigand, rowIndex, graphCallback=generateGraph) {
 }
 
 
-function updateCustomValue(rowIndex, graphCallback=generateGraph) {
+function updateCustomValue(rowIndex, graphCallback) {
+    if (typeof graphCallback === undefined)
+        graphCallback = generateGraph
     var row = [];
     for (var i = 0; i < 5; i++) row.push(parseInt(ligandTableCell(i + 1, rowIndex).value));
     graphCallback();
@@ -67,7 +71,10 @@ function updateCustomValue(rowIndex, graphCallback=generateGraph) {
 
 
 //// Check if the box can be checked
-function validateCheckBox(checkingBox, graphCallback=generateGraph) {
+function validateCheckBox(checkingBox, graphCallback) {
+    if (typeof graphCallback === undefined)
+        graphCallback = generateGraph
+    
     if (subTypeCheckedCount === 0) {
         receptorRelDenTableCell(checkingBox).value = 100;
         state.subTypePresent[checkingBox] = receptorCheckBoxTableCell(checkingBox).checked = true;
