@@ -23,6 +23,8 @@ function randomiseSubType() {
         subtypePercentage[1] = 100 - subtypePercentage[0];
         redrawGraph();        
     }
+    // Clear the previously revealed subtype
+    document.getElementById("subtypeReveal").innerHTML = "";
 }
 
 function revealSubtype() {
