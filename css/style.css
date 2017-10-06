@@ -50,6 +50,14 @@ body, h1, h2, h3, h4, h5, h6 {
     background-color: white;
 }
 
+.quizSection{
+  padding-top: 80px;
+  padding-bottom: 50px;
+  text-align: center;
+  background: url(../img/bg-pattern.png) repeat;
+  background-color: white;
+}
+
 .btn {
     color: #858c96;
     border: 1.5px solid #858c96;
