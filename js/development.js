@@ -1,8 +1,4 @@
-function updateCustomValue(rowIndex, graphCallback) {
-    if (typeof graphCallback === "undefined")
-        graphCallback = generateGraph;
-    graphCallback();
-}
+
 
 
 //// Check if the box can be checked
@@ -84,7 +80,6 @@ function validateIndividualCell(cellNumber) {
     validateRelDensityRow(cellNumber);
 }
 
-
 // TODO - This only works on two receptors
 function validateRelDensityRow(currentCellNumber) {
     var previousCheckedBox0 = activeCheckBoxes()[0];
@@ -97,7 +92,6 @@ function validateRelDensityRow(currentCellNumber) {
 
     generateGraph();
 }
-
 
 function validateLigandValue() {
     for (var j = 0; j < 6; j++) {
@@ -149,7 +143,6 @@ function disableColumn(col) {
         receptorRelDenTableCell(col - 1).classList.remove('activeColumn');
     }
 }
-
 
 $(document).ready(function () {
     generateGraph();

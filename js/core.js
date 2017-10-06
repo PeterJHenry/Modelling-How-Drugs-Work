@@ -275,3 +275,9 @@ function receptorRelDenTableCell(colIndex) {
 function receptorCheckBoxTableCell(colIndex) {
     return document.getElementById('subtypeCheckbox').children[colIndex + 1].children[0];
 }
+
+function updateCustomValue(rowIndex, graphCallback) {
+    if (typeof graphCallback === "undefined")
+        graphCallback = generateGraph;
+    graphCallback();
+}
