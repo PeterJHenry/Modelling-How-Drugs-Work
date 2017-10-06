@@ -285,6 +285,10 @@ li.quiztext {
     text-align: left;
 }
 
+.nav-active{
+    color: #000!important;
+}
+
 .strikeout.row0 {
     background: linear-gradient(to bottom, white, white 43%, #ff9933, #ff9933 57%, white, white 72%);
 }
@@ -306,7 +310,7 @@ li.quiztext {
 }
 
 .strikeout.row5 {
-    background: linear-gradient(to bottom, white, white 43%, #99339f, #99339f 57%, white, white 72%); 
+    background: linear-gradient(to bottom, white, white 43%, #99339f, #99339f 57%, white, white 72%);
 }
 
 input {
