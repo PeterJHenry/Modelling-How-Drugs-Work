@@ -44,6 +44,71 @@ body, h1, h2, h3, h4, h5, h6 {
 
 }
 
+/*Index sections*/
+.indexSection {
+    min-height: 25vh;
+    padding: 50px 0;
+}
+
+.indexCover {
+    height: 100vh;
+    background: url(../img/bg-pattern.png) repeat;
+    background-color: white;
+
+}
+
+.indexDevelopmentSection {
+    background-color: #003972;
+}
+
+.indexAssessmentSection {
+    border-top: 1px solid #e7e7e7;
+    border-bottom: 1px solid #e7e7e7;
+}
+
+.indexQuizSection {
+    background-color: #99ccff;
+    border-bottom: 1px solid #e7e7e7;
+}
+
+.coverSectionText {
+    padding-top: 25vh;
+    text-align: center;
+    color: #003972;
+}
+
+.coverSectionText > h1 {
+    margin: 0;
+    text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.6);
+    font-size: 5em;
+}
+.section-content{
+    padding-top: 20px;
+}
+
+@media (max-width: 450px) {
+    .coverSectionText > h1 {
+        font-size: 4em;
+    }
+
+}
+@media (max-width: 767px) {
+
+    .section-content{
+        text-align: center;
+    }
+    .section-heading-spacer{
+        display: none;
+    }
+}
+
+.img-fluid{
+    padding-top: 5vh;
+}
+
+
+
+/*Buttons*/
 .btn {
     color: #858c96;
     border: 1.5px solid #858c96;
@@ -112,23 +177,6 @@ body, h1, h2, h3, h4, h5, h6 {
 
 .intro-social-buttons i {
     font-size: 90%;
-}
-
-#development {
-    padding: 50px 0;
-    background-color: #003972;
-}
-
-#assessment {
-    padding: 50px 0;
-    border-top: 1px solid #e7e7e7;
-    border-bottom: 1px solid #e7e7e7;
-}
-
-#quiz {
-    padding: 50px 0;
-    background-color: #99ccff;
-    border-bottom: 1px solid #e7e7e7;
 }
 
 .section-heading {
