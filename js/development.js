@@ -90,9 +90,11 @@ function validateRelDensityRow(currentCellNumber) {
     var previousCheckedBox0 = activeCheckBoxes()[0];
     var previousCheckedBox1 = activeCheckBoxes()[1];
     var currentCellValue = parseInt(receptorRelDenTableCell(currentCellNumber).value);
+    if (currentCellValue < 0) currentCellValue = receptorRelDenTableCell(currentCellNumber).value = 0;
 
     if (currentCellNumber === previousCheckedBox0) receptorRelDenTableCell(previousCheckedBox1).value = 100 - currentCellValue;
     else receptorRelDenTableCell(previousCheckedBox0).value = 100 - currentCellValue;
+
     generateGraph();
 }
 
