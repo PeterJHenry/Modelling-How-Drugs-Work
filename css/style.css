@@ -286,27 +286,27 @@ li.quiztext {
 }
 
 .strikeout.row0 {
-    background: linear-gradient(to bottom, white, white 43%, #ff9933, #ff9933 57%, white, white 72%); /* Standard syntax */
+    background: linear-gradient(to bottom, white, white 43%, #ff9933, #ff9933 57%, white, white 72%);
 }
 
 .strikeout.row1 {
-    background: linear-gradient(to bottom, white, white 43%, #ff5050, #ff5050 57%, white, white 72%); /* Standard syntax */
+    background: linear-gradient(to bottom, white, white 43%, #ff5050, #ff5050 57%, white, white 72%);
 }
 
 .strikeout.row2 {
-    background: linear-gradient(to bottom, white, white 43%, #33ccff, #33ccff 57%, white, white 72%); /* Standard syntax */
+    background: linear-gradient(to bottom, white, white 43%, #33ccff, #33ccff 57%, white, white 72%);
 }
 
 .strikeout.row3 {
-    background: linear-gradient(to bottom, white, white 43%, #00cc00, #00cc00 57%, white, white 72%); /* Standard syntax */
+    background: linear-gradient(to bottom, white, white 43%, #00cc00, #00cc00 57%, white, white 72%);
 }
 
 .strikeout.row4 {
-    background: linear-gradient(to bottom, white, white 43%, #996633, #996633 57%, white, white 72%); /* Standard syntax */
+    background: linear-gradient(to bottom, white, white 43%, #996633, #996633 57%, white, white 72%);
 }
 
 .strikeout.row5 {
-    background: linear-gradient(to bottom, white, white 43%, #99339f, #99339f 57%, white, white 72%); /* Standard syntax */
+    background: linear-gradient(to bottom, white, white 43%, #99339f, #99339f 57%, white, white 72%); 
 }
 
 input {
