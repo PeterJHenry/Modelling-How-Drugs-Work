@@ -380,9 +380,9 @@ function validateLigandValue() {
     for (var j = 0; j < 6; j++) {
         for (var i = 1; i < 6; i++) {
             if (parseInt(ligandTableCell(i, j).value) > 10) {
-                ligandTableCell(i, j).value = 11;
+                ligandTableCell(i, j).value = 10;
             } else if (parseInt(ligandTableCell(i, j).value) < 3) {
-                ligandTableCell(i, j).value = 0;
+                ligandTableCell(i, j).value = 3;
             }
         }
     }
@@ -433,4 +433,3 @@ $(document).ready(function () {
     generateGraph();
     $('[data-toggle="tooltip"]').tooltip();
 });
-
