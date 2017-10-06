@@ -256,7 +256,9 @@ function plotGraph(data, showlegend, options) {
                 family: 'Lato, Helvetica Neue, Helvetica, Arial, sans-serif',
                 size: 18,
                 color: '#7f7f7f'
-            }
+            },
+            range: [-11,-2]
+
         },
         yaxis: {
             title: 'Specific Binding (%)',
@@ -264,7 +266,8 @@ function plotGraph(data, showlegend, options) {
                 family: 'Lato, Helvetica Neue, Helvetica, Arial, sans-serif',
                 size: 18,
                 color: '#7f7f7f'
-            }
+            },
+            range:[0,100]
         },
         // autosize: false,
         // width: 800,
@@ -426,11 +429,11 @@ function disableColumn(col) {
 }
 
 
-
 $(document).ready(function () {
+    generateGraph();
     addLigandListener();
     addReceptorListener();
-    generateGraph();
+
     $('[data-toggle="tooltip"]').tooltip();
 });
 

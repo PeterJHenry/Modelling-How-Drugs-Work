@@ -1,9 +1,3 @@
-/*!
- * Start Bootstrap - Landing Page (http://startbootstrap.com/template-overviews/landing-page)
- * Copyright 2013-2017 Start Bootstrap
- * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-landing-page/blob/master/LICENSE)
- */
-
 /*
 #003972 navy
 #70a6ff blue
@@ -30,11 +24,8 @@ body, h1, h2, h3, h4, h5, h6 {
     background: url(../img/bg-pattern.png);
 }
 
-.section{
+.section {
     min-height: 100vh;
-
-}
-.developmentSection{
     padding-top: 80px;
     padding-bottom: 50px;
     text-align: center;
@@ -42,19 +33,19 @@ body, h1, h2, h3, h4, h5, h6 {
     background-color: white;
 }
 
-.assessmentSection{
-    padding-top: 80px;
-    padding-bottom: 50px;
-    text-align: center;
-    background: url(../img/bg-pattern.png) repeat;
-    background-color: white;
+.developmentSection {
 }
 
+.assessmentSection {
+
+}
+.quizsection{
+
+}
 .btn {
     color: #858c96;
     border: 1.5px solid #858c96;
     background-color: white;
-    border-radius: 20px;
     padding: .5rem .5rem;
     font-size: .875rem;
     line-height: 1.5;
@@ -73,7 +64,6 @@ body, h1, h2, h3, h4, h5, h6 {
     color: #f2f2f2;
     border: 1.5px solid #f2f2f2;
     background-color: transparent;
-    border-radius: 20px;
     padding: .6rem .5rem;
     font-size: .875rem;
     line-height: 1.5;
@@ -190,20 +180,20 @@ p.cc {
 }
 
 .box {
-  border:1px solid #99ccff;
-  padding: 10px;
+    border: 1px solid #99ccff;
+    padding: 10px;
 }
 
 .icon {
-  font-style: bold;
-  color: #4286f4;
-  font-size: 30px;
-  text-align: center;
+    font-style: bold;
+    color: #4286f4;
+    font-size: 30px;
+    text-align: center;
 }
 
 .email {
-  text-align: left;
-  padding-left: 0%;
+    text-align: left;
+    padding-left: 0%;
 }
 
 .text {
@@ -263,8 +253,8 @@ li.quiztext {
 }
 
 .footer-link {
-  color: blue;
-  text-decoration-color: underline;
+    color: blue;
+    text-decoration-color: underline;
 }
 
 #sectionContainer > input {
@@ -300,6 +290,7 @@ input {
     text-align: center;
     border: 1.5px solid #858c96;
 }
+
 .ligandInput.activeColumn {
     background-color: rgb(255, 255, 255);
 }
