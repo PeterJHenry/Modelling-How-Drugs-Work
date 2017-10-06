@@ -29,7 +29,7 @@ function randomiseSubType() {
 
 function revealSubtype() {
     var subtypeReveal = document.getElementById("subtypeReveal");
-    var subtypeString = ""
+    var subtypeString = "";
     if (subtypeIndex[1] === null) {
         subtypeString = "M" + (subtypeIndex[0]+1) + " (100%)";
     } else {

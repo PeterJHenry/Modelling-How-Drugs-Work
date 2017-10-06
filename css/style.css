@@ -25,7 +25,7 @@ body, h1, h2, h3, h4, h5, h6 {
 }
 
 .section {
-    min-height: 100vh;
+    min-height: 90vh;
     padding-top: 80px;
     padding-bottom: 50px;
     text-align: center;
@@ -39,45 +39,53 @@ body, h1, h2, h3, h4, h5, h6 {
 .assessmentSection {
 
 }
-.quizsection{
+
+.quizsection {
 
 }
+
 .btn {
     color: #858c96;
     border: 1.5px solid #858c96;
     background-color: white;
-    padding: .5rem .5rem;
+    padding: .5rem .9rem;
     font-size: .875rem;
     line-height: 1.5;
     border-radius: 1.5rem;
 
 }
 
-.btn:hover, .btn:focus, .btn:active, .btn.active {
+.btn:hover,
+.btn:focus,
+.btn:active,
+.btn.active {
     color: #f2f2f2;
     border-color: #f2f2f2;
     background-color: #99ccff;
     text-decoration: none;
 }
 
-.btn2, .btn3 {
+.btn2,
+.btn3 {
     color: #f2f2f2;
     border: 1.5px solid #f2f2f2;
     background-color: transparent;
-    padding: .6rem .5rem;
-    font-size: .875rem;
-    line-height: 1.5;
-    border-radius: 1.5rem
 }
 
-.btn2:hover, .btn2:focus, .btn2:active, .btn2.active {
+.btn2:hover,
+.btn2:focus,
+.btn2:active,
+.btn2.active {
     color: #003972;
     border-color: transparent;
     background-color: #f2f2f2;
     text-decoration: none;
 }
 
-.btn3:hover, .btn3:focus, .btn3:active, .btn3.active {
+.btn3:hover,
+.btn3:focus,
+.btn3:active,
+.btn3.active {
     color: #99ccff;
     border-color: transparent;
     background-color: #f2f2f2;
@@ -127,7 +135,7 @@ body, h1, h2, h3, h4, h5, h6 {
     margin-bottom: 30px;
     text-transform: uppercase;
     letter-spacing: 2px;
-    font-weight: 350;
+    font-weight: 400;
 }
 
 .section-heading-spacer {
@@ -185,20 +193,9 @@ p.cc {
 }
 
 .icon {
-    font-style: bold;
     color: #4286f4;
     font-size: 30px;
     text-align: center;
-}
-
-.email {
-    text-align: left;
-    padding-left: 0%;
-}
-
-.text {
-    text-align: justify;
-    padding-right: 10px;
 }
 
 fieldset.sectionContainer {
@@ -250,11 +247,6 @@ li.quiztext {
     text-align: left;
     padding-left: 25%;
     list-style-type: circle;
-}
-
-.footer-link {
-    color: blue;
-    text-decoration-color: underline;
 }
 
 #sectionContainer > input {
