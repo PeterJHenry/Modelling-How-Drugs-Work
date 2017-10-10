@@ -65,7 +65,7 @@
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
                 <div class="modal-body">
-                    <p class="text">Hypothetical ligands have been included in the model to increase its applicability.
+                    <p class="justify">Hypothetical ligands have been included in the model to increase its applicability.
                         <br><br>Ligand A and Ligand B are examples of ligands that have marked differences in affinities
                         (-log K<sub>i</sub> values) for receptor subtypes (not evident with established ligands).
                         <br><br>You may nominate affinities (-log K<sub>i</sub> values) for Ligand C and D.</p>
@@ -392,51 +392,35 @@
                 <div class="modal-header">
                     <h5>Instructions</h5>
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
-                </div>
-                <div class="modal-body">
-                    <div class="panel-group" id="accordion">
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <p class="lihead">
-                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">
-                                        Development Tool</a>
-                                </p>
-                            </div>
-                            <div id="collapse1" class="panel-collapse collapse in">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                                    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-                                    minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-                                    commodo consequat.</p>
-                            </div>
-                        </div>
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <p class="lihead">
-                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">
-                                        Self-Assessment Tool</a>
-                                </p>
-                            </div>
-                            <div id="collapse2" class="panel-collapse collapse">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                                    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-                                    minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-                                    commodo consequat.</p>
-                            </div>
-                        </div>
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <p class="lihead">
-                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">
-                                        Quiz</a>
-                                    <p>
-                            </div>
-                            <div id="collapse3" class="panel-collapse collapse">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                                    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-                                    minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-                                    commodo consequat.</p>
-                            </div>
-                        </div>
+                  </div>
+                  <div class="modal-body">
+                    <button class="accordion">Development Tool</button>
+                    <div class="panel">
+                    <p class="lihead">Firstly, you select which receptor subtypes are present in the cell/tissue of interest.</p>
+                    <p class="justify">You may select up to <b>two</b> options by clicking on the appropriate buttons below the names of the subtypes.</p>
+                    <p class="justify">Once a particular receptor subtype has been selected, the <i>relative density</i> box appears immediately below.</p>
+                    <p class="justify">If only one receptor subtype is selected, then the <i>relative density</i> value must be 100.</p>
+                    <p class="justify">If two receptor subtypes have been selected, then the combined value must be 100, i.e. increasing the value of one will decrease the value of the other to maintain a total value of 100.</p>
+                    <p class="justify">Changing the relative densities is achieved by using the arrows for increments of 1%, or by typing in the desired value.</p>
+
+                    <p class="lihead">Secondly, you select which ligands you wish to use in the competition binding studies.</p>
+                    <p class="justify">From the drop down menu, you select from a list of 8 <i>established</i> ligands and 4 <i>hypothetical</i> ligands.</p>
+                    <p class="justify"><i>Established</i> ligands are durgs that have been used extensively in the past, and for which there are known -log K<sub>i</sub> values.</p>
+                    <p class="justify"><i>Hypothetical</i> ligands have been included in the model to increase applicability.</p>
+                    <p class="justify">There are 2 types of <i>hypothetical</i> ligands － one type includes <b>Ligand A</b> and <b>Ligand B</b>, which have marked (but defined) differences in affinities for receptor subtypes.</p>
+                    <p class="justify">The second type of <i>hypothetical</i> ligand includes <b>Ligand C</b> and <b>Ligand D</b>, and these are drugs where you may nominate (and change) affinities between 3 and 10.</p>
+                    <p class="justify">The ligands included in the drop down menu and their corresponding  -log K<sub>i</sub> values can be viewed in the '<i>-Log K<sub>i</sub> Reference Table</i>' tab.</p>
+                    <p class="justify">
+                    </div>
+
+                    <button class="accordion">Self-Assessment Tool</button>
+                    <div class="panel">
+                    <p></p>
+                    </div>
+
+                    <button class="accordion">Quiz</button>
+                    <div class="panel">
+                    <p></p>
                     </div>
                 </div>
                 <div class="modal-footer">

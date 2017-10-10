@@ -183,9 +183,21 @@ body, h1, h2, h3, h4, h5, h6 {
     font-weight: 500;
 }
 
+.justify {
+  text-align: justify;
+}
+
 .lihead {
     font-style: italic;
     color: #4286f4;
+    text-align: justify;
+}
+
+p.lihead {
+    font-style: italic;
+    text-align: justify;
+    color: #4286f4;
+    font-size: 15px;
 }
 
 ul > li, p, td {
@@ -228,6 +240,33 @@ p.cc {
     color: #4286f4;
     font-size: 30px;
     text-align: center;
+}
+
+button.accordion {
+    background-color: #f2f2f2;
+    color: #444;
+    cursor: pointer;
+    padding: 15px;
+    margin-bottom: 5px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 14px;
+    transition: 0.4s;
+    border-radius: 10px;
+}
+
+button.accordion.active, button.accordion:hover {
+    background-color: #e8f3ff;
+}
+
+div.panel {
+    padding: 0 18px;
+    background-color: white;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
 }
 
 fieldset.sectionContainer {
