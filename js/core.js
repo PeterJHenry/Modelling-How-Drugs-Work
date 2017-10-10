@@ -281,3 +281,7 @@ function updateCustomValue(rowIndex, graphCallback) {
         graphCallback = generateGraph;
     graphCallback();
 }
+
+$(window).resize(function () {
+    generateGraph();
+});
