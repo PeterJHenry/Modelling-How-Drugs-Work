@@ -150,3 +150,6 @@ $(document).ready(function () {
     addReceptorListener();
     $('[data-toggle="tooltip"]').tooltip();
 });
+$(window).resize(function () {
+    generateGraph();
+});
