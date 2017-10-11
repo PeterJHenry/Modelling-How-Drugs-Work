@@ -97,10 +97,14 @@ body, h1, h2, h3, h4, h5, h6 {
     }
     #revealButton {;
       margin-left:0%;
+      float: clear;
+      margin: auto;
     }
 
     #resetButton {
       margin-right:0%;
+      float: clear;
+      margin: auto;
     }
 
 }
