@@ -69,6 +69,60 @@ function validateCheckBox(checkingBox, graphCallback) {
                 receptorCheckBoxTableCell(checkingBox).checked = false;
                 break;
         }
+        
+       }else if(subTypeCheckedCount === 3){
+            var previousCheckedBox30 = activeCheckBoxes()[0];
+            var previousCheckedBox31 = activeCheckBoxes()[1];
+            var previousCheckedBox32 = activeCheckBoxes()[2];
+            switch (checkingBox) {
+
+                case previousCheckedBox30:
+
+                state.subTypePresent[previousCheckedBox30] = receptorCheckBoxTableCell(previousCheckedBox30).checked = false;
+                receptorRelDenTableCell(previousCheckedBox30).disabled = receptorRelDenTableCell(checkingBox).disabled = true;
+                
+
+                receptorRelDenTableCell(previousCheckedBox30).value = '';
+                receptorRelDenTableCell(previousCheckedBox31).value = 50;
+                receptorRelDenTableCell(previousCheckedBox32).value = 50;
+
+                disableColumn(checkingBox + 1);
+                subTypeCheckedCount--;
+                break;
+
+                case previousCheckedBox31:
+
+                state.subTypePresent[previousCheckedBox31] = receptorCheckBoxTableCell(previousCheckedBox31).checked = false;
+                receptorRelDenTableCell(previousCheckedBox31).disabled = receptorRelDenTableCell(checkingBox).disabled = true;
+                
+
+                receptorRelDenTableCell(previousCheckedBox30).value = 50;
+                receptorRelDenTableCell(previousCheckedBox31).value = '';
+                receptorRelDenTableCell(previousCheckedBox32).value = 50;
+                disableColumn(checkingBox + 1);
+                subTypeCheckedCount--;
+
+                break;
+
+                case previousCheckedBox32:
+
+                state.subTypePresent[previousCheckedBox32] = receptorCheckBoxTableCell(previousCheckedBox32).checked = false;
+                receptorRelDenTableCell(previousCheckedBox32).disabled = receptorRelDenTableCell(checkingBox).disabled = true;
+                
+
+                receptorRelDenTableCell(previousCheckedBox30).value = 50;
+                receptorRelDenTableCell(previousCheckedBox31).value = 50;
+                receptorRelDenTableCell(previousCheckedBox32).value = '';
+                disableColumn(checkingBox + 1);
+                subTypeCheckedCount--;
+                break;
+
+                default:
+                alert("You can only select three boxes");
+                receptorCheckBoxTableCell(checkingBox).checked = false;
+                break;
+            }
+        
     }
     graphCallback();
 }
