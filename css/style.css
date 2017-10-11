@@ -95,6 +95,15 @@ body, h1, h2, h3, h4, h5, h6 {
     .coverSectionText > h1 {
         font-size: 4em;
     }
+    #revealButton {
+      margin-left: 0px;
+      margin-right: 0px;
+    }
+
+    #resetButton {
+      margin-left: 0px;
+      margin-right: 0px;
+    }
 
 }
 @media (max-width: 767px) {
@@ -104,6 +113,15 @@ body, h1, h2, h3, h4, h5, h6 {
     }
     .section-heading-spacer{
         display: none;
+    }
+    #revealButton {
+      margin-left: 0px;
+      margin-right: 0px;
+    }
+
+    #resetButton {
+      margin-left: 0px;
+      margin-right: 0px;
     }
 }
 
@@ -162,15 +180,6 @@ body, h1, h2, h3, h4, h5, h6 {
     text-decoration: none;
 }
 
-#revealButton {
-  margin-top: -30px;
-  margin-bottom: 15px;
-}
-
-#resetButton {
-  margin-bottom: 10px;
-}
-
 .intro-divider {
     max-width: 400px;
     width: 50%;
@@ -197,6 +206,16 @@ body, h1, h2, h3, h4, h5, h6 {
     letter-spacing: 2px;
     font-size: 14px;
     font-weight: 500;
+}
+
+#revealButton {
+  float: left;
+  margin: -20px 0px 20px 30px;
+}
+
+#resetButton {
+  float: right;
+  margin: -20px 30px 20px 0px;
 }
 
 .justify {
