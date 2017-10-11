@@ -35,21 +35,6 @@ function randomiseSubType() {
         subtypePercentage[1] = 100 - subtypePercentage[0];
     }
     redrawGraph();
-    // Clear the previously revealed subtype
-    document.getElementById("subtypeReveal").innerHTML = "Reveal Subtype";
-}
-
-function revealSubtype() {
-    document.getElementById("subtypeReveal").style.display = "inline-block";
-    var subtypeReveal = document.getElementById("subtypeReveal");
-    var subtypeString = "";
-    if (subtypeIndex[1] === null) {
-        subtypeString = "M" + (subtypeIndex[0]+1) + " (100%)";
-    } else {
-        subtypeString = "M" + (subtypeIndex[0]+1) + " (" + subtypePercentage[0]+ "%), "
-        subtypeString += "M" + (subtypeIndex[1]+1) + " (" + subtypePercentage[1]+ "%)"
-    }
-    subtypeReveal.innerHTML = subtypeString;
 }
 
 function get_dataset(i) {
