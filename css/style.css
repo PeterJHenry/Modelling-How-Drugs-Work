@@ -95,17 +95,6 @@ body, h1, h2, h3, h4, h5, h6 {
     .coverSectionText > h1 {
         font-size: 4em;
     }
-    #revealButton {;
-      margin-left:0%;
-      float: clear;
-      margin: auto;
-    }
-
-    #resetButton {
-      margin-right:0%;
-      float: clear;
-      margin: auto;
-    }
 
 }
 @media (max-width: 767px) {
@@ -174,13 +163,11 @@ body, h1, h2, h3, h4, h5, h6 {
 }
 
 #revealButton {
-  float:left;
-  margin-left:10%;
+  margin-bottom: 20px;
 }
 
 #resetButton {
-  float: right;
-  margin-right:10%;
+  margin-bottom: 20px;
 }
 
 .intro-divider {
