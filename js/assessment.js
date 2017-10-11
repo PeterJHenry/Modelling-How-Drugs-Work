@@ -6,34 +6,36 @@ var subtypePercentage;
 
 // Chooose a random subtype and then the draw the graph for it.
 function randomiseSubType() {
+    document.getElementById("subtypeReveal").style.display = "none";
     subtypeIndex = [null, null];
     subtypePercentage = [null, null];
 
-    subtypeIndex[0] = Math.floor((Math.random() * 5)); 
+    subtypeIndex[0] = Math.floor((Math.random() * 5));
     subtypePercentage[0] = 20 + 10 * Math.floor((Math.random() * 8)); // Generates a random percentage between 20 and 90, always a multiple of 10.
-    
+
     if (subtypePercentage[0] === 90) {
         // Treat 90 as one subtype.
         subtypePercentage[0] = 100;
     } else {
-        subtypeIndex[1] = Math.floor((Math.random() * 5)); 
+        subtypeIndex[1] = Math.floor((Math.random() * 5));
         if (subtypeIndex[1] === subtypeIndex[0]) {
             subtypeIndex[0] = subtypeIndex[0]+1 % 5
         }
         subtypePercentage[1] = 100 - subtypePercentage[0];
     }
-    redrawGraph();        
+    redrawGraph();
     // Clear the previously revealed subtype
     document.getElementById("subtypeReveal").innerHTML = "";
 }
 
 function revealSubtype() {
+    document.getElementById("subtypeReveal").style.display = "inline-block";
     var subtypeReveal = document.getElementById("subtypeReveal");
     var subtypeString = "";
     if (subtypeIndex[1] === null) {
         subtypeString = "M" + (subtypeIndex[0]+1) + " (100%)";
     } else {
-        subtypeString = "M" + (subtypeIndex[0]+1) + " (" + subtypePercentage[0]+ "%) , "
+        subtypeString = "M" + (subtypeIndex[0]+1) + " (" + subtypePercentage[0]+ "%)<br>"
         subtypeString += "M" + (subtypeIndex[1]+1) + " (" + subtypePercentage[1]+ "%)"
     }
     subtypeReveal.innerHTML = subtypeString;
@@ -44,11 +46,11 @@ function get_dataset(i) {
     if (subtypeIndex[1] === null) {
         dataSet = calculateGraphPoints(1, 100, parseFloat(ligandTableCell(subtypeIndex[0] + 1, i).value));
     } else {
-        dataSet = calculateGraphPoints(2,  
+        dataSet = calculateGraphPoints(2,
             subtypePercentage[0],parseFloat(ligandTableCell(subtypeIndex[0] + 1, i).value),
             subtypePercentage[1],parseFloat(ligandTableCell(subtypeIndex[1]+1, i).value));
     }
-    return dataSet    
+    return dataSet
 }
 
 // Redraws the graph with current ligand values, does not affect subtype.
