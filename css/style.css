@@ -191,13 +191,12 @@ body, h1, h2, h3, h4, h5, h6 {
 }
 
 #revealButton {
-  float: left;
-  margin: -20px 0px 20px 0px;
+  margin-top: -20px;
+  margin-bottom: 15px;
 }
 
 #resetButton {
-  float: right;
-  margin: -20px 0px 20px 0px;
+  margin-bottom: 15px;
 }
 
 .justify {
