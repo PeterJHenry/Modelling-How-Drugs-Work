@@ -3,6 +3,7 @@ var timeLimit = 1500;
 var numberOfQuestions = 5;
 
 var questionNumbers = 0;
+var currentNumber = 0;
 
 var questionStack = [];
 var correctAnswerStack = [];
@@ -13,6 +14,7 @@ var subtypePercentage;
 
 $(document).ready(function () {
     setQuizProperties();
+    $('.quizAnswers').hide();
     //startQuiz();
 });
 
@@ -35,6 +37,7 @@ function randomiseSubType() {
         subtypePercentage[1] = 100 - subtypePercentage[0];
     }
     redrawGraph();
+    $('#submitButton').html("Next Question");
 }
 
 function get_dataset(i) {
@@ -83,8 +86,9 @@ function setQuizProperties() {
 function startQuiz() {
     $('.questionCover').hide();
     $('.questionContainer').show();
+    $('.quizAnswers').hide();
     initializeClock();
-    prepareQuestions();
+    generateQuestion();
 }
 
 function initializeClock() {
@@ -119,11 +123,10 @@ function initializeClock() {
 
 // This functions generates a random number of questions and ratio and returns as an array
 function generateQuestion() {
-    questionNumbers++;
-    $('#quiz_title').html('Question '+questionNumbers+' of '+numberOfQuestions)
+    currentNumber++;
+    $('#quiz_title').html('Question '+currentNumber+' of '+numberOfQuestions);
 
     randomiseSubType();
-
 
     function getRandomSubtype() {
         return Math.floor(Math.random() * 5) + 1;
@@ -160,6 +163,17 @@ function generateQuestion() {
     return [subtypes, subtypeRatio];
 }
 
+function checkEnd() {
+  if(currentNumber === numberOfQuestions){
+    $('#submitButton').html("Submit");
+  }
+  if(currentNumber > numberOfQuestions){
+    $('#quiz_title').html('Review');
+    $('.questionContainer').hide();
+    $('.quizAnswers').show();
+  }
+}
+
 // Redraws the graph with current ligand values, does not affect subtype.
 function redrawGraph() {
 	// Generate data to pass to the graph.
@@ -185,12 +199,14 @@ function redrawGraph() {
 	plotGraph(data, false, {staticPlot: true})
 }
 
+/*
 // Prepare the entire stack of questions
 function prepareQuestions() {
     for (var i = 0; i < numberOfQuestions; i++) {
         questionStack.push(generateQuestion());
     }
 }
+*/
 
 function collectUserInput(){
     var userAnswer = [];

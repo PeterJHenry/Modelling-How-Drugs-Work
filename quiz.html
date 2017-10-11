@@ -618,7 +618,7 @@
                             </div>
                             <div class="row" style="margin-top: 30px">
                                 <div class="container-fluid">
-                                    <button class="btn" onclick="collectUserInput(),generateQuestion()"><span class="tool-name">Next Question</span></button>
+                                    <button class="btn" onclick="collectUserInput(),generateQuestion(),checkEnd()"><span class="tool-name" id="submitButton"></span></button>
                                 </div>
                         </div>
                       </div>
@@ -636,6 +636,12 @@
             </div>
         </div>
     </div>
+
+
+    <div class="quizAnswers">
+      <p>ANSWERS</p>
+    </div>
+
   </div>
 </div>
 </section>
