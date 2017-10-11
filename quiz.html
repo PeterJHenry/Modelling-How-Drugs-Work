@@ -44,7 +44,7 @@
     <meta name="msapplication-square310x310logo" content="favicon/mstile-310x310.png" />
 
 </head>
-<body onload="randomiseSubType()">
+<body>
 
 <!-- Header -->
 <header>
@@ -308,343 +308,89 @@
                     </div>
 
 
-                    <div class="questionPage">
-            <div class="row justify-content-md-center">
+            <div class="questionPage">
+              <div class="row justify-content-md-center">
                 <div class="col-md-1 col-lg-0"></div>
                 <div class="col-12 col-md-10 col-lg-12">
                     <div class="row">
                         <div class="col-lg-6">
-                            <div class="container">
-                                <fieldset class="sectionContainer">
-                                    <legend>Receptor</legend>
-                                    <p class="lihead">Which receptor subtypes are present and what are their relative densities?</p>
-                                    <table class="table-responsive">
-                                        <tbody>
-                                        <tr>
-                                            <td></td>
-                                            <td>M<sub>1</sub></td>
-                                            <td>M<sub>2</sub></td>
-                                            <td>M<sub>3</sub></td>
-                                            <td>M<sub>4</sub></td>
-                                            <td>M<sub>5</sub></td>
-                                        </tr>
-                                        <tr id="subtypeCheckbox">
-                                            <td>
-                                                <div class="leftInput">Subtypes</div>
-                                            </td>
-                                            <td><input type="checkbox" onclick="validateCheckBox(0)"></td>
-                                            <td><input type="checkbox" onclick="validateCheckBox(1)"></td>
-                                            <td><input type="checkbox" onclick="validateCheckBox(2)"></td>
-                                            <td><input type="checkbox" onclick="validateCheckBox(3)"></td>
-                                            <td><input type="checkbox" onclick="validateCheckBox(4)"></td>
+                          <div class="container-fluid ligands">
+                              <div class="row">
+                                <p class="lihead" style="margin:auto;font-size:15px;margin-bottom:20px;margin-top:20px;">Which receptor subtypes are present and what are their relative densities?</p>
+              <fieldset class="sectionContainer">
+                  <legend>Receptor</legend>
+                  <table class="table-responsive">
+                      <tbody>
+                      <tr>
+                          <td></td>
+                          <td>M<sub>1</sub></td>
+                          <td>M<sub>2</sub></td>
+                          <td>M<sub>3</sub></td>
+                          <td>M<sub>4</sub></td>
+                          <td>M<sub>5</sub></td>
+                      </tr>
+                      <tr id="subtypeCheckbox">
+                          <td>
+                              <div class="leftInput">Subtypes</div>
+                          </td>
+                          <td><input type="checkbox" onclick="validateCheckBox(0)"></td>
+                          <td><input type="checkbox" onclick="validateCheckBox(1)"></td>
+                          <td><input type="checkbox" onclick="validateCheckBox(2)"></td>
+                          <td><input type="checkbox" onclick="validateCheckBox(3)"></td>
+                          <td><input type="checkbox" onclick="validateCheckBox(4)"></td>
 
-                                        </tr>
-                                        <tr id="relDensity">
-                                            <td>
-                                                <div class="leftInput">Relative Density (%)</div>
-                                            </td>
+                      </tr>
+                      <tr id="relDensity">
+                          <td>
+                              <div class="leftInput">Relative Density (%)</div>
+                          </td>
 
-                                            <td><input type="number" class="receptorInput" id="relativeDensity1" step="10" disabled max="100" min="0">
-                                            </td>
-                                            <td><input type="number" class="receptorInput" id="relativeDensity2" step="10" disabled max="100" min="0">
-                                            </td>
-                                            <td><input type="number" class="receptorInput" id="relativeDensity3" step="10" disabled max="100" min="0">
-                                            </td>
-                                            <td><input type="number" class="receptorInput" id="relativeDensity4" step="10" disabled max="100" min="0">
-                                            </td>
-                                            <td><input type="number" class="receptorInput" id="relativeDensity5" step="10" disabled max="100" min="0">
-                                            </td>
+                          <td><input type="number" class="receptorInput" id="relativeDensity1" step="10" disabled max="100" min="0">
+                          </td>
+                          <td><input type="number" class="receptorInput" id="relativeDensity2" step="10" disabled max="100" min="0">
+                          </td>
+                          <td><input type="number" class="receptorInput" id="relativeDensity3" step="10" disabled max="100" min="0">
+                          </td>
+                          <td><input type="number" class="receptorInput" id="relativeDensity4" step="10" disabled max="100" min="0">
+                          </td>
+                          <td><input type="number" class="receptorInput" id="relativeDensity5" step="10" disabled max="100" min="0">
+                          </td>
 
-                                        </tr>
-                                        </tbody>
+                      </tr>
+                      </tbody>
 
-                                    </table>
+                  </table>
 
-                                </fieldset>
-                            </div>
-
-                            <div class="container">
-                                <fieldset class="sectionContainer">
-                                  <legend>Ligands</legend>
-                                  <table id="ligandTable" class="table-responsive">
-                                      <tbody>
-                                      <tr class="strikeout row0">
-                                          <td>
-                                              <div class="leftInput">1.
-                                                  <select onchange="ligandAutoFill(this,0,redrawGraph)">
-                                                      <option value="12">Select</option>
-                                                      <optgroup label="Established">
-                                                          <option value="0">Atropine</option>
-                                                          <option value="1">Pirenzipine</option>
-                                                          <option value="2">Methoctromine</option>
-                                                          <option value="3">Darifenacin</option>
-                                                          <option value="4">MT-3</option>
-                                                          <option value="5">S-secoverine</option>
-                                                          <option value="6">Solifenacin</option>
-                                                          <option value="7">DAU-5884</option>
-                                                      </optgroup>
-                                                      <optgroup label="Hypothetical">
-                                                          <option value="8">Ligand A</option>
-                                                          <option value="9">Ligand B</option>
-                                                      </optgroup>
-                                                  </select>
-                                              </div>
-                                          </td>
-
-                                          <td><input class="ligandInput activeColumn" disabled
-                                                     onblur="updateCustomValue(0,redrawGraph)"
-                                                     onkeyup="updateCustomValue(0,redrawGraph)"
-                                                     min="0" max="11"></td>
-                                          <td><input class="ligandInput activeColumn" disabled
-                                                     onblur="updateCustomValue(0,redrawGraph)"
-                                                     onkeyup="updateCustomValue(0,redrawGraph)"></td>
-                                          <td><input class="ligandInput activeColumn" disabled
-                                                     onblur="updateCustomValue(0,redrawGraph)"
-                                                     onkeyup="updateCustomValue(0,redrawGraph)"></td>
-                                          <td><input class="ligandInput activeColumn" disabled
-                                                     onblur="updateCustomValue(0,redrawGraph)"
-                                                     onkeyup="updateCustomValue(0,redrawGraph)"></td>
-                                          <td><input class="ligandInput activeColumn" disabled
-                                                     onblur="updateCustomValue(0,redrawGraph)"
-                                                     onkeyup="updateCustomValue(0,redrawGraph)"></td>
-                                      </tr>
-
-
-                                      <tr class="strikeout row1">
-                                          <td>
-                                              <div class="leftInput">2.
-
-                                                  <select onchange="ligandAutoFill(this,1,redrawGraph)">
-                                                      <option value="12">Select</option>
-                                                      <optgroup label="Established">
-                                                          <option value="0">Atropine</option>
-                                                          <option value="1">Pirenzipine</option>
-                                                          <option value="2">Methoctromine</option>
-                                                          <option value="3">Darifenacin</option>
-                                                          <option value="4">MT-3</option>
-                                                          <option value="5">S-secoverine</option>
-                                                          <option value="6">Solifenacin</option>
-                                                          <option value="7">DAU-5884</option>
-                                                      </optgroup>
-                                                      <optgroup label="Hypothetical">
-                                                          <option value="8">Ligand A</option>
-                                                          <option value="9">Ligand B</option>
-                                                      </optgroup>
-
-                                                  </select>
-
-
-                                              </div>
-                                          </td>
-                                          <td><input class="ligandInput activeColumn" disabled
-                                                     onblur="updateCustomValue(0,redrawGraph)"
-                                                     onkeyup="updateCustomValue(1,redrawGraph)"></td>
-                                          <td><input class="ligandInput activeColumn" disabled
-                                                     onblur="updateCustomValue(0,redrawGraph)"
-                                                     onkeyup="updateCustomValue(1,redrawGraph)"></td>
-                                          <td><input class="ligandInput activeColumn" disabled
-                                                     onblur="updateCustomValue(0,redrawGraph)"
-                                                     onkeyup="updateCustomValue(1,redrawGraph)"></td>
-                                          <td><input class="ligandInput activeColumn" disabled
-                                                     onblur="updateCustomValue(0,redrawGraph)"
-                                                     onkeyup="updateCustomValue(1,redrawGraph)"></td>
-                                          <td><input class="ligandInput activeColumn" disabled
-                                                     onblur="updateCustomValue(0,redrawGraph)"
-                                                     onkeyup="updateCustomValue(1,redrawGraph)"></td>
-                                      </tr>
-                                      <tr class="strikeout row2">
-                                          <td>
-                                              <div class="leftInput">3.
-                                                  <select onchange="ligandAutoFill(this,2,redrawGraph)">
-                                                      <option value="12">Select</option>
-                                                      <optgroup label="Established">
-                                                          <option value="0">Atropine</option>
-                                                          <option value="1">Pirenzipine</option>
-                                                          <option value="2">Methoctromine</option>
-                                                          <option value="3">Darifenacin</option>
-                                                          <option value="4">MT-3</option>
-                                                          <option value="5">S-secoverine</option>
-                                                          <option value="6">Solifenacin</option>
-                                                          <option value="7">DAU-5884</option>
-                                                      </optgroup>
-                                                      <optgroup label="Hypothetical">
-                                                          <option value="8">Ligand A</option>
-                                                          <option value="9">Ligand B</option>
-                                                      </optgroup>
-
-                                                  </select>
-                                              </div>
-                                          </td>
-                                          <td><input class="ligandInput activeColumn" disabled
-                                                     onblur="updateCustomValue(0,redrawGraph)"
-                                                     onkeyup="updateCustomValue(2,redrawGraph)"></td>
-                                          <td><input class="ligandInput  activeColumn" disabled
-                                                     onblur="updateCustomValue(0,redrawGraph)"
-                                                     onkeyup="updateCustomValue(2,redrawGraph)"></td>
-                                          <td><input class="ligandInput  activeColumn" disabled
-                                                     onblur="updateCustomValue(0,redrawGraph)"
-                                                     onkeyup="updateCustomValue(2,redrawGraph)"></td>
-                                          <td><input class="ligandInput  activeColumn" disabled
-                                                     onblur="updateCustomValue(0,redrawGraph)"
-                                                     onkeyup="updateCustomValue(2,redrawGraph)"></td>
-                                          <td><input class="ligandInput  activeColumn" disabled
-                                                     onblur="updateCustomValue(0,redrawGraph)"
-                                                     onkeyup="updateCustomValue(2,redrawGraph)"></td>
-                                      </tr>
-                                      <tr class="strikeout row3">
-                                          <td>
-                                              <div class="leftInput">4.
-
-
-                                                  <select onchange="ligandAutoFill(this,3,redrawGraph)">
-                                                      <option value="12">Select</option>
-                                                      <optgroup label="Established">
-                                                          <option value="0">Atropine</option>
-                                                          <option value="1">Pirenzipine</option>
-                                                          <option value="2">Methoctromine</option>
-                                                          <option value="3">Darifenacin</option>
-                                                          <option value="4">MT-3</option>
-                                                          <option value="5">S-secoverine</option>
-                                                          <option value="6">Solifenacin</option>
-                                                          <option value="7">DAU-5884</option>
-                                                      </optgroup>
-                                                      <optgroup label="Hypothetical">
-                                                          <option value="8">Ligand A</option>
-                                                          <option value="9">Ligand B</option>
-                                                      </optgroup>
-
-                                                  </select>
-                                              </div>
-                                          </td>
-                                          <td><input class="ligandInput  activeColumn" disabled
-                                                     onblur="updateCustomValue(0,redrawGraph)"
-                                                     onkeyup="updateCustomValue(3,redrawGraph)"></td>
-                                          <td><input class="ligandInput  activeColumn" disabled
-                                                     onblur="updateCustomValue(0,redrawGraph)"
-                                                     onkeyup="updateCustomValue(3,redrawGraph)"></td>
-                                          <td><input class="ligandInput  activeColumn" disabled
-                                                     onblur="updateCustomValue(0,redrawGraph)"
-                                                     onkeyup="updateCustomValue(3,redrawGraph)"></td>
-                                          <td><input class="ligandInput  activeColumn" disabled
-                                                     onblur="updateCustomValue(0,redrawGraph)"
-                                                     onkeyup="updateCustomValue(3,redrawGraph)"></td>
-                                          <td><input class="ligandInput  activeColumn" disabled
-                                                     onblur="updateCustomValue(0,redrawGraph)"
-                                                     onkeyup="updateCustomValue(3,redrawGraph)"></td>
-                                      </tr>
-                                      <tr class="strikeout row4">
-                                          <td>
-                                              <div class="leftInput">5.
-                                                  <select onchange="ligandAutoFill(this,4,redrawGraph)">
-                                                      <option value="12">Select</option>
-                                                      <optgroup label="Established">
-                                                          <option value="0">Atropine</option>
-                                                          <option value="1">Pirenzipine</option>
-                                                          <option value="2">Methoctromine</option>
-                                                          <option value="3">Darifenacin</option>
-                                                          <option value="4">MT-3</option>
-                                                          <option value="5">S-secoverine</option>
-                                                          <option value="6">Solifenacin</option>
-                                                          <option value="7">DAU-5884</option>
-                                                      </optgroup>
-                                                      <optgroup label="Hypothetical">
-                                                          <option value="8">Ligand A</option>
-                                                          <option value="9">Ligand B</option>
-                                                      </optgroup>
-
-                                                  </select>
-                                              </div>
-                                          </td>
-                                          <td><input class="ligandInput  activeColumn" disabled
-                                                     onblur="updateCustomValue(0,redrawGraph)"
-                                                     onkeyup="updateCustomValue(4,redrawGraph)"></td>
-                                          <td><input class="ligandInput  activeColumn" disabled
-                                                     onblur="updateCustomValue(0,redrawGraph)"
-                                                     onkeyup="updateCustomValue(4,redrawGraph)"></td>
-                                          <td><input class="ligandInput  activeColumn" disabled
-                                                     onblur="updateCustomValue(0,redrawGraph)"
-                                                     onkeyup="updateCustomValue(4,redrawGraph)"></td>
-                                          <td><input class="ligandInput  activeColumn" disabled
-                                                     onblur="updateCustomValue(0,redrawGraph)"
-                                                     onkeyup="updateCustomValue(4,redrawGraph)"></td>
-                                          <td><input class="ligandInput  activeColumn" disabled
-                                                     onblur="updateCustomValue(0,redrawGraph)"
-                                                     onkeyup="updateCustomValue(4,redrawGraph)"></td>
-                                      </tr>
-                                      <tr class="strikeout row5">
-                                          <td>
-                                              <div class="leftInput">6.
-                                                  <select onchange="ligandAutoFill(this,5,redrawGraph)">
-                                                      <option value="12">Select</option>
-                                                      <optgroup label="Established">
-                                                          <option value="0">Atropine</option>
-                                                          <option value="1">Pirenzipine</option>
-                                                          <option value="2">Methoctromine</option>
-                                                          <option value="3">Darifenacin</option>
-                                                          <option value="4">MT-3</option>
-                                                          <option value="5">S-secoverine</option>
-                                                          <option value="6">Solifenacin</option>
-                                                          <option value="7">DAU-5884</option>
-                                                      </optgroup>
-                                                      <optgroup label="Hypothetical">
-                                                          <option value="8">Ligand A</option>
-                                                          <option value="9">Ligand B</option>
-                                                      </optgroup>
-
-                                                  </select>
-                                              </div>
-                                          </td>
-                                          <td><input class="ligandInput  activeColumn" disabled
-                                                     onblur="updateCustomValue(0,redrawGraph)"
-                                                     onkeyup="updateCustomValue(5,redrawGraph)"></td>
-                                          <td><input class="ligandInput  activeColumn" disabled
-                                                     onblur="updateCustomValue(0,redrawGraph)"
-                                                     onkeyup="updateCustomValue(5,redrawGraph)"></td>
-                                          <td><input class="ligandInput  activeColumn" disabled
-                                                     onblur="updateCustomValue(0,redrawGraph)"
-                                                     onkeyup="updateCustomValue(5,redrawGraph)"></td>
-                                          <td><input class="ligandInput  activeColumn" disabled
-                                                     onblur="updateCustomValue(0,redrawGraph)"
-                                                     onkeyup="updateCustomValue(5,redrawGraph)"></td>
-                                          <td><input class="ligandInput  activeColumn" disabled
-                                                     onblur="updateCustomValue(0,redrawGraph)"
-                                                     onkeyup="updateCustomValue(5,redrawGraph)"></td>
-                                      </tr>
-                                      </tbody>
-
-                                  </table>
-
-                                </fieldset>
-                            </div>
-                            <div class="row" style="margin-top: 30px">
-                                <div class="container-fluid">
-                                    <button class="btn" onclick="collectUserInput(),generateQuestion(),checkEnd()"><span class="tool-name" id="submitButton"></span></button>
-                                </div>
-                        </div>
-                      </div>
-                        <div class="col-lg-6">
-                            <div class="container">
-                                <fieldset class="sectionContainer">
-                                    <legend>Competition Binding Curves</legend>
-                                    <div id="myDiv"></div>
-                                </fieldset>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-1 col-lg-0"></div>
+              </fieldset>
             </div>
+            <div class="row" style="margin-top: 30px; margin-bottom:30px">
+                <div class="container-fluid">
+                    <button class="btn" onclick="collectUserInput(),checkEnd()"><span class="tool-name" id="submitButton"></span></button>
+                </div>
         </div>
+
+          </div>
+        </div>
+          <div class="col-lg-6">
+              <div class="container-fluid ligands">
+                  <fieldset class="sectionContainer">
+                      <legend>Competition Binding Curves</legend>
+                      <div id="myDiv"></div>
+                  </fieldset>
+              </div>
+
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-
-
     <div class="quizAnswers">
       <p>ANSWERS</p>
     </div>
-
   </div>
 </div>
-</section>
+    </section>
 
 <!-- Footer -->
 <footer>

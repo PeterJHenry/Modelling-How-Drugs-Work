@@ -18,6 +18,12 @@ $(document).ready(function () {
     //startQuiz();
 });
 
+function randomiseLigand() {
+  ligand1 = ligandNames[Math.floor((Math.random()*9))];
+  ligand2 = ligandNames[Math.floor((Math.random()*9))];
+  ligand3 = ligandNames[Math.floor((Math.random()*9))];
+}
+
 // Chooose a random subtype and then the draw the graph for it.
 function randomiseSubType() {
     subtypeIndex = [null, null];
@@ -37,7 +43,6 @@ function randomiseSubType() {
         subtypePercentage[1] = 100 - subtypePercentage[0];
     }
     redrawGraph();
-    $('#submitButton').html("Next Question");
 }
 
 function get_dataset(i) {
@@ -87,8 +92,9 @@ function startQuiz() {
     $('.questionCover').hide();
     $('.questionContainer').show();
     $('.quizAnswers').hide();
+    $('#submitButton').html("Next Question");
     initializeClock();
-    generateQuestion();
+    checkEnd();
 }
 
 function initializeClock() {
@@ -123,10 +129,9 @@ function initializeClock() {
 
 // This functions generates a random number of questions and ratio and returns as an array
 function generateQuestion() {
-    currentNumber++;
-    $('#quiz_title').html('Question '+currentNumber+' of '+numberOfQuestions);
 
     randomiseSubType();
+    randomiseLigand();
 
     function getRandomSubtype() {
         return Math.floor(Math.random() * 5) + 1;
@@ -164,13 +169,20 @@ function generateQuestion() {
 }
 
 function checkEnd() {
+  currentNumber++;
   if(currentNumber === numberOfQuestions){
     $('#submitButton').html("Submit");
+    $('#quiz_title').html('Question '+currentNumber+' of '+numberOfQuestions);
   }
-  if(currentNumber > numberOfQuestions){
+  else if(currentNumber > numberOfQuestions){
     $('#quiz_title').html('Review');
     $('.questionContainer').hide();
     $('.quizAnswers').show();
+  }
+  else {
+    $('#submitButton').html("Next Question");
+    $('#quiz_title').html('Question '+currentNumber+' of '+numberOfQuestions);
+    generateQuestion();
   }
 }
 
@@ -230,13 +242,12 @@ function countCorrectAnswers() {
     return correctCount;
 }
 
-
-
 //// Check if the box can be checked
 function validateCheckBox(checkingBox) {
     if (subTypeCheckedCount === 0) {
         receptorRelDenTableCell(checkingBox).value = 100;
         state.subTypePresent[checkingBox] = receptorCheckBoxTableCell(checkingBox).checked = true;
+
         subTypeCheckedCount++;
 
 
@@ -256,6 +267,7 @@ function validateCheckBox(checkingBox) {
             state.subTypePresent[checkingBox] = receptorCheckBoxTableCell(checkingBox).checked = true;
             receptorRelDenTableCell(checkingBox).value = receptorRelDenTableCell(previousCheckedBox).value = 50;
             receptorRelDenTableCell(checkingBox).disabled = receptorRelDenTableCell(previousCheckedBox).disabled = false;
+
             subTypeCheckedCount++;
         }
 
@@ -313,6 +325,31 @@ function validateRelDensityRow(currentCellNumber) {
 
     if (currentCellNumber === previousCheckedBox0) receptorRelDenTableCell(previousCheckedBox1).value = 100 - currentCellValue;
     else receptorRelDenTableCell(previousCheckedBox0).value = 100 - currentCellValue;
+
+    generateGraph();
+}
+
+function validateLigandValue() {
+    for (var j = 0; j < 6; j++) {
+        for (var i = 1; i < 6; i++) {
+            if (parseInt(ligandTableCell(i, j).value) > 10) {
+                ligandTableCell(i, j).value = 10;
+            } else if (parseInt(ligandTableCell(i, j).value) < 3) {
+                ligandTableCell(i, j).value = 3;
+            }
+        }
+    }
+    generateGraph();
+}
+
+function addLigandListener() {
+    $('.ligandInput').blur(function () {
+        validateLigandValue();
+    }).keyup(function () {
+        validateLigandValue();
+    }).change(function () {
+        validateLigandValue();
+    });
 }
 
 function addReceptorListener() {
