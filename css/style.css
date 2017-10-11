@@ -163,11 +163,12 @@ body, h1, h2, h3, h4, h5, h6 {
 }
 
 #revealButton {
-  margin-bottom: 20px;
+  margin-top: -30px;
+  margin-bottom: 15px;
 }
 
 #resetButton {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .intro-divider {
