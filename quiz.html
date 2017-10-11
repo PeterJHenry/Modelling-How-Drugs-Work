@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+    <link rel="shortcut icon" type="image/ico" href="favicon.ico"/>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -20,29 +21,6 @@
     <!-- Custom style -->
     <link href="css/style2.css" type="text/css" rel="stylesheet">
 
-    <!-- Favicons -->
-    <link rel="shortcut icon" type="image/ico" href="favicon/favicon.ico"/>
-    <link rel="apple-touch-icon-precomposed" sizes="57x57" href="favicon/apple-touch-icon-57x57.png" />
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="favicon/apple-touch-icon-114x114.png" />
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="favicon/apple-touch-icon-72x72.png" />
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="favicon/apple-touch-icon-144x144.png" />
-    <link rel="apple-touch-icon-precomposed" sizes="60x60" href="favicon/apple-touch-icon-60x60.png" />
-    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="favicon/apple-touch-icon-120x120.png" />
-    <link rel="apple-touch-icon-precomposed" sizes="76x76" href="favicon/apple-touch-icon-76x76.png" />
-    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="favicon/apple-touch-icon-152x152.png" />
-    <link rel="icon" type="image/png" href="favicon/favicon-196x196.png" sizes="196x196" />
-    <link rel="icon" type="image/png" href="favicon/favicon-96x96.png" sizes="96x96" />
-    <link rel="icon" type="image/png" href="favicon/favicon-32x32.png" sizes="32x32" />
-    <link rel="icon" type="image/png" href="favicon/favicon-16x16.png" sizes="16x16" />
-    <link rel="icon" type="image/png" href="favicon/favicon-128.png" sizes="128x128" />
-    <meta name="application-name" content="&nbsp;"/>
-    <meta name="msapplication-TileColor" content="#FFFFFF" />
-    <meta name="msapplication-TileImage" content="favicon/mstile-144x144.png" />
-    <meta name="msapplication-square70x70logo" content="favicon/mstile-70x70.png" />
-    <meta name="msapplication-square150x150logo" content="favicon/mstile-150x150.png" />
-    <meta name="msapplication-wide310x150logo" content="favicon/mstile-310x150.png" />
-    <meta name="msapplication-square310x310logo" content="favicon/mstile-310x310.png" />
-
 </head>
 <body>
 
@@ -51,7 +29,7 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="index.html"><img src="favicon/favicon.ico" width=20> SPIKES<i>mate</i></a>
+            <a class="navbar-brand" href="index.html">SPIKES<i>mate</i></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
                     aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -295,9 +273,7 @@
 
                 </div>
                 <div class="questionCover">
-                    <p class="lihead" style="font-size:20px;">Ready to take the quiz?</p>
-                    <p class="justify">In this quiz you will be given a series of competition binding curves showing 3 randomised ligands plotted with unknown receptor subtypes and their unknown densities.</p>
-
+                    <h3>Ready to be quizzed?</h3><br>
                     <p>This quiz is based on the assessment tool, however you may use it to practice a series of
                         questions under test conditions.<br></p>
                     <p>A graph will be presented to you, with the specific binding % plotted with a few different
@@ -306,16 +282,19 @@
                         is present.<br></p>
                     <p>You will have the opportunity to review the answers at completion of the quiz.
                     <p>The quiz rules are as follows:</p>
-                    <li>You will be asked <span id="cover-questionLength"></span> questions</li>
+                    <li>You will be asked <span id="cover-questionLength"></span> question(s)</li>
                     <li>You will have four multi-choice option answers</li>
                     <li>You must select an answer to progress to the next question</li>
                     <li>You will be awarded one mark per correct answer</li>
-                    <li>You will have <span id="cover-time"></span> minutes to complete each question</li>
+                    <li>You will have <span id="cover-time"></span> seconds to complete each question</li>
                     <br>
-                    <button class="btn" onclick="startQuiz()"><span class="tool-name">Start</span></button></div>
+                    <span class="btn" onclick="startQuiz()">Start</span></div>
                 <div class="questionContainer">
                     <div id="timer">
                         <span id="timer-minutes"></span>:<span id="timer-seconds"></span>
+                    </div>
+                    <div id="QuestionNumber">
+						<p>Question: </li><span id="question-number"></span></p>
                     </div>
                     <div class="questionPage">
 
@@ -603,7 +582,7 @@
                                         </li>
                                     </ul>
 
-                                    <button class="btn" onclick="collectUserInput()"><span class="tool-name">Submit</span></button>
+                                    <span class="btn" onclick="collectUserInput();incrementQuestion();currentQuestion();redrawGraph()">Submit</span>
                                 </form>
 
 
@@ -703,14 +682,7 @@
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
                 <div class="modal-body">
-                  <p class="lihead"><b>SPIKES</b>mate is an educational application to boost students' proficiency in interpreting competition binding data by providing self-development, self-assessment and quiz-me options.</p>
-                  <p class="justify">
-                    Most drugs work by binding to specific receptors, which are large proteins typically expressed on the surface of cells.</p>
-                  <p class="justify">The process of drug binding requires the existence of affinity (chemical forces of attraction)
-                    between the drug and receptor, and can be readily described by relatively simple mathematical relationships.</p>
-                  <p class="justify">As drug binding is essential for drug action, pharmacology students need to have an advanced level of understanding of how changes in the affinity of a drug for a receptor can influence binding,
-                    and be able to readily interpret drug binding data.</p>
-                    <p class="justify" style="font-style:italic;color:grey;">SPIKESmate was created by Madeline King, Jason Gan, Robert Fernandez, Timothy Mennell, Roarke Holland and Sooho Moon; students of CITS3200: Professional Computing at the University of Western Australia 2017, under the guidance of Associate Professor Peter Henry.</p>
+                    <p>Some text in the modal.</p>
                 </div>
                 <div class="modal-footer">
                     <button class="btn" data-dismiss="modal"><span class="tool-name">Close</span></button>
@@ -795,7 +767,7 @@
 
 <!-- Custom JavaScript -->
 <script type="text/javascript" src="js/core.js"></script>
-<script type="text/javascript" src="js/quiz.js"></script>
+<script type="text/javascript" src="js/quiz2.js"></script>
 
 </body>
 </html>
