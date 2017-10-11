@@ -76,3 +76,6 @@ function redrawGraph() {
     }
 	plotGraph(data, false, {staticPlot: true})
 }
+$(window).resize(function () {
+    redrawGraph();
+});
