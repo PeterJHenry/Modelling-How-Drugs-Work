@@ -95,15 +95,6 @@ body, h1, h2, h3, h4, h5, h6 {
     .coverSectionText > h1 {
         font-size: 4em;
     }
-    #revealButton {
-      margin-left: 0px;
-      margin-right: 0px;
-    }
-
-    #resetButton {
-      margin-left: 0px;
-      margin-right: 0px;
-    }
 
 }
 @media (max-width: 767px) {
@@ -113,15 +104,6 @@ body, h1, h2, h3, h4, h5, h6 {
     }
     .section-heading-spacer{
         display: none;
-    }
-    #revealButton {
-      margin-left: 0px;
-      margin-right: 0px;
-    }
-
-    #resetButton {
-      margin-left: 0px;
-      margin-right: 0px;
     }
 }
 
@@ -210,12 +192,12 @@ body, h1, h2, h3, h4, h5, h6 {
 
 #revealButton {
   float: left;
-  margin: -20px 0px 20px 30px;
+  margin: -20px 0px 20px 0px;
 }
 
 #resetButton {
   float: right;
-  margin: -20px 30px 20px 0px;
+  margin: -20px 0px 20px 0px;
 }
 
 .justify {
