@@ -90,8 +90,6 @@ function redrawGraph() {
 }
 
 
-
-
 function setQuizProperties() {
     $('#cover-questionLength').html(numberOfQuestions);
     $('#cover-time').html(timeLimit/60);
@@ -136,6 +134,11 @@ function initializeClock() {
 
 // This functions generates a random number of questions and ratio and returns as an array
 function generateQuestion() {
+    questionNumbers++;
+    $('#quiz_title').html('Question '+questionNumbers+' of '+numberOfQuestions)
+
+    randomiseSubType();
+
 
     function getRandomSubtype() {
         return Math.floor(Math.random() * 5) + 1;
