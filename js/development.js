@@ -65,8 +65,12 @@ function validateCheckBox(checkingBox, graphCallback) {
                 break;
 
             default:
-                alert("You can only select two boxes");
-                receptorCheckBoxTableCell(checkingBox).checked = false;
+                
+               state.subTypePresent[checkingBox] = receptorCheckBoxTableCell(checkingBox).checked = true;
+               receptorRelDenTableCell(checkingBox).value = receptorRelDenTableCell(previousCheckedBox0).value = receptorRelDenTableCell(previousCheckedBox1).value = 33.3;
+               receptorRelDenTableCell(checkingBox).disabled = receptorRelDenTableCell(previousCheckedBox0).disabled = receptorRelDenTableCell(previousCheckedBox1).disabled =false;
+               enableColumn(checkingBox + 1);
+               subTypeCheckedCount++;
                 break;
         }
         
