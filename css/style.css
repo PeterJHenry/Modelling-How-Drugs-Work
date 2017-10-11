@@ -90,9 +90,17 @@ body, h1, h2, h3, h4, h5, h6 {
     padding-top: 20px;
 }
 
+
 @media (max-width: 450px) {
     .coverSectionText > h1 {
         font-size: 4em;
+    }
+    #revealButton {;
+      margin-left:0%;
+    }
+
+    #resetButton {
+      margin-right:0%;
     }
 
 }
@@ -160,6 +168,17 @@ body, h1, h2, h3, h4, h5, h6 {
     background-color: #f2f2f2;
     text-decoration: none;
 }
+
+#revealButton {
+  float:left;
+  margin-left:10%;
+}
+
+#resetButton {
+  float: right;
+  margin-right:10%;
+}
+
 .intro-divider {
     max-width: 400px;
     width: 50%;
