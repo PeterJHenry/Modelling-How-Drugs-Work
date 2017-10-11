@@ -6,7 +6,6 @@ var subtypePercentage;
 
 // Chooose a random subtype and then the draw the graph for it.
 function randomiseSubType() {
-    document.getElementById("subtypeReveal").style.display = "none";
     subtypeIndex = [null, null];
     subtypePercentage = [null, null];
 
@@ -25,7 +24,7 @@ function randomiseSubType() {
     }
     redrawGraph();
     // Clear the previously revealed subtype
-    document.getElementById("subtypeReveal").innerHTML = "";
+    document.getElementById("subtypeReveal").innerHTML = "Reveal Subtype";
 }
 
 function revealSubtype() {
@@ -35,7 +34,7 @@ function revealSubtype() {
     if (subtypeIndex[1] === null) {
         subtypeString = "M" + (subtypeIndex[0]+1) + " (100%)";
     } else {
-        subtypeString = "M" + (subtypeIndex[0]+1) + " (" + subtypePercentage[0]+ "%)<br>"
+        subtypeString = "M" + (subtypeIndex[0]+1) + " (" + subtypePercentage[0]+ "%), "
         subtypeString += "M" + (subtypeIndex[1]+1) + " (" + subtypePercentage[1]+ "%)"
     }
     subtypeReveal.innerHTML = subtypeString;
