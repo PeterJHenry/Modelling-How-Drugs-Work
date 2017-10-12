@@ -89,6 +89,7 @@ function setQuizProperties() {
 }
 
 function startQuiz() {
+	currentNumber = 0;
     $('.questionCover').hide();
     $('.questionContainer').show();
     $('.quizAnswers').hide();
