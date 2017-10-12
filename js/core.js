@@ -161,9 +161,8 @@ function plotGraph(data, showlegend, options) {
                 size: 18,
                 color: '#7f7f7f'
             },
-            range: [-11, -2]
-
-
+            range: [-12, -2],
+            tickvals: [-12, -11, -10, -9, -8, -7, -6, -5, -4, -3, -2]
         },
         yaxis: {
             title: 'Specific Binding (%)',
@@ -173,7 +172,7 @@ function plotGraph(data, showlegend, options) {
                 color: '#7f7f7f'
             },
             range: [0, 100],
-            tickvals: [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100],
+            tickvals: [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
             // ticktext: [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
         },
         margin: {
