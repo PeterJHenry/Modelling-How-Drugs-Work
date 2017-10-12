@@ -426,10 +426,10 @@ section {
     height: 100vh;
     z-index: 99;
     padding-top: 40vh;
-    padding-left: 42vw;
+    padding-left: 45vw;
 }
 
 .loading > img {
-    width: 200px;
+    width: 100px;
 
 }
