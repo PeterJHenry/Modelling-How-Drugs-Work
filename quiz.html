@@ -288,126 +288,140 @@
 <!-- Content -->
 <section class="section quizsection">
     <div class="container">
-        < class="mainUI">
-        <fieldset class="sectionContainer">
-            <legend id="quiz_title">Quiz</legend>
+        <div class="mainUI">
+            <fieldset class="sectionContainer">
+                <legend id="quiz_title">Quiz</legend>
 
-            <div class="questionCover">
-                <p class="lihead" style="font-size:20px;">Ready to take the quiz?</p>
-                <p class="justify">In this quiz you will be given a series of competition binding curves plotted with
-                    selected ligands,unknown receptor subtypes and their unknown densities.</p>
+                <div class="questionCover">
+                    <p class="lihead" style="font-size:20px;">Ready to take the quiz?</p>
+                    <p class="justify">In this quiz you will be given a series of competition binding curves plotted
+                        with
+                        selected ligands,unknown receptor subtypes and their unknown densities.</p>
 
-                <p class="justify">Your task is to calculate which receptor subtypes are present, and their
-                    corresponding densities.</p>
-                <p class="justify">You will be given <b><span id="cover-questionLength"></span></b> questions.</li></p>
-                <p class="justify">You will have <b><span id="cover-time"></span> minutes</b> to complete the quiz.</p>
+                    <p class="justify">Your task is to calculate which receptor subtypes are present, and their
+                        corresponding densities.</p>
+                    <p class="justify">You will be given <b><span id="cover-questionLength"></span></b> questions.</li>
+                    </p>
+                    <p class="justify">You will have <b><span id="cover-time"></span> minutes</b> to complete the quiz.
+                    </p>
 
 
-                <button class="btn" onclick="startQuiz()"><span class="tool-name">Start</span></button>
-            </div>
-            <div class="questionContainer">
-                <div id="timer">
-                    <span id="timer-minutes"></span>:<span id="timer-seconds"></span>
+                    <button class="btn" onclick="startQuiz()"><span class="tool-name">Start</span></button>
                 </div>
+                <div class="questionContainer">
+                    <div id="timer">
+                        <span id="timer-minutes"></span>:<span id="timer-seconds"></span>
+                    </div>
 
 
-                <div class="questionPage">
-                    <div class="row justify-content-md-center">
-                        <div class="col-md-1 col-lg-0"></div>
-                        <div class="col-12 col-md-10 col-lg-12">
-                            <div class="row">
-                                <div class="col-lg-6">
-                                    <div class="container-fluid ligands">
-                                        <div class="row">
-                                            <p class="lihead"
-                                               style="margin:auto;font-size:15px;margin-bottom:20px;margin-top:20px;">
-                                                Which receptor subtypes are present and what are their relative
-                                                densities?</p>
+                    <div class="questionPage">
+                        <div class="row justify-content-md-center">
+                            <div class="col-md-1 col-lg-0"></div>
+                            <div class="col-12 col-md-10 col-lg-12">
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="container-fluid ligands">
+                                            <div class="row">
+                                                <p class="lihead"
+                                                   style="margin:auto;font-size:15px;margin-bottom:20px;margin-top:20px;">
+                                                    Which receptor subtypes are present and what are their relative
+                                                    densities?</p>
+                                                <fieldset class="sectionContainer">
+                                                    <legend>Receptor</legend>
+                                                    <table class="table-responsive">
+                                                        <tbody>
+                                                        <tr>
+                                                            <td></td>
+                                                            <td>M<sub>1</sub></td>
+                                                            <td>M<sub>2</sub></td>
+                                                            <td>M<sub>3</sub></td>
+                                                            <td>M<sub>4</sub></td>
+                                                            <td>M<sub>5</sub></td>
+                                                        </tr>
+                                                        <tr id="subtypeCheckbox">
+                                                            <td>
+                                                                <div class="leftInput">Subtypes</div>
+                                                            </td>
+                                                            <td><input type="checkbox" onclick="validateCheckBox(0)">
+                                                            </td>
+                                                            <td><input type="checkbox" onclick="validateCheckBox(1)">
+                                                            </td>
+                                                            <td><input type="checkbox" onclick="validateCheckBox(2)">
+                                                            </td>
+                                                            <td><input type="checkbox" onclick="validateCheckBox(3)">
+                                                            </td>
+                                                            <td><input type="checkbox" onclick="validateCheckBox(4)">
+                                                            </td>
+
+                                                        </tr>
+                                                        <tr id="relDensity">
+                                                            <td>
+                                                                <div class="leftInput">Relative Density (%)</div>
+                                                            </td>
+
+                                                            <td><input type="number" class="receptorInput"
+                                                                       id="relativeDensity1" step="10" disabled
+                                                                       max="100"
+                                                                       min="0">
+                                                            </td>
+                                                            <td><input type="number" class="receptorInput"
+                                                                       id="relativeDensity2" step="10" disabled
+                                                                       max="100"
+                                                                       min="0">
+                                                            </td>
+                                                            <td><input type="number" class="receptorInput"
+                                                                       id="relativeDensity3" step="10" disabled
+                                                                       max="100"
+                                                                       min="0">
+                                                            </td>
+                                                            <td><input type="number" class="receptorInput"
+                                                                       id="relativeDensity4" step="10" disabled
+                                                                       max="100"
+                                                                       min="0">
+                                                            </td>
+                                                            <td><input type="number" class="receptorInput"
+                                                                       id="relativeDensity5" step="10" disabled
+                                                                       max="100"
+                                                                       min="0">
+                                                            </td>
+
+                                                        </tr>
+                                                        </tbody>
+
+                                                    </table>
+
+                                                </fieldset>
+                                            </div>
+                                            <div class="row" style="margin-top: 30px; margin-bottom:30px">
+                                                <div class="container-fluid">
+                                                    <button class="btn" onclick="collectUserInput(),checkEnd()"><span
+                                                            class="tool-name" id="submitButton"></span></button>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="container-fluid ligands">
                                             <fieldset class="sectionContainer">
-                                                <legend>Receptor</legend>
-                                                <table class="table-responsive">
-                                                    <tbody>
-                                                    <tr>
-                                                        <td></td>
-                                                        <td>M<sub>1</sub></td>
-                                                        <td>M<sub>2</sub></td>
-                                                        <td>M<sub>3</sub></td>
-                                                        <td>M<sub>4</sub></td>
-                                                        <td>M<sub>5</sub></td>
-                                                    </tr>
-                                                    <tr id="subtypeCheckbox">
-                                                        <td>
-                                                            <div class="leftInput">Subtypes</div>
-                                                        </td>
-                                                        <td><input type="checkbox" onclick="validateCheckBox(0)"></td>
-                                                        <td><input type="checkbox" onclick="validateCheckBox(1)"></td>
-                                                        <td><input type="checkbox" onclick="validateCheckBox(2)"></td>
-                                                        <td><input type="checkbox" onclick="validateCheckBox(3)"></td>
-                                                        <td><input type="checkbox" onclick="validateCheckBox(4)"></td>
-
-                                                    </tr>
-                                                    <tr id="relDensity">
-                                                        <td>
-                                                            <div class="leftInput">Relative Density (%)</div>
-                                                        </td>
-
-                                                        <td><input type="number" class="receptorInput"
-                                                                   id="relativeDensity1" step="10" disabled max="100"
-                                                                   min="0">
-                                                        </td>
-                                                        <td><input type="number" class="receptorInput"
-                                                                   id="relativeDensity2" step="10" disabled max="100"
-                                                                   min="0">
-                                                        </td>
-                                                        <td><input type="number" class="receptorInput"
-                                                                   id="relativeDensity3" step="10" disabled max="100"
-                                                                   min="0">
-                                                        </td>
-                                                        <td><input type="number" class="receptorInput"
-                                                                   id="relativeDensity4" step="10" disabled max="100"
-                                                                   min="0">
-                                                        </td>
-                                                        <td><input type="number" class="receptorInput"
-                                                                   id="relativeDensity5" step="10" disabled max="100"
-                                                                   min="0">
-                                                        </td>
-
-                                                    </tr>
-                                                    </tbody>
-
-                                                </table>
-
+                                                <legend>Competition Binding Curves</legend>
+                                                <div id="myDiv"></div>
                                             </fieldset>
                                         </div>
-                                        <div class="row" style="margin-top: 30px; margin-bottom:30px">
-                                            <div class="container-fluid">
-                                                <button class="btn" onclick="collectUserInput(),checkEnd()"><span
-                                                        class="tool-name" id="submitButton"></span></button>
-                                            </div>
-                                        </div>
 
                                     </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="container-fluid ligands">
-                                        <fieldset class="sectionContainer">
-                                            <legend>Competition Binding Curves</legend>
-                                            <div id="myDiv"></div>
-                                        </fieldset>
-                                    </div>
-
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="quizAnswers">
-                <p>ANSWERS</p>
-                <button class="btn" id="restartButton" onclick="startQuiz()"><span class="tool-name">Restart</span>
-                </button>
-            </div>
-        </fieldset>
+                <div class="quizAnswers">
+                    <p>ANSWERS</p>
+                    <button class="btn" id="restartButton" onclick="startQuiz()"><span class="tool-name">Restart</span>
+                    </button>
+                </div>
+            </fieldset>
+        </div>
     </div>
 </section>
 

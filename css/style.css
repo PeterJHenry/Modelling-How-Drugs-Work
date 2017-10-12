@@ -459,3 +459,7 @@ section {
 li.nav-item:hover {
     cursor: pointer;
 }
+
+.btn{
+    cursor: pointer;
+}
