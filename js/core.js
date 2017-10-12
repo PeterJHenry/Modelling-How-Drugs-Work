@@ -125,8 +125,8 @@ function generateGraph() {
             for (var q = 0; q < 6; q++) {
                 if (activeLigandRow()[q]) {
                     var dataSet3 = calculateGraphPoints(2, parseInt(receptorRelDenTableCell(column1).value), parseFloat(ligandTableCell(column1 + 1, x).value),
-                        parseInt(receptorRelDenTableCell(column2).value), parseFloat(ligandTableCell(column2 + 1, x).value),
-                        parseInt(receptorRelDenTableCell(column3).value), parseFloat(ligandTableCell(column3 + 1, x).value));
+                        parseInt(receptorRelDenTableCell(column2).value), parseFloat(ligandTableCell(column2 + 1, q).value),
+                        parseInt(receptorRelDenTableCell(column3).value), parseFloat(ligandTableCell(column3 + 1, q).value));
                     var graph3 = {
                         x: dataSet3[0],
                         y: dataSet3[1],
@@ -135,7 +135,7 @@ function generateGraph() {
                             color: colorTable[q],
                             width: 1
                         },
-                        name: ligandNames[ligandTableCell(0, x).value]
+                        name: ligandNames[ligandTableCell(0, q).value]
 
                     };
                     data.push(graph3);
@@ -209,7 +209,7 @@ function calculateGraphPoints(numberOfReceptor, den1, logVal1, den2, logVal2, de
             break;
         case 3:
             for (var q = -11; q < -2; q = q + STEP) {
-                var w = oneReceptorFunction(q, den1, logVal1, den2, logVal2, den3, logVal3);
+                var w = threeReceptorFunction(q, den1, logVal1, den2, logVal2, den3, logVal3);
                 if (w > 0.001) {
                     dataSet[0].push(q);
                     dataSet[1].push(w);
