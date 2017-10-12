@@ -1,4 +1,5 @@
 $(document).ready(function () {
+    $('body').fadeIn();
     $('[data-toggle="tooltip"]').tooltip();
 });
 
@@ -24,4 +25,3 @@ for (i = 0; i < acc.length; i++) {
     }
   }
 }
-$('body').fadeIn();
