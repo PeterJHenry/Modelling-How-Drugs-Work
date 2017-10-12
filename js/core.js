@@ -148,7 +148,7 @@ function generateGraph() {
 // Draw/Update the graph from a data object.
 // Legend visible by default, allows an options object to be
 // passed to Plotly.newPlot()
-function plotGraph(data, showlegend, options) {
+function plotGraph(data, showlegend, options,plotComplete) {
     if (typeof showlegend === "undefined")
         showlegend = false;
     if (typeof options === "undefined")
@@ -183,6 +183,7 @@ function plotGraph(data, showlegend, options) {
         showlegend: showlegend
     };
     Plotly.newPlot('myDiv', data, layout, options);
+    showBody();
 }
 
 function calculateGraphPoints(numberOfReceptor, den1, logVal1, den2, logVal2, den3, logVal3) {
@@ -285,3 +286,4 @@ function updateCustomValue(rowIndex, graphCallback) {
 $('input').keydown(function (event) {
     return !(event.keyCode > 57 && event.keyCode < 177 || event.keyCode > 40 && event.keyCode < 48 || event.keyCode > 177 && event.keyCode !== 190);
 });
+

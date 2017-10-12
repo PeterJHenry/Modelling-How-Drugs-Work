@@ -144,9 +144,28 @@ function validateRelDensityRow(currentCellNumber) {
     var previousCheckedBox1 = activeCheckBoxes()[1];
     var currentCellValue = parseInt(receptorRelDenTableCell(currentCellNumber).value);
     if (currentCellValue < 0) currentCellValue = receptorRelDenTableCell(currentCellNumber).value = 0;
+    
+    //if (currentCellNumber === previousCheckedBox0) receptorRelDenTableCell(previousCheckedBox1).value = 100 - currentCellValue;
+    //else receptorRelDenTableCell(previousCheckedBox0).value = 100 - currentCellValue;
 
-    if (currentCellNumber === previousCheckedBox0) receptorRelDenTableCell(previousCheckedBox1).value = 100 - currentCellValue;
-    else receptorRelDenTableCell(previousCheckedBox0).value = 100 - currentCellValue;
+    if(subTypeCheckedCount <= 2)
+    {
+        if (currentCellNumber === previousCheckedBox0) receptorRelDenTableCell(previousCheckedBox1).value = 100 - currentCellValue;
+        else receptorRelDenTableCell(previousCheckedBox0).value = 100 - currentCellValue;
+    }
+    else
+    {
+        var previousCheckedBox2 = activeCheckBoxes()[2];
+        if (currentCellNumber === previousCheckedBox0) // Left box value entry updates the right 2 boxes
+        {
+            receptorRelDenTableCell(previousCheckedBox1).value = (100 - currentCellValue)/2;
+            receptorRelDenTableCell(previousCheckedBox2).value = (100 - currentCellValue)/2;
+        }
+        else if (currentCellNumber === previousCheckedBox1) // Middle box value entry updates the right 1 box
+        {
+            receptorRelDenTableCell(previousCheckedBox2).value = 100 - receptorRelDenTableCell(previousCheckedBox0).value - currentCellValue; 
+        }
+    }
 
     generateGraph();
 }
@@ -211,3 +230,10 @@ $(document).ready(function () {
 $(window).resize(function () {
     generateGraph();
 });
+
+function showBody() {
+    $('body').fadeIn();
+    setTimeout(generateGraph, 100);
+}
+
+setTimeout(showBody, 5000);

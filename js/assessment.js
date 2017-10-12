@@ -55,7 +55,7 @@ function get_dataset(i) {
 // Redraws the graph with current ligand values, does not affect subtype.
 function redrawGraph() {
 	// Generate data to pass to the graph.
-	var data = []
+    var data = [];
 
     for (var i = 0; i < 6; i++) {
         if (activeLigandRow()[i]) {
@@ -74,8 +74,15 @@ function redrawGraph() {
             data.push(graph);
         }
     }
-	plotGraph(data, false, {staticPlot: true})
+	plotGraph(data, false, {staticPlot: true});
 }
 $(window).resize(function () {
     redrawGraph();
 });
+
+function showBody() {
+    $('body').fadeIn();
+    setTimeout(redrawGraph, 100);
+}
+
+setTimeout(showBody, 5000);

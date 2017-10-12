@@ -405,3 +405,7 @@ input {
 .receptorInput:disabled {
     background-color: rgba(213, 213, 213, 0.79);
 }
+
+body{
+    display: none;
+}
