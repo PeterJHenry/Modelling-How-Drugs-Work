@@ -1,28 +1,22 @@
 // Constants
-var timeLimit = 1500;
+var timeLimit = 10;
+var timer = timeLimit;
+var timeVar;
 var numberOfQuestions = 5;
 
-var questionNumbers = 0;
 var currentNumber = 0;
-
-var questionStack = [];
-var correctAnswerStack = [];
-var userAnswerStack = [];
 
 var subtypeIndex;
 var subtypePercentage;
+var ligandIndexes;
+var subtypeAnswers;
+var studentAnswers;
 
 $(document).ready(function () {
     setQuizProperties();
     $('.quizAnswers').hide();
-    //startQuiz();
 });
 
-function randomiseLigand() {
-  ligand1 = ligandNames[Math.floor((Math.random()*9))];
-  ligand2 = ligandNames[Math.floor((Math.random()*9))];
-  ligand3 = ligandNames[Math.floor((Math.random()*9))];
-}
 
 // Chooose a random subtype and then the draw the graph for it.
 function randomiseSubType() {
@@ -42,7 +36,61 @@ function randomiseSubType() {
         }
         subtypePercentage[1] = 100 - subtypePercentage[0];
     }
-    redrawGraph();
+    subtypeAnswers = subtypeAnswers.concat([subtypeIndex,subtypePercentage]);
+}
+
+function randomiseLigand() {
+  // var index;
+  // while (ligandIndexes.length < 3)){
+  //   index = Math.floor((Math.random() * 8));
+  //   if(!ligandIndexes.includes(index)){
+  //     ligandIndexes = ligandIndexes.concat(index);
+  //   }
+  // }
+  ligandIndexes = [Math.floor((Math.random() * 8)),Math.floor((Math.random() * 8)),Math.floor((Math.random() * 8))];
+}
+
+
+function setQuizProperties() {
+    $('#cover-questionLength').html(numberOfQuestions);
+    $('#cover-time').html(timer/60);
+}
+
+function startQuiz() {
+  	currentNumber = 0;
+    $('.questionCover').hide();
+    $('.questionContainer').show();
+    $('.quizAnswers').hide();
+    $('#submitButton').html("Next Question");
+    initializeClock();
+    checkEnd();
+}
+
+function initializeClock() {
+    var minute = timer/60;
+    var second = timer%60;
+
+    function intToString(time) {
+        time = parseInt(time);
+        if (time < 10) return '0' + time.toString();
+        else return time.toString();
+    }
+
+    function updateClock() {
+        minute = Math.floor(timer/60);
+        second = intToString(timer%60);
+
+        $('#timer-minutes').html(minute);
+        $('#timer-seconds').html(second);
+
+        if(timer == -1){
+          alert("Time's up!");
+          endQuiz();
+        }
+        timer--;
+    }
+
+    timeVar = setInterval(updateClock, 1000);
 }
 
 function get_dataset(i) {
@@ -60,7 +108,7 @@ function get_dataset(i) {
 // Redraws the graph with current ligand values, does not affect subtype.
 function redrawGraph() {
 	// Generate data to pass to the graph.
-	var data = []
+    var data = [];
 
     for (var i = 0; i < 6; i++) {
         if (activeLigandRow()[i]) {
@@ -79,53 +127,7 @@ function redrawGraph() {
             data.push(graph);
         }
     }
-	plotGraph(data, false, {staticPlot: true})
-}
-
-
-function setQuizProperties() {
-    $('#cover-questionLength').html(numberOfQuestions);
-    $('#cover-time').html(timeLimit/60);
-}
-
-function startQuiz() {
-	currentNumber = 0;
-    $('.questionCover').hide();
-    $('.questionContainer').show();
-    $('.quizAnswers').hide();
-    $('#submitButton').html("Next Question");
-    initializeClock();
-    checkEnd();
-}
-
-function initializeClock() {
-    var minute = timeLimit/60;
-    var second = timeLimit%60;
-
-    function intToString(time) {
-        time = parseInt(time);
-        if (time < 10) return '0' + time.toString();
-        else return time.toString();
-    }
-
-    function updateClock() {
-        minute = Math.floor(timeLimit/60);
-        second = intToString(timeLimit%60);
-
-        $('#timer-minutes').html(minute);
-        $('#timer-seconds').html(second);
-
-        if(timeLimit == -1){
-          alert("Time's up!");
-          timeLimit = 0;
-          clearInterval(myVar);
-          checkAnswer();
-          renderResults();
-        }
-        timeLimit--;
-    }
-
-    var myVar = setInterval(updateClock, 1000);
+	plotGraph(data, false, {staticPlot: true});
 }
 
 // This functions generates a random number of questions and ratio and returns as an array
@@ -133,40 +135,14 @@ function generateQuestion() {
 
     randomiseSubType();
     randomiseLigand();
+}
 
-    function getRandomSubtype() {
-        return Math.floor(Math.random() * 5) + 1;
-    }
-
-    function getRandomNumberOfSubtype() {
-        return Math.floor(Math.random() * 2) + 1;
-    }
-
-    function getRandomSubtypeRatio() {
-        return parseInt(2 + Math.floor(Math.random() * 7) + '0');
-    }
-
-
-    var numberOfLigands = getRandomNumberOfSubtype();
-    var subtypes = [];
-    var subtypeRatio = [];
-
-    if (numberOfLigands === 1) {
-        subtypes.push(getRandomSubtype());
-        subtypeRatio.push(100);
-    } else if (numberOfLigands === 2) {
-        subtypes.push(getRandomSubtype());
-        while (true) {
-            var secondSubtype = getRandomSubtype();
-            if (secondSubtype !== subtypes[0]) {
-                subtypes.push(secondSubtype);
-                break;
-            }
-        }
-        subtypeRatio.push(getRandomSubtypeRatio());
-        subtypeRatio.push(100 - subtypeRatio[0]);
-    }
-    return [subtypes, subtypeRatio];
+function endQuiz(){
+  timer = timeLimit;
+  clearInterval(timeVar);
+  $('#quiz_title').html('Review');
+  $('.questionContainer').hide();
+  $('.quizAnswers').show();
 }
 
 function checkEnd() {
@@ -176,9 +152,7 @@ function checkEnd() {
     $('#quiz_title').html('Question '+currentNumber+' of '+numberOfQuestions);
   }
   else if(currentNumber > numberOfQuestions){
-    $('#quiz_title').html('Review');
-    $('.questionContainer').hide();
-    $('.quizAnswers').show();
+    endQuiz();
   }
   else {
     $('#submitButton').html("Next Question");
@@ -186,40 +160,6 @@ function checkEnd() {
     generateQuestion();
   }
 }
-
-// Redraws the graph with current ligand values, does not affect subtype.
-function redrawGraph() {
-	// Generate data to pass to the graph.
-	var data = []
-
-    for (var i = 0; i < 6; i++) {
-        if (activeLigandRow()[i]) {
-            var dataSet = get_dataset(i);
-            var graph = {
-                x: dataSet[0],
-                y: dataSet[1],
-                mode: 'lines',
-                line: {
-                    color: colorTable[i],
-                    width: 1
-                },
-                name: ligandNames[ligandTableCell(0, i).value]
-
-            };
-            data.push(graph);
-        }
-    }
-	plotGraph(data, false, {staticPlot: true})
-}
-
-/*
-// Prepare the entire stack of questions
-function prepareQuestions() {
-    for (var i = 0; i < numberOfQuestions; i++) {
-        questionStack.push(generateQuestion());
-    }
-}
-*/
 
 function collectUserInput(){
     var userAnswer = [];

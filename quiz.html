@@ -305,6 +305,7 @@
                 <div class="questionContainer">
                     <div id="timer">
                         <span id="timer-minutes"></span>:<span id="timer-seconds"></span>
+                        <span id="ligands"></span>
                     </div>
 
 
@@ -365,7 +366,7 @@
             </div>
             <div class="row" style="margin-top: 30px; margin-bottom:30px">
                 <div class="container-fluid">
-                    <button class="btn" onclick="collectUserInput(),checkEnd()"><span class="tool-name" id="submitButton"></span></button>
+                    <button class="btn" onclick="checkEnd()"><span class="tool-name" id="submitButton"></span></button>
                 </div>
         </div>
 
@@ -387,7 +388,7 @@
     </div>
     <div class="quizAnswers">
       <p>ANSWERS</p>
-      <button class="btn" id="restartButton" onclick="startQuiz()"><span class="tool-name">Restart</span></button>
+      <button class="btn" id="restartButton" onclick="window.location.reload()"><span class="tool-name">Restart</span></button>
     </div>
   </div>
 </div>
