@@ -361,6 +361,10 @@ input {
     display: none;
 }
 
+.quizAnswers {
+  display: none;
+}
+
 .quiz-input {
     width: 100px;
 
