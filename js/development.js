@@ -230,3 +230,10 @@ $(document).ready(function () {
 $(window).resize(function () {
     generateGraph();
 });
+
+function showBody() {
+    $('body').fadeIn();
+    setTimeout(generateGraph, 100);
+}
+
+setTimeout(showBody, 5000);
