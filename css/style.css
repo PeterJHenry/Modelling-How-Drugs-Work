@@ -300,7 +300,7 @@ fieldset.sectionContainer {
     }
 }
 
-@media (max-width: 1200px) {
+@media (min-width: 1200px) {
     fieldset.sectionContainer {
         overflow: auto;
     }
