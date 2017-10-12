@@ -163,11 +163,25 @@ function validateRelDensityRow(currentCellNumber) {
         }
         else if (currentCellNumber === previousCheckedBox1) // Middle box value entry updates the right 1 box
         {
+            if((100 - receptorRelDenTableCell(previousCheckedBox0).value - currentCellValue) >= 0) 
             receptorRelDenTableCell(previousCheckedBox2).value = 100 - receptorRelDenTableCell(previousCheckedBox0).value - currentCellValue; 
+            else receptorRelDenTableCell(previousCheckedBox2).value = 0;
+            if((receptorRelDenTableCell(previousCheckedBox0).value) >= 100)
+            {
+                receptorRelDenTableCell(previousCheckedBox1).value = 0;
+                receptorRelDenTableCell(previousCheckedBox2).value = 0;
+            }
         }
         else if (currentCellNumber === previousCheckedBox2) // Middle box value entry updates the right 1 box
         {
+            if((100 - receptorRelDenTableCell(previousCheckedBox0).value - currentCellValue) >= 0)
             receptorRelDenTableCell(previousCheckedBox1).value = 100 - receptorRelDenTableCell(previousCheckedBox0).value - currentCellValue;
+            else receptorRelDenTableCell(previousCheckedBox1).value = 0;
+            if((receptorRelDenTableCell(previousCheckedBox0).value) >= 100)
+            {
+                receptorRelDenTableCell(previousCheckedBox1).value = 0;
+                receptorRelDenTableCell(previousCheckedBox2).value = 0;
+            }
         }
     }
 
