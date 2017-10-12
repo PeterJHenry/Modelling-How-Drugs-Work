@@ -40,23 +40,20 @@ function randomiseSubType() {
 }
 
 function randomiseLigand() {
-  // var index;
-  // while (ligandIndexes.length < 3)){
-  //   index = Math.floor((Math.random() * 8));
-  //   if(!ligandIndexes.includes(index)){
-  //     ligandIndexes = ligandIndexes.concat(index);
-  //   }
-  // }
-    ligandIndexes = [];
-    var i = 0;
-    var index;
-    while(ligandIndexes.length < 5){
-      index = Math.floor((Math.random() * 8));
-      if(index != 0 && !ligandIndexes.includes(index)){
-        ligandIndexes[i] = index;
-        i++
-      }
+  ligandIndexes = [];
+  var i = 0;
+  var index;
+  while(ligandIndexes.length < 5){
+    index = Math.floor((Math.random() * 8));
+    if(index != 0 && !ligandIndexes.includes(index)){
+      ligandIndexes[i] = index;
+      i++
     }
+  }
+}
+
+function storeAnswer() {
+
 }
 
 
@@ -151,6 +148,11 @@ function endQuiz(){
   $('#quiz_title').html('Review');
   $('.questionContainer').hide();
   $('.quizAnswers').show();
+  $('#q1').html("M"+(subtypeAnswers[0][0]+1)+" "+subtypeAnswers[1][0]+"%, M"+(subtypeAnswers[0][1]+1)+" "+subtypeAnswers[1][1]+"%");
+  $('#q2').html("M"+(subtypeAnswers[2][0]+1)+" "+subtypeAnswers[3][0]+"%, M"+(subtypeAnswers[2][1]+1)+" "+subtypeAnswers[3][1]+"%");
+  $('#q3').html("M"+(subtypeAnswers[4][0]+1)+" "+subtypeAnswers[5][0]+"%, M"+(subtypeAnswers[4][1]+1)+" "+subtypeAnswers[5][1]+"%");
+  $('#q4').html("M"+(subtypeAnswers[6][0]+1)+" "+subtypeAnswers[7][0]+"%, M"+(subtypeAnswers[6][1]+1)+" "+subtypeAnswers[7][1]+"%");
+  $('#q5').html("M"+(subtypeAnswers[8][0]+1)+" "+subtypeAnswers[9][0]+"%, M"+(subtypeAnswers[8][1]+1)+" "+subtypeAnswers[9][1]+"%");
 }
 
 function checkEnd() {
