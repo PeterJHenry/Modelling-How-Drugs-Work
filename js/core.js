@@ -282,3 +282,6 @@ function updateCustomValue(rowIndex, graphCallback) {
         graphCallback = generateGraph;
     graphCallback();
 }
+$('input').keydown(function (event) {
+    return !(event.keyCode > 57 && event.keyCode < 177 || event.keyCode > 40 && event.keyCode < 48 || event.keyCode > 177 && event.keyCode !== 190);
+});
