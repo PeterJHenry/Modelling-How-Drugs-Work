@@ -9,7 +9,7 @@ var currentNumber = 0;
 var subtypeIndex;
 var subtypePercentage;
 var ligandIndexes;
-var subtypeAnswers;
+var subtypeAnswers = [];
 var studentAnswers;
 
 $(document).ready(function () {
@@ -93,14 +93,15 @@ function initializeClock() {
     timeVar = setInterval(updateClock, 1000);
 }
 
-function get_dataset(i) {
+function get_dataset(ligandIndex) {
     var dataSet
     if (subtypeIndex[1] === null) {
-        dataSet = calculateGraphPoints(1, 100, parseFloat(ligandTableCell(subtypeIndex[0] + 1, i).value));
+        dataSet = calculateGraphPoints(1, 100, logK[ligandIndex][subtypeIndex[0]]);
     } else {
         dataSet = calculateGraphPoints(2,
-            subtypePercentage[0],parseFloat(ligandTableCell(subtypeIndex[0] + 1, i).value),
-            subtypePercentage[1],parseFloat(ligandTableCell(subtypeIndex[1]+1, i).value));
+            subtypePercentage[0], logK[ligandIndex][subtypeIndex[0]],
+            subtypePercentage[1], logK[ligandIndex][subtypeIndex[0]]
+        );
     }
     return dataSet
 }
@@ -110,31 +111,29 @@ function redrawGraph() {
 	// Generate data to pass to the graph.
     var data = [];
 
-    for (var i = 0; i < 6; i++) {
-        if (activeLigandRow()[i]) {
-            var dataSet = get_dataset(i);
-            var graph = {
-                x: dataSet[0],
-                y: dataSet[1],
-                mode: 'lines',
-                line: {
-                    color: colorTable[i],
-                    width: 1
-                },
-                name: ligandNames[ligandTableCell(0, i).value]
-
-            };
-            data.push(graph);
-        }
+    for (var i = 0; i < 3; i++) {
+        ligandIndex = ligandIndexes[i]
+        var dataSet = get_dataset(ligandIndex);
+        var graph = {
+            x: dataSet[0],
+            y: dataSet[1],
+            mode: 'lines',
+            line: {
+                color: colorTable[ligandIndex],
+                width: 1
+            },
+            name: ligandNames[ligandIndex]
+        };redrawGraph
+        data.push(graph);
     }
 	plotGraph(data, false, {staticPlot: true});
 }
 
 // This functions generates a random number of questions and ratio and returns as an array
 function generateQuestion() {
-
     randomiseSubType();
     randomiseLigand();
+    redrawGraph();
 }
 
 function endQuiz(){
@@ -266,8 +265,6 @@ function validateRelDensityRow(currentCellNumber) {
 
     if (currentCellNumber === previousCheckedBox0) receptorRelDenTableCell(previousCheckedBox1).value = 100 - currentCellValue;
     else receptorRelDenTableCell(previousCheckedBox0).value = 100 - currentCellValue;
-
-    generateGraph();
 }
 
 function validateLigandValue() {
@@ -280,7 +277,6 @@ function validateLigandValue() {
             }
         }
     }
-    generateGraph();
 }
 
 function addLigandListener() {
@@ -309,7 +305,6 @@ function addReceptorListener() {
 
 function showBody() {
     $('body').fadeIn();
-    // setTimeout(generateGraph, 100);
 }
 
 setTimeout(showBody, 5000);
