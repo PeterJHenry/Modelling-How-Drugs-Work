@@ -295,9 +295,14 @@ fieldset.sectionContainer {
 
 }
 @media (min-width:1000px) {
-
     fieldset.sectionContainer {
         overflow: scroll;
+    }
+}
+
+@media (min-width: 1200px) {
+    fieldset.sectionContainer {
+        overflow: auto;
     }
 }
 
