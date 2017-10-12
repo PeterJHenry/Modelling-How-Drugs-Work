@@ -440,10 +440,6 @@ input {
     background-color: rgba(213, 213, 213, 0.79);
 }
 
-section {
-    display: none;
-}
-
 .loading {
     height: 100vh;
     z-index: 99;
@@ -462,4 +458,22 @@ li.nav-item:hover {
 
 .btn{
     cursor: pointer;
+}
+
+.questionCover {
+    text-align: center;
+    font-size: 16px;
+}
+
+.questionContainer {
+    display: none;
+}
+
+.quizAnswers {
+  display: none;
+}
+
+.quiz-input {
+    width: 100px;
+
 }
