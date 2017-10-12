@@ -220,6 +220,8 @@ function addReceptorListener() {
                 validateIndividualCell(count - 1);
             }).change(function () {
                 validateIndividualCell(count - 1);
+            }).keyup(function () {
+                validateIndividualCell(count - 1);
             });
         }
     });
