@@ -1,28 +1,22 @@
 // Constants
 var timeLimit = 1500;
+var timer = timeLimit;
+var timeVar;
 var numberOfQuestions = 5;
 
-var questionNumbers = 0;
 var currentNumber = 0;
-
-var questionStack = [];
-var correctAnswerStack = [];
-var userAnswerStack = [];
 
 var subtypeIndex;
 var subtypePercentage;
+var ligandIndexes;
+var subtypeAnswers = [];
+var studentAnswers;
 
 $(document).ready(function () {
     setQuizProperties();
     $('.quizAnswers').hide();
-    //startQuiz();
 });
 
-function randomiseLigand() {
-  ligand1 = ligandNames[Math.floor((Math.random()*9))];
-  ligand2 = ligandNames[Math.floor((Math.random()*9))];
-  ligand3 = ligandNames[Math.floor((Math.random()*9))];
-}
 
 // Chooose a random subtype and then the draw the graph for it.
 function randomiseSubType() {
@@ -38,58 +32,38 @@ function randomiseSubType() {
     } else {
         subtypeIndex[1] = Math.floor((Math.random() * 5));
         if (subtypeIndex[1] === subtypeIndex[0]) {
-            subtypeIndex[0] = subtypeIndex[0]+1 % 5
+            subtypeIndex[0] = subtypeIndex[0]+1 % 5;
         }
         subtypePercentage[1] = 100 - subtypePercentage[0];
     }
-    redrawGraph();
+    subtypeAnswers = subtypeAnswers.concat([subtypeIndex,subtypePercentage]);
 }
 
-function get_dataset(i) {
-    var dataSet
-    if (subtypeIndex[1] === null) {
-        dataSet = calculateGraphPoints(1, 100, parseFloat(ligandTableCell(subtypeIndex[0] + 1, i).value));
-    } else {
-        dataSet = calculateGraphPoints(2,
-            subtypePercentage[0],parseFloat(ligandTableCell(subtypeIndex[0] + 1, i).value),
-            subtypePercentage[1],parseFloat(ligandTableCell(subtypeIndex[1]+1, i).value));
+function randomiseLigand() {
+  ligandIndexes = [];
+  var i = 0;
+  var index;
+  while(ligandIndexes.length < 5){
+    index = Math.floor((Math.random() * 8));
+    if(index != 0 && !ligandIndexes.includes(index)){
+      ligandIndexes[i] = index;
+      i++
     }
-    return dataSet
+  }
 }
 
-// Redraws the graph with current ligand values, does not affect subtype.
-function redrawGraph() {
-	// Generate data to pass to the graph.
-	var data = []
+function storeAnswer() {
 
-    for (var i = 0; i < 6; i++) {
-        if (activeLigandRow()[i]) {
-            var dataSet = get_dataset(i);
-            var graph = {
-                x: dataSet[0],
-                y: dataSet[1],
-                mode: 'lines',
-                line: {
-                    color: colorTable[i],
-                    width: 1
-                },
-                name: ligandNames[ligandTableCell(0, i).value]
-
-            };
-            data.push(graph);
-        }
-    }
-	plotGraph(data, false, {staticPlot: true})
 }
 
 
 function setQuizProperties() {
     $('#cover-questionLength').html(numberOfQuestions);
-    $('#cover-time').html(timeLimit/60);
+    $('#cover-time').html(timer/60);
 }
 
 function startQuiz() {
-	currentNumber = 0;
+  	currentNumber = 0;
     $('.questionCover').hide();
     $('.questionContainer').show();
     $('.quizAnswers').hide();
@@ -99,8 +73,8 @@ function startQuiz() {
 }
 
 function initializeClock() {
-    var minute = timeLimit/60;
-    var second = timeLimit%60;
+    var minute = timer/60;
+    var second = timer%60;
 
     function intToString(time) {
         time = parseInt(time);
@@ -109,64 +83,80 @@ function initializeClock() {
     }
 
     function updateClock() {
-        minute = Math.floor(timeLimit/60);
-        second = intToString(timeLimit%60);
+        minute = Math.floor(timer/60);
+        second = intToString(timer%60);
 
         $('#timer-minutes').html(minute);
         $('#timer-seconds').html(second);
 
-        if(timeLimit === -1){
+        if(timer == -1){
           alert("Time's up!");
-          timeLimit = 0;
-          clearInterval(myVar);
-          checkAnswer();
-          renderResults();
+          endQuiz();
         }
-        timeLimit--;
+        timer--;
     }
 
-    var myVar = setInterval(updateClock, 1000);
+    timeVar = setInterval(updateClock, 1000);
+}
+
+function get_dataset(ligandIndex) {
+    var dataSet
+    if (subtypeIndex[1] === null) {
+        dataSet = calculateGraphPoints(1, 100, logK[ligandIndex][subtypeIndex[0]]);
+    } else {
+        dataSet = calculateGraphPoints(2,
+            subtypePercentage[0], logK[ligandIndex][subtypeIndex[0]],
+            subtypePercentage[1], logK[ligandIndex][subtypeIndex[1]]
+        );
+    }
+    return dataSet;
+}
+
+// Redraws the graph with current ligand values, does not affect subtype.
+function redrawGraph() {
+	// Generate data to pass to the graph.
+    var data = [];
+
+    // console.log("Subtype Indexes: " + subtypeIndex);
+    // console.log("Subtype Percentages: " + subtypePercentage);
+    // console.log("Ligands: " + ligandIndexes);
+
+    for (var i = 0; i < 5; i++) {
+        ligandIndex = ligandIndexes[i]
+        var dataSet = get_dataset(ligandIndex);
+        var graph = {
+            x: dataSet[0],
+            y: dataSet[1],
+            mode: 'lines',
+            line: {
+                color: colorTable[ligandIndex],
+                width: 1
+            },
+            name: ligandNames[ligandIndex]
+        };redrawGraph
+        data.push(graph);
+    }
+	plotGraph(data, false, {staticPlot: true});
 }
 
 // This functions generates a random number of questions and ratio and returns as an array
 function generateQuestion() {
-
     randomiseSubType();
     randomiseLigand();
+    redrawGraph();
+}
 
-    function getRandomSubtype() {
-        return Math.floor(Math.random() * 5) + 1;
-    }
-
-    function getRandomNumberOfSubtype() {
-        return Math.floor(Math.random() * 2) + 1;
-    }
-
-    function getRandomSubtypeRatio() {
-        return parseInt(2 + Math.floor(Math.random() * 7) + '0');
-    }
-
-
-    var numberOfLigands = getRandomNumberOfSubtype();
-    var subtypes = [];
-    var subtypeRatio = [];
-
-    if (numberOfLigands === 1) {
-        subtypes.push(getRandomSubtype());
-        subtypeRatio.push(100);
-    } else if (numberOfLigands === 2) {
-        subtypes.push(getRandomSubtype());
-        while (true) {
-            var secondSubtype = getRandomSubtype();
-            if (secondSubtype !== subtypes[0]) {
-                subtypes.push(secondSubtype);
-                break;
-            }
-        }
-        subtypeRatio.push(getRandomSubtypeRatio());
-        subtypeRatio.push(100 - subtypeRatio[0]);
-    }
-    return [subtypes, subtypeRatio];
+function endQuiz(){
+  timer = timeLimit;
+  clearInterval(timeVar);
+  $('#quiz_title').html('Review');
+  $('.questionContainer').hide();
+  $('.quizAnswers').show();
+  $('#q1').html("M"+(subtypeAnswers[0][0]+1)+" "+subtypeAnswers[1][0]+"%, M"+(subtypeAnswers[0][1]+1)+" "+subtypeAnswers[1][1]+"%");
+  $('#q2').html("M"+(subtypeAnswers[2][0]+1)+" "+subtypeAnswers[3][0]+"%, M"+(subtypeAnswers[2][1]+1)+" "+subtypeAnswers[3][1]+"%");
+  $('#q3').html("M"+(subtypeAnswers[4][0]+1)+" "+subtypeAnswers[5][0]+"%, M"+(subtypeAnswers[4][1]+1)+" "+subtypeAnswers[5][1]+"%");
+  $('#q4').html("M"+(subtypeAnswers[6][0]+1)+" "+subtypeAnswers[7][0]+"%, M"+(subtypeAnswers[6][1]+1)+" "+subtypeAnswers[7][1]+"%");
+  $('#q5').html("M"+(subtypeAnswers[8][0]+1)+" "+subtypeAnswers[9][0]+"%, M"+(subtypeAnswers[8][1]+1)+" "+subtypeAnswers[9][1]+"%");
 }
 
 function checkEnd() {
@@ -174,11 +164,10 @@ function checkEnd() {
   if(currentNumber === numberOfQuestions){
     $('#submitButton').html("Submit");
     $('#quiz_title').html('Question '+currentNumber+' of '+numberOfQuestions);
+    generateQuestion();
   }
   else if(currentNumber > numberOfQuestions){
-    $('#quiz_title').html('Review');
-    $('.questionContainer').hide();
-    $('.quizAnswers').show();
+    endQuiz();
   }
   else {
     $('#submitButton').html("Next Question");
@@ -186,40 +175,6 @@ function checkEnd() {
     generateQuestion();
   }
 }
-
-// Redraws the graph with current ligand values, does not affect subtype.
-function redrawGraph() {
-	// Generate data to pass to the graph.
-	var data = [];
-
-    for (var i = 0; i < 6; i++) {
-        if (activeLigandRow()[i]) {
-            var dataSet = get_dataset(i);
-            var graph = {
-                x: dataSet[0],
-                y: dataSet[1],
-                mode: 'lines',
-                line: {
-                    color: colorTable[i],
-                    width: 1
-                },
-                name: ligandNames[ligandTableCell(0, i).value]
-
-            };
-            data.push(graph);
-        }
-    }
-	plotGraph(data, false, {staticPlot: true})
-}
-
-/*
-// Prepare the entire stack of questions
-function prepareQuestions() {
-    for (var i = 0; i < numberOfQuestions; i++) {
-        questionStack.push(generateQuestion());
-    }
-}
-*/
 
 function collectUserInput(){
     var userAnswer = [];
@@ -326,8 +281,6 @@ function validateRelDensityRow(currentCellNumber) {
 
     if (currentCellNumber === previousCheckedBox0) receptorRelDenTableCell(previousCheckedBox1).value = 100 - currentCellValue;
     else receptorRelDenTableCell(previousCheckedBox0).value = 100 - currentCellValue;
-
-    generateGraph();
 }
 
 function validateLigandValue() {
@@ -340,7 +293,6 @@ function validateLigandValue() {
             }
         }
     }
-    generateGraph();
 }
 
 function addLigandListener() {
@@ -368,8 +320,7 @@ function addReceptorListener() {
 }
 
 function showBody() {
-    $('section').fadeIn();
-    // setTimeout(generateGraph, 100);
+    $('body').fadeIn();
 }
 
 setTimeout(showBody, 5000);
