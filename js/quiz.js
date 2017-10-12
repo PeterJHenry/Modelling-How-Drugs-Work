@@ -369,7 +369,6 @@ function addReceptorListener() {
 
 function showBody() {
     $('section').fadeIn();
-    $('.loading').fadeOut();
     // setTimeout(generateGraph, 100);
 }
 
