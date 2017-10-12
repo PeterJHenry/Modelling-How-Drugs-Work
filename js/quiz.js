@@ -1,5 +1,5 @@
 // Constants
-var timeLimit = 10;
+var timeLimit = 1500;
 var timer = timeLimit;
 var timeVar;
 var numberOfQuestions = 5;
@@ -47,7 +47,16 @@ function randomiseLigand() {
   //     ligandIndexes = ligandIndexes.concat(index);
   //   }
   // }
-  ligandIndexes = [Math.floor((Math.random() * 8)),Math.floor((Math.random() * 8)),Math.floor((Math.random() * 8))];
+    ligandIndexes = [];
+    var i = 0;
+    var index;
+    while(ligandIndexes.length < 5){
+      index = Math.floor((Math.random() * 8));
+      if(index != 0 && !ligandIndexes.includes(index)){
+        ligandIndexes[i] = index;
+        i++
+      }
+    }
 }
 
 
@@ -111,7 +120,7 @@ function redrawGraph() {
 	// Generate data to pass to the graph.
     var data = [];
 
-    for (var i = 0; i < 3; i++) {
+    for (var i = 0; i < 5; i++) {
         ligandIndex = ligandIndexes[i]
         var dataSet = get_dataset(ligandIndex);
         var graph = {
@@ -149,6 +158,7 @@ function checkEnd() {
   if(currentNumber === numberOfQuestions){
     $('#submitButton').html("Submit");
     $('#quiz_title').html('Question '+currentNumber+' of '+numberOfQuestions);
+    generateQuestion();
   }
   else if(currentNumber > numberOfQuestions){
     endQuiz();
