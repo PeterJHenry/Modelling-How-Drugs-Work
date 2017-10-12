@@ -1,6 +1,6 @@
 // Constants
+var timer;
 var timeLimit = 1500;
-var timer = timeLimit;
 var timeVar;
 var numberOfQuestions = 5;
 
@@ -12,8 +12,6 @@ var ligandIndexes;
 var subtypeAnswers = [];
 var inputAnswers = [];
 var score = [];
-
-var subTypeCheckedCount;
 
 $(document).ready(function () {
     setQuizProperties();
@@ -70,13 +68,14 @@ function setQuizProperties() {
 }
 
 function startQuiz() {
+    timer = timeLimit;
   	currentNumber = 0;
     $('.questionCover').hide();
     $('.questionContainer').show();
     $('.quizAnswers').hide();
     $('#submitButton').html("Next Question");
     initializeClock();
-    checkEnd();
+    quizStatus();
 }
 
 function initializeClock() {
@@ -154,7 +153,7 @@ function checkAnswers(){
   }
   else {
     storeAnswers();
-    checkEnd();
+    quizStatus();
   }
 }
 
@@ -188,7 +187,8 @@ function storeAnswers() {
 
 function renderResults() {
   for(var i = 0; i < 10; i+=2){
-    if((inputAnswers[i][0] === subtypeAnswers[i][0]) && (inputAnswers[i][1] === subtypeAnswers[i][1]) || (inputAnswers[i][0] === subtypeAnswers[i][1]) && (inputAnswers[i][1] === subtypeAnswers[i][0])){
+    if(((inputAnswers[i][0] === subtypeAnswers[i][0]) && (inputAnswers[i][1] === subtypeAnswers[i][1]) && (inputAnswers[i+1][0] === subtypeAnswers[i+1][0])) ||
+    ((inputAnswers[i][0] === subtypeAnswers[i][1]) && (inputAnswers[i][1] === subtypeAnswers[i][0]) && (inputAnswers[i+1][0] === subtypeAnswers[i+1][1]))){
       score[i/2] = 1;
     }
     else {
@@ -198,7 +198,7 @@ function renderResults() {
 
   $('#score').html("Score: "+score.reduce(function (a, b) {
     return a + b;
-  }, 0));
+  }, 0)+"/5");
 
   var yes1 = '#row1:hover {background-color:#dcffd3;}';
   var yes2 = '#row2:hover {background-color:#dcffd3;}';
@@ -293,7 +293,6 @@ function renderResults() {
 }
 
 function endQuiz(){
-  timer = timeLimit;
   clearInterval(timeVar);
   $('#quiz_title').html('Review');
   $('.questionContainer').hide();
@@ -301,7 +300,7 @@ function endQuiz(){
   renderResults();
 }
 
-function checkEnd() {
+function quizStatus() {
   currentNumber++;
   if(currentNumber === numberOfQuestions){
     $('#submitButton').html("Submit");
