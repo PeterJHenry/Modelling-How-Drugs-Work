@@ -320,7 +320,7 @@
                                 <p class="lihead" style="margin:auto;font-size:15px;margin-bottom:20px;margin-top:20px;">Which receptor subtypes are present and what are their relative densities?</p>
               <fieldset class="sectionContainer">
                   <legend>Receptor</legend>
-                  <table class="table-responsive">
+                  <form><table class="table-responsive">
                       <tbody>
                       <tr>
                           <td></td>
@@ -334,11 +334,11 @@
                           <td>
                               <div class="leftInput">Subtypes</div>
                           </td>
-                          <td><input type="checkbox" onclick="validateCheckBox(0)"></td>
-                          <td><input type="checkbox" onclick="validateCheckBox(1)"></td>
-                          <td><input type="checkbox" onclick="validateCheckBox(2)"></td>
-                          <td><input type="checkbox" onclick="validateCheckBox(3)"></td>
-                          <td><input type="checkbox" onclick="validateCheckBox(4)"></td>
+                          <td><input type="checkbox" value="1" onchange="validateCheckBox(0)"></td>
+                          <td><input type="checkbox" value="2" onchange="validateCheckBox(1)"></td>
+                          <td><input type="checkbox" value="3" onchange="validateCheckBox(2)"></td>
+                          <td><input type="checkbox" value="4" onchange="validateCheckBox(3)"></td>
+                          <td><input type="checkbox" value="5" onchange="validateCheckBox(4)"></td>
 
                       </tr>
                       <tr id="relDensity">
@@ -360,13 +360,13 @@
                       </tr>
                       </tbody>
 
-                  </table>
+                  </table></form>
 
               </fieldset>
             </div>
             <div class="row" style="margin-top: 30px; margin-bottom:30px">
                 <div class="container-fluid">
-                    <button class="btn" onclick="checkEnd()"><span class="tool-name" id="submitButton"></span></button>
+                    <button class="btn" onclick="checkAnswers()"><span class="tool-name" id="submitButton"></span></button>
                 </div>
         </div>
 
@@ -387,20 +387,37 @@
       </div>
     </div>
     <div class="quizAnswers">
-      <p>ANSWERS</p>
-      <table border="1px">
-        <tr>
-          <td></td>
-          <td>You answered</td>
-          <td>Correct Answer</td>
-          <td>Marks</td>
+      <p class="lihead" style="font-size:20px;text-align:center" id="score"></p>
+      <table class="table table-hover">
+        <tr class="resultrow">
+          <th class="th1"></th>
+          <th class="th1"><center>You Answered</center></th>
+          <th class="th1"><center>Correct Answer</center></th>
         </tr>
-        <tr>
-          <td><p class="lihead">Question 1: </p></td><td></td><td><span id="a1"></span></td><td></td></tr>
-          <td><p class="lihead">Question 2: </p></td><td></td><td><span id="a2"></span></td><td></td></tr>
-          <td><p class="lihead">Question 3: </p></td><td></td><td><span id="a3"></span></td><td></td></tr>
-          <td><p class="lihead">Question 4: </p></td><td></td><td><span id="a4"></span></td><td></td></tr>
-          <td><p class="lihead">Question 5: </p></td><td></td><td><span id="a5"></span></td><td></td></tr>
+        <tr class="resultrow">
+          <th style="vertical-align:middle;text-align:center;">Question 1</th>
+          <td style="vertical-align:middle;text-align:center;"><span id="q1"></span></td>
+          <td style="vertical-align:middle;text-align:center;"><span id="a1"></span></td>
+        </tr>
+        <tr class="resultrow">
+          <th style="vertical-align:middle;text-align:center;">Question 2</th>
+          <td style="vertical-align:middle;text-align:center;"><span id="q2"></span></td>
+          <td style="vertical-align:middle;text-align:center;"><span id="a2"></span></td>
+        </tr>
+        <tr class="resultrow">
+          <th style="vertical-align:middle;text-align:center;">Question 3</th>
+          <td style="vertical-align:middle;text-align:center;"><span id="q3"></span></td>
+          <td style="vertical-align:middle;text-align:center;"><span id="a3"></span></td>
+        </tr>
+        <tr class="resultrow">
+          <th style="vertical-align:middle;text-align:center;">Question 4</th>
+          <td style="vertical-align:middle;text-align:center;"><span id="q4"></span></td>
+          <td style="vertical-align:middle;text-align:center;"><span id="a4"></span></td>
+        </tr>
+        <tr class="resultrow">
+          <th style="vertical-align:middle;text-align:center;">Question 5</th>
+          <td style="vertical-align:middle;text-align:center;"><span id="q5"></span></td>
+          <td style="vertical-align:middle;text-align:center;"><span id="a5"></span></td>
         </tr>
       </table>
       <button class="btn" onclick="window.location.reload()"><span class="tool-name">Restart</span></button>
@@ -625,6 +642,7 @@
 <!-- Custom JavaScript -->
 <script type="text/javascript" src="js/core.js"></script>
 <script type="text/javascript" src="js/quiz.js"></script>
+<script type="text/javascript" src="js/index.js"></script>
 
 
 </body>

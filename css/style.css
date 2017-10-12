@@ -471,9 +471,20 @@ li.nav-item:hover {
 
 .quizAnswers {
   display: none;
+  margin: auto;
+  width: 80%;
 }
 
 .quiz-input {
     width: 100px;
+}
 
+.results {
+  margin: auto;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.resultrow {
+  height: 50px;
 }
