@@ -34,14 +34,14 @@ function revealSubtype() {
     if (subtypeIndex[1] === null) {
         subtypeString = "M" + (subtypeIndex[0]+1) + " (100%)";
     } else {
-        subtypeString = "M" + (subtypeIndex[0]+1) + " (" + subtypePercentage[0]+ "%), "
+        subtypeString = "M" + (subtypeIndex[0]+1) + " (" + subtypePercentage[0]+ "%), ";
         subtypeString += "M" + (subtypeIndex[1]+1) + " (" + subtypePercentage[1]+ "%)"
     }
     subtypeReveal.innerHTML = subtypeString;
 }
 
 function get_dataset(i) {
-    var dataSet
+    var dataSet;
     if (subtypeIndex[1] === null) {
         dataSet = calculateGraphPoints(1, 100, parseFloat(ligandTableCell(subtypeIndex[0] + 1, i).value));
     } else {

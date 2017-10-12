@@ -66,8 +66,6 @@ function ligandAutoFill(selectedLigand, rowIndex, graphCallback) {
 }
 
 // This function will take the data from the page and then draw the graph.
-// TODO - fix graph
-// TODO -  this only works with one graph
 function generateGraph() {
     var data = [];
     switch (activeCheckBoxes().length) {
@@ -280,7 +278,7 @@ function receptorCheckBoxTableCell(colIndex) {
     return document.getElementById('subtypeCheckbox').children[colIndex + 1].children[0];
 }
 
-function updateCustomValue(rowIndex, graphCallback) {
+function updateCustomValue(graphCallback) {
     if (typeof graphCallback === "undefined")
         graphCallback = generateGraph;
     graphCallback();

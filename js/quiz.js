@@ -115,7 +115,7 @@ function initializeClock() {
         $('#timer-minutes').html(minute);
         $('#timer-seconds').html(second);
 
-        if(timeLimit == -1){
+        if(timeLimit === -1){
           alert("Time's up!");
           timeLimit = 0;
           clearInterval(myVar);
@@ -190,7 +190,7 @@ function checkEnd() {
 // Redraws the graph with current ligand values, does not affect subtype.
 function redrawGraph() {
 	// Generate data to pass to the graph.
-	var data = []
+	var data = [];
 
     for (var i = 0; i < 6; i++) {
         if (activeLigandRow()[i]) {
