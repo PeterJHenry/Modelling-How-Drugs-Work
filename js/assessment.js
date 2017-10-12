@@ -80,10 +80,14 @@ $(window).resize(function () {
     redrawGraph();
 });
 
+$(document).ready(function () {
+    setTimeout(redrawGraph, 100);
+});
+
+
 function showBody() {
     $('section').fadeIn();
     $('.loading').fadeOut();
-    setTimeout(redrawGraph, 100);
 }
 
 setTimeout(showBody, 5000);

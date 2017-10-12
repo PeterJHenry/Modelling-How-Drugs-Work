@@ -230,7 +230,9 @@ $(document).ready(function () {
     addLigandListener();
     addReceptorListener();
     $('[data-toggle="tooltip"]').tooltip();
+    setTimeout(generateGraph, 100);
 });
+
 $(window).resize(function () {
     generateGraph();
 });
@@ -238,7 +240,6 @@ $(window).resize(function () {
 function showBody() {
     $('section').fadeIn();
     $('.loading').fadeOut();
-    setTimeout(generateGraph, 100);
 }
 
 setTimeout(showBody, 5000);
