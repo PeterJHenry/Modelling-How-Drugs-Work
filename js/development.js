@@ -165,6 +165,10 @@ function validateRelDensityRow(currentCellNumber) {
         {
             receptorRelDenTableCell(previousCheckedBox2).value = 100 - receptorRelDenTableCell(previousCheckedBox0).value - currentCellValue; 
         }
+        else if (currentCellNumber === previousCheckedBox2) // Middle box value entry updates the right 1 box
+        {
+            receptorRelDenTableCell(previousCheckedBox1).value = 100 - receptorRelDenTableCell(previousCheckedBox0).value - currentCellValue;
+        }
     }
 
     generateGraph();
