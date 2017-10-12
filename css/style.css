@@ -292,6 +292,13 @@ fieldset.sectionContainer {
     text-align: center;
     margin: 0 auto;
     background-color: white;
+
+}
+@media (min-width:1000px) {
+
+    fieldset.sectionContainer {
+        overflow: scroll;
+    }
 }
 
 .sectionContainer > legend {
@@ -404,4 +411,8 @@ input {
 
 .receptorInput:disabled {
     background-color: rgba(213, 213, 213, 0.79);
+}
+
+body{
+    display: none;
 }

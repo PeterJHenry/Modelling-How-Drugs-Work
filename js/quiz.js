@@ -89,6 +89,7 @@ function setQuizProperties() {
 }
 
 function startQuiz() {
+	currentNumber = 0;
     $('.questionCover').hide();
     $('.questionContainer').show();
     $('.quizAnswers').hide();
@@ -365,3 +366,10 @@ function addReceptorListener() {
         }
     });
 }
+
+function showBody() {
+    $('body').fadeIn();
+    // setTimeout(generateGraph, 100);
+}
+
+setTimeout(showBody, 5000);

@@ -163,6 +163,7 @@ function plotGraph(data, showlegend, options) {
             },
             range: [-11, -2]
 
+
         },
         yaxis: {
             title: 'Specific Binding (%)',
@@ -171,7 +172,9 @@ function plotGraph(data, showlegend, options) {
                 size: 18,
                 color: '#7f7f7f'
             },
-            range: [0, 100]
+            range: [0, 100],
+            tickvals: [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100],
+            // ticktext: [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
         },
         margin: {
             l: 50,
@@ -183,6 +186,7 @@ function plotGraph(data, showlegend, options) {
         showlegend: showlegend
     };
     Plotly.newPlot('myDiv', data, layout, options);
+    showBody();
 }
 
 function calculateGraphPoints(numberOfReceptor, den1, logVal1, den2, logVal2, den3, logVal3) {
@@ -262,7 +266,7 @@ function activeLigandRow() {
 // Gets a cell from the ligand table
 // this includes the first index. i.e. the selector
 function ligandTableCell(colIndex, rowIndex) {
-    rowIndex+=2;
+    rowIndex += 2;
     if (colIndex === 0) return document.getElementById('ligandTable').children[0].children[rowIndex].children[colIndex].children[0].children[0];
     else return document.getElementById('ligandTable').children[0].children[rowIndex].children[colIndex].children[0];
 }
@@ -282,6 +286,8 @@ function updateCustomValue(rowIndex, graphCallback) {
         graphCallback = generateGraph;
     graphCallback();
 }
+
 $('input').keydown(function (event) {
     return !(event.keyCode > 57 && event.keyCode < 177 || event.keyCode > 40 && event.keyCode < 48 || event.keyCode > 177 && event.keyCode !== 190);
 });
+
