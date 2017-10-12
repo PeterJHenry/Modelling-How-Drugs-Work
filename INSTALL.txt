@@ -1,0 +1,9 @@
+- Copy the complete SPIKESmate.zip folder to a local directory
+- Extract all files from the zip file into the local folder
+- Open the 'index.html' file.
+- If prompted for an application with which to open the file, choose a web browser such as Google Chrome, Mozilla Firefox, Microsoft Edge or Apple Safari
+- Navigate throught the pages as though the website was hosted online
+- Note that it is essential that no files are renamed or moved and that folder names and directory structures remain intact and un-altered
+- Note that this deployment is a stable static version of the website from a particular build time and will not update. 
+- This build has been tested extensively hence it is provided for you to use
+
