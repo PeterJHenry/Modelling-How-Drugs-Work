@@ -32,7 +32,7 @@ function randomiseSubType() {
     } else {
         subtypeIndex[1] = Math.floor((Math.random() * 5));
         if (subtypeIndex[1] === subtypeIndex[0]) {
-            subtypeIndex[0] = subtypeIndex[0]+1 % 5
+            subtypeIndex[0] = subtypeIndex[0]+1 % 5;
         }
         subtypePercentage[1] = 100 - subtypePercentage[0];
     }
@@ -109,16 +109,20 @@ function get_dataset(ligandIndex) {
     } else {
         dataSet = calculateGraphPoints(2,
             subtypePercentage[0], logK[ligandIndex][subtypeIndex[0]],
-            subtypePercentage[1], logK[ligandIndex][subtypeIndex[0]]
+            subtypePercentage[1], logK[ligandIndex][subtypeIndex[1]]
         );
     }
-    return dataSet
+    return dataSet;
 }
 
 // Redraws the graph with current ligand values, does not affect subtype.
 function redrawGraph() {
 	// Generate data to pass to the graph.
     var data = [];
+
+    // console.log("Subtype Indexes: " + subtypeIndex);
+    // console.log("Subtype Percentages: " + subtypePercentage);
+    // console.log("Ligands: " + ligandIndexes);
 
     for (var i = 0; i < 5; i++) {
         ligandIndex = ligandIndexes[i]
