@@ -145,8 +145,30 @@ function validateRelDensityRow(currentCellNumber) {
     var currentCellValue = parseInt(receptorRelDenTableCell(currentCellNumber).value);
     if (currentCellValue < 0) currentCellValue = receptorRelDenTableCell(currentCellNumber).value = 0;
 
-    if (currentCellNumber === previousCheckedBox0) receptorRelDenTableCell(previousCheckedBox1).value = 100 - currentCellValue;
-    else receptorRelDenTableCell(previousCheckedBox0).value = 100 - currentCellValue;
+    if(subTypeCheckedCount < 3)
+    {
+        if (currentCellNumber === previousCheckedBox0) receptorRelDenTableCell(previousCheckedBox1).value = 100 - currentCellValue;
+        else receptorRelDenTableCell(previousCheckedBox0).value = 100 - currentCellValue;
+    }
+    else
+    {
+        var previousCheckedBox2 = activeCheckBoxes()[2];
+        if (currentCellNumber === previousCheckedBox0)
+        {
+            receptorRelDenTableCell(previousCheckedBox1).value = (100 - currentCellValue)/2;
+            receptorRelDenTableCell(previousCheckedBox2).value = receptorRelDenTableCell(previousCheckedBox1).value;
+        }
+        else if (currentCellNumber === previousCheckedBox1)
+        {
+            receptorRelDenTableCell(previousCheckedBox0).value = (100 - currentCellValue)/2;
+            receptorRelDenTableCell(previousCheckedBox2).value = receptorRelDenTableCell(previousCheckedBox0).value;
+        }
+        else if (currentCellNumber === previousCheckedBox2)
+        {
+            receptorRelDenTableCell(previousCheckedBox0).value = (100 - currentCellValue)/2;
+            receptorRelDenTableCell(previousCheckedBox1).value = receptorRelDenTableCell(previousCheckedBox0).value;
+        }
+    }
 
     generateGraph();
 }
