@@ -448,7 +448,7 @@ section {
     height: 100vh;
     z-index: 99;
     padding-top: 40vh;
-    padding-left: 45vw;
+    text-align: center;
 }
 
 .loading > img {
@@ -486,4 +486,8 @@ section {
 
 .btn{
     position: relative;
+}
+
+li.nav-item:hover {
+    cursor: pointer;
 }
