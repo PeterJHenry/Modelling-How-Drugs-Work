@@ -180,7 +180,16 @@ function plotGraph(data, showlegend, options) {
             t: 50,
             pad: 4
         },
-        showlegend: showlegend
+        showlegend: showlegend,
+        legend: {
+          font: {
+            size: 10
+          },
+          y: 10,
+          orientation : "h"
+        },
+
+
     };
     Plotly.newPlot('myDiv', data, layout, options);
     showBody();
@@ -287,4 +296,3 @@ function updateCustomValue(graphCallback) {
 $('input').keydown(function (event) {
     return !(event.keyCode > 57 && event.keyCode < 177 || event.keyCode > 40 && event.keyCode < 48 || event.keyCode > 177 && event.keyCode !== 190);
 });
-

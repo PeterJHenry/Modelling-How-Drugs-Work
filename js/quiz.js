@@ -130,14 +130,14 @@ function redrawGraph() {
             y: dataSet[1],
             mode: 'lines',
             line: {
-                color: colorTable[ligandIndex],
+                color: colorTable[ligandIndex-1],
                 width: 1
             },
             name: ligandNames[ligandIndex]
         };redrawGraph
         data.push(graph);
     }
-	plotGraph(data, false, {staticPlot: true});
+	plotGraph(data, true, {staticPlot: true});
 }
 
 // This functions generates a random number of questions and ratio and returns as an array
