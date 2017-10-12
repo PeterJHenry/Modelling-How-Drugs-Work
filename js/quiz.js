@@ -11,6 +11,7 @@ var subtypePercentage;
 var ligandIndexes;
 var subtypeAnswers = [];
 var inputAnswers = [];
+var score = [];
 
 var subTypeCheckedCount;
 
@@ -186,34 +187,76 @@ function storeAnswers() {
 }
 
 function renderResults() {
-  var score = 0;
-
   for(var i = 0; i < 10; i+=2){
-    console.log(inputAnswers[i][0],subtypeAnswers[i][0]);
-    console.log(inputAnswers[i][1],subtypeAnswers[i][1]);
     if((inputAnswers[i][0] === subtypeAnswers[i][0]) && (inputAnswers[i][1] === subtypeAnswers[i][1]) || (inputAnswers[i][0] === subtypeAnswers[i][1]) && (inputAnswers[i][1] === subtypeAnswers[i][0])){
-      score++;
+      score[i/2] = 1;
+    }
+    else {
+      score[i/2] = 0;
     }
   }
 
-  if(score===0){
-    $('#score').html(score+"/5... Better get studying...");
+  $('#score').html("Score: "+score.reduce(function (a, b) {
+    return a + b;
+  }, 0));
+
+  var yes1 = '#row1:hover {background-color:#dcffd3;}';
+  var yes2 = '#row2:hover {background-color:#dcffd3;}';
+  var yes3 = '#row3:hover {background-color:#dcffd3;}';
+  var yes4 = '#row4:hover {background-color:#dcffd3;}';
+  var yes5 = '#row5:hover {background-color:#dcffd3;}';
+  var no1 = '#row1:hover {background-color:#ffdddd;}';
+  var no2 = '#row2:hover {background-color:#ffdddd;}';
+  var no3 = '#row3:hover {background-color:#ffdddd;}';
+  var no4 = '#row4:hover {background-color:#ffdddd;}';
+  var no5 = '#row5:hover {background-color:#ffdddd;}';
+  var style = document.createElement('style');
+
+  if (style.styleSheet) {
+    if(score[0]===1) style.styleSheet.cssText = yes1;
+    else style.styleSheet.cssText = no1;
+  } else {
+    if(score[0]===1) style.appendChild(document.createTextNode(yes1));
+    else style.appendChild(document.createTextNode(no1));
   }
-  else if (score===1){
-    $('#score').html(+score+"/5.. At least you got one!");
+  document.getElementsByTagName('head')[0].appendChild(style);
+
+  if (style.styleSheet) {
+    if(score[1]===1) style.styleSheet.cssText = yes2;
+    else style.styleSheet.cssText = no2;
+  } else {
+    if(score[1]===1) style.appendChild(document.createTextNode(yes2));
+    else style.appendChild(document.createTextNode(no2));
   }
-  else if(score===2){
-    $('#score').html(+score+"/5.. So close!");
+  document.getElementsByTagName('head')[0].appendChild(style);
+
+  if (style.styleSheet) {
+    if(score[2]===1) style.styleSheet.cssText = yes3;
+    else style.styleSheet.cssText = no3;
+  } else {
+    if(score[2]===1) style.appendChild(document.createTextNode(yes3));
+    else style.appendChild(document.createTextNode(no3));
   }
-  else if(score===3){
-    $('#score').html(+score+"/5.. You passed! Just..");
+  document.getElementsByTagName('head')[0].appendChild(style);
+
+  if (style.styleSheet) {
+    if(score[3]===1) style.styleSheet.cssText = yes4;
+    else style.styleSheet.cssText = no4;
+  } else {
+    if(score[3]===1) style.appendChild(document.createTextNode(yes4));
+    else style.appendChild(document.createTextNode(no4));
   }
-  else if(score===4){
-    $('#score').html(+score+"/5! Congratulations");
+  document.getElementsByTagName('head')[0].appendChild(style);
+
+  if (style.styleSheet) {
+    if(score[4]===1) style.styleSheet.cssText = yes5;
+    else style.styleSheet.cssText = no5;
+  } else {
+    if(score[4]===1) style.appendChild(document.createTextNode(yes5));
+    else style.appendChild(document.createTextNode(no5));
   }
-  else if(score===5){
-    $('#score').html(+score+"/5! Whoa! We got a genius here!");
-  }
+  document.getElementsByTagName('head')[0].appendChild(style);
+
 
   //STUDENT ANSWERS
   if(inputAnswers[0][1]===null) $('#q1').html("M"+inputAnswers[0][0]+" "+inputAnswers[1][0]+"%");
@@ -246,6 +289,7 @@ function renderResults() {
 
   if(subtypeAnswers[8][1]===null) $('#a5').html("M"+subtypeAnswers[8][0]+" "+subtypeAnswers[9][0]+"%");
   else $('#a5').html("M"+subtypeAnswers[8][0]+" "+subtypeAnswers[9][0]+"%<br>M"+subtypeAnswers[8][1]+" "+subtypeAnswers[9][1]+"%");
+
 }
 
 function endQuiz(){
