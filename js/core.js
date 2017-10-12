@@ -124,7 +124,7 @@ function generateGraph() {
 
             for (var q = 0; q < 6; q++) {
                 if (activeLigandRow()[q]) {
-                    var dataSet3 = calculateGraphPoints(2, parseInt(receptorRelDenTableCell(column1).value), parseFloat(ligandTableCell(column1 + 1, x).value),
+                    var dataSet3 = calculateGraphPoints(3, parseInt(receptorRelDenTableCell(column1).value), parseFloat(ligandTableCell(column1 + 1, q).value),
                         parseInt(receptorRelDenTableCell(column2).value), parseFloat(ligandTableCell(column2 + 1, q).value),
                         parseInt(receptorRelDenTableCell(column3).value), parseFloat(ligandTableCell(column3 + 1, q).value));
                     var graph3 = {
