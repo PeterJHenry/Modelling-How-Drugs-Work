@@ -268,6 +268,8 @@ button.accordion {
     text-align: left;
     outline: none;
     font-size: 14px;
+    -webkit-transition: 0.4s;
+    -o-transition: 0.4s;
     transition: 0.4s;
     border-radius: 10px;
 }
@@ -281,6 +283,8 @@ div.panel {
     background-color: white;
     max-height: 0;
     overflow: hidden;
+    -webkit-transition: max-height 0.2s ease-out;
+    -o-transition: max-height 0.2s ease-out;
     transition: max-height 0.2s ease-out;
 }
 
@@ -357,26 +361,44 @@ li.quiztext {
 }
 
 .strikeout.row0 {
+    background: -webkit-gradient(linear, left top, left bottom, from(white), color-stop(43%, white), color-stop(#ff9933), color-stop(57%, #ff9933), color-stop(white), color-stop(72%, white));
+    background: -webkit-linear-gradient(top, white, white 43%, #ff9933, #ff9933 57%, white, white 72%);
+    background: -o-linear-gradient(top, white, white 43%, #ff9933, #ff9933 57%, white, white 72%);
     background: linear-gradient(to bottom, white, white 43%, #ff9933, #ff9933 57%, white, white 72%);
 }
 
 .strikeout.row1 {
+    background: -webkit-gradient(linear, left top, left bottom, from(white), color-stop(43%, white), color-stop(#ff5050), color-stop(57%, #ff5050), color-stop(white), color-stop(72%, white));
+    background: -webkit-linear-gradient(top, white, white 43%, #ff5050, #ff5050 57%, white, white 72%);
+    background: -o-linear-gradient(top, white, white 43%, #ff5050, #ff5050 57%, white, white 72%);
     background: linear-gradient(to bottom, white, white 43%, #ff5050, #ff5050 57%, white, white 72%);
 }
 
 .strikeout.row2 {
+    background: -webkit-gradient(linear, left top, left bottom, from(white), color-stop(43%, white), color-stop(#33ccff), color-stop(57%, #33ccff), color-stop(white), color-stop(72%, white));
+    background: -webkit-linear-gradient(top, white, white 43%, #33ccff, #33ccff 57%, white, white 72%);
+    background: -o-linear-gradient(top, white, white 43%, #33ccff, #33ccff 57%, white, white 72%);
     background: linear-gradient(to bottom, white, white 43%, #33ccff, #33ccff 57%, white, white 72%);
 }
 
 .strikeout.row3 {
+    background: -webkit-gradient(linear, left top, left bottom, from(white), color-stop(43%, white), color-stop(#00cc00), color-stop(57%, #00cc00), color-stop(white), color-stop(72%, white));
+    background: -webkit-linear-gradient(top, white, white 43%, #00cc00, #00cc00 57%, white, white 72%);
+    background: -o-linear-gradient(top, white, white 43%, #00cc00, #00cc00 57%, white, white 72%);
     background: linear-gradient(to bottom, white, white 43%, #00cc00, #00cc00 57%, white, white 72%);
 }
 
 .strikeout.row4 {
+    background: -webkit-gradient(linear, left top, left bottom, from(white), color-stop(43%, white), color-stop(#996633), color-stop(57%, #996633), color-stop(white), color-stop(72%, white));
+    background: -webkit-linear-gradient(top, white, white 43%, #996633, #996633 57%, white, white 72%);
+    background: -o-linear-gradient(top, white, white 43%, #996633, #996633 57%, white, white 72%);
     background: linear-gradient(to bottom, white, white 43%, #996633, #996633 57%, white, white 72%);
 }
 
 .strikeout.row5 {
+    background: -webkit-gradient(linear, left top, left bottom, from(white), color-stop(43%, white), color-stop(#99339f), color-stop(57%, #99339f), color-stop(white), color-stop(72%, white));
+    background: -webkit-linear-gradient(top, white, white 43%, #99339f, #99339f 57%, white, white 72%);
+    background: -o-linear-gradient(top, white, white 43%, #99339f, #99339f 57%, white, white 72%);
     background: linear-gradient(to bottom, white, white 43%, #99339f, #99339f 57%, white, white 72%);
 }
 
@@ -432,4 +454,36 @@ section {
 .loading > img {
     width: 100px;
 
+}
+
+.btn:after {
+    content: "";
+    height: 200%;
+    width: 35%;
+    position: absolute;
+    z-index: 1;
+    right: 0;
+    top: 13%;
+    margin: -5px 0 0 -5px;
+    -webkit-transform-origin: 0 0;
+    -webkit-transform: rotate(-20deg);
+    -moz-transform-origin: 0 0;
+    -moz-transform: rotate(-20deg);
+    -ms-transform-origin: 0 0;
+    -ms-transform: rotate(-20deg);
+    transform-origin: 0 0;
+    transform: rotate(-20deg);
+    background: rgba(255, 255, 255, 0.15);
+    transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -webkit-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+}
+.btn:hover:after {
+    width: 50%;
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.btn{
+    position: relative;
 }
