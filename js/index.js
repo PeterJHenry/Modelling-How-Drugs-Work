@@ -1,5 +1,6 @@
 $(document).ready(function () {
-    $('body').fadeIn();
+    $('section').fadeIn();
+    $('.loading').fadeOut();
     $('[data-toggle="tooltip"]').tooltip();
 });
 

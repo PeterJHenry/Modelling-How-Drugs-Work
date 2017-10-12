@@ -86,10 +86,10 @@ body, h1, h2, h3, h4, h5, h6 {
     text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.6);
     font-size: 5em;
 }
-.section-content{
+
+.section-content {
     padding-top: 20px;
 }
-
 
 @media (max-width: 450px) {
     .coverSectionText > h1 {
@@ -97,21 +97,21 @@ body, h1, h2, h3, h4, h5, h6 {
     }
 
 }
+
 @media (max-width: 767px) {
 
-    .section-content{
+    .section-content {
         text-align: center;
     }
-    .section-heading-spacer{
+
+    .section-heading-spacer {
         display: none;
     }
 }
 
-.img-fluid{
+.img-fluid {
     padding-top: 5vh;
 }
-
-
 
 /*Buttons*/
 .btn {
@@ -169,7 +169,6 @@ body, h1, h2, h3, h4, h5, h6 {
     border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 }
 
-
 .section-heading {
     margin-bottom: 30px;
     text-transform: uppercase;
@@ -191,16 +190,16 @@ body, h1, h2, h3, h4, h5, h6 {
 }
 
 #revealButton {
-  margin-top: -20px;
-  margin-bottom: 15px;
+    margin-top: -20px;
+    margin-bottom: 15px;
 }
 
 #resetButton {
-  margin-bottom: 15px;
+    margin-bottom: 15px;
 }
 
 .justify {
-  text-align: justify;
+    text-align: justify;
 }
 
 .lihead {
@@ -294,7 +293,8 @@ fieldset.sectionContainer {
     background-color: white;
 
 }
-@media (min-width:1000px) {
+
+@media (min-width: 1000px) {
     fieldset.sectionContainer {
         overflow: scroll;
     }
@@ -352,8 +352,8 @@ li.quiztext {
     text-align: left;
 }
 
-.nav-active{
-    color: #000!important;
+.nav-active {
+    color: #000 !important;
 }
 
 .strikeout.row0 {
@@ -418,6 +418,18 @@ input {
     background-color: rgba(213, 213, 213, 0.79);
 }
 
-body{
+section {
     display: none;
+}
+
+.loading {
+    height: 100vh;
+    z-index: 99;
+    padding-top: 40vh;
+    padding-left: 42vw;
+}
+
+.loading > img {
+    width: 200px;
+
 }
