@@ -97,7 +97,7 @@ function validateCheckBox(checkingBox, graphCallback) {
                 case previousCheckedBox31:
 
                 state.subTypePresent[previousCheckedBox31] = receptorCheckBoxTableCell(previousCheckedBox31).checked = false;
-                receptorRelDenTableCell(previousCheckedBox31).disabled = receptorRelDenT	ableCell(checkingBox).disabled = true;
+                receptorRelDenTableCell(previousCheckedBox31).disabled = receptorRelDenTableCell(checkingBox).disabled = true;
                 
 
                 receptorRelDenTableCell(previousCheckedBox30).value = 50;
@@ -144,7 +144,7 @@ function validateRelDensityRow(currentCellNumber) {
     var previousCheckedBox1 = activeCheckBoxes()[1];
     var currentCellValue = parseInt(receptorRelDenTableCell(currentCellNumber).value);
     if (currentCellValue < 0) currentCellValue = receptorRelDenTableCell(currentCellNumber).value = 0;
-    
+
     if (currentCellNumber === previousCheckedBox0) receptorRelDenTableCell(previousCheckedBox1).value = 100 - currentCellValue;
     else receptorRelDenTableCell(previousCheckedBox0).value = 100 - currentCellValue;
 
