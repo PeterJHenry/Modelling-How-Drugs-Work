@@ -262,6 +262,7 @@ function activeLigandRow() {
 // Gets a cell from the ligand table
 // this includes the first index. i.e. the selector
 function ligandTableCell(colIndex, rowIndex) {
+    rowIndex+=2;
     if (colIndex === 0) return document.getElementById('ligandTable').children[0].children[rowIndex].children[colIndex].children[0].children[0];
     else return document.getElementById('ligandTable').children[0].children[rowIndex].children[colIndex].children[0];
 }
@@ -281,4 +282,3 @@ function updateCustomValue(rowIndex, graphCallback) {
         graphCallback = generateGraph;
     graphCallback();
 }
-
