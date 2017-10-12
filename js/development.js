@@ -1,6 +1,3 @@
-
-
-
 //// Check if the box can be checked
 function validateCheckBox(checkingBox, graphCallback) {
     if (typeof graphCallback === "undefined")
@@ -65,26 +62,26 @@ function validateCheckBox(checkingBox, graphCallback) {
                 break;
 
             default:
-                
-               state.subTypePresent[checkingBox] = receptorCheckBoxTableCell(checkingBox).checked = true;
-               receptorRelDenTableCell(checkingBox).value = receptorRelDenTableCell(previousCheckedBox0).value = receptorRelDenTableCell(previousCheckedBox1).value = 33.3;
-               receptorRelDenTableCell(checkingBox).disabled = receptorRelDenTableCell(previousCheckedBox0).disabled = receptorRelDenTableCell(previousCheckedBox1).disabled =false;
-               enableColumn(checkingBox + 1);
-               subTypeCheckedCount++;
+
+                state.subTypePresent[checkingBox] = receptorCheckBoxTableCell(checkingBox).checked = true;
+                receptorRelDenTableCell(checkingBox).value = receptorRelDenTableCell(previousCheckedBox0).value = receptorRelDenTableCell(previousCheckedBox1).value = 33.3;
+                receptorRelDenTableCell(checkingBox).disabled = receptorRelDenTableCell(previousCheckedBox0).disabled = receptorRelDenTableCell(previousCheckedBox1).disabled = false;
+                enableColumn(checkingBox + 1);
+                subTypeCheckedCount++;
                 break;
         }
-        
-       }else if(subTypeCheckedCount === 3){
-            var previousCheckedBox30 = activeCheckBoxes()[0];
-            var previousCheckedBox31 = activeCheckBoxes()[1];
-            var previousCheckedBox32 = activeCheckBoxes()[2];
-            switch (checkingBox) {
 
-                case previousCheckedBox30:
+    } else if (subTypeCheckedCount === 3) {
+        var previousCheckedBox30 = activeCheckBoxes()[0];
+        var previousCheckedBox31 = activeCheckBoxes()[1];
+        var previousCheckedBox32 = activeCheckBoxes()[2];
+        switch (checkingBox) {
+
+            case previousCheckedBox30:
 
                 state.subTypePresent[previousCheckedBox30] = receptorCheckBoxTableCell(previousCheckedBox30).checked = false;
                 receptorRelDenTableCell(previousCheckedBox30).disabled = receptorRelDenTableCell(checkingBox).disabled = true;
-                
+
 
                 receptorRelDenTableCell(previousCheckedBox30).value = '';
                 receptorRelDenTableCell(previousCheckedBox31).value = 50;
@@ -94,11 +91,11 @@ function validateCheckBox(checkingBox, graphCallback) {
                 subTypeCheckedCount--;
                 break;
 
-                case previousCheckedBox31:
+            case previousCheckedBox31:
 
                 state.subTypePresent[previousCheckedBox31] = receptorCheckBoxTableCell(previousCheckedBox31).checked = false;
                 receptorRelDenTableCell(previousCheckedBox31).disabled = receptorRelDenTableCell(checkingBox).disabled = true;
-                
+
 
                 receptorRelDenTableCell(previousCheckedBox30).value = 50;
                 receptorRelDenTableCell(previousCheckedBox31).value = '';
@@ -108,11 +105,11 @@ function validateCheckBox(checkingBox, graphCallback) {
 
                 break;
 
-                case previousCheckedBox32:
+            case previousCheckedBox32:
 
                 state.subTypePresent[previousCheckedBox32] = receptorCheckBoxTableCell(previousCheckedBox32).checked = false;
                 receptorRelDenTableCell(previousCheckedBox32).disabled = receptorRelDenTableCell(checkingBox).disabled = true;
-                
+
 
                 receptorRelDenTableCell(previousCheckedBox30).value = 50;
                 receptorRelDenTableCell(previousCheckedBox31).value = 50;
@@ -121,12 +118,12 @@ function validateCheckBox(checkingBox, graphCallback) {
                 subTypeCheckedCount--;
                 break;
 
-                default:
+            default:
                 alert("You can only select three boxes");
                 receptorCheckBoxTableCell(checkingBox).checked = false;
                 break;
-            }
-        
+        }
+
     }
     graphCallback();
 }
@@ -206,8 +203,16 @@ $(document).ready(function () {
     generateGraph();
     addLigandListener();
     addReceptorListener();
+
     $('[data-toggle="tooltip"]').tooltip();
 });
 $(window).resize(function () {
     generateGraph();
 });
+
+function showBody() {
+    $('body').fadeIn();
+    setTimeout(generateGraph, 100);
+}
+
+setTimeout(showBody, 5000);
