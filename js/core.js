@@ -287,12 +287,6 @@ function receptorCheckBoxTableCell(colIndex) {
     return document.getElementById('subtypeCheckbox').children[colIndex + 1].children[0];
 }
 
-function updateCustomValue(graphCallback) {
-    if (typeof graphCallback === "undefined")
-        graphCallback = generateGraph;
-    graphCallback();
-}
-
 $('input[type=number]').keydown(function (event) {
     return !(event.keyCode > 57 && event.keyCode < 177 || event.keyCode > 40 && event.keyCode < 48 || event.keyCode > 177 && event.keyCode !== 190);
 });
