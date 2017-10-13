@@ -137,7 +137,7 @@ function redrawGraph() {
 	plotGraph(data, true, {staticPlot: true});
 }
 
-function clearValues(){
+function clearInput(){
   $('input[type="checkbox"]:checked').prop('checked',false);
   $('input[type="number"]').val('');
 }
@@ -172,7 +172,7 @@ function storeAnswers() {
   }
 
   inputAnswers = inputAnswers.concat([subtypes,percentage]);
-  //clearValues();
+  //clearInput();
 }
 
 // This functions generates a random number of questions and ratio and returns as an array
