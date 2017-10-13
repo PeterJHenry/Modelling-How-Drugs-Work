@@ -173,31 +173,31 @@ function storeAnswers() {
 
   $('#relativeDensity1').find('option:selected').each(function(){
     if($(this).val() != ''){
-      percentage.push($(this).val());
+      percentage.push(parseInt($(this).val()));
     }
   });
 
   $('#relativeDensity2').find('option:selected').each(function(){
     if($(this).val() != ''){
-      percentage.push($(this).val());
+      percentage.push(parseInt($(this).val()));
     }
   });
 
   $('#relativeDensity3').find('option:selected').each(function(){
     if($(this).val() != ''){
-      percentage.push($(this).val());
+      percentage.push(parseInt($(this).val()));
     }
   });
 
   $('#relativeDensity4').find('option:selected').each(function(){
     if($(this).val() != ''){
-      percentage.push($(this).val());
+      percentage.push(parseInt($(this).val()));
     }
   });
 
   $('#relativeDensity5').find('option:selected').each(function(){
     if($(this).val() != ''){
-      percentage.push($(this).val());
+      percentage.push(parseInt($(this).val()));
     }
   });
 
@@ -262,6 +262,19 @@ function renderResults() {
 }
 
 function drawResults(){
+
+  if(score[0]===1) $('#mark1').html('<i class="fa fa-check" aria-hidden="true"></i>');
+  else $('#mark1').html('<i class="fa fa-times" aria-hidden="true"></i>');
+  if(score[1]===1) $('#mark2').html('<i class="fa fa-check" aria-hidden="true"></i>');
+  else $('#mark2').html('<i class="fa fa-times" aria-hidden="true"></i>');
+  if(score[2]===1) $('#mark3').html('<i class="fa fa-check" aria-hidden="true"></i>');
+  else $('#mark3').html('<i class="fa fa-times" aria-hidden="true"></i>');
+  if(score[3]===1) $('#mark4').html('<i class="fa fa-check" aria-hidden="true"></i>');
+  else $('#mark4').html('<i class="fa fa-times" aria-hidden="true"></i>');
+  if(score[4]===1) $('#mark5').html('<i class="fa fa-check" aria-hidden="true"></i>');
+  else $('#mark5').html('<i class="fa fa-times" aria-hidden="true"></i>');
+
+
   var yes1 = '#row1:hover {background-color:#dcffd3;}';
   var yes2 = '#row2:hover {background-color:#dcffd3;}';
   var yes3 = '#row3:hover {background-color:#dcffd3;}';
