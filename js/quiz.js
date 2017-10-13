@@ -92,7 +92,7 @@ function randomiseLigand() {
   var index;
   while(ligandIndexes.length < 4){
     index = Math.floor((Math.random() * 8));
-    if(index != 0 && !ligandIndexes.includes(index)){
+    if(index != 0 && ligandIndexes.indexOf(index)==-1){
       ligandIndexes[i] = index;
       i++
     }
@@ -115,11 +115,16 @@ function get_dataset(ligandIndex) {
     return dataSet;
 }
 
+function color(i){
+  if(i===4) return i+1;
+  else return i;
+}
+
 // Redraws the graph with current ligand values, does not affect subtype.
 function redrawGraph() {
 	// Generate data to pass to the graph.
     var data = [];
-    for (var i = 0; i < 5; i++) {
+    for (i = 0; i < 5; i++) {
         ligandIndex = ligandIndexes[i]
         var dataSet = get_dataset(ligandIndex);
         var graph = {
@@ -127,7 +132,7 @@ function redrawGraph() {
             y: dataSet[1],
             mode: 'lines',
             line: {
-                color: colorTable[ligandIndex-1],
+                color: colorTable[color(i)],
                 width: 1
             },
             name: ligandNames[ligandIndex]
