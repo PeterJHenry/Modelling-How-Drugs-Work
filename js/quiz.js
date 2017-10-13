@@ -138,9 +138,6 @@ function redrawGraph() {
 }
 
 function clearInput(){
-  $('input[type="checkbox"]:checked').prop('checked',false);
-  $('input[type="select"]').val('');
-
   checkbox_containers = document.getElementById('subtypeCheckbox').children;
   for (var i=1; i<checkbox_containers.length; i++) {
     checkbox = checkbox_containers[i].children[0];
