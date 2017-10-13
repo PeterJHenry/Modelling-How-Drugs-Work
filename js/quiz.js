@@ -19,49 +19,6 @@ $(document).ready(function () {
     $('.quizAnswers').hide();
 });
 
-
-// Chooose a random subtype and then the draw the graph for it.
-function randomiseSubType() {
-    subtypeIndex = [null, null];
-    subtypePercentage = [null, null];
-
-    subtypeIndex[0] = Math.floor((Math.random() * 5));
-    subtypePercentage[0] = 20 + 10 * Math.floor((Math.random() * 8)); // Generates a random percentage between 20 and 90, always a multiple of 10.
-
-    if (subtypePercentage[0] === 90) {
-        // Treat 90 as one subtype.
-        subtypePercentage[0] = 100;
-    } else {
-        subtypeIndex[1] = Math.floor((Math.random() * 5));
-        if (subtypeIndex[1] === subtypeIndex[0]) {
-            subtypeIndex[0] = subtypeIndex[0]+1 % 5;
-        }
-        subtypePercentage[1] = 100 - subtypePercentage[0];
-    }
-    if(subtypePercentage[1] == null){
-      subtypeIndex[0]++;
-      subtypeIndex[1] = null;
-    }
-    else {
-      subtypeIndex[0]++;
-      subtypeIndex[1]++;
-    }
-    subtypeAnswers = subtypeAnswers.concat([subtypeIndex,subtypePercentage]);
-}
-
-function randomiseLigand() {
-  ligandIndexes = [];
-  var i = 0;
-  var index;
-  while(ligandIndexes.length < 5){
-    index = Math.floor((Math.random() * 8));
-    if(index != 0 && !ligandIndexes.includes(index)){
-      ligandIndexes[i] = index;
-      i++
-    }
-  }
-}
-
 function setQuizProperties() {
     $('#cover-questionLength').html(numberOfQuestions);
     $('#cover-time').html(timer/60);
@@ -105,6 +62,43 @@ function initializeClock() {
     timeVar = setInterval(updateClock, 1000);
 }
 
+// Chooose a random subtype and then the draw the graph for it.
+function randomiseSubType() {
+    subtypeIndex = [null, null];
+    subtypePercentage = [null, null];
+
+    subtypeIndex[0] = Math.floor((Math.random() * 4));
+    subtypePercentage[0] = 20 + 10 * Math.floor((Math.random() * 8)); // Generates a random percentage between 20 and 90, always a multiple of 10.
+
+    if (subtypePercentage[0] === 90) {
+        // Treat 90 as one subtype.
+        subtypePercentage[0] = 100;
+    } else {
+        subtypeIndex[1] = Math.floor((Math.random() * 4));
+        if (subtypeIndex[1] === subtypeIndex[0]) {
+            subtypeIndex[0] = subtypeIndex[0]+1 % 5;
+        }
+        subtypePercentage[1] = 100 - subtypePercentage[0];
+    }
+    if(subtypePercentage[1] == null){
+      subtypeIndex[1] = null;
+    }
+    subtypeAnswers = subtypeAnswers.concat([subtypeIndex,subtypePercentage]);
+}
+
+function randomiseLigand() {
+  ligandIndexes = [];
+  var i = 0;
+  var index;
+  while(ligandIndexes.length < 5){
+    index = Math.floor((Math.random() * 8));
+    if(index != 0 && !ligandIndexes.includes(index)){
+      ligandIndexes[i] = index;
+      i++
+    }
+  }
+}
+
 function get_dataset(ligandIndex) {
     var dataSet
     if (subtypeIndex[1] === null) {
@@ -140,11 +134,9 @@ function redrawGraph() {
 	plotGraph(data, true, {staticPlot: true});
 }
 
-// This functions generates a random number of questions and ratio and returns as an array
-function generateQuestion() {
-    randomiseSubType();
-    randomiseLigand();
-    redrawGraph();
+function clearValues(){
+  $('input[type="checkbox"]:checked').prop('checked',false);
+  $('input[type="number"]').val('');
 }
 
 function checkAnswers(){
@@ -155,11 +147,6 @@ function checkAnswers(){
     storeAnswers();
     quizStatus();
   }
-}
-
-function clearValues(){
-  $('input[type="checkbox"]:checked').prop('checked',false);
-  $('input[type="number"]').val('');
 }
 
 function storeAnswers() {
@@ -185,6 +172,39 @@ function storeAnswers() {
   //clearValues();
 }
 
+// This functions generates a random number of questions and ratio and returns as an array
+function generateQuestion() {
+    randomiseSubType();
+    randomiseLigand();
+    redrawGraph();
+}
+
+function quizStatus() {
+  currentNumber++;
+  if(currentNumber === numberOfQuestions){
+    $('#submitButton').html("Submit");
+    $('#quiz_title').html('Question '+currentNumber+' of '+numberOfQuestions);
+    generateQuestion();
+  }
+  else if(currentNumber > numberOfQuestions){
+    storeAnswers();
+    endQuiz();
+  }
+  else {
+    $('#submitButton').html("Next Question");
+    $('#quiz_title').html('Question '+currentNumber+' of '+numberOfQuestions);
+    generateQuestion();
+  }
+}
+
+function endQuiz(){
+  clearInterval(timeVar);
+  $('#quiz_title').html('Review');
+  $('.questionContainer').hide();
+  $('.quizAnswers').show();
+  renderResults();
+}
+
 function renderResults() {
   for(var i = 0; i < 10; i+=2){
     if(((inputAnswers[i][0] === subtypeAnswers[i][0]) && (inputAnswers[i][1] === subtypeAnswers[i][1]) && (inputAnswers[i+1][0] === subtypeAnswers[i+1][0])) ||
@@ -200,6 +220,10 @@ function renderResults() {
     return a + b;
   }, 0)+"/5");
 
+  drawResults();
+}
+
+function drawResults(){
   var yes1 = '#row1:hover {background-color:#dcffd3;}';
   var yes2 = '#row2:hover {background-color:#dcffd3;}';
   var yes3 = '#row3:hover {background-color:#dcffd3;}';
@@ -257,76 +281,39 @@ function renderResults() {
   }
   document.getElementsByTagName('head')[0].appendChild(style);
 
-
   //STUDENT ANSWERS
-  if(inputAnswers[0][1]===null) $('#q1').html("M"+inputAnswers[0][0]+" "+inputAnswers[1][0]+"%");
-  else $('#q1').html("M"+inputAnswers[0][0]+" "+inputAnswers[1][0]+"%<br>M"+inputAnswers[0][1]+" "+inputAnswers[1][1]+"%");
+  if(inputAnswers[0][1]===null) $('#q1').html("M"+parseInt(inputAnswers[0][0]+1)+" "+inputAnswers[1][0]+"%");
+  else $('#q1').html("M"+parseInt(inputAnswers[0][0]+1)+" "+inputAnswers[1][0]+"%<br>M"+parseInt(inputAnswers[0][1]+1)+" "+inputAnswers[1][1]+"%");
 
-  if(inputAnswers[2][1]===null) $('#q2').html("M"+inputAnswers[2][0]+" "+inputAnswers[3][0]+"%");
-  else $('#q2').html("M"+inputAnswers[2][0]+" "+inputAnswers[3][0]+"%<br>M"+inputAnswers[2][1]+" "+inputAnswers[3][1]+"%");
+  if(inputAnswers[2][1]===null) $('#q2').html("M"+parseInt(inputAnswers[2][0]+1)+" "+inputAnswers[3][0]+"%");
+  else $('#q2').html("M"+parseInt(inputAnswers[2][0]+1)+" "+inputAnswers[3][0]+"%<br>M"+parseInt(inputAnswers[2][1]+1)+" "+inputAnswers[3][1]+"%");
 
-  if(inputAnswers[4][1]===null) $('#q3').html("M"+inputAnswers[4][0]+" "+inputAnswers[5][0]+"%");
-  else $('#q3').html("M"+inputAnswers[4][0]+" "+inputAnswers[5][0]+"%<br>M"+inputAnswers[4][1]+" "+inputAnswers[5][1]+"%");
+  if(inputAnswers[4][1]===null) $('#q3').html("M"+parseInt(inputAnswers[4][0]+1)+" "+inputAnswers[5][0]+"%");
+  else $('#q3').html("M"+parseInt(inputAnswers[4][0]+1)+" "+inputAnswers[5][0]+"%<br>M"+parseInt(inputAnswers[4][1]+1)+" "+inputAnswers[5][1]+"%");
 
-  if(inputAnswers[6][1]===null) $('#q4').html("M"+inputAnswers[6][0]+" "+inputAnswers[7][0]+"%");
-  else $('#q4').html("M"+inputAnswers[6][0]+" "+inputAnswers[7][0]+"%<br>M"+inputAnswers[6][1]+" "+inputAnswers[7][1]+"%");
+  if(inputAnswers[6][1]===null) $('#q4').html("M"+parseInt(inputAnswers[6][0]+1)+" "+inputAnswers[7][0]+"%");
+  else $('#q4').html("M"+parseInt(inputAnswers[6][0]+1)+" "+inputAnswers[7][0]+"%<br>M"+parseInt(inputAnswers[6][1]+1)+" "+inputAnswers[7][1]+"%");
 
-  if(inputAnswers[8][1]===null) $('#q5').html("M"+inputAnswers[8][0]+" "+inputAnswers[9][0]+"%");
-  else $('#q5').html("M"+inputAnswers[8][0]+" "+inputAnswers[9][0]+"%<br>M"+inputAnswers[8][1]+" "+inputAnswers[9][1]+"%");
+  if(inputAnswers[8][1]===null) $('#q5').html("M"+parseInt(inputAnswers[8][0]+1)+" "+inputAnswers[9][0]+"%");
+  else $('#q5').html("M"+parseInt(inputAnswers[8][0]+1)+" "+inputAnswers[9][0]+"%<br>M"+parseInt(inputAnswers[8][1]+1)+" "+inputAnswers[9][1]+"%");
 
   //ANSWERS
-  if(subtypeAnswers[0][1]===null) $('#a1').html("M"+subtypeAnswers[0][0]+" "+subtypeAnswers[1][0]+"%");
-  else $('#a1').html("M"+subtypeAnswers[0][0]+" "+subtypeAnswers[1][0]+"%<br>M"+subtypeAnswers[0][1]+" "+subtypeAnswers[1][1]+"%");
+  if(subtypeAnswers[0][1]===null) $('#a1').html("M"+parseInt(subtypeAnswers[0][0]+1)+" "+subtypeAnswers[1][0]+"%");
+  else $('#a1').html("M"+parseInt(subtypeAnswers[0][0]+1)+" "+subtypeAnswers[1][0]+"%<br>M"+parseInt(subtypeAnswers[0][1]+1)+" "+subtypeAnswers[1][1]+"%");
 
-  if(subtypeAnswers[2][1]===null) $('#a2').html("M"+subtypeAnswers[2][0]+" "+subtypeAnswers[3][0]+"%");
-  else $('#a2').html("M"+subtypeAnswers[2][0]+" "+subtypeAnswers[3][0]+"%<br>M"+subtypeAnswers[2][1]+" "+subtypeAnswers[3][1]+"%");
+  if(subtypeAnswers[2][1]===null) $('#a2').html("M"+parseInt(subtypeAnswers[2][0]+1)+" "+subtypeAnswers[3][0]+"%");
+  else $('#a2').html("M"+parseInt(subtypeAnswers[2][0]+1)+" "+subtypeAnswers[3][0]+"%<br>M"+parseInt(subtypeAnswers[2][1]+1)+" "+subtypeAnswers[3][1]+"%");
 
-  if(subtypeAnswers[4][1]===null) $('#a3').html("M"+subtypeAnswers[4][0]+" "+subtypeAnswers[5][0]+"%");
-  else $('#a3').html("M"+subtypeAnswers[4][0]+" "+subtypeAnswers[5][0]+"%<br>M"+subtypeAnswers[4][1]+" "+subtypeAnswers[5][1]+"%");
+  if(subtypeAnswers[4][1]===null) $('#a3').html("M"+parseInt(subtypeAnswers[4][0]+1)+" "+subtypeAnswers[5][0]+"%");
+  else $('#a3').html("M"+parseInt(subtypeAnswers[4][0]+1)+" "+subtypeAnswers[5][0]+"%<br>M"+parseInt(subtypeAnswers[4][1]+1)+" "+subtypeAnswers[5][1]+"%");
 
-  if(subtypeAnswers[6][1]===null) $('#a4').html("M"+subtypeAnswers[6][0]+" "+subtypeAnswers[7][0]+"%");
-  else $('#a4').html("M"+subtypeAnswers[6][0]+" "+subtypeAnswers[7][0]+"%<br>M"+subtypeAnswers[6][1]+" "+subtypeAnswers[7][1]+"%");
+  if(subtypeAnswers[6][1]===null) $('#a4').html("M"+parseInt(subtypeAnswers[6][0]+1)+" "+subtypeAnswers[7][0]+"%");
+  else $('#a4').html("M"+parseInt(subtypeAnswers[6][0]+1)+" "+subtypeAnswers[7][0]+"%<br>M"+parseInt(subtypeAnswers[6][1]+1)+" "+subtypeAnswers[7][1]+"%");
 
-  if(subtypeAnswers[8][1]===null) $('#a5').html("M"+subtypeAnswers[8][0]+" "+subtypeAnswers[9][0]+"%");
-  else $('#a5').html("M"+subtypeAnswers[8][0]+" "+subtypeAnswers[9][0]+"%<br>M"+subtypeAnswers[8][1]+" "+subtypeAnswers[9][1]+"%");
-
+  if(subtypeAnswers[8][1]===null) $('#a5').html("M"+parseInt(subtypeAnswers[8][0]+1)+" "+subtypeAnswers[9][0]+"%");
+  else $('#a5').html("M"+parseInt(subtypeAnswers[8][0]+1)+" "+subtypeAnswers[9][0]+"%<br>M"+parseInt(subtypeAnswers[8][1]+1)+" "+subtypeAnswers[9][1]+"%");
 }
 
-function endQuiz(){
-  clearInterval(timeVar);
-  $('#quiz_title').html('Review');
-  $('.questionContainer').hide();
-  $('.quizAnswers').show();
-  renderResults();
-}
-
-function quizStatus() {
-  currentNumber++;
-  if(currentNumber === numberOfQuestions){
-    $('#submitButton').html("Submit");
-    $('#quiz_title').html('Question '+currentNumber+' of '+numberOfQuestions);
-    generateQuestion();
-  }
-  else if(currentNumber > numberOfQuestions){
-    storeAnswers();
-    endQuiz();
-  }
-  else {
-    $('#submitButton').html("Next Question");
-    $('#quiz_title').html('Question '+currentNumber+' of '+numberOfQuestions);
-    generateQuestion();
-  }
-}
-
-function collectUserInput(){
-    var userAnswer = [];
-    $("form#userInput :input").each(function(){
-        var value = $(this).val();
-        if(value === "") value = 0;
-        userAnswer.push(parseInt(value));
-    });
-    userAnswerStack.push(userAnswer);
-}
 
 //// Check if the box can be checked
 function validateCheckBox(checkingBox) {
