@@ -139,7 +139,7 @@ function redrawGraph() {
 
 function clearInput(){
   $('input[type="checkbox"]:checked').prop('checked',false);
-  $('input[type="number"]').val('');
+  $('input[type="select"]').val('');
 }
 
 function checkAnswers(){
@@ -160,9 +160,33 @@ function storeAnswers() {
     subtypes.push(parseInt($(this).val()));
   });
 
-  $('input[type=number]').each(function(){
-    if($(this).val()!=""){
-      percentage.push(parseInt($(this).val()));
+  $('#relativeDensity1').find('option:selected').each(function(){
+    if($(this).val() != ''){
+      percentage.push($(this).val());
+    }
+  });
+
+  $('#relativeDensity2').find('option:selected').each(function(){
+    if($(this).val() != ''){
+      percentage.push($(this).val());
+    }
+  });
+
+  $('#relativeDensity3').find('option:selected').each(function(){
+    if($(this).val() != ''){
+      percentage.push($(this).val());
+    }
+  });
+
+  $('#relativeDensity4').find('option:selected').each(function(){
+    if($(this).val() != ''){
+      percentage.push($(this).val());
+    }
+  });
+
+  $('#relativeDensity5').find('option:selected').each(function(){
+    if($(this).val() != ''){
+      percentage.push($(this).val());
     }
   });
 
@@ -397,10 +421,13 @@ function validateRelDensityRow(currentCellNumber) {
     var previousCheckedBox0 = activeCheckBoxes()[0];
     var previousCheckedBox1 = activeCheckBoxes()[1];
     var currentCellValue = parseInt(receptorRelDenTableCell(currentCellNumber).value);
-    if (currentCellValue < 20) currentCellValue = receptorRelDenTableCell(currentCellNumber).value = 20;
 
-    if (currentCellNumber === previousCheckedBox0) receptorRelDenTableCell(previousCheckedBox1).value = 100 - currentCellValue;
-    else receptorRelDenTableCell(previousCheckedBox0).value = 100 - currentCellValue;
+    if (currentCellNumber === previousCheckedBox0) {
+      receptorRelDenTableCell(previousCheckedBox1).value = 100 - currentCellValue;
+    }
+    else {
+      receptorRelDenTableCell(previousCheckedBox0).value = 100 - currentCellValue;
+    }
 }
 
 function addReceptorListener() {

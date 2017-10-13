@@ -501,3 +501,7 @@ li.nav-item:hover {
 .resultrow {
   height: 50px;
 }
+
+select option[disabled] {
+    display: none;
+}
