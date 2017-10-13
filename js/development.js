@@ -65,7 +65,7 @@ function validateCheckBox(checkingBox, graphCallback) {
                 break;
 
             default:
-                
+
                state.subTypePresent[checkingBox] = receptorCheckBoxTableCell(checkingBox).checked = true;
                receptorRelDenTableCell(checkingBox).value = receptorRelDenTableCell(previousCheckedBox0).value = receptorRelDenTableCell(previousCheckedBox1).value = 33.3;
                receptorRelDenTableCell(checkingBox).disabled = receptorRelDenTableCell(previousCheckedBox0).disabled = receptorRelDenTableCell(previousCheckedBox1).disabled =false;
@@ -73,7 +73,7 @@ function validateCheckBox(checkingBox, graphCallback) {
                subTypeCheckedCount++;
                 break;
         }
-        
+
        }else if(subTypeCheckedCount === 3){
             var previousCheckedBox30 = activeCheckBoxes()[0];
             var previousCheckedBox31 = activeCheckBoxes()[1];
@@ -84,7 +84,7 @@ function validateCheckBox(checkingBox, graphCallback) {
 
                 state.subTypePresent[previousCheckedBox30] = receptorCheckBoxTableCell(previousCheckedBox30).checked = false;
                 receptorRelDenTableCell(previousCheckedBox30).disabled = receptorRelDenTableCell(checkingBox).disabled = true;
-                
+
 
                 receptorRelDenTableCell(previousCheckedBox30).value = '';
                 receptorRelDenTableCell(previousCheckedBox31).value = 50;
@@ -98,7 +98,7 @@ function validateCheckBox(checkingBox, graphCallback) {
 
                 state.subTypePresent[previousCheckedBox31] = receptorCheckBoxTableCell(previousCheckedBox31).checked = false;
                 receptorRelDenTableCell(previousCheckedBox31).disabled = receptorRelDenTableCell(checkingBox).disabled = true;
-                
+
 
                 receptorRelDenTableCell(previousCheckedBox30).value = 50;
                 receptorRelDenTableCell(previousCheckedBox31).value = '';
@@ -112,7 +112,7 @@ function validateCheckBox(checkingBox, graphCallback) {
 
                 state.subTypePresent[previousCheckedBox32] = receptorCheckBoxTableCell(previousCheckedBox32).checked = false;
                 receptorRelDenTableCell(previousCheckedBox32).disabled = receptorRelDenTableCell(checkingBox).disabled = true;
-                
+
 
                 receptorRelDenTableCell(previousCheckedBox30).value = 50;
                 receptorRelDenTableCell(previousCheckedBox31).value = 50;
@@ -126,7 +126,7 @@ function validateCheckBox(checkingBox, graphCallback) {
                 receptorCheckBoxTableCell(checkingBox).checked = false;
                 break;
             }
-        
+
     }
     graphCallback();
 }
@@ -144,7 +144,7 @@ function validateRelDensityRow(currentCellNumber) {
     var previousCheckedBox1 = activeCheckBoxes()[1];
     var currentCellValue = parseInt(receptorRelDenTableCell(currentCellNumber).value);
     if (currentCellValue < 0) currentCellValue = receptorRelDenTableCell(currentCellNumber).value = 0;
-    
+
     //if (currentCellNumber === previousCheckedBox0) receptorRelDenTableCell(previousCheckedBox1).value = 100 - currentCellValue;
     //else receptorRelDenTableCell(previousCheckedBox0).value = 100 - currentCellValue;
 
@@ -163,8 +163,8 @@ function validateRelDensityRow(currentCellNumber) {
         }
         else if (currentCellNumber === previousCheckedBox1) // Middle box value entry updates the right 1 box
         {
-            if((100 - receptorRelDenTableCell(previousCheckedBox0).value - currentCellValue) >= 0) 
-            receptorRelDenTableCell(previousCheckedBox2).value = 100 - receptorRelDenTableCell(previousCheckedBox0).value - currentCellValue; 
+            if((100 - receptorRelDenTableCell(previousCheckedBox0).value - currentCellValue) >= 0)
+            receptorRelDenTableCell(previousCheckedBox2).value = 100 - receptorRelDenTableCell(previousCheckedBox0).value - currentCellValue;
             else receptorRelDenTableCell(previousCheckedBox2).value = 0;
             if((receptorRelDenTableCell(previousCheckedBox0).value) >= 100)
             {

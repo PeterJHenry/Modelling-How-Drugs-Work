@@ -294,15 +294,14 @@
 
                 <div class="questionCover">
                     <p class="lihead" style="font-size:20px;text-align:center">Ready to take the quiz?</p>
-                    <p>In this quiz you will be given a competition binding curve graph, plotted with 5 randomised ligands, unknown receptor subtypes and their unknown densities.</p>
-                    <p>These 5 pre-selected ligands consists of 4 established ligands, out of Pirenzepine, Methoctramine, Darifenacin, MT-3, S-Sercoverine, Solifenacin and DAU-5884, and one hypothetical ligand, either Ligand A or Ligand B.</p>
-                    <p>The solutions will either be one receptor subtype with a density of 100%, or a combination of two receptor subtypes with densities summing to 100%. For two receptor subtypes, the relative densities will span between 80% and 20%.</p>
-                    <p><b>Your task is to calculate which receptor subtypes are present, and their corresponding densities.</b></p>
-                    <p>A mark will be award for a correct answer, no marks awarded for incorrect or partially correct answers.</p>
-
-                    <p style="text-align:center;font-size:15px">You will be given <b><span id="cover-questionLength"></span></b> questions.</li></p>
-                    <p style="text-align:center;font-size:15px">You will have <b><span id="cover-time"></span> minutes</b> to complete the quiz.</p>
-                    <p style="text-align:center;font-size:15px"><i>Good luck!</i></p>
+                    <p>In this quiz you will be given a graph containing competition binding data for 5 randomly selected muscarinic cholinoceptor ligands.</p>
+                    <p><b>Your task is to analyse the data and determine which muscarinic receptor subtypes are present, and their relative proportions.</b></p>
+                    <p>to generate answers, use SPIKES approach together with the -log k<sub>i</sub> values presented in the reference table.</p>
+                    <p>Enter your answer into the boxes provided － note that the answers will be either one receptor subtype with a relative density of 100%,
+                      or more likely, a mixture of two receptor subtypes with relative proportions between 20% and 80%.</p>
+                    <p>The will be <b><span id="cover-questionLength"></span></b> questions asked, and with practise, you should be able to <b>obtain the answers</b> within <b><span id="cover-time"></span> minutes</b>.</p>
+                    <p><i>Don't forget to use the SPIKES approach to formally <b>justify your answer</b> in writing too!</i></p>
+                    <p style="text-align:center;font-size:15px">Good luck!</p>
 
 
                     <button class="btn" onclick="startQuiz()"><span class="tool-name">Start Quiz</span></button></div>
@@ -321,10 +320,10 @@
                         <div class="col-lg-6">
                           <div class="container-fluid ligands">
                               <div class="row">
-                                <p class="lihead" style="margin:auto;font-size:15px;margin-bottom:20px;margin-top:20px;">Which receptor subtypes are present and what are their relative densities?</p>
+                                <p class="lihead" style="margin:auto;font-size:15px;margin-bottom:15px;margin-top:20px;">Which receptor subtypes are present and what are their relative densities?</p>
               <fieldset class="sectionContainer">
                   <legend>Receptor</legend>
-                  <form><table class="table-responsive">
+                  <table class="table-responsive">
                       <tbody>
                       <tr>
                           <td></td>
@@ -414,15 +413,23 @@
                       </tr>
                       </tbody>
 
-                  </table></form>
+                  </table>
 
               </fieldset>
-            </div>
-            <div class="row" style="margin-top: 30px; margin-bottom:30px">
+              </div>
+
+
+            <div class="row" style="margin-top:20px; margin-bottom:20px;">
+              <p class="lihead" style="margin:auto;font-size:15px;margin-bottom:20px;">You may use the space below to justify your answers:</p>
                 <div class="container-fluid">
-                    <button class="btn" onclick="checkAnswers()"><span class="tool-name" id="submitButton"></span></button>
+                    ​<textarea id="textbox"></textarea>
                 </div>
-        </div>
+              </div>
+        <div class="row" style="margin-top:30px; margin-bottom:30px;">
+            <div class="container-fluid">
+                <button class="btn" onclick="checkAnswers()"><span class="tool-name" id="submitButton"></span></button>
+            </div>
+    </div>
 
           </div>
         </div>

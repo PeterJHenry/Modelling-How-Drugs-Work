@@ -11,6 +11,7 @@ var subtypePercentage;
 var ligandIndexes;
 var subtypeAnswers = [];
 var inputAnswers = [];
+var textAnswers = [];
 var score = [];
 
 $(document).ready(function () {
@@ -143,6 +144,7 @@ function redrawGraph() {
 }
 
 function clearInput(){
+  $('#textbox').val('')
   checkbox_containers = document.getElementById('subtypeCheckbox').children;
   for (var i=1; i<checkbox_containers.length; i++) {
     checkbox = checkbox_containers[i].children[0];
@@ -166,6 +168,9 @@ function checkAnswers(){
 function storeAnswers() {
   var subtypes = [];
   var percentage = [];
+
+  textAnswers.push($('#textbox').val());
+
 
   $('input[type=checkbox]:checked').each(function(){
     subtypes.push(parseInt($(this).val()));
