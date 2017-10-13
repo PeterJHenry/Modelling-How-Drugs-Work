@@ -461,10 +461,14 @@ li.nav-item:hover {
 }
 
 .questionCover {
-    text-align: center;
     font-size: 16px;
-    max-width: 600px;
     margin: auto;
+    max-width: 500px;
+    text-align: center;
+}
+
+.questionCover p {
+  text-align: justify;
 }
 
 .questionContainer {
