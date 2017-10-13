@@ -90,13 +90,16 @@ function randomiseLigand() {
   ligandIndexes = [];
   var i = 0;
   var index;
-  while(ligandIndexes.length < 5){
+  while(ligandIndexes.length < 4){
     index = Math.floor((Math.random() * 8));
     if(index != 0 && !ligandIndexes.includes(index)){
       ligandIndexes[i] = index;
       i++
     }
   }
+  if(Math.floor(Math.random() * 2) === 1) ligandIndexes[4] = 8;
+  else ligandIndexes[4] = 9;
+
 }
 
 function get_dataset(ligandIndex) {
