@@ -40,23 +40,23 @@ function revealSubtype() {
     subtypeReveal.innerHTML = subtypeString;
 }
 
-function get_dataset(i) {
-    var dataSet;
-    if (subtypeIndex[1] === null) {
-        dataSet = calculateGraphPoints(1, 100, parseFloat(ligandTableCell(subtypeIndex[0] + 1, i).value));
-    } else {
-        dataSet = calculateGraphPoints(2,
-            subtypePercentage[0],parseFloat(ligandTableCell(subtypeIndex[0] + 1, i).value),
-            subtypePercentage[1],parseFloat(ligandTableCell(subtypeIndex[1]+1, i).value));
-    }
-    return dataSet
-}
 
 // Redraws the graph with current ligand values, does not affect subtype.
 function redrawGraph() {
-	// Generate data to pass to the graph.
+    // Generate data to pass to the graph.
+    function get_dataset(i) {
+        var dataSet;
+        if (subtypeIndex[1] === null) {
+            dataSet = calculateGraphPoints(1, 100, parseFloat(ligandTableCell(subtypeIndex[0] + 1, i).value));
+        } else {
+            dataSet = calculateGraphPoints(2,
+                subtypePercentage[0],parseFloat(ligandTableCell(subtypeIndex[0] + 1, i).value),
+                subtypePercentage[1],parseFloat(ligandTableCell(subtypeIndex[1]+1, i).value));
+        }
+        return dataSet
+    }
+    
     var data = [];
-
     for (var i = 0; i < 6; i++) {
         if (activeLigandRow()[i]) {
             var dataSet = get_dataset(i);
@@ -74,14 +74,40 @@ function redrawGraph() {
             data.push(graph);
         }
     }
+    console.trace()
 	plotGraph(data, false, {staticPlot: true});
 }
 $(window).resize(function () {
     redrawGraph();
 });
 
+function validateLigandValue() {
+    for (var j = 0; j < 6; j++) {
+        for (var i = 1; i < 6; i++) {
+            if (parseInt(ligandTableCell(i, j).value) > 10) {
+                ligandTableCell(i, j).value = 10;
+            } else if (parseInt(ligandTableCell(i, j).value) < 3) {
+                ligandTableCell(i, j).value = 3;
+            }
+        }
+    }
+    redrawGraph();
+}
+
+function addLigandListener() {
+    console.trace()
+    $('.ligandInput').blur(function () {
+        validateLigandValue();
+    }).keyup(function () {
+        validateLigandValue();
+    }).change(function () {
+        validateLigandValue();
+    });
+}
+
 $(document).ready(function () {
     setTimeout(redrawGraph, 100);
+    addLigandListener();
 });
 
 
