@@ -334,6 +334,10 @@ p.contact {
     width: 50px;
 }
 
+select.receptorInput {
+    width: 55px;
+}
+
 td, .th1 {
     text-align: center;
 }
