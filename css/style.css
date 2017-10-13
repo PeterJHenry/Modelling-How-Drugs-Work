@@ -255,6 +255,7 @@ p.cc {
     color: #4286f4;
     font-size: 30px;
     text-align: center;
+    vertical-align: center;
 }
 
 button.accordion {
@@ -308,6 +309,12 @@ fieldset.sectionContainer {
     fieldset.sectionContainer {
         overflow: auto;
     }
+}
+
+p.contact {
+  text-align: justify;
+  margin-left: 30px;
+  vertical-align: center;
 }
 
 .sectionContainer > legend {
