@@ -285,7 +285,46 @@
             </div>
         </div>
     </div>
+
+
+    <!-- Question 1 Review Modal -->
+    <div id="question1" class="modal fade" role="dialog">
+        <div class="modal-dialog modal-lg">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5>Question 1 Review</h5>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  </div>
+                  <div class="modal-body">
+                    <div class="left">
+                        <div class="container-fluid ligands">
+                            <fieldset class="sectionContainer">
+                                <legend>Competition Binding Curves</legend>
+                                <div id="myDiv"></div>
+                            </fieldset>
+                          </div>
+                        </div>
+                        <div class="right">
+
+                          <div class="container-fluid ligands">
+                              <fieldset class="sectionContainer">
+                                  <legend>Competition Binding Curves</legend>
+                                  <div id="myDiv"></div>
+                              </fieldset>
+                          </div>
+                        </div>
+                    </div>
+                <div class="modal-footer">
+                    <button class="btn" data-dismiss="modal"><span class="tool-name">Close</span></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </header>
+
 
 
 <!-- Content -->
@@ -459,7 +498,7 @@
           <th class="th1"><center>Correct Answer</center></th>
           <th class="th1"><center>Mark</center></th>
         </tr>
-        <tr class="resultrow" id="row1">
+        <tr class="resultrow" id="row1" data-toggle="modal" href="" data-target="#question1">
           <td style="vertical-align:middle;text-align:center;">1</td>
           <td style="vertical-align:middle;text-align:center;"><span id="q1"></span></td>
           <td style="vertical-align:middle;text-align:center;"><span id="a1"></span></td>

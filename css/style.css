@@ -518,3 +518,11 @@ select.receptorInput {
   border: solid 2px #858c96;
   font-size: 12px;
 }
+
+.left {
+  float:left;
+}
+
+.right {
+  float:right;
+}

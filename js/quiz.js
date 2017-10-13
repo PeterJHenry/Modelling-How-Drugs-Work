@@ -212,7 +212,7 @@ function storeAnswers() {
   }
 
   inputAnswers = inputAnswers.concat([subtypes,percentage]);
-  clearInput();
+  //clearInput();
 }
 
 // This functions generates a random number of questions and ratio and returns as an array
