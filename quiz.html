@@ -296,7 +296,7 @@
                     <p class="lihead" style="font-size:20px;text-align:center">Ready to take the quiz?</p>
                     <p>In this quiz you will be given a competition binding curve graph, plotted with 5 randomised ligands, unknown receptor subtypes and their unknown densities.</p>
                     <p>These 5 pre-selected ligands consists of 4 established ligands, out of Pirenzepine, Methoctramine, Darifenacin, MT-3, S-Sercoverine, Solifenacin and DAU-5884, and one hypothetical ligand, either Ligand A or Ligand B.</p>
-                    <p>The solutions will either be one receptor subtype with a density of 100%, or a combination of two receptor subtypes with densities summing to 100%. For two receptor subtypes, the relative densities will span betwwn 80% and 20%.</p>
+                    <p>The solutions will either be one receptor subtype with a density of 100%, or a combination of two receptor subtypes with densities summing to 100%. For two receptor subtypes, the relative densities will span between 80% and 20%.</p>
                     <p><b>Your task is to calculate which receptor subtypes are present, and their corresponding densities.</b></p>
                     <p>A mark will be award for a correct answer, no marks awarded for incorrect or partially correct answers.</p>
 
@@ -352,62 +352,62 @@
 
                           <td><select type="number" class="receptorInput" id="relativeDensity1" disabled>
                             <option selected disabled></option>
-                            <option value="100" disabled>100</option>
-                            <option value="20">20</option>
-                            <option value="30">30</option>
-                            <option value="40">40</option>
-                            <option value="50">50</option>
-                            <option value="60">60</option>
-                            <option value="70">70</option>
-                            <option value="80">80</option>
+                            <option value=100 disabled hidden>100</option>
+                            <option value=20>20</option>
+                            <option value=30>30</option>
+                            <option value=40>40</option>
+                            <option value=50>50</option>
+                            <option value=60>60</option>
+                            <option value=70>70</option>
+                            <option value=80>80</option>
                           </select>
                           </td>
                           <td><select type="number" class="receptorInput" id="relativeDensity2" disabled>
                             <option selected disabled></option>
-                            <option value="100" disabled>100</option>
-                            <option value="20">20</option>
-                            <option value="30">30</option>
-                            <option value="40">40</option>
-                            <option value="50">50</option>
-                            <option value="60">60</option>
-                            <option value="70">70</option>
-                            <option value="80">80</option>
+                            <option value=100 disabled hidden>100</option>
+                            <option value=20>20</option>
+                            <option value=30>30</option>
+                            <option value=40>40</option>
+                            <option value=50>50</option>
+                            <option value=60>60</option>
+                            <option value=70>70</option>
+                            <option value=80>80</option>
                           </select>
                           </td>
                           <td><select type="number" class="receptorInput" id="relativeDensity3" disabled>
                             <option selected disabled></option>
-                            <option value="100" disabled>100</option>
-                            <option value="20">20</option>
-                            <option value="30">30</option>
-                            <option value="40">40</option>
-                            <option value="50">50</option>
-                            <option value="60">60</option>
-                            <option value="70">70</option>
-                            <option value="80">80</option>
+                            <option value=100 disabled hidden>100</option>
+                            <option value=20>20</option>
+                            <option value=30>30</option>
+                            <option value=40>40</option>
+                            <option value=50>50</option>
+                            <option value=60>60</option>
+                            <option value=70>70</option>
+                            <option value=80>80</option>
                           </select>
                           </td>
                           <td><select type="number" class="receptorInput" id="relativeDensity4" disabled>
                             <option selected disabled></option>
-                            <option value="100" disabled>100</option>
-                            <option value="20">20</option>
-                            <option value="30">30</option>
-                            <option value="40">40</option>
-                            <option value="50">50</option>
-                            <option value="60">60</option>
-                            <option value="70">70</option>
-                            <option value="80">80</option>
+                            <option value=100 disabled hidden>100</option>
+                            <option value=20>20</option>
+                            <option value=30>30</option>
+                            <option value=40>40</option>
+                            <option value=50>50</option>
+                            <option value=60>60</option>
+                            <option value=70>70</option>
+                            <option value=80>80</option>
                           </select>
                           </td>
                           <td><select type="number" class="receptorInput" id="relativeDensity5" disabled>
                             <option selected disabled></option>
-                            <option value="100" disabled>100</option>
-                            <option value="20">20</option>
-                            <option value="30">30</option>
-                            <option value="40">40</option>
-                            <option value="50">50</option>
-                            <option value="60">60</option>
-                            <option value="70">70</option>
-                            <option value="80">80</option>
+                            <option value=100 disabled hidden>100</option>
+                            <option value=20>20</option>
+                            <option value=30>30</option>
+                            <option value=40>40</option>
+                            <option value=50>50</option>
+                            <option value=60>60</option>
+                            <option value=70>70</option>
+                            <option value=80>80</option>
                           </select>
                           </td>
 
@@ -441,37 +441,43 @@
       </div>
     </div>
     <div class="quizAnswers">
-      <p class="lihead" style="font-size:20px;text-align:center" id="score"></p>
+      <p class="lihead" style="font-size:20px;text-align:center;" id="score"></p>
       <table class="table table-hover">
         <tr class="resultrow">
           <th class="th1">Questions</th>
           <th class="th1"><center>You Answered</center></th>
           <th class="th1"><center>Correct Answer</center></th>
+          <th class="th1"><center>Mark</center></th>
         </tr>
         <tr class="resultrow" id="row1">
           <td style="vertical-align:middle;text-align:center;">1</td>
           <td style="vertical-align:middle;text-align:center;"><span id="q1"></span></td>
           <td style="vertical-align:middle;text-align:center;"><span id="a1"></span></td>
+          <td style="vertical-align:middle;text-align:center;"><span id="mark1"><i class="fa fa-check" aria-hidden="true"></i></span></td>
         </tr>
         <tr class="resultrow" id="row2">
           <td style="vertical-align:middle;text-align:center;">2</td>
           <td style="vertical-align:middle;text-align:center;"><span id="q2"></span></td>
           <td style="vertical-align:middle;text-align:center;"><span id="a2"></span></td>
+          <td style="vertical-align:middle;text-align:center;"><span id="mark2"></span></td>
         </tr>
         <tr class="resultrow" id="row3">
           <td style="vertical-align:middle;text-align:center;">3</td>
           <td style="vertical-align:middle;text-align:center;"><span id="q3"></span></td>
           <td style="vertical-align:middle;text-align:center;"><span id="a3"></span></td>
+          <td style="vertical-align:middle;text-align:center;"><span id="mark3"></span></td>
         </tr>
         <tr class="resultrow" id="row4">
           <td style="vertical-align:middle;text-align:center;">4</td>
           <td style="vertical-align:middle;text-align:center;"><span id="q4"></span></td>
           <td style="vertical-align:middle;text-align:center;"><span id="a4"></span></td>
+          <td style="vertical-align:middle;text-align:center;"><span id="mark4"></span></td>
         </tr>
         <tr class="resultrow" id="row5">
           <td style="vertical-align:middle;text-align:center;">5</td>
           <td style="vertical-align:middle;text-align:center;"><span id="q5"></span></td>
           <td style="vertical-align:middle;text-align:center;"><span id="a5"></span></td>
+          <td style="vertical-align:middle;text-align:center;"><span id="mark5"></span></td>
         </tr>
       </table>
       <button class="btn" onclick="window.location.reload()"><span class="tool-name">Restart</span></button>

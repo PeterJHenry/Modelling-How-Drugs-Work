@@ -21,7 +21,7 @@ $(document).ready(function () {
 
 function setQuizProperties() {
     $('#cover-questionLength').html(numberOfQuestions);
-    $('#cover-time').html(timer/60);
+    $('#cover-time').html(timeLimit/60);
 }
 
 function startQuiz() {
@@ -92,7 +92,7 @@ function randomiseLigand() {
   var index;
   while(ligandIndexes.length < 4){
     index = Math.floor((Math.random() * 8));
-    if(index != 0 && !ligandIndexes.includes(index)){
+    if(index != 0 && ligandIndexes.indexOf(index)==-1){
       ligandIndexes[i] = index;
       i++
     }
@@ -115,11 +115,16 @@ function get_dataset(ligandIndex) {
     return dataSet;
 }
 
+function color(i){
+  if(i===4) return i+1;
+  else return i;
+}
+
 // Redraws the graph with current ligand values, does not affect subtype.
 function redrawGraph() {
 	// Generate data to pass to the graph.
     var data = [];
-    for (var i = 0; i < 5; i++) {
+    for (i = 0; i < 5; i++) {
         ligandIndex = ligandIndexes[i]
         var dataSet = get_dataset(ligandIndex);
         var graph = {
@@ -127,7 +132,7 @@ function redrawGraph() {
             y: dataSet[1],
             mode: 'lines',
             line: {
-                color: colorTable[ligandIndex-1],
+                color: colorTable[color(i)],
                 width: 1
             },
             name: ligandNames[ligandIndex]
@@ -168,31 +173,31 @@ function storeAnswers() {
 
   $('#relativeDensity1').find('option:selected').each(function(){
     if($(this).val() != ''){
-      percentage.push($(this).val());
+      percentage.push(parseInt($(this).val()));
     }
   });
 
   $('#relativeDensity2').find('option:selected').each(function(){
     if($(this).val() != ''){
-      percentage.push($(this).val());
+      percentage.push(parseInt($(this).val()));
     }
   });
 
   $('#relativeDensity3').find('option:selected').each(function(){
     if($(this).val() != ''){
-      percentage.push($(this).val());
+      percentage.push(parseInt($(this).val()));
     }
   });
 
   $('#relativeDensity4').find('option:selected').each(function(){
     if($(this).val() != ''){
-      percentage.push($(this).val());
+      percentage.push(parseInt($(this).val()));
     }
   });
 
   $('#relativeDensity5').find('option:selected').each(function(){
     if($(this).val() != ''){
-      percentage.push($(this).val());
+      percentage.push(parseInt($(this).val()));
     }
   });
 
@@ -257,6 +262,19 @@ function renderResults() {
 }
 
 function drawResults(){
+
+  if(score[0]===1) $('#mark1').html('<i class="fa fa-check" aria-hidden="true"></i>');
+  else $('#mark1').html('<i class="fa fa-times" aria-hidden="true"></i>');
+  if(score[1]===1) $('#mark2').html('<i class="fa fa-check" aria-hidden="true"></i>');
+  else $('#mark2').html('<i class="fa fa-times" aria-hidden="true"></i>');
+  if(score[2]===1) $('#mark3').html('<i class="fa fa-check" aria-hidden="true"></i>');
+  else $('#mark3').html('<i class="fa fa-times" aria-hidden="true"></i>');
+  if(score[3]===1) $('#mark4').html('<i class="fa fa-check" aria-hidden="true"></i>');
+  else $('#mark4').html('<i class="fa fa-times" aria-hidden="true"></i>');
+  if(score[4]===1) $('#mark5').html('<i class="fa fa-check" aria-hidden="true"></i>');
+  else $('#mark5').html('<i class="fa fa-times" aria-hidden="true"></i>');
+
+
   var yes1 = '#row1:hover {background-color:#dcffd3;}';
   var yes2 = '#row2:hover {background-color:#dcffd3;}';
   var yes3 = '#row3:hover {background-color:#dcffd3;}';
