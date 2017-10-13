@@ -138,10 +138,9 @@ function redrawGraph() {
 }
 
 function clearInput(){
-<<<<<<< HEAD
   $('input[type="checkbox"]:checked').prop('checked',false);
   $('input[type="select"]').val('');
-=======
+
   checkbox_containers = document.getElementById('subtypeCheckbox').children;
   for (var i=1; i<checkbox_containers.length; i++) {
     checkbox = checkbox_containers[i].children[0];
@@ -150,7 +149,6 @@ function clearInput(){
       validateCheckBox(i-1);
     }
   }
->>>>>>> 40d035e8389410470b6ed02ae7cad2f9b13cac5e
 }
 
 function checkAnswers(){
