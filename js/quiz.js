@@ -144,7 +144,6 @@ function clearInput(){
     if (checkbox.checked){
       checkbox_containers[i].children[0].checked = false;
       validateCheckBox(i-1);
-      console.log(checkbox_containers[i].firstChild);
     }
   }
 }
