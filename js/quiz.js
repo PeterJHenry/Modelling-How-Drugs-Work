@@ -21,7 +21,7 @@ $(document).ready(function () {
 
 function setQuizProperties() {
     $('#cover-questionLength').html(numberOfQuestions);
-    $('#cover-time').html(timer/60);
+    $('#cover-time').html(timeLimit/60);
 }
 
 function startQuiz() {
