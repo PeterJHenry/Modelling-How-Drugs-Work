@@ -1,6 +1,6 @@
 // Constants
 var timer;
-var timeLimit = 1500;
+var timeLimit = 5;
 var timeVar;
 var numberOfQuestions = 5;
 
@@ -55,6 +55,7 @@ function initializeClock() {
 
         if(timer == -1){
           alert("Time's up!");
+          storeAnswers();
           endQuiz();
         }
         timer--;
@@ -230,7 +231,6 @@ function quizStatus() {
     generateQuestion();
   }
   else if(currentNumber > numberOfQuestions){
-    storeAnswers();
     endQuiz();
   }
   else {
@@ -249,7 +249,7 @@ function endQuiz(){
 }
 
 function renderResults() {
-  for(var i = 0; i < 10; i+=2){
+  for(var i = 0; i < inputAnswers.length; i+=2){
     if(((inputAnswers[i][0] === subtypeAnswers[i][0]) && (inputAnswers[i][1] === subtypeAnswers[i][1]) && (inputAnswers[i+1][0] === subtypeAnswers[i+1][0])) ||
     ((inputAnswers[i][0] === subtypeAnswers[i][1]) && (inputAnswers[i][1] === subtypeAnswers[i][0]) && (inputAnswers[i+1][0] === subtypeAnswers[i+1][1]))){
       score[i/2] = 1;
@@ -268,106 +268,33 @@ function renderResults() {
 
 function drawResults(){
 
-  if(score[0]===1) $('#mark1').html('<i class="fa fa-check" aria-hidden="true"></i>');
-  else $('#mark1').html('<i class="fa fa-times" aria-hidden="true"></i>');
-  if(score[1]===1) $('#mark2').html('<i class="fa fa-check" aria-hidden="true"></i>');
-  else $('#mark2').html('<i class="fa fa-times" aria-hidden="true"></i>');
-  if(score[2]===1) $('#mark3').html('<i class="fa fa-check" aria-hidden="true"></i>');
-  else $('#mark3').html('<i class="fa fa-times" aria-hidden="true"></i>');
-  if(score[3]===1) $('#mark4').html('<i class="fa fa-check" aria-hidden="true"></i>');
-  else $('#mark4').html('<i class="fa fa-times" aria-hidden="true"></i>');
-  if(score[4]===1) $('#mark5').html('<i class="fa fa-check" aria-hidden="true"></i>');
-  else $('#mark5').html('<i class="fa fa-times" aria-hidden="true"></i>');
+  var a = ['#a1','#a2','#a3','#a4','#a5'];
+  var q = ['#q1','#q2','#q3','#q4','#q5'];
+  var green = ['#row1:hover {background-color:#dcffd3;}','#row2:hover {background-color:#dcffd3;}','#row3:hover {background-color:#dcffd3;}','#row4:hover {background-color:#dcffd3;}','#row5:hover {background-color:#dcffd3;}'];
+  var red = ['#row1:hover {background-color:#ffdddd;}','#row2:hover {background-color:#ffdddd;}','#row3:hover {background-color:#ffdddd;}','#row4:hover {background-color:#ffdddd;}','#row5:hover {background-color:#ffdddd;}']
+  var mark = ['#mark1','#mark2','#mark3','#mark4','#mark5']
 
+  for(var i = 0; i < inputAnswers.length; i+=2){
+    // YOUR ANSWER
+    if(inputAnswers[i][1]===null) $(q[i/2]).html("M"+parseInt(inputAnswers[i][0]+1)+" "+inputAnswers[i+1][0]+"%");
+    else $(q[i/2]).html("M"+parseInt(inputAnswers[i][0]+1)+" "+inputAnswers[i+1][0]+"%<br>M"+parseInt(inputAnswers[i][1]+1)+" "+inputAnswers[i+1][1]+"%");
 
-  var yes1 = '#row1:hover {background-color:#dcffd3;}';
-  var yes2 = '#row2:hover {background-color:#dcffd3;}';
-  var yes3 = '#row3:hover {background-color:#dcffd3;}';
-  var yes4 = '#row4:hover {background-color:#dcffd3;}';
-  var yes5 = '#row5:hover {background-color:#dcffd3;}';
-  var no1 = '#row1:hover {background-color:#ffdddd;}';
-  var no2 = '#row2:hover {background-color:#ffdddd;}';
-  var no3 = '#row3:hover {background-color:#ffdddd;}';
-  var no4 = '#row4:hover {background-color:#ffdddd;}';
-  var no5 = '#row5:hover {background-color:#ffdddd;}';
-  var style = document.createElement('style');
+    // CORRECT ANSWER
+    if(subtypeAnswers[i][1]===null) $(a[i/2]).html("M"+parseInt(subtypeAnswers[i][0]+1)+" "+subtypeAnswers[i+1][0]+"%");
+    else $(a[i/2]).html("M"+parseInt(subtypeAnswers[i][0]+1)+" "+subtypeAnswers[i+1][0]+"%<br>M"+parseInt(subtypeAnswers[i][1]+1)+" "+subtypeAnswers[i+1][1]+"%");
 
-  if (style.styleSheet) {
-    if(score[0]===1) style.styleSheet.cssText = yes1;
-    else style.styleSheet.cssText = no1;
-  } else {
-    if(score[0]===1) style.appendChild(document.createTextNode(yes1));
-    else style.appendChild(document.createTextNode(no1));
+    var style = document.createElement('style');
+    // TICK OR CROSS
+    if(score[i/2]) {
+      $(mark[i/2]).html('<i class="fa fa-check" aria-hidden="true"></i>');
+      style.appendChild(document.createTextNode(green[i/2]));
+    }
+    else {
+      $(mark[i/2]).html('<i class="fa fa-times" aria-hidden="true"></i>');
+      style.appendChild(document.createTextNode(red[i/2]));
+    }
+    document.getElementsByTagName('head')[0].appendChild(style);
   }
-  document.getElementsByTagName('head')[0].appendChild(style);
-
-  if (style.styleSheet) {
-    if(score[1]===1) style.styleSheet.cssText = yes2;
-    else style.styleSheet.cssText = no2;
-  } else {
-    if(score[1]===1) style.appendChild(document.createTextNode(yes2));
-    else style.appendChild(document.createTextNode(no2));
-  }
-  document.getElementsByTagName('head')[0].appendChild(style);
-
-  if (style.styleSheet) {
-    if(score[2]===1) style.styleSheet.cssText = yes3;
-    else style.styleSheet.cssText = no3;
-  } else {
-    if(score[2]===1) style.appendChild(document.createTextNode(yes3));
-    else style.appendChild(document.createTextNode(no3));
-  }
-  document.getElementsByTagName('head')[0].appendChild(style);
-
-  if (style.styleSheet) {
-    if(score[3]===1) style.styleSheet.cssText = yes4;
-    else style.styleSheet.cssText = no4;
-  } else {
-    if(score[3]===1) style.appendChild(document.createTextNode(yes4));
-    else style.appendChild(document.createTextNode(no4));
-  }
-  document.getElementsByTagName('head')[0].appendChild(style);
-
-  if (style.styleSheet) {
-    if(score[4]===1) style.styleSheet.cssText = yes5;
-    else style.styleSheet.cssText = no5;
-  } else {
-    if(score[4]===1) style.appendChild(document.createTextNode(yes5));
-    else style.appendChild(document.createTextNode(no5));
-  }
-  document.getElementsByTagName('head')[0].appendChild(style);
-
-  //STUDENT ANSWERS
-  if(inputAnswers[0][1]===null) $('#q1').html("M"+parseInt(inputAnswers[0][0]+1)+" "+inputAnswers[1][0]+"%");
-  else $('#q1').html("M"+parseInt(inputAnswers[0][0]+1)+" "+inputAnswers[1][0]+"%<br>M"+parseInt(inputAnswers[0][1]+1)+" "+inputAnswers[1][1]+"%");
-
-  if(inputAnswers[2][1]===null) $('#q2').html("M"+parseInt(inputAnswers[2][0]+1)+" "+inputAnswers[3][0]+"%");
-  else $('#q2').html("M"+parseInt(inputAnswers[2][0]+1)+" "+inputAnswers[3][0]+"%<br>M"+parseInt(inputAnswers[2][1]+1)+" "+inputAnswers[3][1]+"%");
-
-  if(inputAnswers[4][1]===null) $('#q3').html("M"+parseInt(inputAnswers[4][0]+1)+" "+inputAnswers[5][0]+"%");
-  else $('#q3').html("M"+parseInt(inputAnswers[4][0]+1)+" "+inputAnswers[5][0]+"%<br>M"+parseInt(inputAnswers[4][1]+1)+" "+inputAnswers[5][1]+"%");
-
-  if(inputAnswers[6][1]===null) $('#q4').html("M"+parseInt(inputAnswers[6][0]+1)+" "+inputAnswers[7][0]+"%");
-  else $('#q4').html("M"+parseInt(inputAnswers[6][0]+1)+" "+inputAnswers[7][0]+"%<br>M"+parseInt(inputAnswers[6][1]+1)+" "+inputAnswers[7][1]+"%");
-
-  if(inputAnswers[8][1]===null) $('#q5').html("M"+parseInt(inputAnswers[8][0]+1)+" "+inputAnswers[9][0]+"%");
-  else $('#q5').html("M"+parseInt(inputAnswers[8][0]+1)+" "+inputAnswers[9][0]+"%<br>M"+parseInt(inputAnswers[8][1]+1)+" "+inputAnswers[9][1]+"%");
-
-  //ANSWERS
-  if(subtypeAnswers[0][1]===null) $('#a1').html("M"+parseInt(subtypeAnswers[0][0]+1)+" "+subtypeAnswers[1][0]+"%");
-  else $('#a1').html("M"+parseInt(subtypeAnswers[0][0]+1)+" "+subtypeAnswers[1][0]+"%<br>M"+parseInt(subtypeAnswers[0][1]+1)+" "+subtypeAnswers[1][1]+"%");
-
-  if(subtypeAnswers[2][1]===null) $('#a2').html("M"+parseInt(subtypeAnswers[2][0]+1)+" "+subtypeAnswers[3][0]+"%");
-  else $('#a2').html("M"+parseInt(subtypeAnswers[2][0]+1)+" "+subtypeAnswers[3][0]+"%<br>M"+parseInt(subtypeAnswers[2][1]+1)+" "+subtypeAnswers[3][1]+"%");
-
-  if(subtypeAnswers[4][1]===null) $('#a3').html("M"+parseInt(subtypeAnswers[4][0]+1)+" "+subtypeAnswers[5][0]+"%");
-  else $('#a3').html("M"+parseInt(subtypeAnswers[4][0]+1)+" "+subtypeAnswers[5][0]+"%<br>M"+parseInt(subtypeAnswers[4][1]+1)+" "+subtypeAnswers[5][1]+"%");
-
-  if(subtypeAnswers[6][1]===null) $('#a4').html("M"+parseInt(subtypeAnswers[6][0]+1)+" "+subtypeAnswers[7][0]+"%");
-  else $('#a4').html("M"+parseInt(subtypeAnswers[6][0]+1)+" "+subtypeAnswers[7][0]+"%<br>M"+parseInt(subtypeAnswers[6][1]+1)+" "+subtypeAnswers[7][1]+"%");
-
-  if(subtypeAnswers[8][1]===null) $('#a5').html("M"+parseInt(subtypeAnswers[8][0]+1)+" "+subtypeAnswers[9][0]+"%");
-  else $('#a5').html("M"+parseInt(subtypeAnswers[8][0]+1)+" "+subtypeAnswers[9][0]+"%<br>M"+parseInt(subtypeAnswers[8][1]+1)+" "+subtypeAnswers[9][1]+"%");
 }
 
 
