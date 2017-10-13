@@ -297,6 +297,10 @@ fieldset.sectionContainer {
 
 }
 
+.table-responsive {
+  width: 100%;
+}
+
 @media (min-width: 1000px) {
     fieldset.sectionContainer {
         overflow: scroll;
