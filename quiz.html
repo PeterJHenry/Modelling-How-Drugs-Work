@@ -10,6 +10,7 @@
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css"
           integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <link href="vendor/bootstrap/css/bootstrap.css" type="text/css" rel="stylesheet">
 
 
     <!-- Custom fonts -->
@@ -289,7 +290,7 @@
 
     <!-- Question 1 Review Modal -->
     <div id="question1" class="modal fade" role="dialog">
-        <div class="modal-dialog modal-lg">
+        <div class="modal-dialog modal-xl">
 
             <!-- Modal content-->
             <div class="modal-content">
@@ -299,18 +300,22 @@
                   </div>
                   <div class="modal-body">
                     <table width="100%">
+                      <tr><td>Your answer would have produced this curve</td><td>This is the correct curve</td></tr>
                       <tr><td>
-                            <fieldset class="sectionContainer" style="width:100%">
-                                <legend>Your Answer</legend>
-                                <div id="reviewGraph"></div>
-                            </fieldset>
+                        <div class="container-fluid ligands">
+                            <fieldset class="sectionContainer">
+                              <legend>Competition Binding Curve</legend>
+                          <div id="yourGraph"></div>
+                        </fieldset>
+                      </div>
                           </td>
-
                           <td>
-                              <fieldset class="sectionContainer" style="width:100%">
-                                  <legend>Correct Answer</legend>
-                                  <div id="correctGraph"></div>
-                              </fieldset>
+                            <div class="container-fluid ligands">
+                                <fieldset class="sectionContainer">
+                                  <legend>Competition Binding Curve</legend>
+                          <div id="correctGraph"></div>
+                        </fieldset>
+                        </div>
                           </td>
                         </tr>
                       </table>
@@ -378,11 +383,11 @@
                           <td>
                               <div class="leftInput">Subtypes</div>
                           </td>
-                          <td><input type="checkbox" value=0 onclick="validateCheckBox(0)"></td>
-                          <td><input type="checkbox" value=1 onclick="validateCheckBox(1)"></td>
-                          <td><input type="checkbox" value=2 onclick="validateCheckBox(2)"></td>
-                          <td><input type="checkbox" value=3 onclick="validateCheckBox(3)"></td>
-                          <td><input type="checkbox" value=4 onclick="validateCheckBox(4)"></td>
+                          <td><input type="checkbox" value="0" onclick="validateCheckBox(0)"></td>
+                          <td><input type="checkbox" value="1" onclick="validateCheckBox(1)"></td>
+                          <td><input type="checkbox" value="2" onclick="validateCheckBox(2)"></td>
+                          <td><input type="checkbox" value="3" onclick="validateCheckBox(3)"></td>
+                          <td><input type="checkbox" value="4" onclick="validateCheckBox(4)"></td>
 
                       </tr>
                       <tr id="relDensity">
@@ -498,31 +503,31 @@
           <th class="th1"><center>Correct Answer</center></th>
           <th class="th1"><center>Mark</center></th>
         </tr>
-        <tr class="resultrow" id="row1" data-toggle="modal" href="" data-target="#question1">
+        <tr class="resultrow" id="row1" data-toggle="modal" href="" data-target="#question1" onclick="graph(yourGraph,0,inputAnswers),graph(correctGraph,0,subtypeAnswers)">
           <td style="vertical-align:middle;text-align:center;">1</td>
           <td style="vertical-align:middle;text-align:center;"><span id="q1"></span></td>
           <td style="vertical-align:middle;text-align:center;"><span id="a1"></span></td>
-          <td style="vertical-align:middle;text-align:center;"><span id="mark1"><i class="fa fa-check" aria-hidden="true"></i></span></td>
+          <td style="vertical-align:middle;text-align:center;"><span id="mark1"></span></td>
         </tr>
-        <tr class="resultrow" id="row2">
+        <tr class="resultrow" id="row2" data-toggle="modal" href="" data-target="#question2" onclick="graph(yourGraph,1,inputAnswers),graph(correctGraph,1,subtypeAnswers)">
           <td style="vertical-align:middle;text-align:center;">2</td>
           <td style="vertical-align:middle;text-align:center;"><span id="q2"></span></td>
           <td style="vertical-align:middle;text-align:center;"><span id="a2"></span></td>
           <td style="vertical-align:middle;text-align:center;"><span id="mark2"></span></td>
         </tr>
-        <tr class="resultrow" id="row3">
+        <tr class="resultrow" id="row3" data-toggle="modal" href="" data-target="#question3" onclick="graph(yourGraph,2,inputAnswers),graph(correctGraph,2,subtypeAnswers)">
           <td style="vertical-align:middle;text-align:center;">3</td>
           <td style="vertical-align:middle;text-align:center;"><span id="q3"></span></td>
           <td style="vertical-align:middle;text-align:center;"><span id="a3"></span></td>
           <td style="vertical-align:middle;text-align:center;"><span id="mark3"></span></td>
         </tr>
-        <tr class="resultrow" id="row4">
+        <tr class="resultrow" id="row4" data-toggle="modal" href="" data-target="#question4" onclick="graph(yourGraph,3,inputAnswers),graph(correctGraph,3,subtypeAnswers)">
           <td style="vertical-align:middle;text-align:center;">4</td>
           <td style="vertical-align:middle;text-align:center;"><span id="q4"></span></td>
           <td style="vertical-align:middle;text-align:center;"><span id="a4"></span></td>
           <td style="vertical-align:middle;text-align:center;"><span id="mark4"></span></td>
         </tr>
-        <tr class="resultrow" id="row5">
+        <tr class="resultrow" id="row5" data-toggle="modal" href="" data-target="#question5" onclick="graph(yourGraph,4,inputAnswers),graph(correctGraph,4,subtypeAnswers)">
           <td style="vertical-align:middle;text-align:center;">5</td>
           <td style="vertical-align:middle;text-align:center;"><span id="q5"></span></td>
           <td style="vertical-align:middle;text-align:center;"><span id="a5"></span></td>

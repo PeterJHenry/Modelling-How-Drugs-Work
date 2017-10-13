@@ -12,6 +12,7 @@ var ligandIndexes;
 var subtypeAnswers = [];
 var inputAnswers = [];
 var textAnswers = [];
+var ligandList = [];
 var score = [];
 
 $(document).ready(function () {
@@ -102,6 +103,13 @@ function randomiseLigand() {
   if(Math.floor(Math.random() * 2) === 1) ligandIndexes[4] = 8;
   else ligandIndexes[4] = 9;
 
+  ligandList.push(ligandIndexes);
+
+}
+
+function color(i){
+  if(i===4) return i+1;
+  else return i;
 }
 
 function get_dataset(ligandIndex) {
@@ -117,9 +125,92 @@ function get_dataset(ligandIndex) {
     return dataSet;
 }
 
-function color(i){
-  if(i===4) return i+1;
-  else return i;
+function get_dataset2(ligandIndex,questionNo,type) {
+    var dataSet
+    if ([type[questionNo][1]] === null) {
+        dataSet = calculateGraphPoints(1, 100, logK[ligandIndex][type[questionNo][0]]);
+    } else {
+        dataSet = calculateGraphPoints(2,
+            [type[questionNo+1][0]], logK[ligandIndex][type[questionNo][0]],
+            [type[questionNo+1][1]], logK[ligandIndex][type[questionNo][1]]
+        );
+    }
+    return dataSet;
+}
+
+// Redraws the graph with current ligand values, does not affect subtype.
+function graph(div,questionNo,type) {
+	// Generate data to pass to the graph.
+    var data = [];
+    for (i = 0; i < 5; i++) {
+        ligandIndex = ligandList[questionNo][i]
+        var dataSet = get_dataset2(ligandIndex,questionNo,type);
+        var graph = {
+            x: dataSet[0],
+            y: dataSet[1],
+            mode: 'lines',
+            line: {
+                color: colorTable[color(i)],
+                width: 1
+            },
+            name: ligandNames[ligandIndex]
+        };redrawGraph
+        data.push(graph);
+    }
+	plot(div, data, true);
+}
+
+// Draw/Update the graph from a data object.
+// Legend visible by default, allows an options object to be
+// passed to Plotly.newPlot()
+function plot(div, data, showlegend, options) {
+    var layout = {
+        autosize: false,
+        width: 500,
+        height: 500,
+        xaxis: {
+            title: 'log [ Ligand ] (M)',
+            titlefont: {
+                family: 'Lato, Helvetica Neue, Helvetica, Arial, sans-serif',
+                size: 18,
+                color: '#7f7f7f'
+            },
+            showline: true,
+            range: [-12, -2],
+            tickvals: [-12, -11, -10, -9, -8, -7, -6, -5, -4, -3, -2]
+        },
+        yaxis: {
+            title: 'Specific Binding (%)',
+            titlefont: {
+                family: 'Lato, Helvetica Neue, Helvetica, Arial, sans-serif',
+                size: 18,
+                color: '#7f7f7f'
+            },
+            showline: true,
+            range: [0, 100],
+            tickvals: [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
+            // ticktext: [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
+        },
+        margin: {
+            l: 50,
+            r: 50,
+            b: 50,
+            t: 50,
+            pad: 4
+        },
+        showlegend: showlegend,
+        legend: {
+          font: {
+            size: 10
+          },
+          y: 10,
+          orientation : "h"
+        },
+
+
+    };
+    Plotly.newPlot(div, data, layout, options);
+    showBody();
 }
 
 // Redraws the graph with current ligand values, does not affect subtype.
@@ -175,11 +266,13 @@ function storeAnswers() {
   $('input[type=checkbox]:checked').each(function(){
     subtypes.push(parseInt($(this).val()));
   });
+
   $('#relativeDensity1').find('option:selected').each(function(){
     if($(this).val()){
       percentage.push(parseInt($(this).val()));
     }
   });
+
   $('#relativeDensity2').find('option:selected').each(function(){
     if($(this).val()){
       percentage.push(parseInt($(this).val()));
@@ -205,9 +298,7 @@ function storeAnswers() {
     percentage[1] = null;
   }
 
-  if(subtypes[0]){
-    inputAnswers.push(subtypes,percentage);
-  }
+  inputAnswers.push(subtypes,percentage);
   //clearInput();
 }
 

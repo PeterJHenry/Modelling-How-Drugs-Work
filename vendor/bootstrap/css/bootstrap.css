@@ -4718,6 +4718,13 @@ button.close {
   }
 }
 
+@media (min-width: 768px) {
+  .modal-xl {
+    width: 90%;
+   max-width:1200px;
+  }
+}
+
 .tooltip {
   position: absolute;
   z-index: 1070;
