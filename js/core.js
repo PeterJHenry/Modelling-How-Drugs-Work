@@ -153,12 +153,13 @@ function plotGraph(data, showlegend, options) {
         options = {};
     var layout = {
         xaxis: {
-            title: '- log [ Ligand ] (M)',
+            title: 'log [ Ligand ] (M)',
             titlefont: {
                 family: 'Lato, Helvetica Neue, Helvetica, Arial, sans-serif',
                 size: 18,
                 color: '#7f7f7f'
             },
+            showline: true,
             range: [-12, -2],
             tickvals: [-12, -11, -10, -9, -8, -7, -6, -5, -4, -3, -2]
         },
@@ -169,6 +170,7 @@ function plotGraph(data, showlegend, options) {
                 size: 18,
                 color: '#7f7f7f'
             },
+            showline: true,
             range: [0, 100],
             tickvals: [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
             // ticktext: [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
