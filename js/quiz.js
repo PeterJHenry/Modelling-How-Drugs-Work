@@ -138,8 +138,15 @@ function redrawGraph() {
 }
 
 function clearInput(){
-  $('input[type="checkbox"]:checked').prop('checked',false);
-  $('input[type="number"]').val('');
+  checkbox_containers = document.getElementById('subtypeCheckbox').children;
+  for (var i=1; i<checkbox_containers.length; i++) {
+    checkbox = checkbox_containers[i].children[0];
+    if (checkbox.checked){
+      checkbox_containers[i].children[0].checked = false;
+      validateCheckBox(i-1);
+      console.log(checkbox_containers[i].firstChild);
+    }
+  }
 }
 
 function checkAnswers(){
@@ -172,7 +179,7 @@ function storeAnswers() {
   }
 
   inputAnswers = inputAnswers.concat([subtypes,percentage]);
-  //clearInput();
+  clearInput();
 }
 
 // This functions generates a random number of questions and ratio and returns as an array
