@@ -85,7 +85,7 @@ function randomiseSubType() {
     if(subtypePercentage[1] == null){
       subtypeIndex[1] = null;
     }
-    subtypeAnswers = subtypeAnswers.concat([subtypeIndex,subtypePercentage]);
+    subtypeAnswers.push(subtypeIndex,subtypePercentage);
 }
 
 function randomiseLigand() {
@@ -172,47 +172,42 @@ function storeAnswers() {
 
   textAnswers.push($('#textbox').val());
 
-
   $('input[type=checkbox]:checked').each(function(){
     subtypes.push(parseInt($(this).val()));
   });
-
   $('#relativeDensity1').find('option:selected').each(function(){
-    if($(this).val() != ''){
+    if($(this).val()){
       percentage.push(parseInt($(this).val()));
     }
   });
-
   $('#relativeDensity2').find('option:selected').each(function(){
-    if($(this).val() != ''){
+    if($(this).val()){
       percentage.push(parseInt($(this).val()));
     }
   });
-
   $('#relativeDensity3').find('option:selected').each(function(){
-    if($(this).val() != ''){
+    if($(this).val()){
       percentage.push(parseInt($(this).val()));
     }
   });
-
   $('#relativeDensity4').find('option:selected').each(function(){
-    if($(this).val() != ''){
+    if($(this).val()){
       percentage.push(parseInt($(this).val()));
     }
   });
-
   $('#relativeDensity5').find('option:selected').each(function(){
-    if($(this).val() != ''){
+    if($(this).val()){
       percentage.push(parseInt($(this).val()));
     }
   });
-
   if(subtypes.length === 1){
     subtypes[1] = null;
     percentage[1] = null;
   }
 
-  inputAnswers = inputAnswers.concat([subtypes,percentage]);
+  if(subtypes[0]){
+    inputAnswers.push(subtypes,percentage);
+  }
   //clearInput();
 }
 
@@ -249,25 +244,6 @@ function endQuiz(){
 }
 
 function renderResults() {
-  for(var i = 0; i < inputAnswers.length; i+=2){
-    if(((inputAnswers[i][0] === subtypeAnswers[i][0]) && (inputAnswers[i][1] === subtypeAnswers[i][1]) && (inputAnswers[i+1][0] === subtypeAnswers[i+1][0])) ||
-    ((inputAnswers[i][0] === subtypeAnswers[i][1]) && (inputAnswers[i][1] === subtypeAnswers[i][0]) && (inputAnswers[i+1][0] === subtypeAnswers[i+1][1]))){
-      score[i/2] = 1;
-    }
-    else {
-      score[i/2] = 0;
-    }
-  }
-
-  $('#score').html("Score: "+score.reduce(function (a, b) {
-    return a + b;
-  }, 0)+"/5");
-
-  drawResults();
-}
-
-function drawResults(){
-
   var a = ['#a1','#a2','#a3','#a4','#a5'];
   var q = ['#q1','#q2','#q3','#q4','#q5'];
   var green = ['#row1:hover {background-color:#dcffd3;}','#row2:hover {background-color:#dcffd3;}','#row3:hover {background-color:#dcffd3;}','#row4:hover {background-color:#dcffd3;}','#row5:hover {background-color:#dcffd3;}'];
@@ -275,6 +251,13 @@ function drawResults(){
   var mark = ['#mark1','#mark2','#mark3','#mark4','#mark5']
 
   for(var i = 0; i < inputAnswers.length; i+=2){
+    if(((inputAnswers[i][0] === subtypeAnswers[i][0]) && (inputAnswers[i][1] === subtypeAnswers[i][1]) && (inputAnswers[i+1][0] === subtypeAnswers[i+1][0])) ||
+    ((inputAnswers[i][0] === subtypeAnswers[i][1]) && (inputAnswers[i][1] === subtypeAnswers[i][0]) && (inputAnswers[i+1][0] === subtypeAnswers[i+1][1]))){
+      score[i/2] = true;
+    }
+    else {
+      score[i/2] = false;
+    }
     // YOUR ANSWER
     if(inputAnswers[i][1]===null) $(q[i/2]).html("M"+parseInt(inputAnswers[i][0]+1)+" "+inputAnswers[i+1][0]+"%");
     else $(q[i/2]).html("M"+parseInt(inputAnswers[i][0]+1)+" "+inputAnswers[i+1][0]+"%<br>M"+parseInt(inputAnswers[i][1]+1)+" "+inputAnswers[i+1][1]+"%");
@@ -284,7 +267,8 @@ function drawResults(){
     else $(a[i/2]).html("M"+parseInt(subtypeAnswers[i][0]+1)+" "+subtypeAnswers[i+1][0]+"%<br>M"+parseInt(subtypeAnswers[i][1]+1)+" "+subtypeAnswers[i+1][1]+"%");
 
     var style = document.createElement('style');
-    // TICK OR CROSS
+
+    // TICK/GREEN OR CROSS/RED
     if(score[i/2]) {
       $(mark[i/2]).html('<i class="fa fa-check" aria-hidden="true"></i>');
       style.appendChild(document.createTextNode(green[i/2]));
@@ -295,8 +279,10 @@ function drawResults(){
     }
     document.getElementsByTagName('head')[0].appendChild(style);
   }
+  $('#score').html("Score: "+score.reduce(function (a, b) {
+    return a + b;
+  }, 0)+"/5");
 }
-
 
 //// Check if the box can be checked
 function validateCheckBox(checkingBox) {
