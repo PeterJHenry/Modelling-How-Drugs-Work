@@ -149,7 +149,7 @@ function get_dataset2(ligandIndex,questionNo,subtype,percentage) {
 }
 
 // Redraws the graph with current ligand values, does not affect subtype.
-function graph(div,questionNo,subtype,percentage) {
+function generateGraph(div,questionNo,subtype,percentage) {
 	// Generate data to pass to the graph.
     var data = [];
     for (i = 0; i < 5; i++) {
@@ -167,57 +167,9 @@ function graph(div,questionNo,subtype,percentage) {
         };redrawGraph
         data.push(graph);
     }
-	plot(div, data, true);
+	plotGraph(div, data, true);
 }
 
-// Draw/Update the graph from a data object.
-// Legend visible by default, allows an options object to be
-// passed to Plotly.newPlot()
-function plot(div, data, showlegend, size) {
-    var layout = {
-        xaxis: {
-            title: 'log [ Ligand ] (M)',
-            titlefont: {
-                family: 'Lato, Helvetica Neue, Helvetica, Arial, sans-serif',
-                size: 18,
-                color: '#7f7f7f'
-            },
-            showline: true,
-            range: [-12, -2],
-            tickvals: [-12, -11, -10, -9, -8, -7, -6, -5, -4, -3, -2]
-        },
-        yaxis: {
-            title: 'Specific Binding (%)',
-            titlefont: {
-                family: 'Lato, Helvetica Neue, Helvetica, Arial, sans-serif',
-                size: 18,
-                color: '#7f7f7f'
-            },
-            showline: true,
-            range: [0, 100],
-            tickvals: [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
-            // ticktext: [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
-        },
-        margin: {
-            l: 50,
-            b: 50,
-            t: 50,
-            pad: 4
-        },
-        showlegend: showlegend,
-        legend: {
-          font: {
-            size: 10
-          },
-          y: 10,
-          orientation : "h"
-        },
-
-
-    };
-    Plotly.newPlot(div, data, layout);
-    showBody();
-}
 
 // Redraws the graph with current ligand values, does not affect subtype.
 function redrawGraph() {
@@ -238,20 +190,20 @@ function redrawGraph() {
         };redrawGraph
         data.push(graph);
     }
-	plotGraph(data, true, {staticPlot: true});
+	plotGraph('myDiv',data, true, {staticPlot: true});
 }
 
 function review(questionNo) {
   if(score[questionNo] || Subtypes[questionNo][0] === null){
     $('#question').html(questionNo+1);
     $('#reviewTable').html('<span class="quote" id="text"></span><p class="th1"><b>Answer Review</b></p><p class="text-align:center" id="correctAnswer"></p><div class="container-fluid"><fieldset class="sectionContainer"><legend>Competition Binding Curve</legend><div id="correctGraph"></div></fieldset></div>')
-    graph(correctGraph,questionNo,SubtypeAnswer,PercentageAnswer);
+    generateGraph(correctGraph,questionNo,SubtypeAnswer,PercentageAnswer);
   }
   else {
     $('#question').html(questionNo+1);
     $('#reviewTable').html('<span class="quote" id="text"></span><div class="col-sm-6"><p class="th1" style="text-align:center"><b>Your answer would have produced these curves</b></p><p id="yourAnswer" style="text-align:center"></p><fieldset class="sectionContainer"><legend>Competition Binding Curve</legend><div id="yourGraph"></div></fieldset></div><div class="col-sm-6"><p class="th1" style="text-align:center"><b>The correct answer produces these curves</b></p><p id="correctAnswer" style="text-align:center"></p><fieldset class="sectionContainer"><legend>Competition Binding Curve</legend><div id="correctGraph"></div></fieldset></div>');
-    graph(yourGraph,questionNo,Subtypes,Percentages);
-    graph(correctGraph,questionNo,SubtypeAnswer,PercentageAnswer);
+    generateGraph(yourGraph,questionNo,Subtypes,Percentages);
+    generateGraph(correctGraph,questionNo,SubtypeAnswer,PercentageAnswer);
 
     if(Subtypes[questionNo][1]===null) $('#yourAnswer').html("Subtype Present: M"+parseInt(Subtypes[questionNo][0]+1)+" "+Percentages[questionNo][0]+"%");
     else $('#yourAnswer').html("Subtypes Present: M"+parseInt(Subtypes[questionNo][0]+1)+" "+Percentages[questionNo][0]+"%, M"+parseInt(Subtypes[questionNo][1]+1)+" "+Percentages[questionNo][1]+"%");

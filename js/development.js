@@ -185,7 +185,7 @@ function validateRelDensityRow(currentCellNumber) {
         }
     }
 
-    generateGraph();
+    generateGraph('myDiv');
 }
 
 function validateLigandValue() {
@@ -198,7 +198,7 @@ function validateLigandValue() {
             }
         }
     }
-    generateGraph();
+    generateGraph('myDiv');
 }
 
 function addLigandListener() {
@@ -242,7 +242,7 @@ function disableColumn(col) {
 }
 
 $(document).ready(function () {
-    generateGraph();
+    generateGraph('myDiv');
     addLigandListener();
     addReceptorListener();
     $('[data-toggle="tooltip"]').tooltip();
@@ -250,7 +250,7 @@ $(document).ready(function () {
 });
 
 $(window).resize(function () {
-    generateGraph();
+    generateGraph('myDiv');
 });
 
 function showBody() {

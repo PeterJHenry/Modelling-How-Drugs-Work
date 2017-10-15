@@ -55,7 +55,7 @@ function redrawGraph() {
         }
         return dataSet
     }
-    
+
     var data = [];
     for (var i = 0; i < 6; i++) {
         if (activeLigandRow()[i]) {
@@ -75,7 +75,7 @@ function redrawGraph() {
         }
     }
     console.trace()
-	plotGraph(data, false, {staticPlot: true});
+	plotGraph('myDiv',data, false, {staticPlot: true});
 }
 $(window).resize(function () {
     redrawGraph();

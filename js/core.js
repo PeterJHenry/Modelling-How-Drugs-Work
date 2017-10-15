@@ -66,7 +66,7 @@ function ligandAutoFill(selectedLigand, rowIndex, graphCallback) {
 }
 
 // This function will take the data from the page and then draw the graph.
-function generateGraph() {
+function generateGraph(div) {
     var data = [];
     switch (activeCheckBoxes().length) {
         case 1:
@@ -140,13 +140,13 @@ function generateGraph() {
                 }
             }
     }
-    plotGraph(data);
+    plotGraph(div, data);
 }
 
 // Draw/Update the graph from a data object.
 // Legend visible by default, allows an options object to be
 // passed to Plotly.newPlot()
-function plotGraph(data, showlegend, options) {
+function plotGraph(div, data, showlegend, options) {
     if (typeof showlegend === "undefined")
         showlegend = false;
     if (typeof options === "undefined")
@@ -193,7 +193,7 @@ function plotGraph(data, showlegend, options) {
 
 
     };
-    Plotly.newPlot('myDiv', data, layout, options);
+    Plotly.newPlot(div, data, layout, options);
     showBody();
 }
 
