@@ -1,6 +1,6 @@
 // Constants
 var timer;
-var timeLimit = 3;
+var timeLimit = 1499;
 var timeVar;
 var numberOfQuestions = 5;
 var num = 0;
@@ -301,7 +301,7 @@ function quizStatus(next) {
     $('#back').show();
   }
   if(currentNumber === numberOfQuestions){
-    //clearInput();
+    clearInput();
     $('#submitButton').html("Submit");
     $('#quiz_title').html('Question '+currentNumber+' of '+numberOfQuestions);
     redrawGraph(num);
@@ -312,7 +312,7 @@ function quizStatus(next) {
     setTimeout(endQuiz,delay);
   }
   else {
-    //clearInput();
+    clearInput();
     $('#submitButton').html('Next <i class="fa fa-arrow-right" aria-hidden="true"></i>');
     $('#quiz_title').html('Question '+currentNumber+' of '+numberOfQuestions);
     redrawGraph(num);
