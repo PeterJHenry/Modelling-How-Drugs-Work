@@ -341,14 +341,16 @@ function generateQuestion() {
 
 function quizStatus() {
   currentNumber++;
-  $('.progress-bar').css('width',currentNumber/5*100+'%');
+  $('.progress-bar').css('width',(currentNumber-1)/5*100+'%');
   if(currentNumber === numberOfQuestions){
     $('#submitButton').html("Submit");
     $('#quiz_title').html('Question '+currentNumber+' of '+numberOfQuestions);
     generateQuestion();
   }
   else if(currentNumber > numberOfQuestions){
-    endQuiz();
+    $('.progress-bar').css('width',(currentNumber)/5*100+'%');
+    var delay = 400;
+    setTimeout(endQuiz,delay);
   }
   else {
     $('#submitButton').html("Next Question");
