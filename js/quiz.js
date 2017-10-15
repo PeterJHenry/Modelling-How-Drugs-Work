@@ -1,6 +1,6 @@
 // Constants
 var timer;
-var timeLimit = 5;
+var timeLimit = 1500;
 var timeVar;
 var numberOfQuestions = 5;
 
@@ -324,7 +324,7 @@ function storeAnswers() {
     percentage[0] = null;
   }
   inputAnswers.push(subtypes,percentage);
-  //clearInput();
+  clearInput();
 }
 
 // This functions generates a random number of questions and ratio and returns as an array
