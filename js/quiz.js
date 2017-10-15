@@ -127,7 +127,7 @@ function get_dataset(ligandIndex) {
 
 function get_dataset2(ligandIndex,questionNo,type) {
     var dataSet
-    if ([type[questionNo][1]] === null) {
+    if (type[questionNo][1] === null) {
         dataSet = calculateGraphPoints(1, 100, logK[ligandIndex][type[questionNo][0]]);
     } else {
         dataSet = calculateGraphPoints(2,
@@ -139,11 +139,11 @@ function get_dataset2(ligandIndex,questionNo,type) {
 }
 
 // Redraws the graph with current ligand values, does not affect subtype.
-function graph(div,questionNo,type) {
+function graph(div,questionNo,type,size) {
 	// Generate data to pass to the graph.
     var data = [];
     for (i = 0; i < 5; i++) {
-        ligandIndex = ligandList[questionNo][i]
+        ligandIndex = ligandList[questionNo/2][i]
         var dataSet = get_dataset2(ligandIndex,questionNo,type);
         var graph = {
             x: dataSet[0],
@@ -157,17 +157,17 @@ function graph(div,questionNo,type) {
         };redrawGraph
         data.push(graph);
     }
-	plot(div, data, true);
+	plot(div, data, true, size);
 }
 
 // Draw/Update the graph from a data object.
 // Legend visible by default, allows an options object to be
 // passed to Plotly.newPlot()
-function plot(div, data, showlegend, options) {
+function plot(div, data, showlegend, size) {
     var layout = {
         autosize: false,
-        width: 500,
-        height: 500,
+        width: size,
+        height: size,
         xaxis: {
             title: 'log [ Ligand ] (M)',
             titlefont: {
@@ -193,7 +193,6 @@ function plot(div, data, showlegend, options) {
         },
         margin: {
             l: 50,
-            r: 50,
             b: 50,
             t: 50,
             pad: 4
@@ -209,7 +208,7 @@ function plot(div, data, showlegend, options) {
 
 
     };
-    Plotly.newPlot(div, data, layout, options);
+    Plotly.newPlot(div, data, layout);
     showBody();
 }
 
@@ -233,6 +232,29 @@ function redrawGraph() {
         data.push(graph);
     }
 	plotGraph(data, true, {staticPlot: true});
+}
+
+function review(questionNo) {
+  if(score[questionNo/2] || inputAnswers[questionNo][0] === null){
+    $('#question').html(questionNo/2+1);
+    $('#reviewTable').html('<table><tr><td class="quote" id="text" colspan=2></td></tr><tr><th style="text-align:center">Answer Review</th></tr><tr><td style="padding:10px"><span id="correctAnswer"></span></td></tr><tr><td><div class="container-fluid ligands"><fieldset class="sectionContainer"><legend>Competition Binding Curve</legend><div id="correctGraph"></div></fieldset></div></td></tr></table>')
+    graph(correctGraph,questionNo,subtypeAnswers,700);
+  }
+  else {
+    $('#question').html(questionNo/2+1);
+    $('#reviewTable').html('<table><tr><td class="quote" id="text" colspan=2></td></tr><tr><th class="th1" style="text-align:center">Your answer would have produced these curves</th><th class="th1" style="text-align:center">The correct answer produces these curves</th></tr><tr><td style="padding:10px"><span id="yourAnswer"></span></td><td style="padding:10px"><span id="correctAnswer"></span></td></tr><tr><td><div class="container-fluid ligands"><fieldset class="sectionContainer"><legend>Competition Binding Curve</legend><div id="yourGraph"></div></fieldset></div></td><td><div class="container-fluid ligands"><fieldset class="sectionContainer"><legend>Competition Binding Curve</legend><div id="correctGraph"></div></fieldset></div></td></tr></table>');
+    graph(yourGraph,questionNo,inputAnswers,500);
+    graph(correctGraph,questionNo,subtypeAnswers,500);
+
+    if(inputAnswers[questionNo][1]===null) $('#yourAnswer').html("Subtype Present: M"+parseInt(inputAnswers[questionNo][0]+1)+" "+inputAnswers[questionNo+1][0]+"%");
+    else $('#yourAnswer').html("Subtypes Present: M"+parseInt(inputAnswers[questionNo][0]+1)+" "+inputAnswers[questionNo+1][0]+"%, M"+parseInt(inputAnswers[questionNo][1]+1)+" "+inputAnswers[questionNo+1][1]+"%");
+  }
+  if(subtypeAnswers[questionNo][1]===null) $('#correctAnswer').html("Subtype Present: M"+parseInt(subtypeAnswers[questionNo][0]+1)+" "+subtypeAnswers[questionNo+1][0]+"%");
+  else $('#correctAnswer').html("Subtypes Present: M"+parseInt(subtypeAnswers[questionNo][0]+1)+" "+subtypeAnswers[questionNo+1][0]+"%, M"+parseInt(subtypeAnswers[questionNo][1]+1)+" "+subtypeAnswers[questionNo+1][1]+"%");
+
+  if(textAnswers[questionNo/2]!=''){
+    $('#text').html('<b><big>Justification:</big></b> '+textAnswers[questionNo/2]);
+  }
 }
 
 function clearInput(){
@@ -297,7 +319,10 @@ function storeAnswers() {
     subtypes[1] = null;
     percentage[1] = null;
   }
-
+  if(subtypes[0]===undefined){
+    subtypes[0] = null;
+    percentage[0] = null;
+  }
   inputAnswers.push(subtypes,percentage);
   //clearInput();
 }
@@ -339,9 +364,12 @@ function renderResults() {
   var q = ['#q1','#q2','#q3','#q4','#q5'];
   var green = ['#row1:hover {background-color:#dcffd3;}','#row2:hover {background-color:#dcffd3;}','#row3:hover {background-color:#dcffd3;}','#row4:hover {background-color:#dcffd3;}','#row5:hover {background-color:#dcffd3;}'];
   var red = ['#row1:hover {background-color:#ffdddd;}','#row2:hover {background-color:#ffdddd;}','#row3:hover {background-color:#ffdddd;}','#row4:hover {background-color:#ffdddd;}','#row5:hover {background-color:#ffdddd;}']
-  var mark = ['#mark1','#mark2','#mark3','#mark4','#mark5']
+  var mark = ['#mark1','#mark2','#mark3','#mark4','#mark5'];
+  var row = ['#row1','#row2','#row3','#row4','#row5']
 
   for(var i = 0; i < inputAnswers.length; i+=2){
+    $(row[i/2]).show();
+
     if(((inputAnswers[i][0] === subtypeAnswers[i][0]) && (inputAnswers[i][1] === subtypeAnswers[i][1]) && (inputAnswers[i+1][0] === subtypeAnswers[i+1][0])) ||
     ((inputAnswers[i][0] === subtypeAnswers[i][1]) && (inputAnswers[i][1] === subtypeAnswers[i][0]) && (inputAnswers[i+1][0] === subtypeAnswers[i+1][1]))){
       score[i/2] = true;
@@ -349,9 +377,12 @@ function renderResults() {
     else {
       score[i/2] = false;
     }
+
     // YOUR ANSWER
-    if(inputAnswers[i][1]===null) $(q[i/2]).html("M"+parseInt(inputAnswers[i][0]+1)+" "+inputAnswers[i+1][0]+"%");
-    else $(q[i/2]).html("M"+parseInt(inputAnswers[i][0]+1)+" "+inputAnswers[i+1][0]+"%<br>M"+parseInt(inputAnswers[i][1]+1)+" "+inputAnswers[i+1][1]+"%");
+    if(inputAnswers[i][0]!=null){
+      if(inputAnswers[i][1]===null) $(q[i/2]).html("M"+parseInt(inputAnswers[i][0]+1)+" "+inputAnswers[i+1][0]+"%");
+      else $(q[i/2]).html("M"+parseInt(inputAnswers[i][0]+1)+" "+inputAnswers[i+1][0]+"%<br>M"+parseInt(inputAnswers[i][1]+1)+" "+inputAnswers[i+1][1]+"%");
+    }
 
     // CORRECT ANSWER
     if(subtypeAnswers[i][1]===null) $(a[i/2]).html("M"+parseInt(subtypeAnswers[i][0]+1)+" "+subtypeAnswers[i+1][0]+"%");
@@ -372,7 +403,7 @@ function renderResults() {
   }
   $('#score').html("Score: "+score.reduce(function (a, b) {
     return a + b;
-  }, 0)+"/5");
+  }, 0)+"/"+subtypeAnswers.length/2);
 }
 
 //// Check if the box can be checked

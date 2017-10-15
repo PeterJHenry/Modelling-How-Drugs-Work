@@ -348,17 +348,11 @@ td, .th1 {
     margin: 0 20px 0 10px;
 }
 
-.quiztext {
+.quote {
     text-align: center;
-    padding: 0 30px 0 30px;
+    font-style: italic;
+    padding-bottom: 15px;
     font-size: 16px;
-}
-
-li.quiztext {
-    font-size: 14px;
-    text-align: left;
-    padding-left: 25%;
-    list-style-type: circle;
 }
 
 #sectionContainer > input {
@@ -521,4 +515,24 @@ select.receptorInput {
   text-align: justify;
   border: solid 2px #858c96;
   font-size: 12px;
+}
+
+#row1 {
+  display: none;
+}
+
+#row2 {
+  display: none;
+}
+
+#row3 {
+  display: none;
+}
+
+#row4 {
+  display: none;
+}
+
+#row5 {
+  display: none;
 }

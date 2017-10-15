@@ -289,36 +289,17 @@
 
 
     <!-- Question 1 Review Modal -->
-    <div id="question1" class="modal fade" role="dialog">
+    <div id="review" class="modal fade" role="dialog">
         <div class="modal-dialog modal-xl">
 
             <!-- Modal content-->
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5>Question 1 Review</h5>
+                    <h5>Question <span id="question"></span> Review</h5>
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                   </div>
                   <div class="modal-body">
-                    <table width="100%">
-                      <tr><td>Your answer would have produced this curve</td><td>This is the correct curve</td></tr>
-                      <tr><td>
-                        <div class="container-fluid ligands">
-                            <fieldset class="sectionContainer">
-                              <legend>Competition Binding Curve</legend>
-                          <div id="yourGraph"></div>
-                        </fieldset>
-                      </div>
-                          </td>
-                          <td>
-                            <div class="container-fluid ligands">
-                                <fieldset class="sectionContainer">
-                                  <legend>Competition Binding Curve</legend>
-                          <div id="correctGraph"></div>
-                        </fieldset>
-                        </div>
-                          </td>
-                        </tr>
-                      </table>
+                    <span id="reviewTable"></span>
                     </div>
                 <div class="modal-footer">
                     <button class="btn" data-dismiss="modal"><span class="tool-name">Close</span></button>
@@ -495,7 +476,7 @@
     </div>
     <div class="quizAnswers">
       <p class="lihead" style="font-size:20px;text-align:center;" id="score"></p>
-      <p>Click on the answers to review the question.</p>
+      <p>CLICK QUESTION TO REVIEW</p>
       <table class="table table-hover">
         <tr class="resultrow">
           <th class="th1">Questions</th>
@@ -503,31 +484,31 @@
           <th class="th1"><center>Correct Answer</center></th>
           <th class="th1"><center>Mark</center></th>
         </tr>
-        <tr class="resultrow" id="row1" data-toggle="modal" href="" data-target="#question1" onclick="graph(yourGraph,0,inputAnswers),graph(correctGraph,0,subtypeAnswers)">
+        <tr class="resultrow" id="row1" data-toggle="modal" href="" data-target="#review" onclick="review(0)">
           <td style="vertical-align:middle;text-align:center;">1</td>
           <td style="vertical-align:middle;text-align:center;"><span id="q1"></span></td>
           <td style="vertical-align:middle;text-align:center;"><span id="a1"></span></td>
           <td style="vertical-align:middle;text-align:center;"><span id="mark1"></span></td>
         </tr>
-        <tr class="resultrow" id="row2" data-toggle="modal" href="" data-target="#question2" onclick="graph(yourGraph,1,inputAnswers),graph(correctGraph,1,subtypeAnswers)">
+        <tr class="resultrow" id="row2" data-toggle="modal" href="" data-target="#review" onclick="review(2)">
           <td style="vertical-align:middle;text-align:center;">2</td>
           <td style="vertical-align:middle;text-align:center;"><span id="q2"></span></td>
           <td style="vertical-align:middle;text-align:center;"><span id="a2"></span></td>
           <td style="vertical-align:middle;text-align:center;"><span id="mark2"></span></td>
         </tr>
-        <tr class="resultrow" id="row3" data-toggle="modal" href="" data-target="#question3" onclick="graph(yourGraph,2,inputAnswers),graph(correctGraph,2,subtypeAnswers)">
+        <tr class="resultrow" id="row3" data-toggle="modal" href="" data-target="#review" onclick="review(4)">
           <td style="vertical-align:middle;text-align:center;">3</td>
           <td style="vertical-align:middle;text-align:center;"><span id="q3"></span></td>
           <td style="vertical-align:middle;text-align:center;"><span id="a3"></span></td>
           <td style="vertical-align:middle;text-align:center;"><span id="mark3"></span></td>
         </tr>
-        <tr class="resultrow" id="row4" data-toggle="modal" href="" data-target="#question4" onclick="graph(yourGraph,3,inputAnswers),graph(correctGraph,3,subtypeAnswers)">
+        <tr class="resultrow" id="row4" data-toggle="modal" href="" data-target="#review" onclick="review(6)">
           <td style="vertical-align:middle;text-align:center;">4</td>
           <td style="vertical-align:middle;text-align:center;"><span id="q4"></span></td>
           <td style="vertical-align:middle;text-align:center;"><span id="a4"></span></td>
           <td style="vertical-align:middle;text-align:center;"><span id="mark4"></span></td>
         </tr>
-        <tr class="resultrow" id="row5" data-toggle="modal" href="" data-target="#question5" onclick="graph(yourGraph,4,inputAnswers),graph(correctGraph,4,subtypeAnswers)">
+        <tr class="resultrow" id="row5" data-toggle="modal" href="" data-target="#review" onclick="review(8)">
           <td style="vertical-align:middle;text-align:center;">5</td>
           <td style="vertical-align:middle;text-align:center;"><span id="q5"></span></td>
           <td style="vertical-align:middle;text-align:center;"><span id="a5"></span></td>
