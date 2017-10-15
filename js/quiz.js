@@ -417,7 +417,6 @@ function validateCheckBox(checkingBox) {
     if (subTypeCheckedCount === 0) {
         receptorRelDenTableCell(checkingBox).value = 100;
         state.subTypePresent[checkingBox] = receptorCheckBoxTableCell(checkingBox).checked = true;
-        setActiveColumn(checkingBox);
         subTypeCheckedCount++;
 
         // if one box was selected before
@@ -430,13 +429,11 @@ function validateCheckBox(checkingBox) {
             state.subTypePresent[checkingBox] = receptorCheckBoxTableCell(checkingBox).checked = false;
 
             subTypeCheckedCount--;
-            setInactiveColumn(previousCheckedBox);
             // If its not the same (checking a new box)
         } else {
             state.subTypePresent[checkingBox] = receptorCheckBoxTableCell(checkingBox).checked = true;
             receptorRelDenTableCell(checkingBox).value = receptorRelDenTableCell(previousCheckedBox).value = 50;
             receptorRelDenTableCell(checkingBox).disabled = receptorRelDenTableCell(previousCheckedBox).disabled = false;
-            setActiveColumn(checkingBox);
             subTypeCheckedCount++;
         }
 
@@ -456,7 +453,6 @@ function validateCheckBox(checkingBox) {
                 receptorRelDenTableCell(previousCheckedBox0).value = '';
                 receptorRelDenTableCell(previousCheckedBox1).value = 100;
 
-                setInactiveColumn(previousCheckedBox0);
                 subTypeCheckedCount--;
                 break;
 
@@ -468,7 +464,6 @@ function validateCheckBox(checkingBox) {
                 receptorRelDenTableCell(previousCheckedBox1).value = '';
                 receptorRelDenTableCell(previousCheckedBox0).value = 100;
 
-                setInactiveColumn(previousCheckedBox1);
                 subTypeCheckedCount--;
                 break;
 
