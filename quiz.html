@@ -455,7 +455,8 @@
               </div>
         <div class="row" style="margin-top:30px; margin-bottom:30px;">
             <div class="container-fluid">
-                <button class="btn" onclick="checkAnswers()"><span class="tool-name" id="submitButton"></span></button>
+              <button class="btn" onclick="back()" style="float:left;" id="back"><span class="tool-name"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</span></button>
+                <button class="btn" onclick="next()" style="float:right;"><span class="tool-name" id="submitButton"></span></button>
             </div>
     </div>
 
@@ -491,25 +492,25 @@
           <td style="vertical-align:middle;text-align:center;"><span id="a1"></span></td>
           <td style="vertical-align:middle;text-align:center;"><span id="mark1"></span></td>
         </tr>
-        <tr class="resultrow" id="row2" data-toggle="modal" href="" data-target="#review" onclick="review(2)">
+        <tr class="resultrow" id="row2" data-toggle="modal" href="" data-target="#review" onclick="review(1)">
           <td style="vertical-align:middle;text-align:center;">2</td>
           <td style="vertical-align:middle;text-align:center;"><span id="q2"></span></td>
           <td style="vertical-align:middle;text-align:center;"><span id="a2"></span></td>
           <td style="vertical-align:middle;text-align:center;"><span id="mark2"></span></td>
         </tr>
-        <tr class="resultrow" id="row3" data-toggle="modal" href="" data-target="#review" onclick="review(4)">
+        <tr class="resultrow" id="row3" data-toggle="modal" href="" data-target="#review" onclick="review(2)">
           <td style="vertical-align:middle;text-align:center;">3</td>
           <td style="vertical-align:middle;text-align:center;"><span id="q3"></span></td>
           <td style="vertical-align:middle;text-align:center;"><span id="a3"></span></td>
           <td style="vertical-align:middle;text-align:center;"><span id="mark3"></span></td>
         </tr>
-        <tr class="resultrow" id="row4" data-toggle="modal" href="" data-target="#review" onclick="review(6)">
+        <tr class="resultrow" id="row4" data-toggle="modal" href="" data-target="#review" onclick="review(3)">
           <td style="vertical-align:middle;text-align:center;">4</td>
           <td style="vertical-align:middle;text-align:center;"><span id="q4"></span></td>
           <td style="vertical-align:middle;text-align:center;"><span id="a4"></span></td>
           <td style="vertical-align:middle;text-align:center;"><span id="mark4"></span></td>
         </tr>
-        <tr class="resultrow" id="row5" data-toggle="modal" href="" data-target="#review" onclick="review(8)">
+        <tr class="resultrow" id="row5" data-toggle="modal" href="" data-target="#review" onclick="review(4)">
           <td style="vertical-align:middle;text-align:center;">5</td>
           <td style="vertical-align:middle;text-align:center;"><span id="q5"></span></td>
           <td style="vertical-align:middle;text-align:center;"><span id="a5"></span></td>

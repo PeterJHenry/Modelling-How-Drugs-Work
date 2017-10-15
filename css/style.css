@@ -517,6 +517,10 @@ select.receptorInput {
   font-size: 12px;
 }
 
+#back {
+  display:none;
+}
+
 #row1 {
   display: none;
 }
