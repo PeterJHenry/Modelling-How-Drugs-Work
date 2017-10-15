@@ -326,18 +326,19 @@
                     <p>to generate answers, use SPIKES approach together with the -log k<sub>i</sub> values presented in the reference table.</p>
                     <p>Enter your answer into the boxes provided － note that the answers will be either one receptor subtype with a relative density of 100%,
                       or more likely, a mixture of two receptor subtypes with relative proportions between 20% and 80%.</p>
-                    <p>The will be <b><span id="cover-questionLength"></span></b> questions asked, and with practise, you should be able to <b>obtain the answers</b> within <b><span id="cover-time"></span> minutes</b>.</p>
+                    <p>The will be <b><span id="cover-questionLength"></span></b> questions asked, and with practise, you should be able to <b>obtain the answers</b> within <b>25 minutes</b>.</p>
                     <p><i>Don't forget to use the SPIKES approach to formally <b>justify your answer</b> in writing too!</i></p>
                     <p style="text-align:center;font-size:15px">Good luck!</p>
 
 
                     <button class="btn" onclick="startQuiz()"><span class="tool-name">Start Quiz</span></button></div>
                 <div class="questionContainer">
-                    <div id="timer">
-                        <span id="timer-minutes"></span>:<span id="timer-seconds"></span>
-                        <span id="ligands"></span>
+                  <div class="progress">
+                    <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
                     </div>
-
+                    <div id="timer">
+                        <i class="fa fa-hourglass-half" aria-hidden="true"></i> <span id="timer-minutes">25</span>:<span id="timer-seconds">00</span>
+                    </div>
 
             <div class="questionPage">
               <div class="row justify-content-md-center">

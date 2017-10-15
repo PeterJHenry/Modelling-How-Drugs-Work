@@ -1,6 +1,6 @@
 // Constants
 var timer;
-var timeLimit = 1500;
+var timeLimit = 1499;
 var timeVar;
 var numberOfQuestions = 5;
 
@@ -37,6 +37,11 @@ function startQuiz() {
     quizStatus();
 }
 
+function minlength(minute){
+  if(minute.toString().length === 1) return '0'+minute;
+  else return minute;
+}
+
 function initializeClock() {
     var minute = timer/60;
     var second = timer%60;
@@ -51,7 +56,7 @@ function initializeClock() {
         minute = Math.floor(timer/60);
         second = intToString(timer%60);
 
-        $('#timer-minutes').html(minute);
+        $('#timer-minutes').html(minlength(minute));
         $('#timer-seconds').html(second);
 
         if(timer == -1){
@@ -336,6 +341,7 @@ function generateQuestion() {
 
 function quizStatus() {
   currentNumber++;
+  $('.progress-bar').css('width',currentNumber/5*100+'%');
   if(currentNumber === numberOfQuestions){
     $('#submitButton').html("Submit");
     $('#quiz_title').html('Question '+currentNumber+' of '+numberOfQuestions);
