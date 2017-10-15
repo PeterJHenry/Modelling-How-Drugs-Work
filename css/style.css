@@ -405,7 +405,7 @@ td, .th1 {
     background: linear-gradient(to bottom, white, white 43%, #99339f, #99339f 57%, white, white 72%);
 }
 
-input {
+input, select {
     padding-left: 7px;
     border-radius: 5px;
     text-align: center;
@@ -433,7 +433,7 @@ input {
 }
 
 .receptorInput:disabled.activeColumn {
-    background-color: rgba(236, 236, 236, 0.79);;
+    background-color: rgba(236, 236, 236, 0.79);
 }
 
 .receptorInput {

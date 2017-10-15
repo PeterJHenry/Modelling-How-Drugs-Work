@@ -412,16 +412,6 @@ function renderResults() {
   }, 0)+"/"+subtypeAnswers.length/2);
 }
 
-function setActiveColumn(index) {
-  dropDown = document.getElementById('relativeDensity' + (index + 1));
-  dropDown.classList.add('activeColumn');
-}
-
-function setInactiveColumn(index) {
-  dropDown = document.getElementById('relativeDensity' + (index + 1));
-  dropDown.classList.remove('activeColumn');
-}
-
 //// Check if the box can be checked
 function validateCheckBox(checkingBox) {
     if (subTypeCheckedCount === 0) {
