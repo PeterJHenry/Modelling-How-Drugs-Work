@@ -228,22 +228,22 @@ function clearInput(){
   }
 }
 
-function next(){
-  if($('input[type=checkbox]:checked').length <= 0){
+function checkAnswer(next){
+  if(next && $('input[type=checkbox]:checked').length <= 0){
     alert('Please select an answer');
   }
-  else {
+  else if(next){
     currentNumber++;
     storeAnswers();
     num++;
-    quizStatus(true);
+    quizStatus();
   }
-}
-
-function back(){
-  num--;
-  currentNumber--;
-  quizStatus(false);
+  else {
+    currentNumber--;
+    storeAnswers();
+    num--;
+    quizStatus();
+  }
 }
 
 function storeAnswers() {
@@ -295,16 +295,34 @@ function storeAnswers() {
 
 }
 
-function quizStatus(next) {
-  $('.progress-bar').css('width',(currentNumber-1)/5*100+'%');
-  if(currentNumber > 1){
-    $('#back').show();
+function restoreAnswer(){
+  clearInput();
+  if(Subtypes[num]!=undefined){
+    var i = 0;
+    $('input[type=checkbox]').each(function(){
+      if($(this).val() === Subtypes[num][0]){
+        $(this).prop('checked',true);
+        validateCheckBox(i);
+      }
+      if($(this).val() === Subtypes[num][1]){
+        $(this).prop('checked',true);
+        validateCheckBox(i);
+      }
+    });
+    i++;
   }
+}
+
+function quizStatus() {
+  restoreAnswer();
+  $('#quiz_title').html('Question '+currentNumber+' of '+numberOfQuestions);
+  $('.progress-bar').css('width',(currentNumber-1)/5*100+'%');
+  if(currentNumber === 1) $('#back').hide();
+  else if(currentNumber > 1) $('#back').show();
   if(currentNumber === numberOfQuestions){
     clearInput();
     $('#submitButton').html("Submit");
-    $('#quiz_title').html('Question '+currentNumber+' of '+numberOfQuestions);
-    redrawGraph(num);
+    redrawGraph();
   }
   else if(currentNumber > numberOfQuestions){
     $('.progress-bar').css('width',(currentNumber)/5*100+'%');
@@ -314,8 +332,7 @@ function quizStatus(next) {
   else {
     clearInput();
     $('#submitButton').html('Next <i class="fa fa-arrow-right" aria-hidden="true"></i>');
-    $('#quiz_title').html('Question '+currentNumber+' of '+numberOfQuestions);
-    redrawGraph(num);
+    redrawGraph();
   }
 }
 
