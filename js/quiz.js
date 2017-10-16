@@ -285,10 +285,11 @@ function restoreAnswer(){
     $('input[type=checkbox]').each(function(){
       if(Subtypes[num][0]!= null && $(this).val() === Subtypes[num][0].toString()){
         $(this).prop('checked',true);
-        $(reldensity[i]).val(Percentages[num][0]).prop('selected',true);
+        $(reldensity[i]).val(Percentages[num][0]);
       }
       if(Subtypes[num][1]!= null && $(this).val() === Subtypes[num][1].toString()){
         $(this).prop('checked',true);
+        $(reldensity[i]).val(Percentages[num][0]);
       } i++;
     });
   }
