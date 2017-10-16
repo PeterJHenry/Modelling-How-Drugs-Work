@@ -281,16 +281,19 @@ function storeAnswers() {
 function restoreAnswer(){
   clearInput();
   var i = 0;
-  if(Subtypes[num]!=undefined){
+  if(Subtypes[num]!=null){
     $('input[type=checkbox]').each(function(){
       if(Subtypes[num][0]!= null && $(this).val() === Subtypes[num][0].toString()){
         $(this).prop('checked',true);
-        $(reldensity[i]).val(Percentages[num][0]);
+        $(this).click();
       }
       if(Subtypes[num][1]!= null && $(this).val() === Subtypes[num][1].toString()){
         $(this).prop('checked',true);
-        $(reldensity[i]).val(Percentages[num][0]);
-      } i++;
+        $(this).click();
+        $(reldensity[i]).val(Percentages[num][1]);
+        $(reldensity[i]).change();
+      } 
+      i++;
     });
   }
 }
@@ -301,7 +304,6 @@ function quizStatus() {
   if(currentNumber === 1) $('#back').hide();
   else if(currentNumber > 1) $('#back').show();
   if(currentNumber === numberOfQuestions){
-    clearInput();
     restoreAnswer();
     $('#submitButton').html("Submit");
     redrawGraph();
@@ -313,7 +315,6 @@ function quizStatus() {
   }
   else {
     restoreAnswer();
-    clearInput();
     $('#submitButton').html('Next <i class="fa fa-arrow-right" aria-hidden="true"></i>');
     redrawGraph();
   }
