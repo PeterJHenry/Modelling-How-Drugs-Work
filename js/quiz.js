@@ -13,6 +13,7 @@ var Percentages = [];
 var textAnswers = [];
 var ligandList = [];
 var score = [];
+var reldensity = ['#relativeDensity1','#relativeDensity2','#relativeDensity3','#relativeDensity4','#relativeDensity5'];
 
 $(document).ready(function () {
     setQuizProperties();
@@ -256,32 +257,14 @@ function storeAnswers() {
     subtypes.push(parseInt($(this).val()));
   });
 
-  $('#relativeDensity1').find('option:selected').each(function(){
-    if($(this).val()){
-      percentage.push(parseInt($(this).val()));
-    }
-  });
+  for(var i = 0; i < 5; i++){
+    $(reldensity[i]).find('option:selected').each(function(){
+      if($(this).val()){
+        percentage.push(parseInt($(this).val()));
+      }
+    });
+  }
 
-  $('#relativeDensity2').find('option:selected').each(function(){
-    if($(this).val()){
-      percentage.push(parseInt($(this).val()));
-    }
-  });
-  $('#relativeDensity3').find('option:selected').each(function(){
-    if($(this).val()){
-      percentage.push(parseInt($(this).val()));
-    }
-  });
-  $('#relativeDensity4').find('option:selected').each(function(){
-    if($(this).val()){
-      percentage.push(parseInt($(this).val()));
-    }
-  });
-  $('#relativeDensity5').find('option:selected').each(function(){
-    if($(this).val()){
-      percentage.push(parseInt($(this).val()));
-    }
-  });
   if(subtypes.length === 1){
     subtypes[1] = null;
     percentage[1] = null;
@@ -297,30 +280,28 @@ function storeAnswers() {
 
 function restoreAnswer(){
   clearInput();
+  var i = 0;
   if(Subtypes[num]!=undefined){
-    var i = 0;
     $('input[type=checkbox]').each(function(){
-      if($(this).val() === Subtypes[num][0]){
+      if(Subtypes[num][0]!= null && $(this).val() === Subtypes[num][0].toString()){
         $(this).prop('checked',true);
-        validateCheckBox(i);
+        $(reldensity[i]).val(Percentages[num][0]).prop('selected',true);
       }
-      if($(this).val() === Subtypes[num][1]){
+      if(Subtypes[num][1]!= null && $(this).val() === Subtypes[num][1].toString()){
         $(this).prop('checked',true);
-        validateCheckBox(i);
-      }
+      } i++;
     });
-    i++;
   }
 }
 
 function quizStatus() {
-  restoreAnswer();
   $('#quiz_title').html('Question '+currentNumber+' of '+numberOfQuestions);
   $('.progress-bar').css('width',(currentNumber-1)/5*100+'%');
   if(currentNumber === 1) $('#back').hide();
   else if(currentNumber > 1) $('#back').show();
   if(currentNumber === numberOfQuestions){
     clearInput();
+    restoreAnswer();
     $('#submitButton').html("Submit");
     redrawGraph();
   }
@@ -330,6 +311,7 @@ function quizStatus() {
     setTimeout(endQuiz,delay);
   }
   else {
+    restoreAnswer();
     clearInput();
     $('#submitButton').html('Next <i class="fa fa-arrow-right" aria-hidden="true"></i>');
     redrawGraph();
