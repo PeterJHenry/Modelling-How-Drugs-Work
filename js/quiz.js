@@ -197,12 +197,12 @@ function redrawGraph() {
 function review(questionNo) {
   if(score[questionNo] || Subtypes[questionNo][0] === null){
     $('#question').html(questionNo+1);
-    $('#reviewTable').html('<span class="quote" id="text"></span><p class="th1"><b>Answer Review</b></p><p class="text-align:center" id="correctAnswer"></p><div class="container-fluid ligands"><fieldset class="sectionContainer"><legend>Competition Binding Curve</legend><div id="correctGraph"></div></fieldset></div>')
+    $('#reviewTable').html('<p class="quote" id="text"></p><p class="th1"><b>Answer Review</b></p><p class="text-align:center" id="correctAnswer"></p><div class="container"><fieldset class="sectionContainer"><legend>Competition Binding Curve</legend><div id="correctGraph"></div></fieldset></div>')
     generateGraph(correctGraph,questionNo,SubtypeAnswer,PercentageAnswer);
   }
   else {
     $('#question').html(questionNo+1);
-    $('#reviewTable').html('<span class="quote" id="text"></span><div class="row"><div class="col-sm-6"><p class="th1" style="text-align:center"><b>Your answer would have produced these curves</b></p><p id="yourAnswer" style="text-align:center"></p><div class="container-fluid ligands"><fieldset class="sectionContainer"><legend>Competition Binding Curve</legend><div id="yourGraph"></div></fieldset></div></div><div class="col-sm-6"><p class="th1" style="text-align:center"><b>The correct answer produces these curves</b></p><p id="correctAnswer" style="text-align:center"></p><div class="container-fluid ligands"><fieldset class="sectionContainer"><legend>Competition Binding Curve</legend><div id="correctGraph"></div></fieldset></div></div></div>');
+    $('#reviewTable').html('<p class="quote" id="text"></p><div class="row"><div class="col-sm-6" style="padding:0"><p class="th1" style="text-align:center"><b>Your answer would have produced these curves</b></p><p id="yourAnswer" style="text-align:center"></p><div class="container"><fieldset class="sectionContainer"><legend>Competition Binding Curve</legend><div id="yourGraph"></div></fieldset></div></div><div class="col-sm-6" style="padding:0"><p class="th1" style="text-align:center"><b>The correct answer produces these curves</b></p><p id="correctAnswer" style="text-align:center"></p><div class="container"><fieldset class="sectionContainer"><legend>Competition Binding Curve</legend><div id="correctGraph"></div></fieldset></div></div></div>');
     generateGraph(yourGraph,questionNo,Subtypes,Percentages);
     generateGraph(correctGraph,questionNo,SubtypeAnswer,PercentageAnswer);
 
@@ -213,7 +213,7 @@ function review(questionNo) {
   else $('#correctAnswer').html("Subtypes Present: M"+parseInt(SubtypeAnswer[questionNo][0]+1)+" "+PercentageAnswer[questionNo][0]+"%, M"+parseInt(SubtypeAnswer[questionNo][1]+1)+" "+PercentageAnswer[questionNo][1]+"%");
 
   if(textAnswers[questionNo]!=''){
-    $('#text').html('<b><big>Justification:</big></b> '+textAnswers[questionNo]);
+    $('#text').html('<b><big>Justification</big></b><br>'+textAnswers[questionNo]);
   }
 }
 
