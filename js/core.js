@@ -66,7 +66,7 @@ function ligandAutoFill(selectedLigand, rowIndex, graphCallback) {
 }
 
 // This function will take the data from the page and then draw the graph.
-function generateGraph(div) {
+function generateGraph() {
     var data = [];
     switch (activeCheckBoxes().length) {
         case 1:
@@ -140,7 +140,7 @@ function generateGraph(div) {
                 }
             }
     }
-    plotGraph(div, data);
+    plotGraph('myDiv', data);
 }
 
 // Draw/Update the graph from a data object.
