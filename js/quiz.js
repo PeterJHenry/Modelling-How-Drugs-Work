@@ -292,7 +292,7 @@ function restoreAnswer(){
         $(this).click();
         $(reldensity[i]).val(Percentages[num][1]);
         $(reldensity[i]).change();
-      } 
+      }
       i++;
     });
   }
