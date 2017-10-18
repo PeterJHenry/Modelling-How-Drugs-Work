@@ -164,7 +164,7 @@ function review(questionNo) {
     if (score[questionNo] || Subtypes[questionNo][0] === null) {
         $('#modal').html('<div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><h5>Question <span id="question"></span> Review</h5><button type="button" class="close" data-dismiss="modal">&times;</button></div><div class="modal-body"><span id="reviewTable"></span></div><div class="modal-footer"><button class="btn" data-dismiss="modal"><span class="tool-name">Close</span></button></div></div></div>');
         $('#question').html(questionNo + 1);
-        $('#reviewTable').html('<p class="quote" id="text"></p><p class="th1"><b>Answer Review</b></p><p id="correctAnswer" style="text-align:center"></p><div class="container"><fieldset class="sectionContainer"><legend>Competition Binding Curve</legend><div class="container"><div id="correctGraph"></div></div></fieldset></div>')
+        $('#reviewTable').html('<div id="text"></div><p class="th1"><b>Answer Review</b></p><p id="correctAnswer" style="text-align:center"></p><div class="container"><fieldset class="sectionContainer"><legend>Competition Binding Curve</legend><div class="container"><div id="correctGraph"></div></div></fieldset></div>')
 
         graphDelay = setInterval(function () {
             redrawGraph(correctGraph, questionNo, SubtypeAnswer, PercentageAnswer)
@@ -173,7 +173,7 @@ function review(questionNo) {
     else {
         $('#modal').html('<div class="modal-dialog modal-xl"><div class="modal-content"><div class="modal-header"><h5>Question <span id="question"></span> Review</h5><button type="button" class="close" data-dismiss="modal">&times;</button></div><div class="modal-body"><span id="reviewTable"></span></div><div class="modal-footer"><button class="btn" data-dismiss="modal"><span class="tool-name">Close</span></button></div></div></div>');
         $('#question').html(questionNo + 1);
-        $('#reviewTable').html('<p class="quote" id="text"></p><div class="row"><div class="col-sm-6" style="padding:0"><p class="th1" style="text-align:center"><b>Your answer would have produced these curves</b></p><p id="yourAnswer" style="text-align:center"></p><div class="container"><fieldset class="sectionContainer"><legend>Competition Binding Curve</legend><div class="container"><div id="yourGraph"></div></div></fieldset></div></div><div class="col-sm-6" style="padding:0"><p class="th1" style="text-align:center"><b>The correct answer produces these curves</b></p><p id="correctAnswer" style="text-align:center"></p><div class="container"><fieldset class="sectionContainer"><legend>Competition Binding Curve</legend><div id="correctGraph"></div></fieldset></div></div></div>');
+        $('#reviewTable').html('<div id="text"></div><div class="row"><div class="col-sm-6" style="padding:0"><p class="th1" style="text-align:center"><b>Your answer would have produced these curves</b></p><p id="yourAnswer" style="text-align:center"></p><div class="container"><fieldset class="sectionContainer"><legend>Competition Binding Curve</legend><div class="container"><div id="yourGraph"></div></div></fieldset></div></div><div class="col-sm-6" style="padding:0"><p class="th1" style="text-align:center"><b>The correct answer produces these curves</b></p><p id="correctAnswer" style="text-align:center"></p><div class="container"><fieldset class="sectionContainer"><legend>Competition Binding Curve</legend><div id="correctGraph"></div></fieldset></div></div></div>');
         graphDelay = setInterval(function () {
             redrawGraph(correctGraph, questionNo, SubtypeAnswer, PercentageAnswer);
             redrawGraph(yourGraph, questionNo, Subtypes, Percentages);
@@ -186,7 +186,7 @@ function review(questionNo) {
     else $('#correctAnswer').html("Subtypes Present: M" + parseInt(SubtypeAnswer[questionNo][0] + 1) + " " + PercentageAnswer[questionNo][0] + "%, M" + parseInt(SubtypeAnswer[questionNo][1] + 1) + " " + PercentageAnswer[questionNo][1] + "%");
 
     if (textAnswers[questionNo] != '') {
-        $('#text').html('<b><big>Justification</big></b><br>' + textAnswers[questionNo]);
+        $('#text').html('<p class="quote"><b><big>Justification</big></b><br>' + textAnswers[questionNo]+"</p>");
     }
     setTimeout(function () {
         clearInterval(graphDelay)
