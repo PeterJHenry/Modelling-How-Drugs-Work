@@ -288,8 +288,7 @@ function quizStatus() {
     }
     else if (currentNumber > numberOfQuestions) {
         $('.progress-bar').css('width', (currentNumber) / 5 * 100 + '%');
-        var delay = 400;
-        setTimeout(endQuiz, delay);
+        setTimeout(endQuiz, 400);
     }
     else {
         restoreAnswer();
@@ -350,7 +349,7 @@ function renderResults() {
     }
     $('#score').html("Score: " + score.reduce(function (a, b) {
         return a + b;
-    }, 0) + "/" + SubtypeAnswer.length);
+    }, 0) + "/" + Subtypes.length);
 }
 
 //// Check if the box can be checked
