@@ -74,7 +74,6 @@ function redrawGraph() {
             data.push(graph);
         }
     }
-    console.trace()
 	plotGraph('myDiv',data, false, {staticPlot: true});
 }
 $(window).resize(function () {
@@ -95,7 +94,6 @@ function validateLigandValue() {
 }
 
 function addLigandListener() {
-    console.trace()
     $('.ligandInput').blur(function () {
         validateLigandValue();
     }).keyup(function () {
