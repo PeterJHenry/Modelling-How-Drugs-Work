@@ -36,19 +36,13 @@ function test_custom_ligands() {
 			$(obj).change(); // Manually fire change event.
 			// For each value input 
 			$(obj).parent().parent().siblings().each(function(j, obj) {
-				// Assert values below 3 are rejected
-				for (var i=2; i>-2; i--) {
+				for (var i=-1; i<15; i++) {
+					// Assert values are always between 3 and 10
+					expectedValue = Math.max(Math.min(i, 10), 3);
 					$(obj).children().first().val(i);
 					$(obj).children().first().change(); // Manually fire change event.
 					value = $(obj).children().first().val();
-					assert(value == 3, value + " is less than 3.");
-				}
-				// Assert values above 10 are rejected 
-				for (var i=11; i<15; i++) {
-					$(obj).children().first().val(i);
-					$(obj).children().first().change(); // Manually fire change event.
-					value = $(obj).children().first().val();
-					assert(value == 10, value + " is greater than 10.");
+					assert(value == expectedValue, "Got " + value + " expected " + expectedValue);
 				}
 			});
 		}
