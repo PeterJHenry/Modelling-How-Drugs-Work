@@ -199,14 +199,16 @@ function redrawGraph() {
 function review(questionNo) {
     var graphDelay;
     if (score[questionNo] || Subtypes[questionNo][0] === null) {
+        $('#modal').html('<div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><h5>Question <span id="question"></span> Review</h5><button type="button" class="close" data-dismiss="modal">&times;</button></div><div class="modal-body"><span id="reviewTable"></span></div><div class="modal-footer"><button class="btn" data-dismiss="modal"><span class="tool-name">Close</span></button></div></div></div>');
         $('#question').html(questionNo + 1);
-        $('#reviewTable').html('<p class="quote" id="text"></p><p class="th1"><b>Answer Review</b></p><p class="text-align:center" id="correctAnswer"></p><div class="container"><fieldset class="sectionContainer"><legend>Competition Binding Curve</legend><div class="container"><div id="correctGraph"></div></div></fieldset></div>')
+        $('#reviewTable').html('<p class="quote" id="text"></p><p class="th1"><b>Answer Review</b></p><p id="correctAnswer" style="text-align:center"></p><div class="container"><fieldset class="sectionContainer"><legend>Competition Binding Curve</legend><div class="container"><div id="correctGraph"></div></div></fieldset></div>')
 
         graphDelay = setInterval(function () {
             generateGraph(correctGraph, questionNo, SubtypeAnswer, PercentageAnswer)
         }, 200);
     }
     else {
+        $('#modal').html('<div class="modal-dialog modal-xl"><div class="modal-content"><div class="modal-header"><h5>Question <span id="question"></span> Review</h5><button type="button" class="close" data-dismiss="modal">&times;</button></div><div class="modal-body"><span id="reviewTable"></span></div><div class="modal-footer"><button class="btn" data-dismiss="modal"><span class="tool-name">Close</span></button></div></div></div>');
         $('#question').html(questionNo + 1);
         $('#reviewTable').html('<p class="quote" id="text"></p><div class="row"><div class="col-sm-6" style="padding:0"><p class="th1" style="text-align:center"><b>Your answer would have produced these curves</b></p><p id="yourAnswer" style="text-align:center"></p><div class="container"><fieldset class="sectionContainer"><legend>Competition Binding Curve</legend><div class="container"><div id="yourGraph"></div></div></fieldset></div></div><div class="col-sm-6" style="padding:0"><p class="th1" style="text-align:center"><b>The correct answer produces these curves</b></p><p id="correctAnswer" style="text-align:center"></p><div class="container"><fieldset class="sectionContainer"><legend>Competition Binding Curve</legend><div id="correctGraph"></div></fieldset></div></div></div>');
         graphDelay = setInterval(function () {
