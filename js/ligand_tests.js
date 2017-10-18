@@ -28,7 +28,7 @@ function run_all_tests() {
 	try {
 		test_ligand_values();
 	} catch(Error) {
-		console.log(Error);
 		console.log("Test failed");
+		throw Error;
 	}
 }
