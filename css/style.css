@@ -349,8 +349,11 @@ td, .th1 {
 }
 
 .quote {
+    word-wrap: break-word;
     text-align: center;
     font-style: italic;
+    padding-left: 10px;
+    padding-right: 10px;
     padding-bottom: 10px;
     font-size: 16px;
 }
