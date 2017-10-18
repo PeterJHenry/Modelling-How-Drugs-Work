@@ -123,39 +123,26 @@ function color(i) {
     else return i;
 }
 
-function get_dataset(ligandIndex) {
+function get_dataset(ligandIndex, index, subtype, percentage) {
     var dataSet
-    if (SubtypeAnswer[num][1] === null) {
-        dataSet = calculateGraphPoints(1, 100, logK[ligandIndex][SubtypeAnswer[num][0]]);
+    if (subtype[index][1] === null) {
+        dataSet = calculateGraphPoints(1, 100, logK[ligandIndex][subtype[index][0]]);
     } else {
         dataSet = calculateGraphPoints(2,
-            PercentageAnswer[num][0], logK[ligandIndex][SubtypeAnswer[num][0]],
-            PercentageAnswer[num][1], logK[ligandIndex][SubtypeAnswer[num][1]]
-        );
-    }
-    return dataSet;
-}
-
-function get_dataset2(ligandIndex, questionNo, subtype, percentage) {
-    var dataSet
-    if (subtype[questionNo][1] === null) {
-        dataSet = calculateGraphPoints(1, 100, logK[ligandIndex][subtype[questionNo][0]]);
-    } else {
-        dataSet = calculateGraphPoints(2,
-            percentage[questionNo][0], logK[ligandIndex][subtype[questionNo][0]],
-            percentage[questionNo][1], logK[ligandIndex][subtype[questionNo][1]]
+            percentage[index][0], logK[ligandIndex][subtype[index][0]],
+            percentage[index][1], logK[ligandIndex][subtype[index][1]]
         );
     }
     return dataSet;
 }
 
 // Redraws the graph with current ligand values, does not affect subtype.
-function generateGraph(div, questionNo, subtype, percentage) {
+function redrawGraph(div, index, subtype, percentage) {
     // Generate data to pass to the graph.
     var data = [];
     for (i = 0; i < 5; i++) {
-        ligandIndex = ligandList[questionNo][i]
-        var dataSet = get_dataset2(ligandIndex, questionNo, subtype, percentage);
+        ligandIndex = ligandList[index][i]
+        var dataSet = get_dataset(ligandIndex, index, subtype, percentage);
         var graph = {
             x: dataSet[0],
             y: dataSet[1],
@@ -172,30 +159,6 @@ function generateGraph(div, questionNo, subtype, percentage) {
     plotGraph(div, data, true);
 }
 
-
-// Redraws the graph with current ligand values, does not affect subtype.
-function redrawGraph() {
-    // Generate data to pass to the graph.
-    var data = [];
-    for (i = 0; i < 5; i++) {
-        ligandIndex = ligandList[num][i];
-        var dataSet = get_dataset(ligandIndex);
-        var graph = {
-            x: dataSet[0],
-            y: dataSet[1],
-            mode: 'lines',
-            line: {
-                color: colorTable[color(i)],
-                width: 1
-            },
-            name: ligandNames[ligandIndex]
-        };
-        redrawGraph;
-        data.push(graph);
-    }
-    plotGraph('myDiv', data, true, {staticPlot: true});
-}
-
 function review(questionNo) {
     var graphDelay;
     if (score[questionNo] || Subtypes[questionNo][0] === null) {
@@ -204,7 +167,7 @@ function review(questionNo) {
         $('#reviewTable').html('<p class="quote" id="text"></p><p class="th1"><b>Answer Review</b></p><p id="correctAnswer" style="text-align:center"></p><div class="container"><fieldset class="sectionContainer"><legend>Competition Binding Curve</legend><div class="container"><div id="correctGraph"></div></div></fieldset></div>')
 
         graphDelay = setInterval(function () {
-            generateGraph(correctGraph, questionNo, SubtypeAnswer, PercentageAnswer)
+            redrawGraph(correctGraph, questionNo, SubtypeAnswer, PercentageAnswer)
         }, 200);
     }
     else {
@@ -212,8 +175,8 @@ function review(questionNo) {
         $('#question').html(questionNo + 1);
         $('#reviewTable').html('<p class="quote" id="text"></p><div class="row"><div class="col-sm-6" style="padding:0"><p class="th1" style="text-align:center"><b>Your answer would have produced these curves</b></p><p id="yourAnswer" style="text-align:center"></p><div class="container"><fieldset class="sectionContainer"><legend>Competition Binding Curve</legend><div class="container"><div id="yourGraph"></div></div></fieldset></div></div><div class="col-sm-6" style="padding:0"><p class="th1" style="text-align:center"><b>The correct answer produces these curves</b></p><p id="correctAnswer" style="text-align:center"></p><div class="container"><fieldset class="sectionContainer"><legend>Competition Binding Curve</legend><div id="correctGraph"></div></fieldset></div></div></div>');
         graphDelay = setInterval(function () {
-            generateGraph(correctGraph, questionNo, SubtypeAnswer, PercentageAnswer);
-            generateGraph(yourGraph, questionNo, Subtypes, Percentages);
+            redrawGraph(correctGraph, questionNo, SubtypeAnswer, PercentageAnswer);
+            redrawGraph(yourGraph, questionNo, Subtypes, Percentages);
         }, 200);
 
         if (Subtypes[questionNo][1] === null) $('#yourAnswer').html("Subtype Present: M" + parseInt(Subtypes[questionNo][0] + 1) + " " + Percentages[questionNo][0] + "%");
@@ -321,7 +284,7 @@ function quizStatus() {
     if (currentNumber === numberOfQuestions) {
         restoreAnswer();
         $('#submitButton').html("Submit");
-        redrawGraph();
+        redrawGraph('myDiv', num, SubtypeAnswer, PercentageAnswer);
     }
     else if (currentNumber > numberOfQuestions) {
         $('.progress-bar').css('width', (currentNumber) / 5 * 100 + '%');
@@ -331,7 +294,7 @@ function quizStatus() {
     else {
         restoreAnswer();
         $('#submitButton').html('Next <i class="fa fa-arrow-right" aria-hidden="true"></i>');
-        redrawGraph();
+        redrawGraph('myDiv', num, SubtypeAnswer, PercentageAnswer);
     }
 }
 
