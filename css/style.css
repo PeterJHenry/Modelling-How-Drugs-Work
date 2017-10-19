@@ -6,6 +6,11 @@
 #858c96 light grey
 */
 
+kbd {
+  background-color:#d1e8ff;
+  color: black;
+}
+
 body, html {
     width: 100%;
     height: 100%;
