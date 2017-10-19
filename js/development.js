@@ -1,6 +1,3 @@
-
-
-
 //// Check if the box can be checked
 function validateCheckBox(checkingBox, graphCallback) {
     if (typeof graphCallback === "undefined")
@@ -66,21 +63,21 @@ function validateCheckBox(checkingBox, graphCallback) {
 
             default:
 
-               state.subTypePresent[checkingBox] = receptorCheckBoxTableCell(checkingBox).checked = true;
-               receptorRelDenTableCell(checkingBox).value = receptorRelDenTableCell(previousCheckedBox0).value = receptorRelDenTableCell(previousCheckedBox1).value = 33.3;
-               receptorRelDenTableCell(checkingBox).disabled = receptorRelDenTableCell(previousCheckedBox0).disabled = receptorRelDenTableCell(previousCheckedBox1).disabled =false;
-               enableColumn(checkingBox + 1);
-               subTypeCheckedCount++;
+                state.subTypePresent[checkingBox] = receptorCheckBoxTableCell(checkingBox).checked = true;
+                receptorRelDenTableCell(checkingBox).value = receptorRelDenTableCell(previousCheckedBox0).value = receptorRelDenTableCell(previousCheckedBox1).value = 33.3;
+                receptorRelDenTableCell(checkingBox).disabled = receptorRelDenTableCell(previousCheckedBox0).disabled = receptorRelDenTableCell(previousCheckedBox1).disabled = false;
+                enableColumn(checkingBox + 1);
+                subTypeCheckedCount++;
                 break;
         }
 
-       }else if(subTypeCheckedCount === 3){
-            var previousCheckedBox30 = activeCheckBoxes()[0];
-            var previousCheckedBox31 = activeCheckBoxes()[1];
-            var previousCheckedBox32 = activeCheckBoxes()[2];
-            switch (checkingBox) {
+    } else if (subTypeCheckedCount === 3) {
+        var previousCheckedBox30 = activeCheckBoxes()[0];
+        var previousCheckedBox31 = activeCheckBoxes()[1];
+        var previousCheckedBox32 = activeCheckBoxes()[2];
+        switch (checkingBox) {
 
-                case previousCheckedBox30:
+            case previousCheckedBox30:
 
                 state.subTypePresent[previousCheckedBox30] = receptorCheckBoxTableCell(previousCheckedBox30).checked = false;
                 receptorRelDenTableCell(previousCheckedBox30).disabled = receptorRelDenTableCell(checkingBox).disabled = true;
@@ -94,7 +91,7 @@ function validateCheckBox(checkingBox, graphCallback) {
                 subTypeCheckedCount--;
                 break;
 
-                case previousCheckedBox31:
+            case previousCheckedBox31:
 
                 state.subTypePresent[previousCheckedBox31] = receptorCheckBoxTableCell(previousCheckedBox31).checked = false;
                 receptorRelDenTableCell(previousCheckedBox31).disabled = receptorRelDenTableCell(checkingBox).disabled = true;
@@ -108,7 +105,7 @@ function validateCheckBox(checkingBox, graphCallback) {
 
                 break;
 
-                case previousCheckedBox32:
+            case previousCheckedBox32:
 
                 state.subTypePresent[previousCheckedBox32] = receptorCheckBoxTableCell(previousCheckedBox32).checked = false;
                 receptorRelDenTableCell(previousCheckedBox32).disabled = receptorRelDenTableCell(checkingBox).disabled = true;
@@ -121,11 +118,11 @@ function validateCheckBox(checkingBox, graphCallback) {
                 subTypeCheckedCount--;
                 break;
 
-                default:
+            default:
                 alert("You can only select three boxes");
                 receptorCheckBoxTableCell(checkingBox).checked = false;
                 break;
-            }
+        }
 
     }
     graphCallback();
@@ -148,37 +145,33 @@ function validateRelDensityRow(currentCellNumber) {
     //if (currentCellNumber === previousCheckedBox0) receptorRelDenTableCell(previousCheckedBox1).value = 100 - currentCellValue;
     //else receptorRelDenTableCell(previousCheckedBox0).value = 100 - currentCellValue;
 
-    if(subTypeCheckedCount <= 2)
-    {
+    if (subTypeCheckedCount <= 2) {
         if (currentCellNumber === previousCheckedBox0) receptorRelDenTableCell(previousCheckedBox1).value = 100 - currentCellValue;
         else receptorRelDenTableCell(previousCheckedBox0).value = 100 - currentCellValue;
     }
-    else
-    {
+    else {
         var previousCheckedBox2 = activeCheckBoxes()[2];
         if (currentCellNumber === previousCheckedBox0) // Left box value entry updates the right 2 boxes
         {
-            receptorRelDenTableCell(previousCheckedBox1).value = (100 - currentCellValue)/2;
-            receptorRelDenTableCell(previousCheckedBox2).value = (100 - currentCellValue)/2;
+            receptorRelDenTableCell(previousCheckedBox1).value = (100 - currentCellValue) / 2;
+            receptorRelDenTableCell(previousCheckedBox2).value = (100 - currentCellValue) / 2;
         }
         else if (currentCellNumber === previousCheckedBox1) // Middle box value entry updates the right 1 box
         {
-            if((100 - receptorRelDenTableCell(previousCheckedBox0).value - currentCellValue) >= 0)
-            receptorRelDenTableCell(previousCheckedBox2).value = 100 - receptorRelDenTableCell(previousCheckedBox0).value - currentCellValue;
+            if ((100 - receptorRelDenTableCell(previousCheckedBox0).value - currentCellValue) >= 0)
+                receptorRelDenTableCell(previousCheckedBox2).value = 100 - receptorRelDenTableCell(previousCheckedBox0).value - currentCellValue;
             else receptorRelDenTableCell(previousCheckedBox2).value = 0;
-            if((receptorRelDenTableCell(previousCheckedBox0).value) >= 100)
-            {
+            if ((receptorRelDenTableCell(previousCheckedBox0).value) >= 100) {
                 receptorRelDenTableCell(previousCheckedBox1).value = 0;
                 receptorRelDenTableCell(previousCheckedBox2).value = 0;
             }
         }
         else if (currentCellNumber === previousCheckedBox2) // Middle box value entry updates the right 1 box
         {
-            if((100 - receptorRelDenTableCell(previousCheckedBox0).value - currentCellValue) >= 0)
-            receptorRelDenTableCell(previousCheckedBox1).value = 100 - receptorRelDenTableCell(previousCheckedBox0).value - currentCellValue;
+            if ((100 - receptorRelDenTableCell(previousCheckedBox0).value - currentCellValue) >= 0)
+                receptorRelDenTableCell(previousCheckedBox1).value = 100 - receptorRelDenTableCell(previousCheckedBox0).value - currentCellValue;
             else receptorRelDenTableCell(previousCheckedBox1).value = 0;
-            if((receptorRelDenTableCell(previousCheckedBox0).value) >= 100)
-            {
+            if ((receptorRelDenTableCell(previousCheckedBox0).value) >= 100) {
                 receptorRelDenTableCell(previousCheckedBox1).value = 0;
                 receptorRelDenTableCell(previousCheckedBox2).value = 0;
             }
@@ -246,7 +239,10 @@ $(document).ready(function () {
     addLigandListener();
     addReceptorListener();
     $('[data-toggle="tooltip"]').tooltip();
-    setTimeout(generateGraph, 100);
+    setTimeout(function () {
+        generateGraph();
+    }, 500);
+
 });
 
 $(window).resize(function () {

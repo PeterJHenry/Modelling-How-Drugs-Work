@@ -293,6 +293,7 @@ div.panel {
 }
 
 fieldset.sectionContainer {
+    width: 100%;
     border: solid 2px #858c96;
     padding: 0 10px 10px 10px;
     border-radius: 5px;
