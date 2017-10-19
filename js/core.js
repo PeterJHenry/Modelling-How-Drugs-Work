@@ -290,5 +290,8 @@ function receptorCheckBoxTableCell(colIndex) {
 }
 
 $('input[type=number]').keydown(function (event) {
-    return !(event.keyCode > 57 && event.keyCode < 177 || event.keyCode > 40 && event.keyCode < 48 || event.keyCode > 177 && event.keyCode !== 190);
+    return !(event.keyCode > 57 && event.keyCode < 96 ||
+             event.keyCode > 105 && event.keyCode < 177 ||
+             event.keyCode > 40 && event.keyCode < 48  ||
+             event.keyCode > 177 && event.keyCode !== 190);
 });
