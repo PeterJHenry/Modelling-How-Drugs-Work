@@ -577,164 +577,88 @@
                 <div class="modal-header">
                     <h5>Instructions</h5>
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
-                </div>
-                <div class="modal-body">
+                  </div>
+                  <div class="modal-body">
                     <button class="accordion">Development Tool</button>
                     <div class="panel">
-                        <p class="lihead">Firstly, you select which receptor subtypes are present in the cell/tissue of
-                            interest.</p>
-                        <p class="justify">You may select up to <b>two</b> options by clicking on the appropriate
-                            buttons below the names of the subtypes.</p>
-                        <p class="justify">Once a particular receptor subtype has been selected, the <i>relative
-                            density</i> box appears immediately below.</p>
-                        <p class="justify">If only one receptor subtype is selected, then the <i>relative density</i>
-                            value must be 100.</p>
-                        <p class="justify">If two receptor subtypes have been selected, then the combined value must be
-                            100, i.e. increasing the value of one will decrease the value of the other to maintain a
-                            total value of 100.</p>
-                        <p class="justify">If three receptor subtypes have been selected, then the combined value must
-                            again be 100. In this case, receptor densities should always be entered Left Receptor first.
-                            IE This time the left-most active receptor density must be specified first. Once this has
-                            been done either of the remaining two densities can be entered and the final density will
-                            automatically be calculated. EG if Receptor 1 has density 60% then Receptor 2 is specified
-                            as 30% density, Receptor 3 will automatically be given 10% density. Similarly if Receptor 1
-                            has density 50% and Receptor 3 has density 40% then Receptor 2 will automatically be given
-                            10% density. This is how the problem of 2 unknown variables is managed.</p>
-                        <p class="justify">Changing the relative densities is achieved by using the arrows for
-                            increments of 1%, or by typing in the desired value.</p>
+                    <p class="lihead">Firstly, you select which receptor subtypes are present in the cell/tissue of interest.</p>
+                    <p class="justify">You may select up to <b>two</b> options by clicking on the appropriate buttons below the names of the subtypes.</p>
+                    <p class="justify">Once a particular receptor subtype has been selected, the <i>relative density</i> box appears immediately below.</p>
+                    <p class="justify">If only one receptor subtype is selected, then the <i>relative density</i> value must be 100.</p>
+                    <p class="justify">If two receptor subtypes have been selected, then the combined value must be 100, i.e. increasing the value of one will decrease the value of the other to maintain a total value of 100.</p>
+                    <p class="justify">If three receptor subtypes have been selected, then the combined value must again be 100. In this case, receptor densities should always be entered left receptor first, i.e. This time the left-most active receptor density must be specified first.</p>
+                    <p class="justify">Once this has been done either of the remaining two densities can be entered and the final density will automatically be calculated.</p>
+                    <p class="justify">For example, if Receptor 1 has density 60% and then Receptor 2 is specified as 30% density, Receptor 3 will automatically be given 10% density.</p>
+                    <p class="justify">Similarly, if Receptor 1 has density 50% and Receptor 3 has density 40% then Receptor 2 will automatically be given 10% density.</p>
+                    <p class="justify">This is how the problem of 2 unknown variables is managed.</p>
+                    <p class="justify">Changing the relative densities is achieved by using the arrows for increments of 1%, or by typing in the desired value.</p>
 
-                        <p class="lihead">Secondly, you select which ligands you wish to use in the competition binding
-                            studies.</p>
-                        <p class="justify">From the drop down menu, you select from a list of 8 <i>established</i>
-                            ligands and 4 <i>hypothetical</i> ligands.</p>
-                        <p class="justify"><i>Established</i> ligands are durgs that have been used extensively in the
-                            past, and for which there are known -log K<sub>i</sub> values.</p>
-                        <p class="justify"><i>Hypothetical</i> ligands have been included in the model to increase
-                            applicability.</p>
-                        <p class="justify">There are 2 types of <i>hypothetical</i> ligands － one type includes <b>Ligand
-                            A</b> and <b>Ligand B</b>, which have marked (but defined) differences in affinities for
-                            receptor subtypes.</p>
-                        <p class="justify">The second type of <i>hypothetical</i> ligand includes <b>Ligand C</b> and
-                            <b>Ligand D</b>, and these are drugs where you may nominate (and change) affinities between
-                            3 and 10.</p>
-                        <p class="justify">Again, these values may be changed by clicking the arrows in the input box
-                            for a ±0.1 increment, or by typing in a value.</p>
-                        <p class="justify">The ligands included in the drop down menu and their corresponding -log
-                            K<sub>i</sub> values can be viewed in the '<i>-log K<sub>i</sub> Reference Table</i>' tab.
-                        </p>
 
-                        <p class="lihead">Lastly, once receptor subtypes and ligands have been selected, a plot of the
-                            specific binding % is displayed in real time within the <b>competition binding curve</b>
-                            window.</p>
-                        <p class="justify">By inserting the appropriate -log K<sub>i</sub> values into the one- or
-                            two-site binding models, accompanied by the selected subtype receptors, the program will
-                            calculate the % specific binding values over the ligand range 10<sup>-12</sup> -
-                            10<sup>-2</sup> M and will generate the competition binding curve for viewing.</p>
-                        <p class="justify">Any modifications to the receptor subtype or the ligands input will allow for
-                            the curves to dynamically update in real time to reflect the new data selected.</p>
+                    <p class="lihead">Secondly, you select which ligands you wish to use in the competition binding studies.</p>
+                    <p class="justify">From the drop down menu, you select from a list of 8 <i>established</i> ligands and 4 <i>hypothetical</i> ligands.</p>
+                    <p class="justify"><i>Established</i> ligands are durgs that have been used extensively in the past, and for which there are known -log K<sub>i</sub> values.</p>
+                    <p class="justify"><i>Hypothetical</i> ligands have been included in the model to increase applicability.</p>
+                    <p class="justify">There are 2 types of <i>hypothetical</i> ligands － one type includes <b>Ligand A</b> and <b>Ligand B</b>, which have marked (but defined) differences in affinities for receptor subtypes.</p>
+                    <p class="justify">The second type of <i>hypothetical</i> ligand includes <b>Ligand C</b> and <b>Ligand D</b>, and these are drugs where you may nominate (and change) affinities between 3 and 10.</p>
+                    <p class="justify">Again, these values may be changed by clicking the arrows in the input box for a ±0.1 increment, or by typing in a value.</p>
+                    <p class="justify">The ligands included in the drop down menu and their corresponding  -log K<sub>i</sub> values can be viewed in the '<i>-log K<sub>i</sub> Reference Table</i>' tab.</p>
+
+                    <p class="lihead">Lastly, once receptor subtypes and ligands have been selected, a plot of the specific binding % is displayed in real time within the <b>competition binding curve</b> window.</p>
+                    <p class="justify">By inserting the appropriate -log K<sub>i</sub> values into the one- or two-site binding models, accompanied by the selected subtype receptors, the program will calculate the % specific binding values over the ligand range 10<sup>-12</sup> - 10<sup>-2</sup> M and will generate the competition binding curve for viewing.</p>
+                    <p class="justify">Any modifications to the receptor subtype or the ligands input will allow for the curves to dynamically update in real time to reflect the new data selected.</p>
                     </div>
 
                     <button class="accordion">Self-Assessment Tool</button>
                     <div class="panel">
-                        <p class="lihead">Firstly, you select which ligands you wish to use in the competition binding
-                            studies.</p>
-                        <p class="justify">From the drop down menu, you select from a list of 8 <i>established</i>
-                            ligands and 4 <i>hypothetical</i> ligands.</p>
-                        <p class="justify"><i>Established</i> ligands are durgs that have been used extensively in the
-                            past, and for which there are known -log K<sub>i</sub> values.</p>
-                        <p class="justify"><i>Hypothetical</i> ligands have been included in the model to increase
-                            applicability.</p>
-                        <p class="justify">There are 2 types of <i>hypothetical</i> ligands － one type includes <b>Ligand
-                            A</b> and <b>Ligand B</b>, which have marked (but defined) differences in affinities for
-                            receptor subtypes.</p>
-                        <p class="justify">The second type of <i>hypothetical</i> ligand includes <b>Ligand C</b> and
-                            <b>Ligand D</b>, and these are drugs where you may nominate (and change) affinities between
-                            3 and 10.</p>
-                        <p class="justify">Again, these values may be changed by clicking the arrows in the input box
-                            for a ±0.1 increment, or by typing in a value.</p>
-                        <p class="justify">The ligands included in the drop down menu and their corresponding -log
-                            K<sub>i</sub> values can be viewed in the '<i>-log K<sub>i</sub> Reference Table</i>' tab.
-                        </p>
+                    <p class="lihead">Firstly, you select which ligands you wish to use in the competition binding studies.</p>
+                    <p class="justify">From the drop down menu, you select from a list of 8 <i>established</i> ligands and 4 <i>hypothetical</i> ligands.</p>
+                    <p class="justify"><i>Established</i> ligands are durgs that have been used extensively in the past, and for which there are known -log K<sub>i</sub> values.</p>
+                    <p class="justify"><i>Hypothetical</i> ligands have been included in the model to increase applicability.</p>
+                    <p class="justify">There are 2 types of <i>hypothetical</i> ligands － one type includes <b>Ligand A</b> and <b>Ligand B</b>, which have marked (but defined) differences in affinities for receptor subtypes.</p>
+                    <p class="justify">The second type of <i>hypothetical</i> ligand includes <b>Ligand C</b> and <b>Ligand D</b>, and these are drugs where you may nominate (and change) affinities between 3 and 10.</p>
+                    <p class="justify">Again, these values may be changed by clicking the arrows in the input box for a ±0.1 increment, or by typing in a value.</p>
+                    <p class="justify">The ligands included in the drop down menu and their corresponding  -log K<sub>i</sub> values can be viewed in the '<i>-log K<sub>i</sub> Reference Table</i>' tab.</p>
 
-                        <p class="lihead">Secondly, the competition binding curves will appear for the selected ligands,
-                            showing the specific binding % over the ligand range 10<sup>-12</sup> - 10<sup>-2</sup> M.
-                        </p>
-                        <p class="justify">The competition binding curves generated will depend on which receptor
-                            subtypes are present and their relative densities, which will be randomly selected from a
-                            defined bank of options.</p>
-                        <p class="justify">This is based on the premise that there are 10 possible mixed receptor
-                            combinations － each receptor subtype present <b>solo</b>, and each unique combination of <b>two</b>
-                            receptor subtypes.</p>
-                        <p class="justify">For each of these mixed receptor subtype combinations, the density
-                            combinations will be limited between 80% and 20%, remembering that they must always sum to
-                            100%.</p>
-                        <p class="justify">90%/10% and small incremental combinations have been omitted for your benefit
-                            as they cannot be reliably interpreted by the eye.</p>
-                        <p class="justify">Thus, there is a total of 70 options for mixed receptor subtype combinations,
-                            plus another 5 options for pure receptor subtypes, giving a grand total of 75 options.</p>
-                        <p class="justify" style="font-style:italic">This is where you view the graph and calculate
-                            which receptor subtype combination is present.</p>
+                    <p class="lihead">Secondly, the competition binding curves will appear for the selected ligands, showing the specific binding % over the ligand range 10<sup>-12</sup> - 10<sup>-2</sup> M.</p>
+                    <p class="justify">The competition binding curves generated will depend on which receptor subtypes are present and their relative densities, which will be randomly selected from a defined bank of options.</p>
+                    <p class="justify">This is based on the premise that there are 10 possible mixed receptor combinations － each receptor subtype present <b>solo</b>, and each unique combination of <b>two</b> receptor subtypes.</p>
+                    <p class="justify">For each of these mixed receptor subtype combinations, the density combinations will be limited between 80% and 20%, remembering that they must always sum to 100%.</p>
+                    <p class="justify">90%/10% and small incremental combinations have been omitted for your benefit as they cannot be reliably interpreted by the eye.</p>
+                    <p class="justify">Thus, there is a total of 70 options for mixed receptor subtype combinations, plus another 5 options for pure receptor subtypes, giving a grand total of 75 options.</p>
+                    <p class="justify" style="font-style:italic">This is where you view the graph and calculate which receptor subtype combination is present.</p>
 
-                        <p class="lihead">Lastly, after you have worked out your answer, you may reveal the solution to
-                            validate your work.</p>
-                        <p class="justify">This is done by clicking the <b>Reveal Answer</b> button, and the answer will
-                            appear in place of where the button was.</p>
-                        <p class="justify">After viewing the solution, the ligands may be modified in the ligand table
-                            to view other competition binding curves, including the custom -log K<sub>i</sub> values for
-                            ligands C and D, and the graph will dynamically update.</p>
-                        <p class="justify">To then generate a new question, click the <b>Reset</b> button and a new,
-                            different receptor subtype combination will be plotted.</p>
+                    <p class="lihead">Lastly, after you have worked out your answer, you may reveal the solution to validate your work.</p>
+                    <p class="justify">This is done by clicking the <b>Reveal Answer</b> button, and the answer will appear in place of where the button was.</p>
+                    <p class="justify">After viewing the solution, the ligands may be modified in the ligand table to view other competition binding curves, including the custom -log K<sub>i</sub> values for ligands C and D, and the graph will dynamically update.</p>
+                    <p class="justify">To then generate a new question, click the <b>Reset</b> button and a new, different receptor subtype combination will be plotted.</p>
                     </div>
 
                     <button class="accordion">Quiz</button>
                     <div class="panel">
-                        <p class="lihead">Firstly, read the instructions given on the quiz page before you get
-                            started.</p>
-                        <p class="justify">As a brief overview, the quiz contains 5 questions and is timed for 25
-                            minutes, giving you 5 minutes per question to work out the solution.</p>
-                        <p class="justify">The quiz works off the same premise as the self-assessment tool, where a
-                            mixed subtype receptor combination is select from a list of 75 options.</p>
-                        <p class="justify">Aside from being timed and scored, the quiz is different from the
-                            self-assessment tool as you do not get the opportunity of selecting which ligands to plot,
-                            instead there are 5 pre-selected randomised ligands already plotted on the competition
-                            binding curve graph.</p>
-                        <p class="justify">These 5 pre-selected ligands consists of 4 established ligands, out of
-                            Pirenzepine, Methoctramine, Darifenacin, MT-3, S-Sercoverine, Solifenacin and DAU-5884, and
-                            one hypothetical ligand, either Ligand A or Ligand B.</p>
-                        <p class="justify">You then use this information to work out which receptor subtypes are
-                            present, and what their densities are. Again, for a combination of two receptor subtypes
-                            will only allow for relative densities up to 80% and 20%.</p>
+                    <p class="lihead">Firstly, read the instructions given on the quiz page before you get started.</p>
+                    <p class="justify">As a brief overview, the quiz contains 5 questions and is timed for 25 minutes, giving you 5 minutes per question to work out the solution.</p>
+                    <p class="justify">The quiz works off the same premise as the self-assessment tool, where a mixed subtype receptor combination is select from a list of 75 options.</p>
+                    <p class="justify">Aside from being timed and scored, the quiz is different from the self-assessment tool as you do not get the opportunity of selecting which ligands to plot, instead there are 5 pre-selected randomised ligands already plotted on the competition binding curve graph.</p>
+                    <p class="justify">These 5 pre-selected ligands consists of 4 established ligands, out of Pirenzepine, Methoctramine, Darifenacin, MT-3, S-Sercoverine, Solifenacin and DAU-5884, and one hypothetical ligand, either Ligand A or Ligand B.</p>
+                    <p class="justify">You then use this information to work out which receptor subtypes are present, and what their densities are. Again, for a combination of two receptor subtypes will only allow for relative densities up to 80% and 20%.</p>
 
-                        <p class="lihead">Secondly, after the instructions have been read, and you have prepared the
-                            necessary tools you need for working out, it's time to begin the quiz.</p>
-                        <p class="justify">Click the <b>Start Quiz</b> button, and the first question will appear.</p>
-                        <p class="justify">At the top of the page, you will notice the timer appear, counting down from
-                            25 minutes. When the timer reaches 0, the quiz is terminated and you are taken to the answer
-                            review page. Any answer not submitted before time runs out will not be accepted.</p>
-                        <p class="justify">The graph will appear on the right hand side, showing the 5 pre-selected
-                            ligands plotted with the randomised mixed subtype receptor combination.</p>
-                        <p class="justify" style="font-style:italic">Use this information to work out your solution.</p>
+                    <p class="lihead">Secondly, after the instructions have been read, and you have prepared the necessary tools you need for working out, it's time to begin the quiz.</p>
+                    <p class="justify">Click the <b>Start Quiz</b> button, and the first question will appear.</p>
+                    <p class="justify">At the top of the page, you will notice the timer appear, counting down from 25 minutes. When the timer reaches 0, the quiz is terminated and you are taken to the answer review page. Any answer not submitted before time runs out will not be accepted.</p>
+                    <p class="justify">The graph will appear on the right hand side, showing the 5 pre-selected ligands plotted with the randomised mixed subtype receptor combination.</p>
+                    <p class="justify" style="font-style:italic">Use this information to work out your solution.</p>
 
-                        <p class="lihead">Thirdly, once you have worked out your solution, submit your answer.</p>
-                        <p class="justify">This is done by selecting from the checkboxes which receptor subtype(s) you
-                            believe to be present, and then filling in the boxes for the relative denisities.</p>
-                        <p class="justify">There is space provided for you to explain your answers using the SPIKES
-                            approach, however this is for practise only and your responses will not be assessed.</p>
-                        <p class="justify">After you have completed that and you are happy with your answer, click the
-                            <b>Next Question</b> button, and the next question will be generated.</p>
-                        <p class="justify" style="font-style:italic">Repeat these steps until you reach the final
-                            question.</p>
+                    <p class="lihead">Thirdly, once you have worked out your solution, submit your answer.</p>
+                    <p class="justify">This is done by selecting from the checkboxes which receptor subtype(s) you believe to be present, and then filling in the boxes for the relative denisities.</p>
+                    <p class="justify">There is space provided for you to explain your answers using the SPIKES approach, however this is for practise only and your responses will not be assessed.</p>
+                    <p class="justify">After you have completed that and you are happy with your answer, click the <b>Next Question</b> button, and the next question will be generated.</p>
+                    <p class="justify" style="font-style:italic">Repeat these steps until you reach the final question.</p>
 
-                        <p class="lihead">Lastly, after you have completed all the questions, submit your quiz.</p>
-                        <p class="justify">This is done by clicking the <b>Submit</b> button that is in place of where
-                            the Next Question button used to be.</p>
-                        <p class="justify">After submitting, a review page will pop up, showing your score and listing
-                            all the answers.</p>
-                        <p class="justify">You may click on each question to view the competition binding curves again,
-                            and if you selected the wrong answer you will also be able to view what competition binding
-                            curves your selection would have created.</p>
-                        <p class="justify">Click <b>Restart</b> to restart the quiz, with different questions of course!
-                        </p>
+                    <p class="lihead">Lastly, after you have completed all the questions, submit your quiz.</p>
+                    <p class="justify">This is done by clicking the <b>Submit</b> button that is in place of where the Next Question button used to be.</p>
+                    <p class="justify">After submitting, a review page will pop up, showing your score and listing all the answers.</p>
+                    <p class="justify">You may click on each question to view the competition binding curves again, and if you selected the wrong answer you will also be able to view what competition binding curves your selection would have created.</p>
+                    <p class="justify">Click <b>Restart</b> to restart the quiz, with different questions of course!</p>
                     </div>
                 </div>
                 <div class="modal-footer">
