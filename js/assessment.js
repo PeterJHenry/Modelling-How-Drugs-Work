@@ -104,7 +104,9 @@ function addLigandListener() {
 }
 
 $(document).ready(function () {
-    setTimeout(redrawGraph, 100);
+    setTimeout(function () {
+        redrawGraph();
+    }, 700);
     addLigandListener();
 });
 
