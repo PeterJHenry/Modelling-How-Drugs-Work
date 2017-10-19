@@ -284,7 +284,7 @@ function quizStatus() {
     if (currentNumber === numberOfQuestions) {
         restoreAnswer();
         $('#submitButton').html("Submit");
-        redrawGraph('myDiv', currentNumber, SubtypeAnswer, PercentageAnswer);
+        redrawGraph('myDiv', currentNumber-1, SubtypeAnswer, PercentageAnswer);
     }
     else if (currentNumber > numberOfQuestions) {
         $('.progress-bar').css('width', (currentNumber) / 5 * 100 + '%');
@@ -293,7 +293,7 @@ function quizStatus() {
     else {
         restoreAnswer();
         $('#submitButton').html('Next <i class="fa fa-arrow-right" aria-hidden="true"></i>');
-        redrawGraph('myDiv', currentNumber, SubtypeAnswer, PercentageAnswer);
+        redrawGraph('myDiv', currentNumber-1, SubtypeAnswer, PercentageAnswer);
     }
 }
 
