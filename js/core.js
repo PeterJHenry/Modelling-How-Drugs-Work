@@ -231,8 +231,13 @@ function calculateGraphPoints(numberOfReceptor, den1, logVal1, den2, logVal2, de
         default:
             break;
     }
+
     return dataSet;
+
 }
+
+
+// These functions can be changed into a loop
 
 // Function to calculate graph of one receptor
 function oneReceptorFunction(x, den1, logVal1) {
