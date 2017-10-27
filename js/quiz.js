@@ -73,15 +73,6 @@ function initializeClock() {
     timeVar = setInterval(updateClock, 1000);
 }
 
-var interval = setInterval(function() {
-    $('.circle_animation').css('stroke-dashoffset', initialOffset-(i*(initialOffset/time)));
-    $('h2').text(i);
-    if (i == time) {
-        clearInterval(interval);
-    }
-    i++;
-}, 1000);
-
 // Chooose a random subtype and then the draw the graph for it.
 function randomiseSubType() {
     for (var i = 0; i < 5; i++) {
