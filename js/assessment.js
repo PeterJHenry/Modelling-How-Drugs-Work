@@ -74,7 +74,7 @@ function redrawGraph() {
             data.push(graph);
         }
     }
-	plotGraph('myDiv',data, false, {staticPlot: true});
+	plotGraph('myDiv',data, false);
 }
 $(window).resize(function () {
     redrawGraph();
