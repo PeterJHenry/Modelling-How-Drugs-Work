@@ -31,6 +31,7 @@ function startQuiz() {
     $('.quizAnswers').hide();
     initializeClock();
     quizStatus();
+    clearInput();
 }
 
 function minlength(minute) {
@@ -190,6 +191,17 @@ function storeAnswers() {
     Subtypes[num] = subtypes;
     Percentages[num] = percentage;
 
+}
+
+function clearInput() {
+    var checkbox_containers = document.getElementById('subtypeCheckbox').children;
+    for (var i = 1; i < checkbox_containers.length; i++) {
+        checkbox = checkbox_containers[i].children[0];
+        if (checkbox.checked) {
+            checkbox_containers[i].children[0].checked = false;
+            validateCheckBox(i - 1);
+        }
+    }
 }
 
 function quizStatus() {
