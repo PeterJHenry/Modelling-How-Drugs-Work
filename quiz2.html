@@ -285,12 +285,6 @@
             </div>
         </div>
     </div>
-
-
-    <!-- Question 1 Review Modal -->
-    <div id="review" class="modal fade" role="dialog">
-        <div id="modal"></div>
-    </div>
 </header>
 
 
@@ -314,7 +308,7 @@
                         or more likely, a mixture of two receptor subtypes with relative proportions between 20% and
                         80% (in 10% increments).</p>
                     <p>With practise, you should be able to <b>identify which receptor subtypes are present and their relative proportions</b> within 5 minutes.</p>
-                    <p>There will be <b><span id="cover-questionLength"></span></b> questions asked.</p>
+                    <p>There will be 1 question asked.</p>
                     <p><i>Don't forget to formally <b>justify your answer</b> in writing using the SPIKES approach, as may be required in an examination situation - this should take another 5-10 minutes, and a text box is included for this purpose.</i>
                     </p>
                     <p style="text-align:center;font-size:15px">Good luck!</p>
@@ -323,13 +317,6 @@
                     <button class="btn" onclick="startQuiz()"><span class="tool-name">Start Quiz</span></button>
                 </div>
                 <div class="questionContainer">
-                    <div class="progress">
-                        <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
-                             aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                    <div id="timer">
-                      <span id="timer-minutes">25</span>:<span id="timer-seconds">00</span>
-                    </div>
 
                     <div class="questionPage">
                         <div class="row justify-content-md-center">
@@ -462,8 +449,8 @@
                                     <div class="col-lg-6 quizbuttonAdjustment">
                                         <div class="row" style="margin:20px 30px;">
                                             <div class="container-fluid">
-                                              <p class="lihead" style="font-size:15px;margin-bottom:20px;text-align:center;">You may use
-                                                  the space below to justify your answers:</p>
+                                              <p class="lihead" style="font-size:15px;margin-bottom:20px;text-align:center;">
+                                                New table in process for below</p>
                                                 ​<textarea id="textbox"></textarea>
                                             </div>
                                         </div>
@@ -473,9 +460,7 @@
                                                         id="back"><span class="tool-name"><i
                                                         class="fa fa-arrow-left" aria-hidden="true"></i> Back</span>
                                                 </button>
-                                                <button class="btn" onclick="checkAnswer(true)"
-                                                        style="float:right;"><span class="tool-name"
-                                                                                   id="submitButton"></span>
+                                                <button class="btn" onclick="checkAnswer()"><span class="tool-name" id="submitButton">Submit</span>
                                                 </button>
                                             </div>
                                         </div>
@@ -487,57 +472,9 @@
                 </div>
                 <div class="quizAnswers">
                     <p class="lihead" style="font-size:20px;text-align:center;" id="score"></p>
-                    <p>CLICK QUESTION TO REVIEW</p>
-                    <table class="table table-hover">
-                        <tr class="resultrow">
-                            <th class="th1">Questions</th>
-                            <th class="th1">
-                                <center>You Answered</center>
-                            </th>
-                            <th class="th1">
-                                <center>Correct Answer</center>
-                            </th>
-                            <th class="th1">
-                                <center>Mark</center>
-                            </th>
-                        </tr>
-                        <tr class="resultrow" id="row1" data-toggle="modal" href="" data-target="#review"
-                            onclick="review(0)">
-                            <td style="vertical-align:middle;text-align:center;">1</td>
-                            <td style="vertical-align:middle;text-align:center;"><span id="q1"></span></td>
-                            <td style="vertical-align:middle;text-align:center;"><span id="a1"></span></td>
-                            <td style="vertical-align:middle;text-align:center;"><span id="mark1"></span></td>
-                        </tr>
-                        <tr class="resultrow" id="row2" data-toggle="modal" href="" data-target="#review"
-                            onclick="review(1)">
-                            <td style="vertical-align:middle;text-align:center;">2</td>
-                            <td style="vertical-align:middle;text-align:center;"><span id="q2"></span></td>
-                            <td style="vertical-align:middle;text-align:center;"><span id="a2"></span></td>
-                            <td style="vertical-align:middle;text-align:center;"><span id="mark2"></span></td>
-                        </tr>
-                        <tr class="resultrow" id="row3" data-toggle="modal" href="" data-target="#review"
-                            onclick="review(2)">
-                            <td style="vertical-align:middle;text-align:center;">3</td>
-                            <td style="vertical-align:middle;text-align:center;"><span id="q3"></span></td>
-                            <td style="vertical-align:middle;text-align:center;"><span id="a3"></span></td>
-                            <td style="vertical-align:middle;text-align:center;"><span id="mark3"></span></td>
-                        </tr>
-                        <tr class="resultrow" id="row4" data-toggle="modal" href="" data-target="#review"
-                            onclick="review(3)">
-                            <td style="vertical-align:middle;text-align:center;">4</td>
-                            <td style="vertical-align:middle;text-align:center;"><span id="q4"></span></td>
-                            <td style="vertical-align:middle;text-align:center;"><span id="a4"></span></td>
-                            <td style="vertical-align:middle;text-align:center;"><span id="mark4"></span></td>
-                        </tr>
-                        <tr class="resultrow" id="row5" data-toggle="modal" href="" data-target="#review"
-                            onclick="review(4)">
-                            <td style="vertical-align:middle;text-align:center;">5</td>
-                            <td style="vertical-align:middle;text-align:center;"><span id="q5"></span></td>
-                            <td style="vertical-align:middle;text-align:center;"><span id="a5"></span></td>
-                            <td style="vertical-align:middle;text-align:center;"><span id="mark5"></span></td>
-                        </tr>
-                    </table>
-                    <button class="btn" onclick="window.location.reload()"><span class="tool-name">Restart</span>
+                    <p>Time spent: <span id="time-spent"></span></p>
+                    <span id="reviewTable"></span>
+                    <button class="btn" style="margin-top:20px" onclick="window.location.reload()"><span class="tool-name">Restart</span>
                     </button>
                 </div>
         </div>
@@ -797,7 +734,7 @@
 
 <!-- Custom JavaScript -->
 <script type="text/javascript" src="js/core.js"></script>
-<script type="text/javascript" src="js/quiz.js"></script>
+<script type="text/javascript" src="js/quiz2.js"></script>
 <script type="text/javascript" src="js/index.js"></script>
 
 </body>
