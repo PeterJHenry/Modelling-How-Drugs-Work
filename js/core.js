@@ -198,7 +198,7 @@ function plotGraph(div, data, showlegend, options) {
 }
 
 function calculateGraphPoints(numberOfReceptor, den1, logVal1, den2, logVal2, den3, logVal3) {
-    var STEP = 0.1;
+    var STEP = 0.01;
     var dataSet = [[], []];
 
     switch (numberOfReceptor) {
