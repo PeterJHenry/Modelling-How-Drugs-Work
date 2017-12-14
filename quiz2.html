@@ -332,7 +332,7 @@
                                                     densities?</p>
                                                 <fieldset class="sectionContainer">
                                                     <legend>Receptor</legend>
-                                                    <table class="table-responsive">
+                                                    <table class="table-responsive" style="text-align:center;">
                                                         <tbody>
                                                         <tr>
                                                             <td></td>
@@ -447,11 +447,336 @@
 
                                     </div>
                                     <div class="col-lg-6 quizbuttonAdjustment">
-                                        <div class="row" style="margin:20px 30px;">
+                                        <div class="row">
                                             <div class="container-fluid">
-                                              <p class="lihead" style="font-size:15px;margin-bottom:20px;text-align:center;">
-                                                New table in process for below</p>
-                                                ​<textarea id="textbox"></textarea>
+                                                ​<table id="ligandTable" class="table-responsive" cellspacing=0>
+                                                    <tbody>
+                                                    <tr>
+                                                      <td rowspan=2 style="text-align:center;font-weight:bold;">
+                                                        Ligands
+                                                        <br />
+                                                        <small>-log K<sub>i</sub> for M<sub>1</sub> - M<sub>5</sub></small>
+                                                      </td>
+                                                      <td rowspan=2 style="text-align:center;font-weight:bold;">
+                                                        Shape of Curve
+                                                      </td>
+                                                      <td rowspan=2 style="text-align:center;font-weight:bold;">
+                                                        Position
+                                                        <br />
+                                                        <small>-logIC50</small>
+                                                      </td>
+                                                      <td colspan=5 style="text-align:center;font-weight:bold;">
+                                                        Eliminated Receptors
+                                                      </td>
+                                                    </tr>
+                                                    <tr>
+                                                      <td style="text-align:center;font-weight:bold;"><small>M<sub>1</sub></small></td>
+                                                      <td style="text-align:center;font-weight:bold;"><small>M<sub>2</sub></small></td>
+                                                      <td style="text-align:center;font-weight:bold;"><small>M<sub>3</sub></small></td>
+                                                      <td style="text-align:center;font-weight:bold;"><small>M<sub>4</sub></small></td>
+                                                      <td style="text-align:center;font-weight:bold;"><small>M<sub>5</sub></small></td>
+                                                    </tr>
+
+                                                    <tr class="strikeout row0">
+                                                      <td>
+                                                        <span id="ligand1"></span>
+                                                        <table class="table-responsive" style="text-align:center;">
+                                                          <tr>
+                                                            <td>
+                                                              <span id="1log1"></span>
+                                                            </td>
+                                                            <td>
+                                                              <span id="1log2"></span>
+                                                            </td>
+                                                            <td>
+                                                              <span id="1log3"></span>
+                                                            </td>
+                                                            <td>
+                                                              <span id="1log4"></span>
+                                                            </td>
+                                                            <td>
+                                                              <span id="1log5"></span>
+                                                            </td>
+                                                          </tr>
+                                                        </table>
+                                                      </td>
+                                                      <td >
+                                                        <select class="shape">
+                                                          <option></option>
+                                                          <option>
+                                                            Biphasic with POI
+                                                          </option>
+                                                          <optgroup label="Sigmoidal">
+                                                            <option>
+                                                              Steep
+                                                            </option>
+                                                            <option>
+                                                              Shallow
+                                                            </option>
+                                                          </optgroup>
+                                                        </select class="shape">
+                                                      </td>
+                                                      <td >
+                                                        <input size=8 style="font-size:10px;">
+                                                      </td>
+                                                      <td >
+                                                        <input type="checkbox" />
+                                                      </td>
+                                                      <td >
+                                                        <input type="checkbox" />
+                                                      </td>
+                                                      <td >
+                                                        <input type="checkbox" />
+                                                      </td>
+                                                      <td >
+                                                        <input type="checkbox" />
+                                                      </td>
+                                                      <td >
+                                                        <input type="checkbox" />
+                                                      </td>
+                                                    </tr>
+
+                                                    <tr class="strikeout row1">
+                                                      <td>
+                                                        <span id="ligand2"></span>
+
+                                                      <table class="table-responsive" style="text-align:center;">
+                                                        <tr>
+                                                          <td>
+                                                            <span id="2log1"></span>
+                                                          </td>
+                                                          <td>
+                                                            <span id="2log2"></span>
+                                                          </td>
+                                                          <td>
+                                                            <span id="2log3"></span>
+                                                          </td>
+                                                          <td>
+                                                            <span id="2log4"></span>
+                                                          </td>
+                                                          <td>
+                                                            <span id="2log5"></span>
+                                                          </td>
+                                                        </tr>
+                                                      </table>
+                                                      </td>
+                                                      <td >
+                                                        <select class="shape">
+                                                          <option></option>
+                                                          <option>
+                                                            Biphasic with POI
+                                                          </option>
+                                                          <optgroup label="Sigmoidal">
+                                                            <option>
+                                                              Steep
+                                                            </option>
+                                                            <option>
+                                                              Shallow
+                                                            </option>
+                                                          </optgroup>
+                                                        </select class="shape">
+                                                      </td>
+                                                      <td >
+                                                        <input size=8 style="font-size:10px;">
+                                                      </td>
+                                                      <td >
+                                                        <input type="checkbox" />
+                                                      </td>
+                                                      <td >
+                                                        <input type="checkbox" />
+                                                      </td>
+                                                      <td >
+                                                        <input type="checkbox" />
+                                                      </td>
+                                                      <td >
+                                                        <input type="checkbox" />
+                                                      </td>
+                                                      <td >
+                                                        <input type="checkbox" />
+                                                      </td>
+                                                    </tr>
+
+                                                    <tr class="strikeout row2">
+                                                      <td>
+                                                        <span id="ligand3"></span>
+
+                                                      <table class="table-responsive" style="text-align:center;">
+                                                        <tr>
+                                                          <td>
+                                                            <span id="3log1"></span>
+                                                          </td>
+                                                          <td>
+                                                            <span id="3log2"></span>
+                                                          </td>
+                                                          <td>
+                                                            <span id="3log3"></span>
+                                                          </td>
+                                                          <td>
+                                                            <span id="3log4"></span>
+                                                          </td>
+                                                          <td>
+                                                            <span id="3log5"></span>
+                                                          </td>
+                                                        </tr>
+                                                      </table>
+                                                      </td>
+                                                      <td >
+                                                        <select class="shape">
+                                                          <option></option>
+                                                          <option>
+                                                            Biphasic with POI
+                                                          </option>
+                                                          <optgroup label="Sigmoidal">
+                                                            <option>
+                                                              Steep
+                                                            </option>
+                                                            <option>
+                                                              Shallow
+                                                            </option>
+                                                          </optgroup>
+                                                        </select class="shape">
+                                                      </td>
+                                                      <td >
+                                                        <input size=8 style="font-size:10px;">
+                                                      </td>
+                                                      <td >
+                                                        <input type="checkbox" />
+                                                      </td>
+                                                      <td >
+                                                        <input type="checkbox" />
+                                                      </td>
+                                                      <td >
+                                                        <input type="checkbox" />
+                                                      </td>
+                                                      <td >
+                                                        <input type="checkbox" />
+                                                      </td>
+                                                      <td >
+                                                        <input type="checkbox" />
+                                                      </td>
+                                                    </tr>
+
+                                                    <tr class="strikeout row3">
+                                                      <td>
+                                                        <span id="ligand4"></span>
+
+                                                      <table class="table-responsive" style="text-align:center;">
+                                                        <tr>
+                                                          <td>
+                                                            <span id="4log1"></span>
+                                                          </td>
+                                                          <td>
+                                                            <span id="4log2"></span>
+                                                          </td>
+                                                          <td>
+                                                            <span id="4log3"></span>
+                                                          </td>
+                                                          <td>
+                                                            <span id="4log4"></span>
+                                                          </td>
+                                                          <td>
+                                                            <span id="4log5"></span>
+                                                          </td>
+                                                        </tr>
+                                                      </table>
+                                                      </td>
+                                                      <td >
+                                                        <select class="shape">
+                                                          <option></option>
+                                                          <option>
+                                                            Biphasic with POI
+                                                          </option>
+                                                          <optgroup label="Sigmoidal">
+                                                            <option>
+                                                              Steep
+                                                            </option>
+                                                            <option>
+                                                              Shallow
+                                                            </option>
+                                                          </optgroup>
+                                                        </select class="shape">
+                                                      </td>
+                                                      <td >
+                                                        <input size=8 style="font-size:10px;">
+                                                      </td>
+                                                      <td >
+                                                        <input type="checkbox" />
+                                                      </td>
+                                                      <td >
+                                                        <input type="checkbox" />
+                                                      </td>
+                                                      <td >
+                                                        <input type="checkbox" />
+                                                      </td>
+                                                      <td >
+                                                        <input type="checkbox" />
+                                                      </td>
+                                                      <td >
+                                                        <input type="checkbox" />
+                                                      </td>
+                                                    </tr>
+
+                                                    <tr class="strikeout row5">
+                                                      <td>
+                                                        <span id="ligand5"></span>
+                                                      <table class="table-responsive" style="text-align:center;">
+                                                        <tr>
+                                                          <td>
+                                                            <span id="5log1"></span>
+                                                          </td>
+                                                          <td>
+                                                            <span id="5log2"></span>
+                                                          </td>
+                                                          <td>
+                                                            <span id="5log3"></span>
+                                                          </td>
+                                                          <td>
+                                                            <span id="5log4"></span>
+                                                          </td>
+                                                          <td>
+                                                            <span id="5log5"></span>
+                                                          </td>
+                                                        </tr>
+                                                      </table>
+                                                      </td>
+                                                      <td >
+                                                        <select class="shape">
+                                                          <option></option>
+                                                          <option>
+                                                            Biphasic with POI
+                                                          </option>
+                                                          <optgroup label="Sigmoidal">
+                                                            <option>
+                                                              Steep
+                                                            </option>
+                                                            <option>
+                                                              Shallow
+                                                            </option>
+                                                          </optgroup>
+                                                        </select class="shape">
+                                                      </td>
+                                                      <td >
+                                                        <input size=8 style="font-size:10px;">
+                                                      </td>
+                                                      <td >
+                                                        <input type="checkbox" />
+                                                      </td>
+                                                      <td >
+                                                        <input type="checkbox" />
+                                                      </td>
+                                                      <td >
+                                                        <input type="checkbox" />
+                                                      </td>
+                                                      <td >
+                                                        <input type="checkbox" />
+                                                      </td>
+                                                      <td >
+                                                        <input type="checkbox" />
+                                                      </td>
+                                                    </tr>
+
+                                                    </tbody>
+                                                  </table>
                                             </div>
                                         </div>
                                         <div class="row" style="margin: 30px">

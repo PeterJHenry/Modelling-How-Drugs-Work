@@ -20,6 +20,7 @@ $(document).ready(function () {
 });
 
 function startQuiz() {
+    clearInput();
     $('#quiz_title').html("00:00");
     randomiseSubType();
     randomiseLigand();
@@ -31,7 +32,6 @@ function startQuiz() {
     $('.quizAnswers').hide();
     initializeClock();
     quizStatus();
-    clearInput();
 }
 
 function minlength(minute) {
@@ -155,6 +155,25 @@ function redrawGraph(div, index, subtype, percentage) {
     plotGraph(div, data, true);
 }
 
+function fillTable(){
+  var ligands =['#ligand1','#ligand2','#ligand3','#ligand4','#ligand5'];
+  var log1 = ['#1log1','#1log2','#1log3','#1log4','#1log5'];
+  var log2 = ['#2log1','#2log2','#2log3','#2log4','#2log5'];
+  var log3 = ['#3log1','#3log2','#3log3','#3log4','#3log5'];
+  var log4 = ['#4log1','#4log2','#4log3','#4log4','#4log5'];
+  var log5 = ['#5log1','#5log2','#5log3','#5log4','#5log5'];
+  var logs = [log1,log2,log3,log4,log5];
+
+  for (var i = 0; i < 5; i++){
+    $(ligands[i]).html(ligandNames[ligandList[0][i]]);
+    for(var x = 0; x < 5; x++){
+      log = logK[ligandList[0][i]][x];
+      if(log.toString().length === 1) log = log+".0";
+      $(logs[i][x]).html(log);
+    }
+  }
+}
+
 function checkAnswer() {
     if ($('input[type=checkbox]:checked').length <= 0) {
         alert('Please select an answer');
@@ -208,6 +227,7 @@ function clearInput() {
 }
 
 function quizStatus() {
+    fillTable();
     if (currentNumber === numberOfQuestions) {
         redrawGraph('myDiv', currentNumber-1, SubtypeAnswer, PercentageAnswer);
     }
