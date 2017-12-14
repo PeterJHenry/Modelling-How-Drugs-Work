@@ -21,9 +21,9 @@ $(document).ready(function () {
 
 function startQuiz() {
     clearInput();
-    $('#quiz_title').html("00:00");
     randomiseSubType();
     randomiseLigand();
+    $('#quiz_title').html("00:00");
     timer = 1;
     currentNumber = 1;
     num = 0;
@@ -68,7 +68,6 @@ function initializeClock() {
 
 // Chooose a random subtype and then the draw the graph for it.
 function randomiseSubType() {
-    for (var i = 0; i < 5; i++) {
         var subtypeIndex = [null, null];
         var subtypePercentage = [null, null];
 
@@ -83,21 +82,17 @@ function randomiseSubType() {
             while (subtypeIndex[1] === subtypeIndex[0]) {
               subtypeIndex[1] = Math.floor((Math.random() * 5));
             }
-            // if (subtypeIndex[1] === subtypeIndex[0]) {
-            //     subtypeIndex[0] = subtypeIndex[0] + 1 % 5;
-            // }
             subtypePercentage[1] = 100 - subtypePercentage[0];
         }
         if (subtypePercentage[1] == null) {
             subtypeIndex[1] = null;
         }
-        SubtypeAnswer.push(subtypeIndex);
-        PercentageAnswer.push(subtypePercentage);
-    }
+        SubtypeAnswer[0] = subtypeIndex;
+        PercentageAnswer[0] = subtypePercentage;
+
 }
 
 function randomiseLigand() {
-    for (var x = 0; x < 5; x++) {
         var ligandIndexes = [];
         var i = 0;
         var index;
@@ -111,7 +106,7 @@ function randomiseLigand() {
         if (Math.floor(Math.random() * 2) === 1) ligandIndexes[4] = 8;
         else ligandIndexes[4] = 9;
         ligandList.push(ligandIndexes);
-    }
+
 }
 
 function color(i) {
@@ -216,6 +211,8 @@ function storeAnswers() {
 }
 
 function clearInput() {
+    // $('input[type=checkbox]').prop('checked', false);
+    // $('input').val('');
     var checkbox_containers = document.getElementById('subtypeCheckbox').children;
     for (var i = 1; i < checkbox_containers.length; i++) {
         checkbox = checkbox_containers[i].children[0];
