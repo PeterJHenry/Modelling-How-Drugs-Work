@@ -72,17 +72,20 @@ function randomiseSubType() {
         var subtypeIndex = [null, null];
         var subtypePercentage = [null, null];
 
-        subtypeIndex[0] = Math.floor((Math.random() * 4));
+        subtypeIndex[0] = Math.floor((Math.random() * 5));
         subtypePercentage[0] = 20 + 10 * Math.floor((Math.random() * 8)); // Generates a random percentage between 20 and 90, always a multiple of 10.
 
         if (subtypePercentage[0] === 90) {
             // Treat 90 as one subtype.
             subtypePercentage[0] = 100;
         } else {
-            subtypeIndex[1] = Math.floor((Math.random() * 4));
-            if (subtypeIndex[1] === subtypeIndex[0]) {
-                subtypeIndex[0] = subtypeIndex[0] + 1 % 5;
+            subtypeIndex[1] = Math.floor((Math.random() * 5));
+            while (subtypeIndex[1] === subtypeIndex[0]) {
+              subtypeIndex[1] = Math.floor((Math.random() * 5));
             }
+            // if (subtypeIndex[1] === subtypeIndex[0]) {
+            //     subtypeIndex[0] = subtypeIndex[0] + 1 % 5;
+            // }
             subtypePercentage[1] = 100 - subtypePercentage[0];
         }
         if (subtypePercentage[1] == null) {
