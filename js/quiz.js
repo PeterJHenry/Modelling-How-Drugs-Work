@@ -87,9 +87,12 @@ function randomiseSubType() {
             subtypePercentage[0] = 100;
         } else {
             subtypeIndex[1] = Math.floor((Math.random() * 4));
-            if (subtypeIndex[1] === subtypeIndex[0]) {
-                subtypeIndex[0] = subtypeIndex[0] + 1 % 5;
+            while (subtypeIndex[1] === subtypeIndex[0]) {
+              subtypeIndex[1] = Math.floor((Math.random() * 4));
             }
+            // if (subtypeIndex[1] === subtypeIndex[0]) {
+            //     subtypeIndex[0] = subtypeIndex[0] + 1 % 5;
+            // }
             subtypePercentage[1] = 100 - subtypePercentage[0];
         }
         if (subtypePercentage[1] == null) {
