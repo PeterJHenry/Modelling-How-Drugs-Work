@@ -170,7 +170,7 @@ function fillTable(){
 }
 
 function checkAnswer() {
-    if ($('input[type=checkbox]:checked').length <= 0) {
+    if ($('input[class=ans]:checked').length <= 0) {
         alert('Please select an answer');
     }
     else {
@@ -185,7 +185,7 @@ function storeAnswers() {
     var subtypes = [];
     var percentage = [];
 
-    $('input[type=checkbox]:checked').each(function () {
+    $('input[class=ans]:checked').each(function () {
         subtypes.push(parseInt($(this).val()));
     });
 
@@ -211,8 +211,6 @@ function storeAnswers() {
 }
 
 function clearInput() {
-    // $('input[type=checkbox]').prop('checked', false);
-    // $('input').val('');
     var checkbox_containers = document.getElementById('subtypeCheckbox').children;
     for (var i = 1; i < checkbox_containers.length; i++) {
         checkbox = checkbox_containers[i].children[0];
@@ -221,6 +219,9 @@ function clearInput() {
             validateCheckBox(i - 1);
         }
     }
+    $('input[type=checkbox]').prop('checked', false);
+    $('input[name=position]').val('');
+    $('select[name=shape]').val(0);
 }
 
 function quizStatus() {

@@ -346,15 +346,15 @@
                                                             <td>
                                                                 <div class="leftInput">Subtypes</div>
                                                             </td>
-                                                            <td><input type="checkbox" value="0"
+                                                            <td><input class="ans" type="checkbox" value="0"
                                                                        onclick="validateCheckBox(0)"></td>
-                                                            <td><input type="checkbox" value="1"
+                                                            <td><input class="ans" type="checkbox" value="1"
                                                                        onclick="validateCheckBox(1)"></td>
-                                                            <td><input type="checkbox" value="2"
+                                                            <td><input class="ans" type="checkbox" value="2"
                                                                        onclick="validateCheckBox(2)"></td>
-                                                            <td><input type="checkbox" value="3"
+                                                            <td><input class="ans" type="checkbox" value="3"
                                                                        onclick="validateCheckBox(3)"></td>
-                                                            <td><input type="checkbox" value="4"
+                                                            <td><input class="ans" type="checkbox" value="4"
                                                                        onclick="validateCheckBox(4)"></td>
 
                                                         </tr>
@@ -364,7 +364,7 @@
                                                             </td>
 
                                                             <td><select type="number" id="relativeDensity1" disabled>
-                                                                <option selected disabled></option>
+                                                                <option selected disabled value=0></option>
                                                                 <option value=100 disabled hidden>100</option>
                                                                 <option value=20>20</option>
                                                                 <option value=30>30</option>
@@ -376,7 +376,7 @@
                                                             </select>
                                                             </td>
                                                             <td><select type="number" id="relativeDensity2" disabled>
-                                                                <option selected disabled></option>
+                                                                <option selected disabled value=0></option>
                                                                 <option value=100 disabled hidden>100</option>
                                                                 <option value=20>20</option>
                                                                 <option value=30>30</option>
@@ -388,7 +388,7 @@
                                                             </select>
                                                             </td>
                                                             <td><select type="number" id="relativeDensity3" disabled>
-                                                                <option selected disabled></option>
+                                                                <option selected disabled value=0></option>
                                                                 <option value=100 disabled hidden>100</option>
                                                                 <option value=20>20</option>
                                                                 <option value=30>30</option>
@@ -400,7 +400,7 @@
                                                             </select>
                                                             </td>
                                                             <td><select type="number" id="relativeDensity4" disabled>
-                                                                <option selected disabled></option>
+                                                                <option selected disabled value=0></option>
                                                                 <option value=100 disabled hidden>100</option>
                                                                 <option value=20>20</option>
                                                                 <option value=30>30</option>
@@ -412,7 +412,7 @@
                                                             </select>
                                                             </td>
                                                             <td><select type="number" id="relativeDensity5" disabled>
-                                                                <option selected disabled></option>
+                                                                <option selected disabled value=0></option>
                                                                 <option value=100 disabled hidden>100</option>
                                                                 <option value=20>20</option>
                                                                 <option value=30>30</option>
@@ -501,8 +501,8 @@
                                                         </table>
                                                       </td>
                                                       <td >
-                                                        <select class="shape">
-                                                          <option></option>
+                                                        <select name="shape" class="shape">
+                                                          <option value=0 selected></option>
                                                           <option>
                                                             Sigmoidal - Steep
                                                           </option>
@@ -512,10 +512,10 @@
                                                           <option>
                                                             Biphasic with POI
                                                           </option>
-                                                        </select class="shape">
+                                                        </select name="shape" class="shape">
                                                       </td>
                                                       <td >
-                                                        <input size=8 style="font-size:10px;">
+                                                        <input size=8 name="position"  style="font-size:10px;">
                                                       </td>
                                                       <td >
                                                         <input type="checkbox" />
@@ -559,8 +559,8 @@
                                                       </table>
                                                       </td>
                                                       <td >
-                                                        <select class="shape">
-                                                          <option></option>
+                                                        <select name="shape" class="shape">
+                                                          <option value=0 selected></option>
                                                           <option>
                                                             Sigmoidal - Steep
                                                           </option>
@@ -570,10 +570,10 @@
                                                           <option>
                                                             Biphasic with POI
                                                           </option>
-                                                        </select class="shape">
+                                                        </select name="shape" class="shape">
                                                       </td>
                                                       <td >
-                                                        <input size=8 style="font-size:10px;">
+                                                        <input size=8 name="position"  style="font-size:10px;">
                                                       </td>
                                                       <td >
                                                         <input type="checkbox" />
@@ -617,8 +617,8 @@
                                                       </table>
                                                       </td>
                                                       <td >
-                                                        <select class="shape">
-                                                          <option></option>
+                                                        <select name="shape" class="shape">
+                                                          <option value=0 selected></option>
                                                           <option>
                                                             Sigmoidal - Steep
                                                           </option>
@@ -628,10 +628,10 @@
                                                           <option>
                                                             Biphasic with POI
                                                           </option>
-                                                        </select class="shape">
+                                                        </select name="shape" class="shape">
                                                       </td>
                                                       <td >
-                                                        <input size=8 style="font-size:10px;">
+                                                        <input size=8 name="position"  style="font-size:10px;">
                                                       </td>
                                                       <td >
                                                         <input type="checkbox" />
@@ -675,8 +675,8 @@
                                                       </table>
                                                       </td>
                                                       <td >
-                                                        <select class="shape">
-                                                          <option></option>
+                                                        <select name="shape" class="shape">
+                                                          <option value=0 selected></option>
                                                           <option>
                                                             Sigmoidal - Steep
                                                           </option>
@@ -686,10 +686,10 @@
                                                           <option>
                                                             Biphasic with POI
                                                           </option>
-                                                        </select class="shape">
+                                                        </select name="shape" class="shape">
                                                       </td>
                                                       <td >
-                                                        <input size=8 style="font-size:10px;">
+                                                        <input size=8 name="position"  style="font-size:10px;">
                                                       </td>
                                                       <td >
                                                         <input type="checkbox" />
@@ -732,8 +732,8 @@
                                                       </table>
                                                       </td>
                                                       <td >
-                                                        <select class="shape">
-                                                          <option></option>
+                                                        <select name="shape" class="shape">
+                                                          <option value=0 selected></option>
                                                           <option>
                                                             Sigmoidal - Steep
                                                           </option>
@@ -743,10 +743,10 @@
                                                           <option>
                                                             Biphasic with POI
                                                           </option>
-                                                        </select class="shape">
+                                                        </select name="shape" class="shape">
                                                       </td>
                                                       <td >
-                                                        <input size=8 style="font-size:10px;">
+                                                        <input size=8 name="position"  style="font-size:10px;">
                                                       </td>
                                                       <td >
                                                         <input type="checkbox" />
