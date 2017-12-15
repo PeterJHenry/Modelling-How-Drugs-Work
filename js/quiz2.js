@@ -150,7 +150,15 @@ function redrawGraph(div, index, subtype, percentage) {
     plotGraph(div, data, true);
 }
 
+function newRow(){
+  if($('#biphasic').val() == 3){
+    $('.hidden').show();
+  }
+  else $('.hidden').hide();
+}
+
 function fillTable(){
+
   var ligands =['#ligand1','#ligand2','#ligand3','#ligand4','#ligand5'];
   var log1 = ['#1log1','#1log2','#1log3','#1log4','#1log5'];
   var log2 = ['#2log1','#2log2','#2log3','#2log4','#2log5'];
