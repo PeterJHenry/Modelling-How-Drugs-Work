@@ -27,6 +27,7 @@ function startQuiz() {
     timer = 1;
     currentNumber = 1;
     num = 0;
+    $('.hidden').hide();
     $('.questionCover').hide();
     $('.questionContainer').show();
     $('.quizAnswers').hide();
