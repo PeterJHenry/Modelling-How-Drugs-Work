@@ -1,3 +1,9 @@
+function popup(url) {
+  newwindow=window.open(url,'-log Ki Reference Table','height=auto,width=498');
+  if (window.focus) {newwindow.focus()}
+  return false;
+}
+
 $(document).ready(function () {
     $('section').fadeIn();
     $('.loading').fadeOut();
