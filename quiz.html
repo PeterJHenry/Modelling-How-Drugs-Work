@@ -285,12 +285,9 @@
             </div>
         </div>
     </div>
+    <!-- Question Review Modal -->
+    <span id="reviewModal"></span>
 
-
-    <!-- Question 1 Review Modal -->
-    <div id="review" class="modal fade" role="dialog">
-        <div id="modal"></div>
-    </div>
 </header>
 
 
@@ -302,35 +299,35 @@
                 <legend id="quiz_title">Quiz</legend>
 
                 <div class="questionCover">
-                    <p class="lihead" style="font-size:20px;text-align:center">Ready to take the quiz?</p>
+                    <p class="lihead" style="font-size:20px;text-align:center">Ready to take the quiz?</p><br />
                     <p>In this quiz you will be given a graph containing competition binding data for 5 randomly
                         selected muscarinic cholinoceptor ligands.</p>
                     <p><b>Your task is to analyse the data and determine which muscarinic receptor subtypes are present,
                         and their relative proportions.</b></p>
                     <p>To generate answers, use the SPIKES approach together with the -log k<sub>i</sub> values presented in
-                        the reference table.</p>
-                    <p>Enter your answer into the boxes provided － note that the answers will be either one receptor
+                        the reference table. Provided will be a table to practise your SPIKES approach (this table will not be assessed).</p>
+                    <p>Enter your answer into the boxes provided － note that the answer(s) will be either one receptor
                         subtype with a relative density of 100%,
                         or more likely, a mixture of two receptor subtypes with relative proportions between 20% and
                         80% (in 10% increments).</p>
                     <p>With practise, you should be able to <b>identify which receptor subtypes are present and their relative proportions</b> within 5 minutes.</p>
-                    <p>There will be <b><span id="cover-questionLength"></span></b> questions asked.</p>
-                    <p><i>Don't forget to formally <b>justify your answer</b> in writing using the SPIKES approach, as may be required in an examination situation - this should take another 5-10 minutes, and a text box is included for this purpose.</i>
+                    <p>The quiz may be taken with <b>1 question</b> with a <b>5 minute</b> timer, or with <b>5 questions</b> with a <b>25 minute</b> timer.</p>
+                    <p><i>Don't forget to formally <b>justify your answer</b> in writing using the SPIKES approach, as may be required in an examination situation - this should take another 5-10 minutes.</i>
                     </p>
-                    <p style="text-align:center;font-size:15px">Good luck!</p>
+                    <br />
 
 
-                    <button class="btn" onclick="startQuiz()"><span class="tool-name">Start Quiz</span></button>
+                    <button class="btn" style="float:left;" onclick="startQuiz(true)"><span class="tool-name">1 Question</span></button>
+                    <button class="btn" style="float:right;" onclick="startQuiz(false)"><span class="tool-name">5 Questions</span></button>
                 </div>
                 <div class="questionContainer">
-                    <div class="progress">
-                        <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
-                             aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                    <div id="timer">
-                      <span id="timer-minutes">25</span>:<span id="timer-seconds">00</span>
-                    </div>
-
+                  <div class="progress" id="progress" style="display:none">
+                      <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
+                           aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+                  <div id="timer" style="display:none">
+                    <span id="timer-minutes">25</span>:<span id="timer-seconds">00</span>
+                  </div>
                     <div class="questionPage">
                         <div class="row justify-content-md-center">
                             <div class="col-md-1 col-lg-0"></div>
@@ -345,7 +342,7 @@
                                                     densities?</p>
                                                 <fieldset class="sectionContainer">
                                                     <legend>Receptor</legend>
-                                                    <table class="table-responsive">
+                                                    <table class="table-responsive" style="text-align:center;">
                                                         <tbody>
                                                         <tr>
                                                             <td></td>
@@ -359,15 +356,15 @@
                                                             <td>
                                                                 <div class="leftInput">Subtypes</div>
                                                             </td>
-                                                            <td><input type="checkbox" value="0"
+                                                            <td><input class="ans" type="checkbox" value="0"
                                                                        onclick="validateCheckBox(0)"></td>
-                                                            <td><input type="checkbox" value="1"
+                                                            <td><input class="ans" type="checkbox" value="1"
                                                                        onclick="validateCheckBox(1)"></td>
-                                                            <td><input type="checkbox" value="2"
+                                                            <td><input class="ans" type="checkbox" value="2"
                                                                        onclick="validateCheckBox(2)"></td>
-                                                            <td><input type="checkbox" value="3"
+                                                            <td><input class="ans" type="checkbox" value="3"
                                                                        onclick="validateCheckBox(3)"></td>
-                                                            <td><input type="checkbox" value="4"
+                                                            <td><input class="ans" type="checkbox" value="4"
                                                                        onclick="validateCheckBox(4)"></td>
 
                                                         </tr>
@@ -444,10 +441,387 @@
 
                                                 </fieldset>
                                             </div>
+                                        </div>
+                                              <div class="row">
+                                                  <div class="container-fluid">
+                                                    <p class="lihead"
+                                                       style="margin:auto;font-size:15px;margin-bottom:15px;margin-top:30px;text-align:center;">
+                                                       You may use the table below to determine your answer</p>
+                                                    <fieldset class="sectionContainer">
+                                                        <legend>SPIKES Approach</legend>
+                                                      ​<table width="100%" cellspacing=0 style="padding:0">
+                                                          <tr>
+                                                            <td rowspan=2 style="text-align:center;font-weight:bold;">
+                                                              Ligands
+                                                              <br />
+                                                              <small>-log K<sub>i</sub> for M<sub>1</sub> - M<sub>5</sub></small>
+                                                            </td>
+                                                            <td rowspan=2 style="text-align:center;font-weight:bold;">
+                                                              Shape of Curve
+                                                            </td>
+                                                            <td rowspan=2 style="text-align:center;font-weight:bold;">
+                                                              Position
+                                                              <br />
+                                                              <small>-logIC50</small>
+                                                            </td>
+                                                            <td colspan=5 style="text-align:center;font-weight:bold;">
+                                                              Eliminated Receptors
+                                                            </td>
+                                                          </tr>
+                                                          <tr>
+                                                            <td style="text-align:center;font-weight:bold;"><small>M<sub>1</sub></small></td>
+                                                            <td style="text-align:center;font-weight:bold;"><small>M<sub>2</sub></small></td>
+                                                            <td style="text-align:center;font-weight:bold;"><small>M<sub>3</sub></small></td>
+                                                            <td style="text-align:center;font-weight:bold;"><small>M<sub>4</sub></small></td>
+                                                            <td style="text-align:center;font-weight:bold;"><small>M<sub>5</sub></small></td>
+                                                          </tr>
 
+                                                          <tr class="strikeout row0">
+                                                            <td>
+                                                              <span id="ligand1"></span>
+                                                              <table class="table-responsive" style="text-align:center;">
+                                                                <tr>
+                                                                  <td>
+                                                                    <span id="1log1"></span>
+                                                                  </td>
+                                                                  <td>
+                                                                    <span id="1log2"></span>
+                                                                  </td>
+                                                                  <td>
+                                                                    <span id="1log3"></span>
+                                                                  </td>
+                                                                  <td>
+                                                                    <span id="1log4"></span>
+                                                                  </td>
+                                                                  <td>
+                                                                    <span id="1log5"></span>
+                                                                  </td>
+                                                                </tr>
+                                                              </table>
+                                                            </td>
+                                                            <td>
+                                                              <select name="shape" class="shape">
+                                                                <option value=0 selected></option>
+                                                                <option>
+                                                                  Sigmoidal - Steep
+                                                                </option>
+                                                                <option>
+                                                                  Sigmoidal - Shallow
+                                                                </option>
+                                                              </select name="shape" class="shape">
+                                                            </td>
+                                                            <td>
+                                                              <input size=8 name="position"  style="font-size:10px;">
+                                                            </td>
+                                                            <td>
+                                                              <input type="checkbox" />
+                                                            </td>
+                                                            <td>
+                                                              <input type="checkbox" />
+                                                            </td>
+                                                            <td>
+                                                              <input type="checkbox" />
+                                                            </td>
+                                                            <td>
+                                                              <input type="checkbox" />
+                                                            </td>
+                                                            <td>
+                                                              <input type="checkbox" />
+                                                            </td>
+                                                          </tr>
 
+                                                          <tr class="strikeout row1">
+                                                            <td>
+                                                              <span id="ligand2"></span>
 
+                                                            <table class="table-responsive" style="text-align:center;">
+                                                              <tr>
+                                                                <td>
+                                                                  <span id="2log1"></span>
+                                                                </td>
+                                                                <td>
+                                                                  <span id="2log2"></span>
+                                                                </td>
+                                                                <td>
+                                                                  <span id="2log3"></span>
+                                                                </td>
+                                                                <td>
+                                                                  <span id="2log4"></span>
+                                                                </td>
+                                                                <td>
+                                                                  <span id="2log5"></span>
+                                                                </td>
+                                                              </tr>
+                                                            </table>
+                                                            </td>
+                                                            <td>
+                                                              <select name="shape" class="shape">
+                                                                <option value=0 selected></option>
+                                                                <option>
+                                                                  Sigmoidal - Steep
+                                                                </option>
+                                                                <option>
+                                                                  Sigmoidal - Shallow
+                                                                </option>
+                                                              </select name="shape" class="shape">
+                                                            </td>
+                                                            <td>
+                                                              <input size=8 name="position"  style="font-size:10px;">
+                                                            </td>
+                                                            <td>
+                                                              <input type="checkbox" />
+                                                            </td>
+                                                            <td>
+                                                              <input type="checkbox" />
+                                                            </td>
+                                                            <td>
+                                                              <input type="checkbox" />
+                                                            </td>
+                                                            <td>
+                                                              <input type="checkbox" />
+                                                            </td>
+                                                            <td>
+                                                              <input type="checkbox" />
+                                                            </td>
+                                                          </tr>
 
+                                                          <tr class="strikeout row2">
+                                                            <td>
+                                                              <span id="ligand3"></span>
+
+                                                            <table class="table-responsive" style="text-align:center;">
+                                                              <tr>
+                                                                <td>
+                                                                  <span id="3log1"></span>
+                                                                </td>
+                                                                <td>
+                                                                  <span id="3log2"></span>
+                                                                </td>
+                                                                <td>
+                                                                  <span id="3log3"></span>
+                                                                </td>
+                                                                <td>
+                                                                  <span id="3log4"></span>
+                                                                </td>
+                                                                <td>
+                                                                  <span id="3log5"></span>
+                                                                </td>
+                                                              </tr>
+                                                            </table>
+                                                            </td>
+                                                            <td>
+                                                              <select name="shape" class="shape">
+                                                                <option value=0 selected></option>
+                                                                <option>
+                                                                  Sigmoidal - Steep
+                                                                </option>
+                                                                <option>
+                                                                  Sigmoidal - Shallow
+                                                                </option>
+                                                              </select name="shape" class="shape">
+                                                            </td>
+                                                            <td>
+                                                              <input size=8 name="position"  style="font-size:10px;">
+                                                            </td>
+                                                            <td>
+                                                              <input type="checkbox" />
+                                                            </td>
+                                                            <td>
+                                                              <input type="checkbox" />
+                                                            </td>
+                                                            <td>
+                                                              <input type="checkbox" />
+                                                            </td>
+                                                            <td>
+                                                              <input type="checkbox" />
+                                                            </td>
+                                                            <td>
+                                                              <input type="checkbox" />
+                                                            </td>
+                                                          </tr>
+
+                                                          <tr class="strikeout row3">
+                                                            <td>
+                                                              <span id="ligand4"></span>
+
+                                                            <table class="table-responsive" style="text-align:center;">
+                                                              <tr>
+                                                                <td>
+                                                                  <span id="4log1"></span>
+                                                                </td>
+                                                                <td>
+                                                                  <span id="4log2"></span>
+                                                                </td>
+                                                                <td>
+                                                                  <span id="4log3"></span>
+                                                                </td>
+                                                                <td>
+                                                                  <span id="4log4"></span>
+                                                                </td>
+                                                                <td>
+                                                                  <span id="4log5"></span>
+                                                                </td>
+                                                              </tr>
+                                                            </table>
+                                                            </td>
+                                                            <td>
+                                                              <select name="shape" class="shape">
+                                                                <option value=0 selected></option>
+                                                                <option>
+                                                                  Sigmoidal - Steep
+                                                                </option>
+                                                                <option>
+                                                                  Sigmoidal - Shallow
+                                                                </option>
+                                                              </select name="shape" class="shape">
+                                                            </td>
+                                                            <td>
+                                                              <input size=8 name="position"  style="font-size:10px;">
+                                                            </td>
+                                                            <td>
+                                                              <input type="checkbox" />
+                                                            </td>
+                                                            <td>
+                                                              <input type="checkbox" />
+                                                            </td>
+                                                            <td>
+                                                              <input type="checkbox" />
+                                                            </td>
+                                                            <td>
+                                                              <input type="checkbox" />
+                                                            </td>
+                                                            <td>
+                                                              <input type="checkbox" />
+                                                            </td>
+                                                          </tr>
+
+                                                          <tr class="strikeout row5">
+                                                            <td>
+                                                              <span id="ligand5"></span>
+                                                            <table class="table-responsive" style="text-align:center;">
+                                                              <tr>
+                                                                <td>
+                                                                  <span id="5log1"></span>
+                                                                </td>
+                                                                <td>
+                                                                  <span id="5log2"></span>
+                                                                </td>
+                                                                <td>
+                                                                  <span id="5log3"></span>
+                                                                </td>
+                                                                <td>
+                                                                  <span id="5log4"></span>
+                                                                </td>
+                                                                <td>
+                                                                  <span id="5log5"></span>
+                                                                </td>
+                                                              </tr>
+                                                            </table>
+                                                            </td>
+                                                            <td>
+                                                              <select name="shape" class="shape" id="biphasic" onchange="newRow()">
+                                                                <option value=0 selected></option>
+                                                                <option>
+                                                                  Sigmoidal - Steep
+                                                                </option>
+                                                                <option>
+                                                                  Sigmoidal - Shallow
+                                                                </option>
+                                                                <option value=3>
+                                                                  Biphasic with POI
+                                                                </option>
+                                                              </select name="shape" class="shape">
+                                                            </td>
+                                                            <td>
+                                                              <table class="table-responsive">
+                                                                <tr>
+                                                                  <td>
+                                                                    <input size=8 name="position"  style="font-size:10px;">
+                                                                  </td>
+                                                                </tr>
+                                                                <tr class="hidden" style="display:none">
+                                                                  <td>
+                                                                    <input size=8 name="position"  style="font-size:10px;">
+                                                                  </td>
+                                                                </tr>
+                                                              </table>
+                                                            </td>
+                                                            <td>
+                                                              <table class="table-responsive">
+                                                                <tr>
+                                                                  <td>
+                                                                    <input type="checkbox" />
+                                                                  </td>
+                                                                </tr>
+                                                                <tr class="hidden" style="display:none">
+                                                                  <td>
+                                                                    <input type="checkbox" />
+                                                                  </td>
+                                                                </tr>
+                                                              </table>
+                                                            </td>
+                                                            <td>
+                                                              <table class="table-responsive">
+                                                                <tr>
+                                                                  <td>
+                                                                    <input type="checkbox" />
+                                                                  </td>
+                                                                </tr>
+                                                                <tr class="hidden" style="display:none">
+                                                                  <td>
+                                                                    <input type="checkbox" />
+                                                                  </td>
+                                                                </tr>
+                                                              </table>
+                                                            </td>
+                                                            <td>
+                                                              <table class="table-responsive">
+                                                                <tr>
+                                                                  <td>
+                                                                    <input type="checkbox" />
+                                                                  </td>
+                                                                </tr>
+                                                                <tr class="hidden" style="display:none">
+                                                                  <td>
+                                                                    <input type="checkbox" />
+                                                                  </td>
+                                                                </tr>
+                                                              </table>
+                                                            </td>
+                                                            <td>
+                                                              <table class="table-responsive">
+                                                                <tr>
+                                                                  <td>
+                                                                    <input type="checkbox" />
+                                                                  </td>
+                                                                </tr>
+                                                                <tr class="hidden" style="display:none">
+                                                                  <td>
+                                                                    <input type="checkbox" />
+                                                                  </td>
+                                                                </tr>
+                                                              </table>
+                                                            </td>
+                                                            <td>
+                                                              <table class="table-responsive">
+                                                                <tr>
+                                                                  <td>
+                                                                    <input type="checkbox" />
+                                                                  </td>
+                                                                </tr>
+                                                                <tr class="hidden" style="display:none">
+                                                                  <td>
+                                                                    <input type="checkbox" />
+                                                                  </td>
+                                                                </tr>
+                                                              </table>
+                                                            </td>
+                                                              </tr>
+                                                            </table>
+                                                          </tr>
+                                                        </table>
+                                                      </fieldset>
+                                          </div>
                                         </div>
                                     </div>
                                     <div class="col-lg-6">
@@ -457,33 +831,30 @@
                                                 <div id="myDiv"></div>
                                             </fieldset>
                                         </div>
-
-                                    </div>
-                                    <div class="col-lg-6 quizbuttonAdjustment">
-                                        <div class="row" style="margin:20px 30px;">
-                                            <div class="container-fluid">
-                                              <p class="lihead" style="font-size:15px;margin-bottom:20px;text-align:center;">You may use
-                                                  the space below to justify your answers:</p>
-                                                ​<textarea id="textbox"></textarea>
-                                            </div>
-                                        </div>
-                                        <div class="row" style="margin: 30px">
-                                            <div class="container-fluid">
-                                                <button class="btn" onclick="checkAnswer(false)" style="float:left;"
-                                                        id="back"><span class="tool-name"><i
-                                                        class="fa fa-arrow-left" aria-hidden="true"></i> Back</span>
-                                                </button>
-                                                <button class="btn" onclick="checkAnswer(true)"
-                                                        style="float:right;"><span class="tool-name"
-                                                                                   id="submitButton"></span>
-                                                </button>
-                                            </div>
+                                        <div class="row" style="margin:30px">
+                                          <div class="container-fluid">
+                                            <button class="btn" onclick="checkAnswer(false)" style="float:left;display:none"
+                                                    id="back"><span class="tool-name"><i
+                                                    class="fa fa-arrow-left" aria-hidden="true"></i> Back</span>
+                                            </button>
+                                              <button class="btn" onclick="check()" id="submit"><span class="tool-name" id="submitButton">Submit</span>
+                                              </button>
+                                              <button class="btn" onclick="checkAnswer(true)" style="float:right;" id="nextButton"><span class="tool-name" id="next"></span>
+                                              </button>
+                                          </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+                </div>
+                <div class="quizAnswers1">
+                    <p class="lihead" style="font-size:20px;text-align:center;" id="score"></p>
+                    <p>Time spent: <span id="time-spent"></span></p>
+                    <span id="review"></span>
+                    <span id="restartButton"></span>
+                    </button>
                 </div>
                 <div class="quizAnswers">
                     <p class="lihead" style="font-size:20px;text-align:center;" id="score"></p>
@@ -537,7 +908,7 @@
                             <td style="vertical-align:middle;text-align:center;"><span id="mark5"></span></td>
                         </tr>
                     </table>
-                    <button class="btn" onclick="window.location.reload()"><span class="tool-name">Restart</span>
+                    <button class="btn" onclick="startQuiz(false)"><span class="tool-name">Restart</span>
                     </button>
                 </div>
         </div>

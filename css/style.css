@@ -496,8 +496,18 @@ li.nav-item:hover {
     text-align: justify;
 }
 
-.questionContainer {
+.questionContainer1 {
     display: none;
+}
+
+.questionContainer2 {
+    display: none;
+}
+
+.quizAnswers1 {
+    display: none;
+    margin: auto;
+    width: 80%;
 }
 
 .quizAnswers {
