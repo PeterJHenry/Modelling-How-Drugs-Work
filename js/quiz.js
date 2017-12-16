@@ -235,7 +235,7 @@ function redrawGraph(div, index, subtype, percentage) {
         redrawGraph
         data.push(graph);
     }
-    plotGraph(div, data, true);
+    plotGraph(div, data, false);
 }
 
 function newRow(){
