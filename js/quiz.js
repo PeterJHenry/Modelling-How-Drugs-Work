@@ -403,12 +403,10 @@ function endQuiz() {
     renderResults();
     if(type){
       $('.quizAnswers1').show();
-      $('#restartButton').html('<button class="btn" style="margin-top:20px" onclick="startQuiz(true)"><span class="tool-name">New Question</span>');
     }
     else {
       $('.quizAnswers').show();
       $('#reviewModal').html('<div id="review" class="modal fade" role="dialog"><div id="modal"></div></div>');
-      $('#restartButton').html('<button class="btn" style="margin-top:20px" onclick="startQuiz(false)"><span class="tool-name">Restart Quiz</span>');
     }
 }
 
