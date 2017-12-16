@@ -319,7 +319,7 @@
                                                 <td>
                                                     <div class="leftInput">1.
                                                         <select onchange="ligandAutoFill(this,0,redrawGraph)">
-                                                            <option value="12">Select</option>
+                                                            <option value="12"></option>
                                                             <optgroup label="Established">
                                                                 <option value="0">Atropine</option>
                                                                 <option value="1">Pirenzipine</option>
@@ -358,7 +358,7 @@
                                                     <div class="leftInput">2.
 
                                                         <select onchange="ligandAutoFill(this,1,redrawGraph)">
-                                                            <option value="12">Select</option>
+                                                            <option value="12"></option>
                                                             <optgroup label="Established">
                                                                 <option value="0">Atropine</option>
                                                                 <option value="1">Pirenzipine</option>
@@ -396,7 +396,7 @@
                                                 <td>
                                                     <div class="leftInput">3.
                                                         <select onchange="ligandAutoFill(this,2,redrawGraph)">
-                                                            <option value="12">Select</option>
+                                                            <option value="12"></option>
                                                             <optgroup label="Established">
                                                                 <option value="0">Atropine</option>
                                                                 <option value="1">Pirenzipine</option>
@@ -434,7 +434,7 @@
 
 
                                                         <select onchange="ligandAutoFill(this,3,redrawGraph)">
-                                                            <option value="12">Select</option>
+                                                            <option value="12"></option>
                                                             <optgroup label="Established">
                                                                 <option value="0">Atropine</option>
                                                                 <option value="1">Pirenzipine</option>
@@ -470,7 +470,7 @@
                                                 <td>
                                                     <div class="leftInput">5.
                                                         <select onchange="ligandAutoFill(this,4,redrawGraph)">
-                                                            <option value="12">Select</option>
+                                                            <option value="12"></option>
                                                             <optgroup label="Established">
                                                                 <option value="0">Atropine</option>
                                                                 <option value="1">Pirenzipine</option>
@@ -506,7 +506,7 @@
                                                 <td>
                                                     <div class="leftInput">6.
                                                         <select onchange="ligandAutoFill(this,5,redrawGraph)">
-                                                            <option value="12">Select</option>
+                                                            <option value="12"></option>
                                                             <optgroup label="Established">
                                                                 <option value="0">Atropine</option>
                                                                 <option value="1">Pirenzipine</option>
@@ -545,6 +545,23 @@
                                     </fieldset>
                                 </div>
                             </div>
+                            <div class="row" style="margin-top:50px">
+                              <div class="container-fluid">
+                                  <button class='btn' id="revealButton" onclick="revealSubtype()">
+                                      <span class='tool-name' id="subtypeReveal"></span>
+                                  </button>
+                              </div>
+                              <div class="container-fluid">
+                                  <button class='btn' id="resetButton" onclick="randomiseSubType()">
+                                      <span class='tool-name'>Reset</span>
+                                  </button>
+                              </div>
+                              <div class="container-fluid">
+                                <p class="justify">
+                                  The answer will be either one receptor subtype with a relative density of 100%, or more likely, a mixture of two receptor subtypes with relative proportions between 20% and 80% (in 10% increments).
+                                </p>
+                              </div>
+                            </div>
                         </div>
                         <div class="col-lg-6">
                             <div class="container-fluid ligands">
@@ -555,19 +572,6 @@
                                     </fieldset>
                                 </div>
 
-                            </div>
-                        </div>
-
-                        <div class="col-lg-6 buttonAdjustment">
-                            <div class="container-fluid">
-                                <button class='btn' id="revealButton" onclick="revealSubtype()">
-                                    <span class='tool-name' id="subtypeReveal"></span>
-                                </button>
-                            </div>
-                            <div class="container-fluid">
-                                <button class='btn' id="resetButton" onclick="randomiseSubType()">
-                                    <span class='tool-name'>Reset</span>
-                                </button>
                             </div>
                         </div>
 
