@@ -424,8 +424,8 @@ function renderResults() {
 
     if(score.reduce(function (a,b) {
       return a + b;
-    },0) === 1) $('#score').html("Correct!");
-    else $('#score').html("Incorrect");
+    },0) === 1) $('#answer').html("Correct!");
+    else $('#answer').html("Incorrect");
 
     if(Math.floor(timer/60) === 0) $('#time-spent').html((timer-1)%60+" seconds");
     else if((timer-1)%60 === 0) $('#time-spent').html(Math.floor(timer/60)+" minutes");
