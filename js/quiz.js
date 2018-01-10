@@ -13,6 +13,11 @@ var Percentages = [];
 var ligandList = [];
 var score = [];
 var reldensity = ['#relativeDensity1', '#relativeDensity2', '#relativeDensity3', '#relativeDensity4', '#relativeDensity5'];
+var shapeList = ['select[name=shape1]','select[name=shape2]','select[name=shape3]','select[name=shape4]','select[name=shape5]'];
+var positionList = ['input[name=position1]','input[name=position2]','input[name=position3]','input[name=position4]','input[name=position5]','input[name=position6]'];
+var Shapes = [];
+var Positions = [];
+var Checkboxes = [];
 
 $(document).ready(function () {
     addReceptorListener();
@@ -298,14 +303,64 @@ function check() {
 function storeAnswers() {
     var subtypes = [];
     var percentage = [];
+    var shapes = [];
+    var position = [];
+    var check1 = [];
+    var check2 = [];
+    var check3 = [];
+    var check4 = [];
+    var check5 = [];
+    var check6 = [];
 
-    $('input[class=ans]:checked').each(function () {
+    $('input[class=ans]:checked').each(function(){
         subtypes.push(parseInt($(this).val()));
     });
 
+    $('input[name=checkbox1]').each(function(){
+        if($(this).prop('checked')) check1.push(parseInt($(this).val()));
+        else check1.push(null);
+    });
+
+    $('input[name=checkbox2]').each(function(){
+      if($(this).prop('checked')) check2.push(parseInt($(this).val()));
+      else check2.push(null);
+    });
+
+    $('input[name=checkbox3]').each(function(){
+      if($(this).prop('checked')) check3.push(parseInt($(this).val()));
+      else check3.push(null);
+    });
+
+    $('input[name=checkbox4]').each(function(){
+      if($(this).prop('checked')) check4.push(parseInt($(this).val()));
+      else check4.push(null);
+    });
+
+    $('input[name=checkbox5]').each(function(){
+      if($(this).prop('checked')) check5.push(parseInt($(this).val()));
+      else check5.push(null);
+    });
+
+    $('input[name=checkbox6]').each(function(){
+      if($(this).prop('checked')) check6.push(parseInt($(this).val()));
+      else check6.push(null);
+    });
+
+    for(var i = 0; i < 6; i++){
+      $(positionList[i]).each(function(){
+          position.push($(this).val());
+      });
+    }
+
+    for(var i = 0; i < 5; i++){
+      $(shapeList[i]).find('option:selected').each(function(){
+          shapes.push($(this).val());
+      });
+    }
+
     for (var i = 0; i < 5; i++) {
         $(reldensity[i]).find('option:selected').each(function () {
-            if ($(this).val()) {
+            if($(this).val()){
                 percentage.push(parseInt($(this).val()));
             }
         });
@@ -319,8 +374,12 @@ function storeAnswers() {
         subtypes[0] = null;
         percentage[0] = null;
     }
+
     Subtypes[num] = subtypes;
     Percentages[num] = percentage;
+    Shapes[num] = shapes;
+    Positions[num] = position;
+    Checkboxes[num] = [check1,check2,check3,check4,check5,check6];
 
 }
 
@@ -328,7 +387,7 @@ function restoreAnswer() {
     clearInput();
     var i = 0;
     if (Subtypes[num] != null) {
-        $('input[type=checkbox]').each(function () {
+        $('input[class=ans]').each(function(){
             if (Subtypes[num][0] != null && $(this).val() === Subtypes[num][0].toString()) {
                 $(this).prop('checked', true);
                 $(this).click();
@@ -342,9 +401,73 @@ function restoreAnswer() {
             i++;
         });
     }
+    if(Shapes[num] != null){
+      for(var i = 0; i < 5; i++){
+        $(shapeList[i]).val(Shapes[num][i]);
+        if(Shapes[num][i] === "3") $('.hidden').show();
+      }
+    }
+    if(Positions[num] != null){
+      for(var i = 0; i < 6; i++){
+        $(positionList[i]).val(Positions[num][i]);
+      }
+    }
+
+    if(Checkboxes[num] != null){
+      $('input[name=checkbox1]').each(function(){
+        for(var i = 0; i < 5; i++){
+          if (Checkboxes[num][0][i] != null && $(this).val() == Checkboxes[num][0][i].toString()){
+              $(this).prop('checked', true);
+              $(this).click();
+            }
+        }
+      });
+      $('input[name=checkbox2]').each(function(){
+        for(var i = 0; i < 5; i++){
+          if (Checkboxes[num][1][i] != null && $(this).val() == Checkboxes[num][1][i].toString()){
+              $(this).prop('checked', true);
+              $(this).click();
+            }
+        }
+      });
+      $('input[name=checkbox3]').each(function(){
+        for(var i = 0; i < 5; i++){
+          if (Checkboxes[num][2][i] != null && $(this).val() == Checkboxes[num][2][i].toString()){
+              $(this).prop('checked', true);
+              $(this).click();
+            }
+        }
+      });
+      $('input[name=checkbox4]').each(function(){
+        for(var i = 0; i < 5; i++){
+          if (Checkboxes[num][3][i] != null && $(this).val() == Checkboxes[num][3][i].toString()){
+              $(this).prop('checked', true);
+              $(this).click();
+            }
+        }
+      });
+      $('input[name=checkbox5]').each(function(){
+        for(var i = 0; i < 5; i++){
+          if (Checkboxes[num][4][i] != null && $(this).val() == Checkboxes[num][4][i].toString()){
+              $(this).prop('checked', true);
+              $(this).click();
+            }
+        }
+      });
+      $('input[name=checkbox6]').each(function(){
+        for(var i = 0; i < 5; i++){
+          if (Checkboxes[num][5][i] != null && $(this).val() == Checkboxes[num][5][i].toString()){
+              $(this).prop('checked', true);
+              $(this).click();
+            }
+        }
+      });
+    }
+
 }
 
 function clearInput() {
+    $('.hidden').hide();
     var checkbox_containers = document.getElementById('subtypeCheckbox').children;
     for (var i = 1; i < checkbox_containers.length; i++) {
         checkbox = checkbox_containers[i].children[0];
@@ -354,8 +477,8 @@ function clearInput() {
         }
     }
     $('input[type=checkbox]').prop('checked', false);
-    $('input[name=position]').val('');
-    $('select[name=shape]').val(0);
+    $('input[class=position]').val('');
+    $('select[class=shape]').val(0);
 }
 
 function quizStatus() {
