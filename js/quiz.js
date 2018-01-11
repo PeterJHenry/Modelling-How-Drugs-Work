@@ -27,14 +27,18 @@ $(document).ready(function () {
 });
 
 function startQuiz(quizType) {
+    clearInput();
+    Shapes = [];
+    Positions = [];
+    Checkboxes = [];
     Subtypes = [];
     Percentages = [];
     SubtypeAnswer = [];
     PercentageAnswer = [];
     ligandList = [];
     score = [];
-    clearInput();
     $('.questionContainer').show();
+    $('.answerTable').hide();
     type = quizType;
     if(type){
       $('#next').hide();
@@ -225,7 +229,7 @@ function redrawGraph(div, index, subtype, percentage) {
     // Generate data to pass to the graph.
     var data = [];
     for (i = 0; i < 5; i++) {
-        ligandIndex = ligandList[index][i]
+        if(ligandList[index][i]!= undefined) ligandIndex = ligandList[index][i];
         var dataSet = get_dataset(ligandIndex, index, subtype, percentage);
         var graph = {
             x: dataSet[0],
@@ -268,6 +272,33 @@ function fillTable(){
       $(logs[i][x]).html(log);
     }
   }
+
+  if(Shapes[num] != null){
+    for(var i = 0; i < 5; i++){
+      $(shapeList[i]).val(Shapes[num][i]);
+      if(Shapes[num][i] === "3") $('.hidden').show();
+      else $('.hidden').hide();
+    }
+  }
+  if(Positions[num] != null){
+    for(var i = 0; i < 6; i++){
+      $(positionList[i]).val(Positions[num][i]);
+    }
+  }
+
+  var inputs = ['input[name=checkbox1]','input[name=checkbox2]','input[name=checkbox3]','input[name=checkbox4]','input[name=checkbox5]','input[name=checkbox6]'];
+  if(Checkboxes[num]!=null){
+    for(var x = 0; x < 6; x++){
+      $(inputs[x]).each(function(){
+        for(var i = 0; i < 5; i++){
+          if (Checkboxes[num][x][i] != null && $(this).val() == Checkboxes[num][x][i]){
+              $(this).prop('checked', true);
+            }
+        }
+      });
+    }
+  }
+
 }
 
 function checkAnswer(next) {
@@ -316,35 +347,14 @@ function storeAnswers() {
         subtypes.push(parseInt($(this).val()));
     });
 
-    $('input[name=checkbox1]').each(function(){
-        if($(this).prop('checked')) check1.push(parseInt($(this).val()));
-        else check1.push(null);
-    });
+    var inputs = ['input[name=checkbox1]:checked','input[name=checkbox2]:checked','input[name=checkbox3]:checked','input[name=checkbox4]:checked','input[name=checkbox5]:checked','input[name=checkbox6]:checked'];
+    var checks = [check1,check2,check3,check4,check5,check6];
 
-    $('input[name=checkbox2]').each(function(){
-      if($(this).prop('checked')) check2.push(parseInt($(this).val()));
-      else check2.push(null);
-    });
-
-    $('input[name=checkbox3]').each(function(){
-      if($(this).prop('checked')) check3.push(parseInt($(this).val()));
-      else check3.push(null);
-    });
-
-    $('input[name=checkbox4]').each(function(){
-      if($(this).prop('checked')) check4.push(parseInt($(this).val()));
-      else check4.push(null);
-    });
-
-    $('input[name=checkbox5]').each(function(){
-      if($(this).prop('checked')) check5.push(parseInt($(this).val()));
-      else check5.push(null);
-    });
-
-    $('input[name=checkbox6]').each(function(){
-      if($(this).prop('checked')) check6.push(parseInt($(this).val()));
-      else check6.push(null);
-    });
+    for(var i = 0; i < 6; i++){
+      $(inputs[i]).each(function(){
+          checks[i].push(parseInt($(this).val()));
+      });
+    }
 
     for(var i = 0; i < 6; i++){
       $(positionList[i]).each(function(){
@@ -379,7 +389,7 @@ function storeAnswers() {
     Percentages[num] = percentage;
     Shapes[num] = shapes;
     Positions[num] = position;
-    Checkboxes[num] = [check1,check2,check3,check4,check5,check6];
+    Checkboxes[num] = checks;
 
 }
 
@@ -401,69 +411,6 @@ function restoreAnswer() {
             i++;
         });
     }
-    if(Shapes[num] != null){
-      for(var i = 0; i < 5; i++){
-        $(shapeList[i]).val(Shapes[num][i]);
-        if(Shapes[num][i] === "3") $('.hidden').show();
-      }
-    }
-    if(Positions[num] != null){
-      for(var i = 0; i < 6; i++){
-        $(positionList[i]).val(Positions[num][i]);
-      }
-    }
-
-    if(Checkboxes[num] != null){
-      $('input[name=checkbox1]').each(function(){
-        for(var i = 0; i < 5; i++){
-          if (Checkboxes[num][0][i] != null && $(this).val() == Checkboxes[num][0][i].toString()){
-              $(this).prop('checked', true);
-              $(this).click();
-            }
-        }
-      });
-      $('input[name=checkbox2]').each(function(){
-        for(var i = 0; i < 5; i++){
-          if (Checkboxes[num][1][i] != null && $(this).val() == Checkboxes[num][1][i].toString()){
-              $(this).prop('checked', true);
-              $(this).click();
-            }
-        }
-      });
-      $('input[name=checkbox3]').each(function(){
-        for(var i = 0; i < 5; i++){
-          if (Checkboxes[num][2][i] != null && $(this).val() == Checkboxes[num][2][i].toString()){
-              $(this).prop('checked', true);
-              $(this).click();
-            }
-        }
-      });
-      $('input[name=checkbox4]').each(function(){
-        for(var i = 0; i < 5; i++){
-          if (Checkboxes[num][3][i] != null && $(this).val() == Checkboxes[num][3][i].toString()){
-              $(this).prop('checked', true);
-              $(this).click();
-            }
-        }
-      });
-      $('input[name=checkbox5]').each(function(){
-        for(var i = 0; i < 5; i++){
-          if (Checkboxes[num][4][i] != null && $(this).val() == Checkboxes[num][4][i].toString()){
-              $(this).prop('checked', true);
-              $(this).click();
-            }
-        }
-      });
-      $('input[name=checkbox6]').each(function(){
-        for(var i = 0; i < 5; i++){
-          if (Checkboxes[num][5][i] != null && $(this).val() == Checkboxes[num][5][i].toString()){
-              $(this).prop('checked', true);
-              $(this).click();
-            }
-        }
-      });
-    }
-
 }
 
 function clearInput() {
@@ -606,7 +553,7 @@ function review(questionNo) {
     var graphDelay;
     if (score[questionNo] || Subtypes[questionNo][0] === null) {
       if(type){
-        $('#review').html('<p class="th1"><b>Answer Review</b></p><p id="correctAnswer" style="text-align:center"></p><div class="container"><fieldset class="sectionContainer"><legend>Competition Binding Curve</legend><div class="container"><div id="correctGraph"></div></div></fieldset></div>')
+        $('#review').html('<p class="th1"><b>Answer Review</b></p><div id="answerTable"></dib><p id="correctAnswer" style="text-align:center"></p><div class="container"><fieldset class="sectionContainer"><legend>Competition Binding Curve</legend><div class="container"><div id="correctGraph"></div></div></fieldset></div>');
 
         graphDelay = setInterval(function () {
             redrawGraph(correctGraph, questionNo, SubtypeAnswer, PercentageAnswer)
@@ -615,7 +562,7 @@ function review(questionNo) {
       else {
         $('#modal').html('<div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><h5>Question <span id="question"></span> Review</h5><button type="button" class="close" data-dismiss="modal">&times;</button></div><div class="modal-body"><span id="reviewTable"></span></div><div class="modal-footer"><button class="btn" data-dismiss="modal"><span class="tool-name">Close</span></button></div></div></div>');
         $('#question').html(questionNo + 1);
-        $('#reviewTable').html('<div id="text"></div><p class="th1"><b>Answer Review</b></p><p id="correctAnswer" style="text-align:center"></p><div class="container"><fieldset class="sectionContainer"><legend>Competition Binding Curve</legend><div class="container"><div id="correctGraph"></div></div></fieldset></div>')
+        $('#reviewTable').html('<div id="text"></div><p class="th1"><b>Answer Review</b></p><p id="correctAnswer" style="text-align:center"></p><div class="container"><fieldset class="sectionContainer"><legend>Competition Binding Curve</legend><div class="container"><div id="correctGraph"></div></div></fieldset></div>');
 
         graphDelay = setInterval(function () {
             redrawGraph(correctGraph, questionNo, SubtypeAnswer, PercentageAnswer)
@@ -623,7 +570,7 @@ function review(questionNo) {
       }
     }
     else if (type){
-        $('#review').html('<div class="row"><div class="col-sm-6" style="padding:0"><p class="th1" style="text-align:center"><b>Your answer would have produced these curves</b></p><p id="yourAnswer" style="text-align:center"></p><div class="container"><fieldset class="sectionContainer"><legend>Competition Binding Curve</legend><div class="container"><div id="yourGraph"></div></div></fieldset></div></div><div class="col-sm-6" style="padding:0"><p class="th1" style="text-align:center"><b>The correct answer produces these curves</b></p><p id="correctAnswer" style="text-align:center"></p><div class="container"><fieldset class="sectionContainer"><legend>Competition Binding Curve</legend><div id="correctGraph"></div></fieldset></div></div></div>');
+        $('#review').html('<div class="row"><div class="col-sm-6" style="padding:0"><p class="th1" style="text-align:center"><b>YOUR ANSWER WOULD HAVE PRODUCED THESE CURVES</b></p><p id="yourAnswer" style="text-align:center"></p><div class="container"><fieldset class="sectionContainer"><legend>Competition Binding Curve</legend><div class="container"><div id="yourGraph"></div></div></fieldset></div></div><div class="col-sm-6" style="padding:0"><p class="th1" style="text-align:center"><b>THE CORRECT ANSWER PRODUCES THESE CURVES</b></p><p id="correctAnswer" style="text-align:center"></p><div class="container"><fieldset class="sectionContainer"><legend>Competition Binding Curve</legend><div id="correctGraph"></div></fieldset></div></div></div>');
         graphDelay = setInterval(function () {
             redrawGraph(correctGraph, questionNo, SubtypeAnswer, PercentageAnswer);
             redrawGraph(yourGraph, questionNo, Subtypes, Percentages);
@@ -635,7 +582,7 @@ function review(questionNo) {
     else {
       $('#modal').html('<div class="modal-dialog modal-xl"><div class="modal-content"><div class="modal-header"><h5>Question <span id="question"></span> Review</h5><button type="button" class="close" data-dismiss="modal">&times;</button></div><div class="modal-body"><span id="reviewTable"></span></div><div class="modal-footer"><button class="btn" data-dismiss="modal"><span class="tool-name">Close</span></button></div></div></div>');
       $('#question').html(questionNo + 1);
-      $('#reviewTable').html('<div id="text"></div><div class="row"><div class="col-sm-6" style="padding:0"><p class="th1" style="text-align:center"><b>Your answer would have produced these curves</b></p><p id="yourAnswer" style="text-align:center"></p><div class="container"><fieldset class="sectionContainer"><legend>Competition Binding Curve</legend><div class="container"><div id="yourGraph"></div></div></fieldset></div></div><div class="col-sm-6" style="padding:0"><p class="th1" style="text-align:center"><b>The correct answer produces these curves</b></p><p id="correctAnswer" style="text-align:center"></p><div class="container"><fieldset class="sectionContainer"><legend>Competition Binding Curve</legend><div id="correctGraph"></div></fieldset></div></div></div>');
+      $('#reviewTable').html('<div id="text"></div><div class="row"><div class="col-sm-6" style="padding:0"><p class="th1" style="text-align:center"><b>YOUR ANSWER WOULD HAVE PRODUCED THESE CURVES</b></p><p id="yourAnswer" style="text-align:center"></p><div class="container"><fieldset class="sectionContainer"><legend>Competition Binding Curve</legend><div class="container"><div id="yourGraph"></div></div></fieldset></div></div><div class="col-sm-6" style="padding:0"><p class="th1" style="text-align:center"><b>THE CORRECT ANSWER PRODUCES THESE CURVES</b></p><p id="correctAnswer" style="text-align:center"></p><div class="container"><fieldset class="sectionContainer"><legend>Competition Binding Curve</legend><div id="correctGraph"></div></fieldset></div></div></div>');
       graphDelay = setInterval(function () {
           redrawGraph(correctGraph, questionNo, SubtypeAnswer, PercentageAnswer);
           redrawGraph(yourGraph, questionNo, Subtypes, Percentages);
