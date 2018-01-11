@@ -41,7 +41,7 @@ function startQuiz(quizType) {
       $('#nextButton').hide();
       $('#submit').show();
       $('#submitButton').show();
-      timeLimit=300;
+      timeLimit=3600;
       numberOfQuestions = 1;
       timer = 1;
       $('#quiz_title').html("00:00");
