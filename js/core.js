@@ -36,8 +36,8 @@ var subTypeCheckedCount = 0;
 
 const ligandNames = [
     "Atropine",
-    "Pirenzipine",
-    "Methoctromine",
+    "Pirenzepine",
+    "Methoctramine",
     "Darifenacin",
     "MT-3",
     "S-secoverine",
