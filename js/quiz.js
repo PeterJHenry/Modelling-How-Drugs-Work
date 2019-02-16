@@ -700,6 +700,13 @@ function addReceptorListener() {
     });
 }
 
+function showInstructionsQuiz() {
+    $('#instructions').modal('show');
+    $('#instructions').on('shown.bs.modal', function (event) {
+        $('#quizButton').trigger("click");
+    })
+};
+
 function showBody() {
     $('section').fadeIn();
     $('.loading').fadeOut();

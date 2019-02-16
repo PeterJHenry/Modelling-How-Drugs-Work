@@ -110,6 +110,14 @@ $(document).ready(function () {
     addLigandListener();
 });
 
+function showInstructionsAssessment() {
+    $('#instructions').modal('show');
+    $('#instructions').on('shown.bs.modal', function (event) {
+        $('#assessmentToolButton').trigger("click");
+    })
+};
+
+
 
 function showBody() {
     $('section').fadeIn();

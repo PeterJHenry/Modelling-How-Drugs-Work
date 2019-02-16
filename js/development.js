@@ -249,6 +249,14 @@ $(window).resize(function () {
     generateGraph('myDiv');
 });
 
+function showInstructionsDevelopment() {
+    $('#instructions').modal('show');
+    $('#instructions').on('shown.bs.modal', function (event) {
+        $('#developmentToolButton').trigger("click");
+    })
+};
+
+
 function showBody() {
     $('section').fadeIn();
     $('.loading').fadeOut();

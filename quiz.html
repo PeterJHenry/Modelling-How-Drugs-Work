@@ -296,6 +296,10 @@
 <section class="section quizSection" style="display: none;">
     <div class="container">
         <div class="mainUI">
+            <p align="center">
+                <button class="btn waves-effect waves-light blue" onclick="showInstructionsQuiz()"><span class="fa fa-info-circle"></span> What to do?</button>
+            </p>
+            <br>
             <fieldset class="sectionContainer">
                 <legend id="quiz_title">Quiz</legend>
 
@@ -948,7 +952,7 @@
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                   </div>
                   <div class="modal-body">
-                    <button class="accordion">Development Tool</button>
+                    <button class="accordion" id="developmentToolButton">Development Tool</button>
                     <div class="panel">
                       <p class="justify">The Development Tool can be used to visualise how the shape and position of competition binding curves can be influenced by:
                       </p>
@@ -1013,7 +1017,7 @@
 
                     </div>
 
-                    <button class="accordion">Self-Assessment Tool</button>
+                    <button class="accordion" id="assessmentToolButton">Self-Assessment Tool</button>
                     <div class="panel">
                       <p class="justify">
                         In the Self-Assessment Tool, you choose up to 6 ligands (from the list of 12 <b><i>Established</i></b> and <b><i>Hypothetical</i></b> ligands) that you wish to use in a competition binding study.
@@ -1069,7 +1073,7 @@
 
                     </div>
 
-                    <button class="accordion">Quiz</button>
+                    <button class="accordion" id="quizButton">Quiz</button>
                     <div class="panel">
                       <p class="justify">
                         There are two types of quizzes available:
