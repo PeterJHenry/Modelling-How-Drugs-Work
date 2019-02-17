@@ -302,7 +302,27 @@
                         <div class="col-lg-6">
                             <div class="container">
                                 <fieldset class="sectionContainer">
-                                    <legend>Receptor</legend>
+                                    <legend>Receptor <a data-toggle="modal" href="" data-target="#receptorinfo"><i class="fa fa-info-circle"></i></a></legend>
+                                    <div id="receptorinfo" class="modal fade" role="dialog">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h4 class="modal-title">Receptor</h4>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <div class="box">
+                                                        <p class="justify">To demonstrate the fundamental principles underlying the visual interpretation of competition binding curves, SPIKESbind uses the muscarinic cholinoceptor as a model receptor.  Although other receptors could have been used, the muscarinic cholinoceptor offers some particular advantages.  </p>
+                                                        <p class="justify">1. The muscarinic cholinoceptor is a G-protein-coupled receptor for which 5 subtypes exist (M<sub>1</sub>, M<sub>2</sub>, M<sub>3</sub>, M<sub>4</sub>, M<sub>5</sub>) making it sufficiently complex to be able to generate and analyse both simple and more complex examples of competition binding studies.</p>
+                                                        <p class="justify">2. There are many established ligands that display varying degrees of selectivity for the 5 muscarinic receptor subtypes for which detailed affinity values are available, offering a wide range of opportunities to solve competition binding data.</p>
+                                                        <p class="justify">3. Muscarinic cholinoceptor ligands, particularly antagonists, are used widely clinically and detailed information regarding their pharmacological properties is available.</p>
+                                                    </div>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn waves-effect waves-light blue" data-dismiss="modal">Close</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                     <table class="table-responsive">
                                         <tbody>
                                         <tr>
@@ -350,7 +370,32 @@
 
                             <div class="container">
                                 <fieldset class="sectionContainer">
-                                    <legend>Ligands</legend>
+                                    <legend>Ligands <a data-toggle="modal" href="" data-target="#ligandsinfo"><i class="fa fa-info-circle"></i></a></legend>
+                                    <div id="ligandsinfo" class="modal fade" role="dialog">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h4 class="modal-title">Ligands</h4>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <div class="box">
+                                                        <p class="justify">Competition binding studies involving muscarinic cholinoceptors typically use the non-selective ligands [<sup>3</sup>H-QNB] (as the radioligand) and atropine (to determine non-specific binding).  In addition, these competition binding curves also require the use of competing ligands that exhibit M receptor subtype selectivity.  Although there are potentially many scores of receptor-selective ligands to choose from, SPIKESbind uses 7 Established ligands that have well-documented selectivities and known (published) affinity values (-log K<sub>i</sub> values) determined from pure populations of human recombinant muscarinic cholinoceptors, namely;  </p>
+                                                        <p class="justify">•    pirenzepine (M<sub>1</sub>-selective over M<sub>2</sub>, M<sub>3</sub> and M<sub>5</sub> receptors), </p>
+                                                        <p class="justify">•	methoctramine (M<sub>2</sub>-selective over M<sub>1</sub>, M<sub>3</sub> and M<sub>5</sub> receptors), </p>
+                                                        <p class="justify">•	darifenacin (M<sub>3</sub>-selective over M<sub>1</sub>, M<sub>2</sub> and M<sub>4</sub> receptors), </p>
+                                                        <p class="justify">•	MT-3 (M<sub>4</sub>-selective over all other M subtypes), </p>
+                                                        <p class="justify">•	S-secoverine (M<sub>5</sub>-selective over all other M subtypes),</p>
+                                                        <p class="justify">•	solifenacin (M<sub>3</sub>-selective over M<sub>2</sub> receptors) and </p>
+                                                        <p class="justify">•	DAU-5884 (M<sub>2</sub>-selective over all other M subtypes) </p>
+                                                        <p class="justify">A feature of SPIKESbind is the inclusion of several Hypothetical ligands, which provides users an opportunity to visualise competition binding curves for hypothetical ligands that have greater levels of selectivity than established ligands (Ligand A and Ligand B) and furthermore, to create competing ligands with user-defined affinity characteristics (Ligand C and Ligand D).    </p>
+                                                    </div>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn waves-effect waves-light blue" data-dismiss="modal">Close</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                     <table id="ligandTable" class="table-responsive">
                                         <tbody>
                                         <tr>
@@ -598,7 +643,24 @@
                         <div class="col-lg-6">
                             <div class="container">
                                 <fieldset class="sectionContainer">
-                                    <legend>Competition Binding Curves</legend>
+                                    <legend>Competition Binding Curves <a data-toggle="modal" href="" data-target="#competitioninfo"><i class="fa fa-info-circle"></i></a></legend>
+                                    <div id="competitioninfo" class="modal fade" role="dialog">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h4 class="modal-title">Competition Binding Curve</h4>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <div class="box">
+                                                        <p class="justify">Competition binding curves are generated from competition binding studies.  In competition binding studies, constant amounts of cell/tissue membrane suspension (containing the receptor of interest) are incubated with a single concentration of radioligand (or fluorescently-labelled ligand) and increasing concentrations of a non-radioactive ligand (the ‘competing’ ligand).  As the concentration of competing ligand increases it will outcompete the radioligand for the receptor binding site, causing the level of binding of the radioligand to the receptor (specific binding) to gradually decrease.  Thus, a plot of the log<sub>10</sub>[competing ligand] on the x-axis versus the level of binding of the radioligand (typically % Specific Binding) on the y-axis typically generates an inverse sigmoidal curve (see the default competition binding curve for atropine displayed).  As explained later, when the radioligand and competing ligand bind to a single population of non-interacting receptors (the simplest scenario), the competition binding curve will have a ‘steep sigmoidal’ shape, whereas if the cell/tissue membrane suspension contains multiple receptor subtypes to which the radioligand can bind and the competing ligand has different affinities for, then ‘shallow sigmoidal’ or ‘multiphasic’ competition binding curves are obtained.</p>
+                                                    </div>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn waves-effect waves-light blue" data-dismiss="modal">Close</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                     <div id="myDiv"></div>
                                 </fieldset>
                             </div>
@@ -842,7 +904,7 @@
                     <p class="justify" style="color:grey;">Hulme EC, Trevethick MA. (2010) Ligand binding assays at equilibrium: validation and interpretation. Br J Pharmacol. 161:1219-37. </p>
                     <p class="justify" style="color:grey;">Kenakin TP (2004) A Pharmacology Primer: Theory, Application, and Methods. First Edn. Elsevier Academic Press, San Diego, CA, USA.</p>
                     <p class="justify" style="color:grey;">Limbird LE, Motulsky H (2011). Receptor Identification and Charcterisation.  Suppl. 20.  Handbook of Physiology, The Endocrine System, Cellular Endocrinology.  https://doi.org/10.1002/cphy.cp070104</p>
-                    <p class="justify" style="color:grey;">Liu H, Hofmann J, Fish I, et al. (2018) Structure-guided development of selective M3 muscarinic acetylcholine receptor antagonists. Proc Natl Acad Sci U S A. 115:12046-12050.</p>
+                    <p class="justify" style="color:grey;">Liu H, Hofmann J, Fish I, et al. (2018) Structure-guided development of selective M<sub>3</sub> muscarinic acetylcholine receptor antagonists. Proc Natl Acad Sci U S A. 115:12046-12050.</p>
                     <p class="justify" style="color:grey;">Mansfield KJ, Liu L, Mitchelson FJ, Moore KH, Millard RJ, Burcher E (2005). Muscarinic receptor subtypes in human bladder detrusor and mucosa, studied by radioligand binding and quantitative competitive RT-PCR: changes in ageing. Br J Pharmacol. 144:1089-99.</p>
                     <p class="justify" style="color:grey;">Neubig RR, Spedding M, Kenakin T, Christopoulos A, International Union of Pharmacology Committee on Receptor Nomenclature and Drug Classification (2003). International Union of Pharmacology Committee on Receptor Nomenclature and Drug Classification. XXXVIII. Update on terms and symbols in quantitative pharmacology. Pharmacol Rev. 55:597-606.</p>
                     <p class="justify" style="color:grey;">Ohtake A, Saitoh C, Yuyama H, Ukai M, Okutsu H, Noguchi Y, Hatanaka T, Suzuki M, Sato S, Sasamata M, Miyata K (2007). Pharmacological characterization of a new antimuscarinic agent, solifenacin succinate, in comparison with other antimuscarinic agents. Biol Pharm Bull. 30:54-8.</p>
