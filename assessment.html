@@ -565,6 +565,99 @@
                                   The answer will be either one receptor subtype with a relative density of 100%, or more likely, a mixture of two receptor subtypes with relative proportions between 20% and 80% (in 10% increments).
                                 </p>
                               </div>
+                              <div class="container-fluid">
+                                  <button class="btn" data-toggle="modal" data-target="#spikesapproach"><i class="fa fa-info-circle"></i> SPIKES Approach</button>
+                              </div>
+                              <div id="spikesapproach" class="modal fade" role="dialog">
+                                <div class="modal-dialog modal-lg">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h4 class="modal-title">SPIKES Approach</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <ul class="nav nav-tabs nav-pills nav-justified" role="tablist">
+                                                <li class="nav-item">
+                                                    <a class="nav-link active show" data-toggle="tab" href="#shape">
+                                                        Shape
+                                                    </a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a class="nav-link" data-toggle="tab" href="#position">
+                                                        Position
+                                                    </a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a class="nav-link" data-toggle="tab" href="#ic50values">
+                                                        IC<sub>50</sub> values
+                                                    </a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a class="nav-link" data-toggle="tab" href="#kivalues">
+                                                        K<sub>i</sub> values
+                                                    </a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a class="nav-link" data-toggle="tab" href="#elimination">
+                                                        Elimination
+                                                    </a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a class="nav-link" data-toggle="tab" href="#summation">
+                                                        Summation
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="tab-content">
+                                            <div id="shape" class="container tab-pane active show">
+                                                <div class="col-lg-12">
+                                                    <p class="justify">An analysis of the shape of each competition binding curve within a binding study can provide an initial indication as to whether there exists one or more receptors in the cell/tissue. For example, if a competition binding curve is <i>steep sigmoidal</i> then the competing ligand is binding to a population of receptors for which it has a single affinity – this may be to one receptor or more receptors.  On the other hand, if a competition binding curve is <i>sigmoidal shallow</i> or <i>multiphasic</i>, then this is clearly indicative that the ligand is binding to more than one receptor with different affinities – i.e. the cell/tissue contains more than receptor, although further analysis is required to identify the receptor subtypes present. Thus, analysis of the shape of competition binding curves is informative (may indicate whether the cell/tissue contains more than one receptor subtype) but not definitive (doesn’t identify the receptor subtype(s) present).</p>
+                                                </div>
+                                            </div>
+                                            <div id="position" class="container tab-pane">
+                                                <div class="col col-lg-12">
+                                                    <p class="justify">Determining the position of each of the competition binding curves is crucial to the identification of the receptors present in the cell/tissue.  This is because the position of the competition binding curve is (at least in part) dependent upon the affinity of the competing ligand for the receptor(s) present.  As explained further below, by identifying the position of the competition binding curve and completing appropriate analyses, it is possible to calculate the affinity of the ligand for the receptor(s) present and ultimately determine which receptor subtypes are present.</p>
+                                                </div>
+                                            </div>
+                                            <div id="ic50values" class="container tab-pane">
+                                                <div class="col col-lg-12">
+                                                    <p class="justify">The position of <i>steep sigmoidal</i> and <i>shallow sigmoidal</i> competition binding curves is typically expressed in terms of an IC<sub>50</sub> value – the concentration of competing ligand that reduces %Specific binding of the radioligand by 50% – and can be read directly from the competition binding curve or determined using computer-assisted analysis by fitting the data to a one-site binding model.  <i>Biphasic</i> competition binding curves (the most common form of multiphasic binding, that contain two clear phases of binding separated by a clear point of inflection) will have two IC<sub>50</sub> values – IC<sub>50</sub>(1) for the first phase of binding (at the lower concentrations of the competing ligand) and IC<sub>50</sub>(2) for the second phase of binding (at the higher concentrations of the competing ligand).  IC<sub>50</sub>(1) and IC<sub>50</sub>(2) can be read directly from the competition binding curve or determined using computer-assisted analysis by fitting the data to a two-site binding model.  </p>
+                                                    <p class="justify">IC<sub>50</sub> values are not a reliable measure of the affinity of the competing ligand for the receptor – this is because the IC<sub>50</sub> value depends upon not only on the affinity of the competing ligand but also on the concentration and affinity of the radioligand.  The higher the concentration of radioligand used, the higher the concentrations of competing ligand required to outcompete the radioligand and the higher the IC<sub>50</sub> value.  Nevertheless, IC<sub>50</sub> values can be used to calculate the absolute affinity of the competing ligand for the receptor (K<sub>i</sub>) present by applying the Cheng-Prusoff (1973) equation:</p>
+                                                    <img class="img-fluid" src="img/chengprusoff.png">
+                                                    <p class="justify">where<br>K<sub>i</sub> = the affinity of the competing ligand for the receptor(s) present(the ‘i’ indicates the affinity value was determined from a competition (inhibition) binding study)</p>
+                                                    <p class="justify">IC<sub>50</sub> = the concentration of competing ligand that reduces radioligand binding by 50% (determined from the competition binding curve)</p>
+                                                    <p class="justify">[radioligand] = the concentration of radioligand used in the competition binding study</p>
+                                                    <p class="justify">K<sub>d</sub> of radioligand = the affinity of the radioligand for the receptors – typically determined from a previously-completed saturation binding study</p>
+                                                    <p class="justify">Application of the Cheng-Prusoff equation to generate K<sub>i</sub> values (true measure of affinity) is appropriate for IC<sub>50</sub> values generated from <i>steep sigmoidal</i> and <i>biphasic</i> competition binding curves, but not <i>shallow sigmoidal</i> competition binding curves.  That is, although a single IC<sub>50</sub> value can be readily derived from a <i>shallow sigmoidal</i> curve, it represents the binding of the competing ligand to at least two receptor subtypes with different affinities – so the single K<sub>i</sub> value derived from the IC<sub>50</sub> value of a <i>shallow sigmoidal</i> curve is a ‘<i>composite</i> K<sub>i</sub> value’ which does not faithfully represent the true affinity of the competing ligand for either receptor subtype (Note though that the ‘<i>composite</i> K<sub>i</sub> value’ will lay between the two true K<sub>i</sub> values).  Calculating the two true K<sub>i</sub> values for a shallow competition binding curve requires fitting the data to a two site binding model (to generate two IC<sub>50</sub> values) and using the Cheng-Prusoff equation (to convert each IC<sub>50</sub> value into a K<sub>i</sub> value).</p>
+                                                    <p class="justify">From the Cheng-Prusoff equation, notice that if the [radioligand] used is very low (compared to K<sub>d</sub> of radioligand) then the quotient [radioligand]/K<sub>d</sub> of radioligand approaches zero, the value of the denominator approaches 1, and the K<sub>i</sub> value approximates the IC<sub>50</sub> value.  That is, when the [radioligand] << K<sub>d</sub> of radioligand then the visually-determined IC<sub>50</sub> value (read directly from the competition binding curve) can be used as a good approximation of the K<sub>i</sub> value for the competing ligand.  </p>
+                                                    <p class="justify">In SPIKESmate, the [radioligand] << K<sub>d</sub> of radioligand, and thus the logIC<sub>50</sub> values obtained directly from the competition binding curves can be used as a direct approximation of the affinity (logK<sub>i</sub> value) of the ligand for the receptor(s) present (i.e. no need to apply the Cheng-Prusoff equation).  </p>
+                                                </div>
+                                            </div>
+                                            <div id="kivalues" class="container tab-pane">
+                                                <div class="col col-lg-12">
+                                                    <p class="justify">As mentioned above, the K<sub>i</sub> value is a measure of the affinity of the competing ligand for the receptor – it is often expressed as a –logK<sub>i</sub> value.  The K<sub>i</sub> value is determined by applying the Cheng-Prusoff equation to the IC<sub>50</sub> values read/determined from the competition binding curve, as indicated above.  The units of the K<sub>i</sub> value are molar concentration, consistent with the idea that the K<sub>i</sub> value is the concentration of ligand that will occupy 50% of receptors in the absence of any competing ligand. Thus, the lower the K<sub>i</sub> value, the higher the affinity of the ligand for the receptor.</p>
+                                                </div>
+                                            </div>
+                                            <div id="elimination" class="container tab-pane">
+                                                <div class="col col-lg-12">
+                                                    <p class="justify">Comparison of the –logK<sub>i</sub> values obtained for a range of receptor-selective competing ligands in a competition binding study to their known –logK<sub>i</sub> values (obtained from competition binding studies using pure populations of recombinant human M receptor subtypes), together with a process of elimination and summation can be used to determine which M receptor subtypes are present in a cell/tissue.</p>
+                                                    <p class="justify">The comparison involves determining the absolute difference between the single –logK<sub>i</sub> value obtained for a competing ligand in a cell/tissue to each of the known –logK<sub>i</sub> values for that competing ligand at each of the receptor subtypes (e.g. M<sub>1</sub>, M<sub>2</sub>, M<sub>3</sub>, M<sub>4</sub> and M<sub>5</sub>).  If for any of the comparisons, the absolute difference in –logK<sub>i</sub> values is  1.0 unit then it is highly unlikely that any of those receptor subtypes are present in the cell/tissue.  </p>
+                                                    <p class="justify">For example, a competition binding study determined that the –logK<sub>i</sub> value of MT-3 in a cell/tissue was 6.3.  This value of 6.3 is then compared to the known –logK<sub>i</sub> values of MT-3 at M<sub>1</sub>, M<sub>2</sub>, M<sub>3</sub>, M<sub>4</sub> and M<sub>5</sub> receptors (6.7, 5.9, 6.0, 8.1 and 6.0, respectively) – providing absolute differences of 0.4, 0.4, 0.3, 1.8 and 0.3.  Of these differences only the difference of 1.8 at the M<sub>4</sub> receptor subtype is &ge; 1.0 unit.  The conclusion drawn from the MT-3 competition binding curve (and –logK<sub>i</sub> value of 6.3) is that the cell/tissue does not contain a significant population of M<sub>4</sub> receptors – i.e. the use of MT-3 has enabled us to <i>eliminate</i> the possibility that the cell/tissue contains M<sub>4</sub> receptors.  Although MT-3 has thus been useful in the example to eliminate the M<sub>4</sub> receptor subtype, it does not provide any definitive additional information regarding which receptor(s) are present – there could be any combination of M<sub>1</sub>, M<sub>2</sub>, M<sub>3</sub> and/or M<sub>5</sub> receptors present.  Determination of which receptor subtypes are present requires applying this elimination process to the –logK<sub>i</sub> values obtained visually to a range of other receptor-selective ligands (e.g. potentially to each of pirenzepine, methoctramine, darifenacin and S-secoverine) until all receptor subtypes have been eliminated except for the receptor subtypes present.   </p>
+                                                    <p class="justify">Only relatively rarely can the use of a –logK<sub>i</sub> value obtained from a single competing ligand successfully identify which receptor is present in a cell/tissue – that is, only in the instance where the competing ligand is highly selective for the single receptor present (e.g. MT-3 binding to a cell/tissue containing a pure population of M<sub>4</sub> receptors, S-secoverine binding to a cell/tissue containing a pure population of M<sub>5</sub> receptors or DAU-5884 binding to a cell/tissue containing a pure population of M<sub>2</sub> receptors).</p>
+                                                </div>
+                                            </div>
+                                            <div id="summation" class="container tab-pane">
+                                                <div class="col-lg-12">
+                                                    <p class="justify">In the Elimination process, each different competing ligand may be able to eliminate one or more receptor subtypes as having been present within the cell/tissue. By using the information obtained from ALL the competing ligands (Summation), a concerted process of elimination should leave just those receptors that are present in the cell/tissue not being eliminated.  Illustrations of how the SPIKES approach can be used to determine which receptors are present in a particular cell/tissue are presented in the worked Examples #1 - #7. </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn waves-effect waves-light blue" data-dismiss="modal">Close</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                             </div>
                         </div>
                         <div class="col-lg-6">
@@ -769,7 +862,7 @@
                             The graph in question will appear on the right hand size, showing the 5 pre-selected ligands plotted with the randomised mixed receptor subtype combination.
                         </p>
                         <p class="justify">
-                            <i>Use this information to work out your solution (i.e. which receptor subtypes are present and their relative densities).</i> Provided is a ‘SPIKES Approach’ table for you to help determine the answer. In this table you are able to view the list of ligands displayed in the graph, along with their corresponding -log Ki values, a drop down menu to determine the shape of the curve, a position textbox to enter information for the -logIC<sub>50</sub> value, and checkboxes to eliminate receptor subtypes (i.e. apply the SPIKES approach).
+                            <i>Use this information to work out your solution (i.e. which receptor subtypes are present and their relative densities).</i> Provided is a ‘SPIKES Approach’ table for you to help determine the answer. In this table you are able to view the list of ligands displayed in the graph, along with their corresponding -log K<sub>i</sub> values, a drop down menu to determine the shape of the curve, a position textbox to enter information for the -logIC<sub>50</sub> value, and checkboxes to eliminate receptor subtypes (i.e. apply the SPIKES approach).
                         </p>
                         <p class="justify">
                             Once you have completed your analysis, enter which receptor subtype(s) you believe to be present and their relative densities, using the checkboxes and drop down menus provided.
@@ -821,7 +914,7 @@
                         of Associate Professor Peter Henry.</p>
                     <button class="accordion">References</button>
                     <div class="panel">
-                        <p class="justify" style="color:grey;">Cheng Y. and Prusoff W.H. (1973) Relationship between the inhibition constant (Ki) and the concentration of an inhibitor that causes a 50% inhibition (I50) of an enzymatic reaction. Biochem. Pharmacol. 22: 3099–3108.</p>
+                        <p class="justify" style="color:grey;">Cheng Y. and Prusoff W.H. (1973) Relationship between the inhibition constant (K<sub>i</sub>) and the concentration of an inhibitor that causes a 50% inhibition (I50) of an enzymatic reaction. Biochem. Pharmacol. 22: 3099–3108.</p>
                         <p class="justify" style="color:grey;">D'Agostino G, Condino AM, Gioglio L, Zonta F, Tonini M, Barbieri A (2008).  Isolated porcine bronchi provide a reliable model for development of bronchodilator anti-muscarinic agents for human use. Br J Pharmacol. 154: 1611-8.</p>
                         <p class="justify" style="color:grey;">DeLean A, Hancock AA, Lefkowitz RJ (1982). Validation and statistical analysis of the computer modeling method for quantitative analysis of radioligand binding data for mixtures of pharmacological subtypes. Mol. Pharmacol. 21: 5–16.</p>
                         <p class="justify" style="color:grey;">Eglen RM, Nahorski SR (2000). The muscarinic M(5) receptor: a silent or emerging subtype? Br J Pharmacol. 130:13-21.</p>
