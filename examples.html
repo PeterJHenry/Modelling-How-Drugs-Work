@@ -1,0 +1,1058 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>SPIKESbind</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.css">
+
+    <!-- Custom fonts -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet"
+          type="text/css">
+
+    <!-- Custom style -->
+    <link href="css/style.min.css" type="text/css" rel="stylesheet">
+
+    <!-- Favicons -->
+    <link rel="shortcut icon" type="image/ico" href="favicon/favicon.ico"/>
+    <link rel="apple-touch-icon-precomposed" sizes="57x57" href="favicon/apple-touch-icon-57x57.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="favicon/apple-touch-icon-114x114.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="favicon/apple-touch-icon-72x72.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="favicon/apple-touch-icon-144x144.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="60x60" href="favicon/apple-touch-icon-60x60.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="favicon/apple-touch-icon-120x120.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="76x76" href="favicon/apple-touch-icon-76x76.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="favicon/apple-touch-icon-152x152.png"/>
+    <link rel="icon" type="image/png" href="favicon/favicon-196x196.png" sizes="196x196"/>
+    <link rel="icon" type="image/png" href="favicon/favicon-96x96.png" sizes="96x96"/>
+    <link rel="icon" type="image/png" href="favicon/favicon-32x32.png" sizes="32x32"/>
+    <link rel="icon" type="image/png" href="favicon/favicon-16x16.png" sizes="16x16"/>
+    <link rel="icon" type="image/png" href="favicon/favicon-128.png" sizes="128x128"/>
+    <meta name="application-name" content="&nbsp;"/>
+    <meta name="msapplication-TileColor" content="#FFFFFF"/>
+    <meta name="msapplication-TileImage" content="favicon/mstile-144x144.png"/>
+    <meta name="msapplication-square70x70logo" content="favicon/mstile-70x70.png"/>
+    <meta name="msapplication-square150x150logo" content="favicon/mstile-150x150.png"/>
+    <meta name="msapplication-wide310x150logo" content="favicon/mstile-310x150.png"/>
+    <meta name="msapplication-square310x310logo" content="favicon/mstile-310x310.png"/>
+
+</head>
+<body>
+<div class="loading">
+    <img src="img/loading.gif" alt="">
+</div>
+<!-- Header -->
+<header>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html"><img src="favicon/favicon.ico" width=20> SPIKES<i>bind</i></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                    aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="development.html">Development Tool</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="assessment.html">Self-Assessment Tool</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="quiz.html">Quiz</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="modal" href="" data-target="#logki">-log K<sub>i</sub>
+                            Table</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="modal" href="" data-target="#assumptions">Assumptions of the
+                            Model</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- logki Modal -->
+    <div class="modal fade" id="logki" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content -->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5>-log K<sub>i</sub> Table</h5>
+                    <a style="color:blue" onclick="popup('referenceTable.html')">Open in new window <i class="fa fa-external-link" aria-hidden="true"></i></a>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <p class="justify">Hypothetical ligands have been included in the model to increase its
+                        applicability.
+                        <br><br>Ligand A and Ligand B are examples of ligands that have marked differences in affinities
+                        (-log K<sub>i</sub> values) for receptor subtypes (not evident with established ligands).
+                        <br><br>You may nominate affinities (-log K<sub>i</sub> values) for Ligands C and D.</p>
+                    <table class="table table-hover">
+                        <thead>
+                        <tr>
+                            <th class="th1" style="vertical-align:middle; text-align:left;" rowspan=2>Competing<br>Ligand
+                            </th>
+                            <th class="th1" colspan=5>-log K<sub>i</sub> Value</th>
+                        </tr>
+                        <tr>
+                            <th class="th1">M<sub>1</sub></th>
+                            <th class="th1">M<sub>2</sub></th>
+                            <th class="th1">M<sub>3</sub></th>
+                            <th class="th1">M<sub>4</sub></th>
+                            <th class="th1">M<sub>5</sub></th>
+                        </tr>
+                        <tr>
+                            <th colspan=6>Established
+                            </td>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td class="ligTitle">Atropine</td>
+                            <td>9.0</td>
+                            <td>8.8</td>
+                            <td>9.3</td>
+                            <td>8.9</td>
+                            <td>9.2</td>
+                        </tr>
+                        <tr>
+                            <td class="ligTitle">Pirenzepine</td>
+                            <td>8.2</td>
+                            <td>6.5</td>
+                            <td>6.9</td>
+                            <td>7.4</td>
+                            <td>7.2</td>
+                        </tr>
+                        <tr>
+                            <td class="ligTitle">Methoctramine</td>
+                            <td>6.7</td>
+                            <td>7.7</td>
+                            <td>6.0</td>
+                            <td>7.0</td>
+                            <td>6.3</td>
+                        </tr>
+                        <tr>
+                            <td class="ligTitle">Darifenacin</td>
+                            <td>7.8</td>
+                            <td>7.0</td>
+                            <td>8.8</td>
+                            <td>7.7</td>
+                            <td>8.0</td>
+                        </tr>
+                        <tr>
+                            <td class="ligTitle">MT-3</td>
+                            <td>6.7</td>
+                            <td>5.9</td>
+                            <td>6.0</td>
+                            <td>8.1</td>
+                            <td>6.0</td>
+                        </tr>
+                        <tr>
+                            <td class="ligTitle">S-Secoverine</td>
+                            <td>8.0</td>
+                            <td>7.9</td>
+                            <td>7.7</td>
+                            <td>7.7</td>
+                            <td>6.5</td>
+                        </tr>
+                        <tr>
+                            <td class="ligTitle">Solifenacin</td>
+                            <td>7.6</td>
+                            <td>6.8</td>
+                            <td>7.9</td>
+                            <td>7.0</td>
+                            <td>7.5</td>
+                        </tr>
+                        <tr>
+                            <td class="ligTitle">DAU-5884</td>
+                            <td>8.9</td>
+                            <td>7.1</td>
+                            <td>8.9</td>
+                            <td>8.5</td>
+                            <td>8.1</td>
+                        </tr>
+                        </tbody>
+                        <thead>
+                        <tr>
+                            <th colspan=6>Hypothetical</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td class="ligTitle">Ligand A</td>
+                            <td>9.0</td>
+                            <td>9.0</td>
+                            <td>6.0</td>
+                            <td>6.0</td>
+                            <td>2.0</td>
+                        </tr>
+                        <tr>
+                            <td class="ligTitle">Ligand B</td>
+                            <td>8.0</td>
+                            <td>5.0</td>
+                            <td>2.0</td>
+                            <td>5.0</td>
+                            <td>8.0</td>
+                        </tr>
+                        <tr data-toggle="tooltip" data-placement="bottom" title="select your own values">
+                            <td class="ligTitle">Ligand C</td>
+                            <td>*</td>
+                            <td>*</td>
+                            <td>*</td>
+                            <td>*</td>
+                            <td>*</td>
+                        </tr>
+                        <tr data-toggle="tooltip" data-placement="bottom" title="select your own values">
+                            <td class="ligTitle">Ligand D</td>
+                            <td>*</td>
+                            <td>*</td>
+                            <td>*</td>
+                            <td>*</td>
+                            <td>*</td>
+                        </tr>
+                        </tbody>
+                        </tr>
+                    </table>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn" data-dismiss="modal"><span class="tool-name">Close</span></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Assumptions Modal -->
+    <div class="modal fade" id="assumptions" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content -->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5>Assumptions of the Model</h5>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <ol>
+                        <li class="lihead">All of the usual assumptions associated with Law of Mass Action that
+                            typically
+                            describe drug binding to receptors
+                        </li>
+                        <ul>
+                            <li>All receptors are equally accessible to ligands.</li>
+                            <li>All receptors are either free or bound to ligand - i.e. the model ignores any states of
+                                partial binding.
+                            </li>
+                            <li>Neither ligand nor receptor are altered by binding.</li>
+                            <li>Binding is reversible.</li>
+                        </ul>
+                        <br>
+                        <li class="lihead">Assumptions associated with competition binding studies</li>
+                        <ul>
+                            <li>Only a small fraction of both the labelled and unlabelled ligands has bound, so the free
+                                concentration is virtually the same as the added concentration.
+                            </li>
+                            <li>There is no co-operativity – binding to one binding site does not alter affinity at
+                                another
+                                site.
+                            </li>
+                            <li>The experiment has reached equilibrium.</li>
+                            <li>Binding is reversible and follows the law of mass action.</li>
+                        </ul>
+                        <br>
+                        <li class="lihead">Other model-specific assumptions</li>
+                        <ul>
+                            <li>Analysis is conducted using % Specific Binding (no non-specific binding)</li>
+                            <li>[<sup>3</sup>H-QNB] used in studies was << K<sub>A</sub> of <sup>3</sup>H-QNB for
+                                receptors
+                                present, i.e. Cheng-Prusoff equation reduces to IC<sub>50</sub> &cong; K<sub>i</sub> for
+                                all
+                                competing ligands.
+                            </li>
+                        </ul>
+                    </ol>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn" data-dismiss="modal"><span class="tool-name">Close</span></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+<!-- Content -->
+<section class="section assessmentSection" style="display: none;">
+    <div class="container">
+        <div class="mainUI">
+            <div class="container-fluid">
+                <p class="jusitfy">Provided below are worked examples (of increasing complexity) that demonstrate how <b>visual inspection</b> of competition binding curves and the application of the <b>SPIKES approach</b> can often be used to definitively <b>determine which receptor subtypes are present within a particular cell/tissue and if more than one receptor is present, their relative densities.</b>  Pay particular attention to the notes provided at the end of most of the examples as they provide special insight into the process.</p>
+                <p class="justify">The questions posed in the Quiz Tool are similar in style and difficulty to the worked Examples #4, #5 and #6 (the Quiz Tool does not present triphasic competition binding curves as posed in worked Example #7).  </p>
+            </div>
+            <div class="container-fluid" style="margin-top:10%;">
+                <button class='btn tool-name' data-toggle="modal" data-target="#spikesexamples">
+                    <span class="fa fa-info-circle"></span> SPIKES Examples
+                </button>
+            </div>
+            <div id="spikesexamples" class="modal fade" role="dialog">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title">SPIKES Examples</h4>
+                        </div>
+                        <div class="modal-body">
+                            <ul class="nav nav-tabs nav-pills nav-justified" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link active show" data-toggle="tab" href="#example1">
+                                        Example #1
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" data-toggle="tab" href="#example2">
+                                        Example #2
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" data-toggle="tab" href="#example3">
+                                        Example #3
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" data-toggle="tab" href="#example4">
+                                        Example #4
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" data-toggle="tab" href="#example5">
+                                        Example #5
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" data-toggle="tab" href="#example6">
+                                        Example #6
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" data-toggle="tab" href="#example7">
+                                        Example #7
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="tab-content">
+                            <div id="example1" class="container tab-pane active show">
+                                <div class="col-lg-12">
+                                    <p class="lihead"><b>Apply the <span style="color:red;">SPIKES</span> approach to the following competition binding curve for MT-3 to determine which M cholinoceptor subtype(s) is (are) present in the cell/tissue.</b></p>
+                                    <img class="img-fluid" src="img/example1img1.png">
+                                    <p class="lihead"><b><span style="color:red;">S</span>hape / <span style="color:red;">P</span>osition</b></p>
+                                    <p class="justify">Visual inspection of the MT-3 competition binding curve indicates that it is inverse sigmoidal, but is it <i>steep sigmoidal</i> or <i>shallow sigmoidal</i>?  For a competition binding curve to be considered <i>steep sigmoidal</i> then the extent of %Specific Binding covered by logIC<sub>50</sub> ± 1.0 should be greater than 80% - if it is less than 80% then the curve is considered <i>shallow sigmoidal</i>. Firstly, determine the logIC<sub>50</sub> value for MT-3, i.e. -8.1.  Then determine the %Specific binding values at the [MT-3] that is 1.0 log unit below the –logIC<sub>50</sub> (-9.1) and at 1.0 log unit above the –logIC<sub>50</sub> (-7.1).  As shown in the figure below, the levels of %Specific binding are 90.9% and 9.1%, respectively.  The difference (90.9% – 9.1% = 81.8%) is greater than 80% - thus, the competition binding curve is considered <i>steep sigmoidal</i>.  This indicates that MT-3 is binding to a population of receptors for which it has similar affinity – for MT-3 that would be either a pure population of M<sub>4</sub> receptors for which it has high affinity (-logK<sub>i</sub> = 8.1) or a population of M<sub>1</sub> and/or M<sub>2</sub> and/or M<sub>3</sub> and/or M<sub>5</sub> receptors for which it has a much lower affinity (range of –logK<sub>i</sub> values 5.9-6.7).</p>
+                                    <img class="img-fluid" src="img/example1img2.png">
+                                    <p class="lihead"><b><span style="color:red;">I</span>C50 / <span style="color:red;">K</span>i value </b></p>
+                                    <p class="justify">As a very low concentration of radioligand was used in the study (compared to the K<sub>d</sub> of the radioligand), the –logIC<sub>50</sub> ~ -logK<sub>i</sub> and so the –logK<sub>i</sub> value for MT-3 = 8.1.  If a higher concentration of radioligand had been used then the Cheng-Prusoff equation would have been used to convert the IC<sub>50</sub> value into the K<sub>i</sub>value.</p>
+                                    <p class="lihead"><b><span style="color:red;">E</span>limination / <span style="color:red;">S</span>ummation</b></p>
+                                    <p class="justify">When we compare the –logK<sub>i</sub> value of 8.1 to the known –logK<sub>i</sub> values of MT-3 for M<sub>1</sub> (6.7), M<sub>2</sub> (5.9), M<sub>3</sub> (6.0), M<sub>4</sub> (8.1) and M<sub>5</sub> (6.0) the –logK<sub>i</sub> value of 8.1 is &ge; 1 log unit different to the known –logK<sub>i</sub> values of MT-3 binding to M<sub>1</sub>, M<sub>2</sub>, M<sub>3</sub> and M<sub>5</sub> receptors – and only similar to the –logK<sub>i</sub> value of 8.1 expected for MT-3 binding to M<sub>4</sub> receptors.  </p>
+                                    <p class="justify">Thus, <b>visual inspection</b> of the MT-3 competition binding curve indicates that it is highly <b>unlikely that the cell/tissue contains significant populations of either M<sub>1</sub>, M<sub>2</sub>, M<sub>3</sub> or M<sub>5</sub> receptors</b> (eliminated because experimental and known –logK<sub>i</sub> values for MT-3 &ge; 1 log unit different), and the <b>only reasonable conclusion is that the cell/tissue contains a homogeneous population of M<sub>4</sub> receptors.</b></p>
+                                </div>
+                            </div>
+                            <div id="example2" class="container tab-pane">
+                                <div class="col col-lg-12">
+                                    <p class="lihead"><b>Apply the <span style="color:red;">SPIKES</span> approach to the following competition binding curve for S-secoverine to determine which M cholinoceptor subtype(s) is (are) present in this cell/tissue. </b></p>
+                                    <img class="img-fluid" src="img/example2img1.png">
+                                    <p class="lihead"><b><span style="color:red;">S</span>hape / <span style="color:red;">P</span>osition</b></p>
+                                    <p class="justify">Visual inspection of the S-secoverine competition binding curve indicates that it is inverse sigmoidal, but is it <i>steep sigmoidal</i> or <i>shallow sigmoidal</i>?  For a competition binding curve to be considered <i>steep sigmoidal</i> then the extent of %Specific Binding covered by logIC<sub>50</sub> ± 1.0 should be greater than 80% - if it is less than 80% then the curve is considered <i>shallow sigmoidal</i>. Firstly, determine the logIC<sub>50</sub> value for each competing ligand, which in this example is -6.5.  Then determine the %Specific binding values at the [S-secoverine] that is 1.0 log unit below the –logIC<sub>50</sub> (-7.5) and at 1.0 log unit above the –logIC<sub>50</sub> (-5.5).  As shown in the figure below, the levels of %Specific binding are 90.9% and 9.1%, respectively.  The difference (90.9% – 9.1% = 81.8%) is greater than 80% - thus, the competition binding curve is considered <i>steep sigmoidal</i>.  This indicates that S-secoverine is binding to a population of receptors for which it has similar affinity – for S-Secoverine that would be either a pure population of M<sub>5</sub> receptors for which it has low affinity (-logK<sub>i</sub> = 6.5) or a population of M<sub>1</sub> and/or M<sub>2</sub> and/or M<sub>3</sub> and/or M<sub>4</sub> receptors for which it has much higher affinity (range of –logK<sub>i</sub> values 7.7-8.0).</p>
+                                    <img class="img-fluid" src="img/example2img2.png">
+                                    <p class="lihead"><b><span style="color:red;">I</span>C50 / <span style="color:red;">K</span>i value </b></p>
+                                    <p class="justify">As a very low concentration of radioligand was used in the study (compared to the K<sub>d</sub> of the radioligand), the –logIC<sub>50</sub> ~ -logK<sub>i</sub> and so the –logK<sub>i</sub> value for S-secoverine = 6.5.  If a higher concentration of radioligand had been used then the Cheng-Prusoff equation would have been used to convert the IC<sub>50</sub> value into the K<sub>i</sub>value.</p>
+                                    <p class="lihead"><b><span style="color:red;">E</span>limination / <span style="color:red;">S</span>ummation</b></p>
+                                    <p class="justify">When we compare the –logK<sub>i</sub> value of 6.5 to the known –logK<sub>i</sub> values of S-secoverine for M<sub>1</sub> (8.0), M<sub>2</sub> (7.9), M<sub>3</sub> (7.7), M<sub>4</sub> (7.7) and M<sub>5</sub> (6.5) the –logK<sub>i</sub> value of 6.5 is &ge; 1 log unit different to the known –logK<sub>i</sub> values of S-secoverine binding to M<sub>1</sub>, M<sub>2</sub>, M<sub>3</sub> and M<sub>4</sub> receptors – and only similar to the –logK<sub>i</sub> value of 6.5 expected for S-secoverine binding to M<sub>5</sub> receptors.  </p>
+                                    <p class="justify">Thus, <b>visual inspection</b> of the S-secoverine competition binding curve indicates that it is <b>highly unlikely that the cell/tissue contains significant populations of M<sub>1</sub>, M<sub>2</sub>, M<sub>3</sub> or M<sub>4</sub> receptors</b> (eliminated because experimental and known –logK<sub>i</sub> values &ge; 1 log unit different), and <b>the only reasonable conclusion is that the cell/tissue contains a homogeneous population of M<sub>5</sub> receptors.</b></p>
+                                    <p class="justify"><b>Note:</b> Examples #1 (MT-3 to identify M<sub>4</sub> receptors) and #2 (S-secoverine to identify M<sub>5</sub> receptors) are examples whereby the use of a –logK<sub>i</sub> value obtained from a single competing ligand can successfully identify which receptor is present in a cell/tissue.  Similarly, from the list of established ligands provided, DAU-5884 could also be used to identify M<sub>2</sub> receptors in a cell/tissue.  However, in all other situations more than one receptor-selective ligand would need to be used within a competition binding study to conclusively identify the M receptor subtypes present in a cell/tissue.</p>
+                                </div>
+                            </div>
+                            <div id="example3" class="container tab-pane">
+                                <div class="col col-lg-12">
+                                    <p class="lihead"><b>Apply the <span style="color:red;">SPIKES</span> approach to the following competition binding curve for S-secoverine to determine which M cholinoceptor subtype(s) is (are) present in this cell/tissue.</b></p>
+                                    <img class="img-fluid" src="img/example3img1.png">
+                                    <p class="lihead"><b><span style="color:red;">S</span>hape / <span style="color:red;">P</span>osition</b></p>
+                                    <p class="justify">Visual inspection of the S-secoverine competition binding curve indicates that it is inverse sigmoidal, but is it <i>steep sigmoidal</i> or <i>shallow sigmoidal</i>?  For competition binding curves to be considered <i>steep sigmoidal</i> then the extent of %Specific Binding covered by logIC<sub>50</sub> ± 1.0 should be greater than 80% - if it is less than 80% then the curve is considered <i>shallow sigmoidal</i>. Firstly, determine the logIC<sub>50</sub> value for each competing ligand, which in this example is -7.7.  Then determine the %Specific binding values at the [S-secoverine] that is 1.0 log unit below the –logIC<sub>50</sub> (-8.7) and at 1.0 log unit above the –logIC<sub>50</sub> (-6.7).  As shown in the figure below, the levels of %Specific binding are 90.9% and 9.1%, respectively.  The difference (90.9% – 9.1% = 81.8%) is greater than 80% - thus, the competition binding curve is considered <i>steep sigmoidal</i>.  This indicates that S-secoverine is binding to a population of receptors for which it has similar affinity – for S-Secoverine that would be either a pure population of M<sub>5</sub> receptors for which it has low affinity (-logK<sub>i</sub> = 6.5) or a population of M<sub>1</sub> and/or M<sub>2</sub> and/or M<sub>3</sub> and/or M<sub>4</sub> receptors for which it has higher affinity (range of –logK<sub>i</sub> values 7.7-8.0).</p>
+                                    <img class="img-fluid" src="img/example3img1.png">
+                                    <p class="lihead"><b><span style="color:red;">I</span>C50 / <span style="color:red;">K</span>i value </b></p>
+                                    <p class="justify">As a very low concentration of radioligand was used in the study (compared to the K<sub>d</sub> of the radioligand), the –logIC<sub>50</sub> ~ -logK<sub>i</sub> and so the –logK<sub>i</sub> value for S-secoverine = 7.7.  If a higher concentration of radioligand had been used then the Cheng-Prusoff equation would have been used to convert the IC<sub>50</sub> value into the K<sub>i</sub>value.</p>
+                                    <p class="lihead"><b><span style="color:red;">E</span>limination / <span style="color:red;">S</span>ummation</b></p>
+                                    <p class="justify">When we compare the visually-determined –logK<sub>i</sub> value of 7.7 to the known –logK<sub>i</sub> values of S-secoverine for M<sub>1</sub> (8.0), M<sub>2</sub> (7.9), M<sub>3</sub> (7.7), M<sub>4</sub> (7.7) and M<sub>5</sub> (6.5) the visually-determined –logK<sub>i</sub> value of 7.7 is &ge; 1 log unit different to the –logK<sub>i</sub> values expected for S-secoverine binding to M<sub>5</sub> receptors (6.5), but similar to the –logK<sub>i</sub> values expected for S-secoverine binding to M<sub>1</sub>, M<sub>2</sub>, M<sub>3</sub> and M<sub>4</sub> receptors (7.7-8.0).  </p>
+                                    <p class="justify">Thus, <b>visual inspection</b> of the S-secoverine competition binding curve indicates that it is <b>highly unlikely that the cell/tissue contains a significant population of M<sub>5</sub> receptors</b> (eliminated because experimental and known –logK<sub>i</sub> values &ge; 1 log unit different), <b>but it is not possible to conclude whether the cell/tissue contains M<sub>1</sub> &/or M<sub>2</sub> &/or M<sub>3</sub> &/or M<sub>4</sub> receptors.</b>  Clearly additional competition binding curves using ligands that can differentiate between (are selective for) M<sub>1</sub>, M<sub>2</sub>, M<sub>3</sub> and M<sub>4</sub> receptors would need to be conducted.</p>
+                                    <p class="justify">Note: Determining which of the 5 receptor subtypes are present within a cell/tissue may require conducting a competition binding study that utilises 5 competing ligands, each of which shows at least some selectivity for a particular receptor subtype – for example, using pirenzepine (M<sub>1</sub>-selective over M<sub>2</sub>, M<sub>3</sub> and M<sub>5</sub> receptors), methoctramine (M<sub>2</sub>-selective over M<sub>1</sub>, M<sub>3</sub> and M<sub>5</sub> receptors), darifenacin (M<sub>3</sub>-selective over M<sub>1</sub>, M<sub>2</sub> and M<sub>4</sub> receptors), MT-3 (M<sub>4</sub>-selective over all other M subtypes), and S-secoverine (M<sub>5</sub>-selective over all other M subtypes) – as shown in Example #4 below.</p>
+                                </div>
+                            </div>
+                            <div id="example4" class="container tab-pane">
+                                <div class="col col-lg-12">
+                                    <p class="lihead"><b>Consider an example where a competition binding study was conducted using the five ligands – pirenzepine, methoctramine, darifenacin, MT-3 and S-secoverine.  Apply the <span style="color:red;">SPIKES</span> approach to the following competition binding curves to determine which M cholinoceptor subtype(s) is (are) present in this cell/tissue. </b></p>
+                                    <img class="img-fluid" src="img/example4img1.png">
+                                    <p class="justify">Visual inspection of the all the curves indicates that that they are inverse sigmoidal, but are they <i>steep sigmoidal</i> or <i>shallow sigmoidal</i>?  For competition binding curves to be considered <i>steep sigmoidal</i> then the extent of %Specific Binding covered by logIC<sub>50</sub> ± 1.0 should be greater than 80% - if it is less than 80% then the curve is considered <i>shallow sigmoidal</i>.  Notice in the Table below the analysis of the Shape / Position of each of the curves, and the conclusion that all competition binding curves are <i>steep sigmoidal</i>. This is suggestive that each of the competing ligands is binding to a single population of receptors for which they have a particular affinity (M<sub>1</sub> or M<sub>2</sub> or M<sub>3</sub> or M<sub>4</sub> or M<sub>5</sub>).  It is unlikely that there is more than one receptor subtype present as none of the five competition binding curves is <i>shallow sigmoidal</i>.</p>
+                                    <p class="lihead"><b><span style="color:red;">S</span>hape / <span style="color:red;">P</span>osition</b></p>
+                                    <table class="table table-bordered table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th>Competing Ligand</th>
+                                                <th>Visually-determined logIC<sub>50</sub> value></th>
+                                                <th>Specific Binding (%) at logIC<sub>50</sub>-1</th>
+                                                <th>Specific Binding (%) at logIC<sub>50</sub>+1</th>
+                                                <th>Difference</th>
+                                                <th>Shape</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Pirenzepine</td>
+                                                <td>-6.5</td>
+                                                <td>(-7.5) 90.9</td>
+                                                <td>(-5.5) 9.1</td>
+                                                <td>90.9 - 9.1 = <b>81.8%</b></td>
+                                                <td>Steep</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Methoctramine</td>
+                                                <td>-7.7</td>
+                                                <td>(-8.7) 90.9</td>
+                                                <td>(-6.7) 9.1</td>
+                                                <td>90.9 - 9.1 = <b>81.8%</b></td>
+                                                <td>Steep</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Darifenacin</td>
+                                                <td>-7.0</td>
+                                                <td>(-8.0) 90.9</td>
+                                                <td>(-6.0) 9.1</td>
+                                                <td>90.9 - 9.1 = <b>81.8%</b></td>
+                                                <td>Steep</td>
+                                            </tr>
+                                            <tr>
+                                                <td>MT-3</td>
+                                                <td>-5.9</td>
+                                                <td>(-6.9) 90.9</td>
+                                                <td>(-4.9) 9.1</td>
+                                                <td>90.9 - 9.1 = <b>81.8%</b></td>
+                                                <td>Steep</td>
+                                            </tr>
+                                            <tr>
+                                                <td>S-secoverine</td>
+                                                <td>-7.9</td>
+                                                <td>(-8.9) 90.9</td>
+                                                <td>(-6.9) 9.1</td>
+                                                <td>90.9 - 9.1 = <b>81.8%</b></td>
+                                                <td>Steep</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <p class="lihead"><b><span style="color:red;">I</span>C50 / <span style="color:red;">K</span>i value </b></p>
+                                    <p class="justify">As a very low concentration of radioligand was used in the study (compared to the K<sub>d</sub> of the radioligand), the –logIC<sub>50</sub>  -logK<sub>i</sub>.  The –logK<sub>i</sub> values are displayed in the table below along with the known –log K<sub>i</sub>values of these ligands for all receptor subtypes.</p>
+                                    <table class="table table-bordered table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th rowspan="2">Competing ligand</th>
+                                                <th rowspan="2"> Visually-determined -logK<sub>i</sub> value</th>
+                                                <th colspan="5"> Known -logK<sub>i</sub> values</th>
+                                            </tr>
+                                            <tr>
+                                                <th>M<sub>1</sub></th>
+                                                <th>M<sub>2</sub></th>
+                                                <th>M<sub>3</sub></th>
+                                                <th>M<sub>4</sub></th>
+                                                <th>M<sub>5</sub></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Pirenzepine</td>
+                                                <td>6.5</td>
+                                                <td>8.2</td>
+                                                <td>6.5</td>
+                                                <td>6.9</td>
+                                                <td>7.4</td>
+                                                <td>7.2</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Methoctramine</td>
+                                                <td>7.7</td>
+                                                <td>6.7</td>
+                                                <td>7.7</td>
+                                                <td>6.0</td>
+                                                <td>7.0</td>
+                                                <td>6.3</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Darifenacin</td>
+                                                <td>7.0</td>
+                                                <td>7.8</td>
+                                                <td>7.0</td>
+                                                <td>8.8</td>
+                                                <td>7.7</td>
+                                                <td>8.0</td>
+                                            </tr>
+                                            <tr>
+                                                <td>MT-3</td>
+                                                <td>5.9</td>
+                                                <td>6.7</td>
+                                                <td>5.9</td>
+                                                <td>6.0</td>
+                                                <td>8.1</td>
+                                                <td>6.0</td>
+                                            </tr>
+                                            <tr>
+                                                <td>S-secoverine</td>
+                                                <td>7.9</td>
+                                                <td>8.0</td>
+                                                <td>7.9</td>
+                                                <td>7.7</td>
+                                                <td>7.7</td>
+                                                <td>6.5</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <p class="lihead"><b><span style="color:red;">E</span>limination / <span style="color:red;">S</span>ummation</b></p>
+                                    <p class="justify">By sequentially comparing the visually-determined and known –logK<sub>i</sub> values for each competing ligand and using the principles discussed above:</p>
+                                    <p class="justify"><b><i>Pirenzepine eliminates the likelihood of M<sub>1</sub> receptor being present in the cell/tissue</i></b><br>– visually-determined –logK<sub>i</sub> value of 6.5 is &ge; 1 log unit different than that expected for pirenzepine binding to the M<sub>1</sub> receptor (8.2)</p>
+                                    <p class="justify"><b><i>Methoctramine eliminates the likelihood of M<sub>3</sub> and M<sub>5</sub> receptors being present in the cell/tissue</i></b><br>– visually-determined –logK<sub>i</sub> value of 7.7 is &ge; 1 log unit different than that expected for methoctramine binding to the M<sub>3</sub> (6.0) & M<sub>3</sub> (6.3) receptors   </p>
+                                    <p class="justify"><b><i>Darifencin eliminates the likelihood of M<sub>3</sub> receptors being present in the cell/tissue</i></b><br>– visually-determined –logK<sub>i</sub> value of 7.0 is &ge; 1 log unit different than that expected for darifenacin binding to the M<sub>3</sub> receptor (8.8)</p>
+                                    <p class="justify"><b><i>MT-3 eliminates the likelihood of M<sub>4</sub> receptors being present in the cell/tissue</i></b><br>– visually-determined –logK<sub>i</sub> value of 5.9 is &ge; 1 log unit different than that expected for MT-3 binding to the M<sub>4</sub> receptor (8.1)</p>
+                                    <p class="justify"><b><i>S-secoverine eliminates the likelihood of M<sub>5</sub> receptors being present in the cell/tissue</i></b><br>– visually-determined –logK<sub>i</sub> value of 7.9 is &ge; 1 log unit different than that expected for S-secoverine binding to the M<sub>5</sub> receptor (6.5)</p>
+                                    <p class="justify">Thus, <b>visual inspection</b> of the presented competition binding curves indicates that the cell/tissue <b>did not contain</b> significant populations of <b>M<sub>1</sub></b> receptors (eliminated by pirenzepine), <b>M<sub>3</sub></b> receptors (eliminated by methoctramine and darifenacin), <b>M<sub>4</sub></b> receptors (eliminated by MT-3) or <b>M<sub>5</sub></b> receptors (eliminated by S-secoverine).  Thus, the <b>only reasonable conclusion is that the cell/tissue contains a homogeneous population of M<sub>2</sub> receptors.</b></p>
+                                    <p class="justify"><b>Note:</b> The visually-determined–logK<sub>i</sub> values for each of the competing ligands is similar to their known –logK<sub>i</sub> values at M<sub>2</sub> receptors, confirming the conclusion drawn.   </p>
+                                </div>
+                            </div>
+                            <div id="example5" class="container tab-pane">
+                                <div class="col col-lg-12">
+                                    <p class="lihead">Consider an example where a competition binding study was conducted using six ligands – 5 established ligands (pirenzepine, methoctramine, darifenacin, MT-3, S-secoverine) and the hypothetical ligand Ligand C.  Apply the <span style="color:red;">SPIKES</span> approach to the following competition binding curves to determine which M cholinoceptor subtype(s) is (are) present in this cell/tissue.</p>
+                                    <img class="img-fluid" src="img/example5img1.png">
+                                    <p class="lihead"><b><span style="color:red;">S</span>hape / <span style="color:red;">P</span>osition</b></p>
+                                    <table class="table table-bordered table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th>Competing Ligand</th>
+                                                <th>Visually-determined logIC<sub>50</sub> value></th>
+                                                <th>Specific Binding (%) at logIC<sub>50</sub>-1</th>
+                                                <th>Specific Binding (%) at logIC<sub>50</sub>+1</th>
+                                                <th>Difference</th>
+                                                <th>Shape</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Pirenzepine</td>
+                                                <td>-7.1</td>
+                                                <td>(-8.1) 90.5</td>
+                                                <td>(-6.1) 9.5</td>
+                                                <td>90.5 - 9.5 = <b>81.0%</b></td>
+                                                <td>Steep</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Methoctramine</td>
+                                                <td>-6.2</td>
+                                                <td>(-7.2) 90.5</td>
+                                                <td>(-5.2) 9.5</td>
+                                                <td>90.5 - 9.5 = <b>81.0%</b></td>
+                                                <td>Steep</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Darifenacin</td>
+                                                <td>-8.3</td>
+                                                <td>(-9.3) 87.8</td>
+                                                <td>(-7.3) 11.4</td>
+                                                <td>87.8 - 11.4 = <b><mark>76.4%</mark></b></td>
+                                                <td><mark>Shallow</mark></td>
+                                            </tr>
+                                            <tr>
+                                                <td>MT-3</td>
+                                                <td>-6.0</td>
+                                                <td>(-7.0) 90.9</td>
+                                                <td>(-5.0) 9.1</td>
+                                                <td>90.9 - 9.1 = <b>81.8%</b></td>
+                                                <td>Steep</td>
+                                            </tr>
+                                            <tr>
+                                                <td>S-secoverine</td>
+                                                <td>-6.9</td>
+                                                <td>(-7.9) 82.2</td>
+                                                <td>(-5.9) 12.7</td>
+                                                <td>82.2 - 12.7 = <b><mark>69.5%</mark></b></td>
+                                                <td><mark>Shallow</mark></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Ligand C</td>
+                                                <td></td>
+                                                <td colspan="4"><mark>Biphasic with point of inflection at 40% Specific binding</mark></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <p class="justify">Visual inspection indicates that two competition binding curves are <i>shallow sigmoidal</i> (darifenacin and S-secoverine) and one is <i>biphasic</i> (Ligand C), providing strong evidence that there is a heterogeneous population of receptors (more than one subtype of M receptor).  The position of the point of inflection at the 40% Specific Binding level suggests that one receptor subtype makes up 40% of the population and another the remaining 60% of the receptor population.</p>
+                                    <p class="lihead"><b><span style="color:red;">I</span>C50 / <span style="color:red;">K</span>i value </b></p>
+                                    <p class="justify">As a very low concentration of radioligand was used in the study (compared to the K<sub>d</sub> of the radioligand), the –logIC50  -logK<sub>i</sub>.  For the <i>steep sigmoidal</i> curves of pirenzepine, methoctramine and MT-3 the –logIC50 = -logK<sub>i</sub>, whereas for the <i>shallow sigmoidal</i> curves (darifenacin, S-secoverine), the single –logIC50 cannot be used as a single –logK<sub>i</sub>values as it is a composite value of the two different –logK<sub>i</sub> values at the two different receptors.</p>
+                                    <p class="lihead"><b><span style="color:red;">E</span>limination / <span style="color:red;">S</span>ummation</b></p>
+                                    <p class="justify">It is helpful to firstly analyse the –logK<sub>i</sub> values of the <i>steep sigmoidal</i> curves, with the possibility of perhaps eliminating some receptor subtypes.  In this example, there are 3 ligands that generated <i>steep sigmoidal</i> curves – pirenzepine, methoctramine and MT-3.</p>
+                                    <table class="table table-bordered table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th rowspan="2">Competing ligand</th>
+                                                <th rowspan="2"> Visually-determined -logK<sub>i</sub> value</th>
+                                                <th colspan="5"> Known -logK<sub>i</sub> values</th>
+                                            </tr>
+                                            <tr>
+                                                <th>M<sub>1</sub></th>
+                                                <th>M<sub>2</sub></th>
+                                                <th>M<sub>3</sub></th>
+                                                <th>M<sub>4</sub></th>
+                                                <th>M<sub>5</sub></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Pirenzepine</td>
+                                                <td>7.1</td>
+                                                <td><mark>8.2</mark></td>
+                                                <td>6.5</td>
+                                                <td>6.9</td>
+                                                <td>7.4</td>
+                                                <td>7.2</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Methoctramine</td>
+                                                <td>6.2</td>
+                                                <td>6.7</td>
+                                                <td><mark>7.7</mark></td>
+                                                <td>6.0</td>
+                                                <td>7.0</td>
+                                                <td>6.3</td>
+                                            </tr>
+                                            <tr>
+                                                <td>MT-3</td>
+                                                <td>6.0</td>
+                                                <td>6.7</td>
+                                                <td>5.9</td>
+                                                <td>6.0</td>
+                                                <td><mark>8.1</mark></td>
+                                                <td>6.0</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <p class="justify"><b><i>Pirenzepine eliminates the likelihood of M<sub>1</sub> receptor being present in the cell/tissue</i></b><br>– visually-determined –logK<sub>i</sub> value of 7.1 is &ge; 1 log unit different than that expected for pirenzepine binding to the M<sub>1</sub> receptor (8.2)</p>
+                                    <p class="justify"><b><i>Methoctramine eliminates the likelihood of M<sub>2</sub> receptors being present in the cell/tissue</i></b><br>– visually-determined –logK<sub>i</sub> value of 6.2 is &ge; 1 log unit different than that expected for methoctramine binding to the M<sub>2</sub> receptor (7.7)</p>
+                                    <p class="justify"><b><i>MT-3 eliminates the likelihood of M<sub>4</sub> receptors being present in the cell/tissue</i></b><br>– visually-determined –logK<sub>i</sub> value of 6.0 is &ge; 1 log unit different than that expected for MT-3 binding to the M<sub>4</sub> receptor (8.1)</p>
+                                    <p class="justify">Thus the cell/tissue does not contain significant populations of either M<sub>1</sub>, M<sub>2</sub> or M<sub>4</sub> receptors, indicating that the 2 receptor subtypes that are present are likely M<sub>3</sub> and M<sub>5</sub> receptors – but which one accounts for 40% of the population and which one accounts for the remaining 60%?</p>
+                                    <p class="justify">Answering this question requires analysing the –logK<sub>i</sub> values of the two separate phases of the <i>biphasic</i> curve of Ligand C.</p>
+                                    <table class="table table-bordered table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th rowspan="2">Competing ligand</th>
+                                                <th rowspan="2"> Visually-determined -logK<sub>i</sub> value</th>
+                                                <th colspan="5"> Known -logK<sub>i</sub> values</th>
+                                            </tr>
+                                            <tr>
+                                                <th>M<sub>1</sub></th>
+                                                <th>M<sub>2</sub></th>
+                                                <th>M<sub>3</sub></th>
+                                                <th>M<sub>4</sub></th>
+                                                <th>M<sub>5</sub></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Ligand C (1<sup>st</sup> phase)</td>
+                                                <td>10.0</td>
+                                                <td><mark>7.0</mark></td>
+                                                <td><mark>7.1</mark></td>
+                                                <td><mark>6.9</mark></td>
+                                                <td>10.0</td>
+                                                <td>10.1</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Ligand C (2<sup>nd</sup> phase)</td>
+                                                <td>7.0</td>
+                                                <td>7.0</td>
+                                                <td>7.1</td>
+                                                <td>6.9</td>
+                                                <td><mark>10.1</mark></td>
+                                                <td><mark>10.0</mark></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <p class="justify">The <b>first phase</b> of the Ligand C competition binding curve had a –logK<sub>i</sub> value of 10.0 – so we can eliminate the likelihood of M<sub>1</sub>, M<sub>2</sub> or M<sub>3</sub> receptors, leaving just the possibility of M<sub>4</sub> or M<sub>5</sub> receptors.  However, MT-3 has previously eliminated M<sub>4</sub> receptors, so the only reasonable conclusion (based on this process of elimination is the first phase of the Ligand C competition binding curve reflects Ligand C binding to high affinity M<sub>5</sub> receptors, which accounts for 60% of all M receptors.  </p>
+                                    <p class="justify">Likewise, the <b>second phase</b> of the Ligand C competition binding curve had a –logK<sub>i</sub> value of 7.0 – so we can eliminate the likelihood of M<sub>4</sub> or M<sub>5</sub> receptors, leaving just the possibility of M<sub>1</sub>, M<sub>2</sub> or M<sub>3</sub> receptors.  However, pirenzepine and methoctramine have previously eliminated M<sub>1</sub> and M<sub>2</sub> receptors, respectively, so the only reasonable conclusion (based on this process of elimination) is the second phase of the Ligand C competition binding curve reflects Ligand C binding to lower affinity M<sub>3</sub> receptors, which accounts for 40% of all M receptors.</p>
+                                    <p class="justify"><b>Thus, visual inspection of the presented competition binding curves indicates that the cell/tissue contains a mixture of 40%M<sub>3</sub> and 60%M<sub>5</sub> receptors.</b></p>
+                                    <p class="justify"><b>Note:</b> As expected, the ‘composite –logK<sub>i</sub> values’ obtained for the <i>shallow sigmoidal</i> curve of darifenacin (8.3) lay between the known –logK<sub>i</sub> values of darifenacin for M<sub>3</sub> (8.8) and M<sub>5</sub> (8.0) receptors, and the ‘composite –logK<sub>i</sub> values’ obtained for the <i>shallow sigmoidal</i> curve of S-secoverine (6.9) lay between the known –logK<sub>i</sub> values of S-secoverine for M<sub>3</sub> (7.7) and M<sub>5</sub> (6.5) receptors).</p>
+                                </div>
+                            </div>
+                            <div id="example6" class="container tab-pane">
+                                <div class="col-lg-12">
+                                    <p class="lihead"><b><span style="color:red;">S</span>hape / <span style="color:red;">P</span>osition</b></p>
+                                    
+                                    <p class="lihead"><b><span style="color:red;">I</span>C50 / <span style="color:red;">K</span>i value </b></p>
+    
+                                    <p class="lihead"><b><span style="color:red;">E</span>limination / <span style="color:red;">S</span>ummation</b></p>
+                                </div>
+                            </div>
+                            <div id="example7" class="container tab-pane">
+                                <div class="col-lg-12">
+                                    <p class="lihead"><b><span style="color:red;">S</span>hape / <span style="color:red;">P</span>osition</b></p>
+                                    
+                                    <p class="lihead"><b><span style="color:red;">I</span>C50 / <span style="color:red;">K</span>i value </b></p>
+    
+                                    <p class="lihead"><b><span style="color:red;">E</span>limination / <span style="color:red;">S</span>ummation</b></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn waves-effect waves-light blue" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>        
+        </div>
+    </div>
+</section>
+
+
+<!-- Footer -->
+<footer>
+    <!--Footer nav-->
+    <div class="container">
+        <ul class="list-inline">
+            <li class="list-inline-item">
+                <a data-toggle="modal" href="" data-target="#about">About</a>
+            </li>
+            <li class="footer-menu-divider list-inline-item">&sdot;</li>
+            <li class="list-inline-item">
+                <a data-toggle="modal" href="" data-target="#instructions">Instructions</a>
+            </li>
+            <li class="footer-menu-divider list-inline-item">&sdot;</li>
+            <li class="list-inline-item">
+                <a data-toggle="modal" href="" data-target="#contact">Contact</a>
+            </li>
+        </ul>
+        <p class="cc text-muted small">Creative Commons <i class="fa fa-creative-commons fa-fw"></i> 2018</p>
+    </div>
+
+    <!-- Instructions Modal -->
+    <div id="instructions" class="modal fade" role="dialog">
+        <div class="modal-dialog modal-lg">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5>Instructions</h5>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  </div>
+                  <div class="modal-body">
+                    <button class="accordion" id="developmentToolButton">Development Tool</button>
+                    <div class="panel">
+                      <p class="justify">The Development Tool can be used to visualise how the shape and position of competition binding curves can be influenced by:
+                      </p>
+                      <p class="justify" style="padding-left:15px">1.&nbsp;&nbsp;the relative densities of receptor subtypes expressed by cells or tissues, and
+                      </p>
+                      <p class="justify" style="padding-left:15px">2.&nbsp;&nbsp;the affinities of ligands for the receptor subtypes.
+                      </p>
+                      <p class="justify">The following instructions demonstrate how these changes in the shape and position of competition binding curves can be visualised using the Development Tool.
+                      </p>
+                      <p class="lihead">Firstly, you select which receptor subtypes are present in the cell or tissue of interest.</p>
+                      <p class="justify">
+                        Within the <b><i>Receptor</i></b> window, select <b>up to three</b> receptor subtype combinations by clicking on the appropriate buttons below the name of the subtype. Once a particular subtype has been selected, the <b><i>Relative Density (%)</i></b> box appears immediately below.
+                      </p>
+                      <p class="justify">
+                        If only <b>one</b> receptor subtype is selected, then the <b><i>Relative Density (%)</i></b> value will be 100.
+                      </p>
+                      <p class="justify">
+                        If <b>two</b> receptor subtypes are selected, then the sum of their <b><i>Relative Density (%)</i></b> values must be 100, i.e. increasing the value of one will decrease the value of the other to maintain a total value of 100.  The <b><i>Relative Density (%)</i></b> values can be changed by either by using the arrows for increments of 1%, or by typing in the desired value (0-100).
+                      </p>
+                      <p class="justify">
+                        If <b>three</b> receptor subtypes are selected, then the combined value must again be 100. In this case, enter the receptor density values in order from left to right, i.e. start with the receptor subtype with the lowest number selected (e.g. M<sub>1</sub>) to the receptor subtype with the highest number (e.g. M<sub>5</sub>).
+                      </p>
+                      <p class="justify">
+                        Once the first two receptor densities have been selected, the final density will automatically be calculated.
+                      </p>
+                      <p class="justify">
+                        <i>For example</i>, if you wished to use a cell that expresses a combination of M<sub>2</sub>, M<sub>4</sub> and M<sub>5</sub> receptors in the relative proportions 20:30:50, respectively, then select the M<sub>2</sub>, M<sub>4</sub> and M<sub>5</sub> subtypes.  In order, enter the values of 20% for M<sub>2</sub> and 30% for M<sub>4</sub>. M<sub>5</sub> will automatically be assigned a 50% density.
+                      </p>
+
+                      <p class="lihead">
+                        Secondly, you select which ligands you wish to use in the competition binding studies.
+                      </p>
+                      <p class="justify">
+                        Within the <b><i>Ligands</i></b> window, use the drop down menu to select <b>up to 6</b> ligands from a list of 8 <b><i>Established</i></b> ligands and 4 <b><i>Hypothetical</i></b> ligands.
+                      </p>
+                      <p class="justify">
+                        <b><i>Established</i></b> ligands are ligands that have been used extensively in the past, and for which there are known -log K<sub>i</sub> values (e.g. Atropine).
+                      </p>
+                      <p class="justify">
+                        <b><i>Hypothetical</i></b> ligands, as their name suggests do not exist in the real world, but have been included in <b>SPIKES<i>bind</i></b> to increase applicability.
+                      </p>
+                      <p class="justify">
+                        There are 2 types of <b><i>Hypothetical</i></b> ligands － one type includes <b>Ligand A</b> and <b>Ligand B</b>, which have marked (but defined) differences in affinities for receptor subtypes.
+                      </p>
+                      <p class="justify">
+                        The second type of <b><i>Hypothetical</i></b> ligand includes <b>Ligand C</b> and <b>Ligand D</b>, and these are ligands where you can assign (and change) a –log K<sub>i</sub> value (affinity) for each receptor subtype.  The assigned –log K<sub>i</sub> values must be between 3 and 10 and may be changed by either using the arrows (increments of 0.1), or by typing in the desired value (3-10).
+                      </p>
+                      <p class="justify">
+                        The ligands included in the drop down menu and their corresponding -log K<sub>i</sub> values can be viewed in the '<i>-log K<sub>i</sub> Table</i>' tab.
+                      </p>
+
+                      <p class="lihead">
+                        Lastly, once receptor subtypes and ligands have been selected, a plot of the specific binding % is displayed in real time within the <b>Competition Binding Curves</b> window.
+                      </p>
+                      <p class="justify">
+                        By inserting the appropriate -log K<sub>i</sub> values into the one-, two- or three-site binding models, accompanied by the selected subtype receptors, <b>SPIKES<i>bind</i></b> will calculate the % specific binding values over the ligand range 10<sup>-12</sup> - 10<sup>-2</sup> M and will generate the <b><i>Competition Binding Curves</i></b> for viewing.
+                      </p>
+                      <p class="justify">
+                        A feature of <b>SPIKES<i>bind</i></b> is that any changes to the receptor subtype or the ligands selected will cause the <b><i>Competition Binding Curves</i></b> window to be dynamically updated in real time, to reflect the new values.
+                        <i>For example</i>, you can directly observe (in real time) changes in the shape and position of <b><i>Competition Binding Curves</i></b> caused by (1) altering the Relative Densities of receptor subtypes or (2) altering ligand affinity (use Ligands C (or D) to observe this effect).
+                      </p>
+
+                    </div>
+
+                    <button class="accordion" id="assessmentToolButton">Self-Assessment Tool</button>
+                    <div class="panel">
+                      <p class="justify">
+                        In the Self-Assessment Tool, you choose up to 6 ligands (from the list of 12 <b><i>Established</i></b> and <b><i>Hypothetical</i></b> ligands) that you wish to use in a competition binding study.
+                        The <b>Competition Binding Curves</b> for these selected ligands are then displayed in the <b>Competition Binding Curves</b> window based on a receptor profile (the receptor subtypes and their relative densities) that has been randomly generated by <b>SPIKES<i>bind</i></b>.
+                      <p class="justify">
+                        The task for you is to analyse the competition binding curves using the SPIKES approach,
+                        and deduce which receptor subtypes are present and their relative densities.
+                        The actual receptor profile can be revealed at any time by clicking the <kbd>Reveal Subtype</kbd> button.
+                      </p>
+                      <p class="lihead">
+                        Firstly, you select which ligands you wish to use in the competition binding studies.
+                      </p>
+                      <p class="justify">
+                        From within the Ligands window, select up to 6 Ligands from a list of 8 <b><i>Established</i></b> ligands and 4 <b><i>Hypothetical</i></b> ligands.  As indicated above, <b><i>Established</i></b> ligands are ligands that have been used extensively in the past, whereas <b><i>Hypothetical</i></b> ligands, as their name suggests, do not exist in the real world, and have been included in <b>SPIKES<i>bind</i></b> to increase applicability.
+                      </p>
+                      <p class="justify">
+                        There are 2 types of <b><i>Hypothetical</i></b> ligands － one type includes <b>Ligand A</b> and <b>Ligand B</b>, which have marked (but defined) differences in affinities for receptor subtypes.
+                      </p>
+                      <p class="justify">
+                        The second type of <b><i>Hypothetical</i></b> ligand includes <b>Ligand C</b> and <b>Ligand D</b>, and these are ligands where you can assign (and change) a –log K<sub>i</sub> value (affinity) for each receptor subtype.  The assigned –log K<sub>i</sub> values must be between 3 and 10 and may be changed by either using the arrows (increments of 0.1), or by typing in the desired value (3-10).
+                      </p>
+                      <p class="justify">
+                        The ligands included in the drop down menu and their corresponding -log K<sub>i</sub> values can be viewed in the '<i>-log K<sub>i</sub> Table</i>' tab.
+                      </p>
+                      <p class="lihead">
+                        Secondly, the competition binding curves will appear for the selected ligands, showing the specific binding % over the ligand range 10<sup>-12</sup> - 10<sup>-2</sup> M.
+                      </p>
+                      <p class="justify">
+                        The shape and position of the competition binding curves generated depends on which specific receptor subtypes are present and their relative densities (e.g. 30% M<sub>1</sub> and 70% M<sub>2</sub>).
+                        The receptor profile is randomly selected by <b>SPIKES<i>bind</i></b> from a defined bank of approximately 75 options.
+                      </p>
+                      <p class="justify">
+                        The bank of 75 options is based on the premise (1) that there are 10 possible combinations involving two receptor subtypes
+                        (M<sub>1</sub>/M<sub>2</sub>, M<sub>1</sub>/M<sub>3</sub>, M<sub>1</sub>/M<sub>4</sub>, M<sub>1</sub>/M<sub>5</sub>, M<sub>2</sub>/M<sub>3</sub>, M<sub>2</sub>/M<sub>4</sub>, M<sub>2</sub>/M<sub>5</sub>, M<sub>3</sub>/M<sub>4</sub>, M<sub>3</sub>/M<sub>5</sub> and M<sub>4</sub>/M<sub>5</sub>),
+                        and (2) that for each receptor combination there are 7 possible receptor density combinations (20/80, 30/70, 40/60/ 50/50, 60/40, 70/30 and 80/20) – giving a total of 70 options for two-receptor subtype combinations.  This 70 options, together with another 5 options for pure receptor subtypes (100%), gives a grand total of 75 options from with <b>SPIKES<i>bind</i></b> can choose to present.
+                        All 90%/10% and small incremental combinations have been omitted for your benefit as they cannot be reliably interpreted by eye.
+                      </p>
+                      <p class="justify">
+                        Using the SPIKES approach to deduce which receptor subtypes are present and their relative densities.  Your answer should be one of the 75 options.
+                      </p>
+                      <p class="lihead">
+                        Lastly, after you have worked out your answer, you may reveal the solution to validate your work.
+                      </p>
+                      <p class="justify">
+                        You can reveal which receptor subtype population exists and their relative densities by clicking the <kbd>Reveal Subtype</kbd> button, and the answer will appear.
+                      </p>
+                      <p class="justify">
+                        After viewing the solution, the ligands may be modified in the ligand table to view other competition binding curves, including the custom -log K<sub>i</sub> values for ligands C and D, and the graph will dynamically update.
+                      </p>
+                      <p class="justify">
+                        To generate a new question in the Self-Assessment Tool, click the <kbd>Reset</kbd> button and a new receptor subtype combination option will be randomly generated by <b>SPIKES<i>bind</i></b>.
+                      </p>
+
+                    </div>
+
+                    <button class="accordion" id="quizButton">Quiz</button>
+                    <div class="panel">
+                        <p class="justify">
+                            The Quiz Tool works off the same premise as the Self-Assessment tool, where any one question is randomly selected from a list of 75 options (i.e. up to two receptor subtypes with relative densities between 20-80%, using 10% increments).
+                        </p>
+                        <p class="justify">
+                            However, the Quiz Tool is different from the Self-Assessment tool as the ligands used in the Competition Binding studies are pre-selected by <b>SPIKES<i>bind</i></b>.  In the Quiz Tool, <b>SPIKES<i>bind</i></b> selects 5 ligands – 4 of which will be randomly selected from the list of 7 selective <b><i>Established</i></b> ligands (<i>Pirenzepine, Methoctramine, Darifenacin, MT-3, S-Secoverine, Solifenacin</i> and <i>DAU-5884</i>), and one <b>Hypothetical</b> ligand, either <i>Ligand A</i> or <i>Ligand B</i>.  This provides the opportunity for over 500 different questions to be posed by the Quiz Tool – sufficient to gain expert proficiency in interpreting competition binding data.
+                        </p>
+                        <p class="justify">
+                            Analyse the Competition Binding Curves using the SPIKES approach to solve which receptor subtypes are present, and what their densities are. Note that not all questions within the Quiz Tool can be answered by eye – for these questions you should be able to indicate which additional ligand(s) would allow the question to be answered unequivocally (and why).
+                        </p>
+                        <p class="justify">
+                            Prior to commencing the quizzes, you may wish to read through the <kbd>SPIKES examples</kbd> to gain an insight into how to systematically approach solving competition binding data using the SPIKES approach.
+                        </p>
+                        <p class="lihead">
+                            Follow the instructions below to undertake the Quiz.
+                        </p>
+                        <p class="justify">
+                            From the Quiz homepage, click the <kbd>Start Quiz</kbd> button, and the quiz will commence with the question appearing.
+                        </p>
+                        <p class="justify">
+                            At the top of the page, you will notice the timer appear, counting up from 0 seconds until your answer is submitted. This allows for you to record the time spent evaluating each question, and over time you should be able to see your times improve. Once the quiz is complete you are taken to the answer review page.
+                        </p>
+                        <p class="justify">
+                            The graph in question will appear on the right hand size, showing the 5 pre-selected ligands plotted with the randomised mixed receptor subtype combination.
+                        </p>
+                        <p class="justify">
+                            <i>Use this information to work out your solution (i.e. which receptor subtypes are present and their relative densities).</i> Provided is a ‘SPIKES Approach’ table for you to help determine the answer. In this table you are able to view the list of ligands displayed in the graph, along with their corresponding -log K<sub>i</sub> values, a drop down menu to determine the shape of the curve, a position textbox to enter information for the -logIC<sub>50</sub> value, and checkboxes to eliminate receptor subtypes (i.e. apply the SPIKES approach).
+                        </p>
+                        <p class="justify">
+                            Once you have completed your analysis, enter which receptor subtype(s) you believe to be present and their relative densities, using the checkboxes and drop down menus provided.
+                        </p>
+                        <p class="justify">
+                            After you are happy with your answer, click the <kbd>Submit</kbd> button to head to the answer <b><i>'Review'</i></b> page.
+                        </p>
+                        <p class="justify">
+                            At the <b><i>‘Review’</i></b> page, "Correct!" or "Incorrect" will appear, as will the competition binding curve again. If you answered incorrectly, another graph will be displayed to view what competition binding curves your selection would have created.  You have the option to <kbd>Amend your Answers</kbd> or to start a <kbd>New Quiz</kbd>.
+                        </p>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn" data-dismiss="modal"><span class="tool-name">Close</span></button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- About Modal -->
+    <div id="about" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5>About</h5>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <p class="lihead"><b>SPIKES</b>bind is an educational application to boost students' proficiency in
+                        interpreting competition binding data by providing self-development, self-assessment and quiz-me
+                        options.</p>
+                    <p class="justify">
+                        Most drugs work by binding to specific receptors, which are large proteins typically expressed
+                        on the surface of cells.</p>
+                    <p class="justify">The process of drug binding requires the existence of affinity (chemical forces
+                        of attraction)
+                        between the drug and receptor, and can be readily described by relatively simple mathematical
+                        relationships.</p>
+                    <p class="justify">As drug binding is essential for drug action, pharmacology students need to have
+                        an advanced level of understanding of how changes in the affinity of a drug for a receptor can
+                        influence binding,
+                        and be able to readily interpret drug binding data.</p>
+                    <p class="justify" style="font-style:italic;color:grey;">SPIKESbind was created by Madeline King,
+                        Jason Gan, Robert Fernandez and Timothy Mennell; students of
+                        CITS3200: Professional Computing at the University of Western Australia 2017, under the guidance
+                        of Associate Professor Peter Henry.</p>
+                    <button class="accordion">References</button>
+                    <div class="panel">
+                        <p class="justify" style="color:grey;">Cheng Y. and Prusoff W.H. (1973) Relationship between the inhibition constant (K<sub>i</sub>) and the concentration of an inhibitor that causes a 50% inhibition (I50) of an enzymatic reaction. Biochem. Pharmacol. 22: 3099–3108.</p>
+                        <p class="justify" style="color:grey;">D'Agostino G, Condino AM, Gioglio L, Zonta F, Tonini M, Barbieri A (2008).  Isolated porcine bronchi provide a reliable model for development of bronchodilator anti-muscarinic agents for human use. Br J Pharmacol. 154: 1611-8.</p>
+                        <p class="justify" style="color:grey;">DeLean A, Hancock AA, Lefkowitz RJ (1982). Validation and statistical analysis of the computer modeling method for quantitative analysis of radioligand binding data for mixtures of pharmacological subtypes. Mol. Pharmacol. 21: 5–16.</p>
+                        <p class="justify" style="color:grey;">Eglen RM, Nahorski SR (2000). The muscarinic M(5) receptor: a silent or emerging subtype? Br J Pharmacol. 130:13-21.</p>
+                        <p class="justify" style="color:grey;">Eglen RM, Choppin A, Watson N (2001). Therapeutic opportunities from muscarinic receptor research. Trends Pharmacol Sci. 22:409-14.</p>
+                        <p class="justify" style="color:grey;">Flanagan CA (2016). GPCR-radioligand binding assays. Methods Cell Biol. 132:191-215.</p>
+                        <p class="justify" style="color:grey;">Hein P., Michel MC, Leineweber K, Wieland T, Wettschureck N, Offermanns S (2005). Receptor and Binding Studies. In: Dhein S., Mohr F.W., Delmar M. (eds) Practical Methods in Cardiovascular Research. Springer, Berlin, Heidelberg.</p>
+                        <p class="justify" style="color:grey;">Hulme EC, Trevethick MA. (2010) Ligand binding assays at equilibrium: validation and interpretation. Br J Pharmacol. 161:1219-37. </p>
+                        <p class="justify" style="color:grey;">Kenakin TP (2004) A Pharmacology Primer: Theory, Application, and Methods. First Edn. Elsevier Academic Press, San Diego, CA, USA.</p>
+                        <p class="justify" style="color:grey;">Limbird LE, Motulsky H (2011). Receptor Identification and Charcterisation.  Suppl. 20.  Handbook of Physiology, The Endocrine System, Cellular Endocrinology.  https://doi.org/10.1002/cphy.cp070104</p>
+                        <p class="justify" style="color:grey;">Liu H, Hofmann J, Fish I, et al. (2018) Structure-guided development of selective M<sub>3</sub> muscarinic acetylcholine receptor antagonists. Proc Natl Acad Sci U S A. 115:12046-12050.</p>
+                        <p class="justify" style="color:grey;">Mansfield KJ, Liu L, Mitchelson FJ, Moore KH, Millard RJ, Burcher E (2005). Muscarinic receptor subtypes in human bladder detrusor and mucosa, studied by radioligand binding and quantitative competitive RT-PCR: changes in ageing. Br J Pharmacol. 144:1089-99.</p>
+                        <p class="justify" style="color:grey;">Neubig RR, Spedding M, Kenakin T, Christopoulos A, International Union of Pharmacology Committee on Receptor Nomenclature and Drug Classification (2003). International Union of Pharmacology Committee on Receptor Nomenclature and Drug Classification. XXXVIII. Update on terms and symbols in quantitative pharmacology. Pharmacol Rev. 55:597-606.</p>
+                        <p class="justify" style="color:grey;">Ohtake A, Saitoh C, Yuyama H, Ukai M, Okutsu H, Noguchi Y, Hatanaka T, Suzuki M, Sato S, Sasamata M, Miyata K (2007). Pharmacological characterization of a new antimuscarinic agent, solifenacin succinate, in comparison with other antimuscarinic agents. Biol Pharm Bull. 30:54-8.</p>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn" data-dismiss="modal"><span class="tool-name">Close</span></button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Contact Modal -->
+    <div id="contact" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5>Contact</h5>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <p>Found a bug in our application?
+                        <br>Or simply wanted to give some feedback?
+                        <br>Please don't hesitate to let us know!</p>
+                    <div class="box">
+                        <table style="width:100%;">
+                            <tr>
+                                <td>
+                                    <p class="icon"><i class="fa fa-address-card-o" aria-hidden="true"></i></p>
+                                </td>
+                                <td>
+                                    <p class="contact"><b>Peter Henry</b>
+                                        <br>Associate Professor
+                                        <br>The University of Western Australia</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p class="icon"><i class="fa fa-map-pin" aria-hidden="true"></i></p>
+                                </td>
+                                <td>
+                                    <p class="contact">Room 1.34, M Block,
+                                        <br>School of Biomedical Sciences,<br>QEII Medical Centre</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p class="icon"><i class="fa fa-envelope-open-o" aria-hidden="true"></i></p>
+                                </td>
+                                <td>
+                                    <p class="contact"><a
+                                            href="mailto:peter.henry@uwa.edu.au?Subject=SPIKESbind%20feedback">peter.henry@uwa.edu.au</a>
+                                    </p>
+                                </td>
+                            </tr>
+                        </table>
+
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn" data-dismiss="modal"><span class="tool-name">Close</span></button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</footer>
+
+<!-- Bootstrap core JavaScript -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"
+        integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4"
+        crossorigin="anonymous"></script>
+
+<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+
+<!-- Plot.ly Script -->
+<script src="https://cdn.plot.ly/plotly-1.30.0.min.js"></script>
+
+<!-- Custom JavaScript -->
+<script type="text/javascript" src="js/core.js"></script>
+<script type="text/javascript" src="js/assessment.js"></script>
+<script type="text/javascript" src="js/index.js"></script>
+<!-- <script type="text/javascript">
+    $(window).on('load', function(){
+        $('#spikesapproach').modal('show');
+    });
+</script> -->
+</body>
+
+</html>

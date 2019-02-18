@@ -50,7 +50,7 @@ function startQuiz(quizType) {
       timer = 1;
       $('#quiz_title').html("00:00");
     }
-    else {
+    /*else {
       $('#progress').show();
       $('#timer').show();
       $('#nextButton').show();
@@ -60,7 +60,7 @@ function startQuiz(quizType) {
       timeLimit=1499;
       numberOfQuestions = 5;
       timer = timeLimit;
-    }
+    }*/
     randomiseSubType();
     randomiseLigand();
     currentNumber = 1;

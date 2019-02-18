@@ -295,3 +295,12 @@ $('input[type=number]').keydown(function (event) {
              event.keyCode > 40 && event.keyCode < 48  ||
              event.keyCode > 177 && event.keyCode !== 190);
 });
+
+// Fixes bootstrap issues with buttons staying focused after releasing click
+$(".btn").mouseup(function(){
+    $(this).blur();
+})
+
+$('body').on('hidden.bs.modal', '.modal', function(){
+    $('.btn').blur();
+})
