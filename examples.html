@@ -912,11 +912,192 @@
                             </div>
                             <div id="example7" class="container tab-pane">
                                 <div class="col-lg-12">
+                                    <p class="lihead"><b>Consider an example where a competition binding study was conducted using the 4 established ligands (S-secoverine, MT-3, pirenzepine and methoctramine) and 2 hypothetical ligands (Ligand A and Ligand B).  Apply the <span style="color:red;">SPIKES</span> approach to the following competition binding curves to determine which M cholinoceptor subtype(s) is (are) present in this cell/tissue.  </b></p>
+                                    <img class="img-fluid" src="img/example7img1.png">
                                     <p class="lihead"><b><span style="color:red;">S</span>hape / <span style="color:red;">P</span>osition</b></p>
-                                    
+                                    <table class="table table-bordered table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th>Competing Ligand</th>
+                                                <th>Visually-determined logIC<sub>50</sub> value></th>
+                                                <th>Specific Binding (%) at logIC<sub>50</sub>-1</th>
+                                                <th>Specific Binding (%) at logIC<sub>50</sub>+1</th>
+                                                <th>Difference</th>
+                                                <th>Shape</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>S-secoverine</td>
+                                                <td>-7.9</td>
+                                                <td>(-8.9) 91.0</td>
+                                                <td>(-6.9) 9.8</td>
+                                                <td>91.0 - 9.8 = <b>81.2%</b></td>
+                                                <td>Steep</td>
+                                            </tr>
+                                            <tr>
+                                                <td>MT-3</td>
+                                                <td>-6.2</td>
+                                                <td>(-7.2) 87.2</td>
+                                                <td>(-5.2) 10.3</td>
+                                                <td>87.2 - 10.3 = <b><mark>78.9%</mark></b></td>
+                                                <td><mark>Shallow</mark></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Pirenzepine</td>
+                                                <td>-7.2</td>
+                                                <td>(-8.2) 78.0</td>
+                                                <td>(-6.2) 15.4</td>
+                                                <td>78.0 - 15.4 = <b><mark>62.6%</mark></b></td>
+                                                <td><mark>Shallow</mark></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Methoctramine</td>
+                                                <td>-6.8</td>
+                                                <td>(-7.8) 83.8</td>
+                                                <td>(-5.8) 16.5</td>
+                                                <td>83.3 - 16.5 = <b><mark>66.8%</mark></b></td>
+                                                <td><mark>Shallow</mark></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Ligand A</td>
+                                                <td></td>
+                                                <td colspan="4"><mark>Biphasic</mark> with point of inflection at 30% Specific binding</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Ligand B</td>
+                                                <td></td>
+                                                <td colspan="4"><mark>Triphasic</mark> with POIs at 60% and 30% Specific binding</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <p class="justify">Visual inspection indicates there is one <i>steep sigmoidal</i> curve (S-secoverine), three <i>shallow sigmoidal</i> curves (MT-3, pirenzepine and methoctramine), one<i>biphasic</i> curve (Ligand A) and one triphasic curve (Ligand B), providing strong evidence that there is a heterogeneous population of receptors (at least 3 subtypes of M receptor).  The position of the POIs at the 60% and 30% Specific Binding level for Ligand B suggests that one receptor subtype makes up 40% of the population and the other two make up 30% each (making a total of 100%).  </p>
                                     <p class="lihead"><b><span style="color:red;">I</span>C50 / <span style="color:red;">K</span>i value </b></p>
-    
+                                    <p class="justify">As a very low concentration of radioligand was used in the study (compared to the Kd of the radioligand), the –logIC<sub>50</sub> ~ -logK<sub>i</sub> .  For the <i>steep sigmoidal</i> curve of S-secoverine the –logIC<sub>50</sub> = -logK<sub>i</sub>, whereas for the <i>shallow sigmoidal</i> curves (MT-3, pirenzepine and methoctramine), the single –logIC<sub>50</sub> cannot be used as a single –logK<sub>i</sub> values as it is a composite value of the three different –logK<sub>i</sub> values at the three different receptors.</p>
                                     <p class="lihead"><b><span style="color:red;">E</span>limination / <span style="color:red;">S</span>ummation</b></p>
+                                    <p class="justify">It is helpful to firstly analyse the –logK<sub>i</sub> values of the <i>steep sigmoidal</i> curve, with the possibility of perhaps eliminating some receptor subtypes.  In this example, there is only one ligand that generated a <i>steep sigmoidal</i> curve – S-secoverine.</p>
+                                     <table class="table table-bordered table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th rowspan="2">Competing ligand</th>
+                                                <th rowspan="2"> Visually-determined -logK<sub>i</sub> value</th>
+                                                <th colspan="5"> Known -logK<sub>i</sub> values</th>
+                                            </tr>
+                                            <tr>
+                                                <th>M<sub>1</sub></th>
+                                                <th>M<sub>2</sub></th>
+                                                <th>M<sub>3</sub></th>
+                                                <th>M<sub>4</sub></th>
+                                                <th>M<sub>5</sub></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>S-secoverine</td>
+                                                <td>7.9</td>
+                                                <td>8.0</td>
+                                                <td>7.9</td>
+                                                <td>7.7</td>
+                                                <td>7.7</td>
+                                                <td><mark>6.5</mark></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <p class="justify"><b><i>S-secoverine eliminates the likelihood of the M<sub>5</sub> receptor being present in the cell/tissue </i></b><br>– visually-determined –logK<sub>i</sub> value of 7.9 is &ge; 1 log unit different than that expected for S-secoverine binding to the M<sub>5</sub> receptor (6.5)</p>
+                                    <p class="justify">Thus the cell/tissue does not contain a significant population of M<sub>5</sub> receptors. Determining which of M<sub>1</sub> and/or M<sub>2</sub> and/or M<sub>3</sub> and/or M<sub>4</sub> receptors are present and their relative densities requires analysing the –logK<sub>i</sub> values of the different phases of the multiphasic curves.  Let’s start with Ligand B because that is triphasic and may provide some key information.</p>
+                                    <table class="table table-bordered table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th rowspan="2">Competing ligand</th>
+                                                <th rowspan="2"> Visually-determined -logK<sub>i</sub> value</th>
+                                                <th colspan="5"> Known -logK<sub>i</sub> values</th>
+                                            </tr>
+                                            <tr>
+                                                <th>M<sub>1</sub></th>
+                                                <th>M<sub>2</sub></th>
+                                                <th>M<sub>3</sub></th>
+                                                <th>M<sub>4</sub></th>
+                                                <th>M<sub>5</sub></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Ligand B (1<sup>st</sup> phase)</td>
+                                                <td>8.0</td>
+                                                <td>8.0</td>
+                                                <td><mark>5.0</mark></td>
+                                                <td><mark>2.0</mark></td>
+                                                <td><mark>5.0</mark></td>
+                                                <td>8.0</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Ligand B (2<sup>nd</sup> phase)</td>
+                                                <td>5.0</td>
+                                                <td><mark>8.0</mark></td>
+                                                <td>5.0</td>
+                                                <td><mark>2.0</mark></td>
+                                                <td>5.0</td>
+                                                <td><mark>8.0</mark></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Ligand B (3<sup>rd</sup> phase)</td>
+                                                <td>2.0</td>
+                                                <td><mark>8.0</mark></td>
+                                                <td><mark>5.0</mark></td>
+                                                <td>2.0</td>
+                                                <td><mark>5.0</mark></td>
+                                                <td><mark>8.0</mark></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <p class="justify">The <b>first phase</b> of the Ligand B competition binding curve has a –logK<sub>i</sub> value of 8.0 – so we can eliminate the likelihood of M<sub>2</sub>, M<sub>3</sub> or M<sub>4</sub> receptors, leaving just the possibility of M<sub>1</sub> or M<sub>5</sub> receptors being responsible for this specific phase.  However, S-secoverine has previously eliminated M<sub>5</sub> receptors, so the only reasonable conclusion (based on this process of elimination) is the <b>first phase of the Ligand B competition binding curve reflects Ligand B binding to high affinity M<sub>1</sub> receptors, which accounts for 40% of all M receptors.</b></p>
+                                    <p class="justify">The <b>second phase</b> of the Ligand B competition binding curve has a –logK<sub>i</sub> value of 5.0 – so we can eliminate the likelihood of M<sub>1</sub>, M<sub>3</sub> or M<sub>5</sub> receptors, leaving just the possibility of M<sub>2</sub> and/or M<sub>4</sub> receptors being responsible for this particular phase.</p>
+                                    <p class="justify">The <b>third phase</b> of the Ligand B competition binding curve has a –logK<sub>i</sub> value of 2.0 – so we can eliminate the likelihood of M<sub>1</sub>, M<sub>2</sub>, M<sub>4</sub> or M<sub>5</sub> receptors, leaving just the possibility of M<sub>3</sub> receptors being responsible for this specific phase.  Thus, the only reasonable conclusion (based on this process of elimination) is the <b>third phase of the Ligand B competition binding curve reflects Ligand B binding to low affinity M<sub>3</sub> receptors, which accounts for 30% of all M receptors.</b></p>
+                                    <p class="justify">So with Ligand B, we have confirmed that M<sub>1</sub> and M<sub>3</sub> receptors are present in the relative proportions of 40% and 30% respectively.  Thus, the remaining population of 30% M receptors must be M<sub>2</sub> and/or M<sub>4</sub> receptors.  Can the Ligand A competition binding curve shed any light? </p>
+                                    <table class="table table-bordered table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th rowspan="2">Competing ligand</th>
+                                                <th rowspan="2"> Visually-determined -logK<sub>i</sub> value</th>
+                                                <th colspan="5"> Known -logK<sub>i</sub> values</th>
+                                            </tr>
+                                            <tr>
+                                                <th>M<sub>1</sub></th>
+                                                <th>M<sub>2</sub></th>
+                                                <th>M<sub>3</sub></th>
+                                                <th>M<sub>4</sub></th>
+                                                <th>M<sub>5</sub></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Ligand A (1<sup>st</sup> phase)</td>
+                                                <td>9.0</td>
+                                                <td>9.0</td>
+                                                <td>9.0</td>
+                                                <td><mark>6.0</mark></td>
+                                                <td><mark>6.0</mark></td>
+                                                <td><mark>2.0</mark></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Ligand A (2<sup>nd</sup> phase)</td>
+                                                <td>6.0</td>
+                                                <td><mark>9.0</mark></td>
+                                                <td><mark>9.0</mark></td>
+                                                <td>6.0</td>
+                                                <td>6.0</td>
+                                                <td><mark>2.0</mark></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <p class="justify">The <b>first phase</b> of the Ligand A competition binding curve had a –logK<sub>i</sub> value of 9.0 – so we can eliminate the likelihood of M<sub>3</sub>, M<sub>4</sub> or M<sub>5</sub> receptors, leaving just the possibility of M<sub>1</sub> and/or M<sub>2</sub> receptors being responsible for this specific phase.  This first phase of Ligand A binding accounts for 70% of Specific binding and we know from the analysis of Ligand B above that the cell/tissue contains 40%M<sub>1</sub> receptors, so <b>the remaining 30% of the binding of Ligand A in this phase must be to M<sub>2</sub> receptors.</b></p>
+                                    <p class="justify">The <b>second phase</b> of the Ligand A competition binding curve had a –logK<sub>i</sub> value of 6.0 – so we can eliminate the likelihood of M<sub>1</sub>, M<sub>2</sub> or M<sub>5</sub> receptors being responsible for this phase, leaving just the possibility of M<sub>3</sub> and/or M<sub>4</sub> receptors being responsible for this particular phase. As this phase accounts for 30% of Specific binding and we have already established that the M<sub>3</sub> subtype accounts for 30% of total M receptors present, we can eliminate the possibility that a significant population of M<sub>4</sub> receptors being present in the cell/tissue.</p>
+                                    <p class="justify"><b><i>Thus, visual inspection of the presented competition binding curves indicates that the cell/tissue contains a mixture of 40%M<sub>1</sub>, 30%M<sub>2</sub> and 30%M<sub>3</sub> receptors.  </i></b></p>
+                                    <p class="justify"><b>Note 1:</b> As expected, the ‘composite –logK<sub>i</sub> values’ obtained for the <i>shallow sigmoidal</i> curve of MT-3 (6.2), pirenzepine (7.2) and methoctramine (6.8) lay between the known –logK<sub>i</sub> values of these ligands for M<sub>1</sub>, M<sub>2</sub> and M<sub>3</sub> receptors.</p>
+                                    <p class="justify"><b>Note 2:</b> As demonstrated in the Examples of competition binding studies presented above, the process of determining which receptors are present (and their relative densities) in a particular cell/tissue using the SPIKES approach is best conducted in a systematic way.  </p>
+                                    <p class="justify"><b>STEP 1.</b> Identify the competition binding curves that are <i>steep sigmoidal</i> and analyse these first – this may lead to the elimination of particular receptor subtypes, making further analyses simpler.</p>
+                                    <p class="justify"><b>STEP 2.</b> Identify the competition binding curves that are clearly multiphasic – this will often provide important information regarding the relative densities of M receptor subtypes. </p>
+                                    <p class="justify"><b>STEP 3.</b> Analyse the <i>shallow sigmoidal</i> competition binding curves last, as visual inspection of these curves is likely to provide indicative (e.g. composite –logIC<sub>50</sub> and –logK<sub>i</sub> values), rather than definitive information (true –logIC<sub>50</sub> and –logK<sub>i</sub> values). <i>Shallow sigmoidal</i> competition binding curves are best analysed by fitting the data to more complex binding models (2-site, 3-site, etc.) using computer-assisted approaches.  This approach enables the estimation of true –logK<sub>i</sub> values of the competing ligand to each of the multiple sites (rather than relying on the composite –logK<sub>i</sub> value obtained by visual inspection).</p>
                                 </div>
                             </div>
                         </div>
