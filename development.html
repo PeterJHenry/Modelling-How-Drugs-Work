@@ -337,7 +337,7 @@
                                             <td>
                                                 <div class="leftInput">Subtypes</div>
                                             </td>
-                                            <td><input type="checkbox" onclick="validateCheckBox(0)"></td>
+                                            <td><input type="checkbox" id="m1-check" onclick="validateCheckBox(0)"></td>
                                             <td><input type="checkbox" onclick="validateCheckBox(1)"></td>
                                             <td><input type="checkbox" onclick="validateCheckBox(2)"></td>
                                             <td><input type="checkbox" onclick="validateCheckBox(3)"></td>
@@ -413,7 +413,7 @@
                                         <tr class="strikeout row0">
                                             <td>
                                                 <div class="leftInput">1.
-                                                    <select onchange="ligandAutoFill(this,0)">
+                                                    <select id="1-select" onchange="ligandAutoFill(this,0)">
                                                         <option value="12"></option>
                                                         <optgroup label="Established">
                                                             <option value="0">Atropine</option>
@@ -637,6 +637,36 @@
 
                                     </table>
 
+                                </fieldset>
+                            </div>
+                            <div class="container">
+                                <fieldset class="sectionContainer">
+                                    <legend>Questions</legend>
+                                    <div id="devQuestion"></div>
+                                    <br><button id="revealDevAnswer" type="button" class="btn" onclick="revealAnswerDev()">Reveal Answer</button>
+                                    <div id="devAnswerModal" class="modal fade" role="dialog">
+                                        <div class="modal-dialog modal-lg">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h4 class="modal-title">Answer</h4>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <div class="box" style="text-align:left">                                                            
+                                                        <div id="devAnswer"></div>
+                                                    </div>
+                                                 </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn" data-dismiss="modal">Close</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                        
+                                    <div id="restartMessageDev" style="display:none">There are no more questions. Would you like to try again?<br><br></div>
+                                    <button id="restartQuestionDev" style="display:none" type="button" class="btn" onclick="restartQuestionDev()">Restart</button>
+                                    <div style="padding-top: 20px;">
+                                            <button id="nextDevQuestion" type="button" class="btn" onclick="nextQuestionDev()">Next Question</button>
+                                    </div>
                                 </fieldset>
                             </div>
                         </div>
