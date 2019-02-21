@@ -242,6 +242,9 @@ $(document).ready(function () {
     setTimeout(function () {
         generateGraph();
     }, 500);
+    document.getElementById('m1-check').click();
+    document.getElementById('1-select').value="0";
+    $('#1-select').trigger('change')
 
 });
 
