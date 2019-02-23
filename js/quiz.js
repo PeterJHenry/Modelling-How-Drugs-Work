@@ -50,17 +50,6 @@ function startQuiz(quizType) {
       timer = 1;
       $('#quiz_title').html("00:00");
     }
-    /*else {
-      $('#progress').show();
-      $('#timer').show();
-      $('#nextButton').show();
-      $('#next').show();
-      $('#submit').hide();
-      $('#submitButton').hide();
-      timeLimit=1499;
-      numberOfQuestions = 5;
-      timer = timeLimit;
-    }*/
     randomiseSubType();
     randomiseLigand();
     currentNumber = 1;
@@ -94,23 +83,14 @@ function initializeClock() {
         second = intToString(timer % 60);
 
         if(type) $('#quiz_title').html(minlength(minute)+":"+second);
-        /*else {
-          $('#timer-minutes').html(minlength(minute));
-          $('#timer-seconds').html(second);
-        }*/
 
         if (type && (timer > timeLimit)) {
             alert("Time's up!");
             storeAnswers(num);
             endQuiz();
         }
-        /*if (!type && (timer == -1)){
-          alert("Time's up!");
-          storeAnswers(num);
-          endQuiz();
-        }*/
+
         if(type) timer++;
-        //else timer--;
     }
 
     timeVar = setInterval(updateClock, 1000);
@@ -141,34 +121,6 @@ function randomiseSubType() {
     SubtypeAnswer[0] = subtypeIndex;
     PercentageAnswer[0] = subtypePercentage;
   }
-  /*else {
-    for (var i = 0; i < 5; i++) {
-        var subtypeIndex = [null, null];
-        var subtypePercentage = [null, null];
-
-        subtypeIndex[0] = Math.floor((Math.random() * 5));
-        subtypePercentage[0] = 20 + 10 * Math.floor((Math.random() * 8)); // Generates a random percentage between 20 and 90, always a multiple of 10.
-
-        if (subtypePercentage[0] === 90) {
-            // Treat 90 as one subtype.
-            subtypePercentage[0] = 100;
-        } else {
-            subtypeIndex[1] = Math.floor((Math.random() * 5));
-            while (subtypeIndex[1] === subtypeIndex[0]) {
-              subtypeIndex[1] = Math.floor((Math.random() * 5));
-            }
-            // if (subtypeIndex[1] === subtypeIndex[0]) {
-            //     subtypeIndex[0] = subtypeIndex[0] + 1 % 5;
-            // }
-            subtypePercentage[1] = 100 - subtypePercentage[0];
-        }
-        if (subtypePercentage[1] == null) {
-            subtypeIndex[1] = null;
-        }
-        SubtypeAnswer.push(subtypeIndex);
-        PercentageAnswer.push(subtypePercentage);
-    }
-  }*/
 }
 
 function randomiseLigand() {
@@ -187,23 +139,6 @@ function randomiseLigand() {
     else ligandIndexes[4] = 9;
     ligandList.push(ligandIndexes);
   }
-  /*else {
-    for (var x = 0; x < 5; x++) {
-        var ligandIndexes = [];
-        var i = 0;
-        var index;
-        while (ligandIndexes.length < 4) {
-            index = Math.floor((Math.random() * 8));
-            if (index != 0 && ligandIndexes.indexOf(index) == -1) {
-                ligandIndexes[i] = index;
-                i++
-            }
-        }
-        if (Math.floor(Math.random() * 2) === 1) ligandIndexes[4] = 8;
-        else ligandIndexes[4] = 9;
-        ligandList.push(ligandIndexes);
-    }
-  }*/
 
 }
 
@@ -302,24 +237,6 @@ function fillTable(){
 
 }
 
-/*function checkAnswer(next) {
-    if (next && $('input[class=ans]:checked').length <= 0) {
-        alert('Please select an answer');
-    }
-    else if (next) {
-        currentNumber++;
-        storeAnswers();
-        num++;
-        quizStatus();
-    }
-    else {
-        currentNumber--;
-        storeAnswers();
-        num--;
-        quizStatus();
-    }
-}*/
-
 function check() {
     if ($('input[class=ans]:checked').length <= 0) {
         alert('Please select an answer');
@@ -392,29 +309,9 @@ function storeAnswers() {
     Shapes[num] = shapes;
     Positions[num] = position;
     Checkboxes[num] = checks;
-    console.log(Subtypes,Percentages,Shapes,Positions,Checkboxes)
-
+    
 }
 
-function restoreAnswer() {
-    clearInput();
-    var i = 0;
-    if (Subtypes[num] != null) {
-        $('input[class=ans]').each(function(){
-            if (Subtypes[num][0] != null && $(this).val() === Subtypes[num][0].toString()) {
-                $(this).prop('checked', true);
-                $(this).click();
-            }
-            if (Subtypes[num][1] != null && $(this).val() === Subtypes[num][1].toString()) {
-                $(this).prop('checked', true);
-                $(this).click();
-                $(reldensity[i]).val(Percentages[num][1]);
-                $(reldensity[i]).change();
-            }
-            i++;
-        });
-    }
-}
 
 function clearInput() {
     $('.hidden').hide();
@@ -441,32 +338,6 @@ function quizStatus() {
           setTimeout(endQuiz, 400);
       }
     }
-    /*else {
-      $('#quiz_title').html('Question ' + currentNumber + ' of ' + numberOfQuestions);
-      $('.progress-bar').css('width', (currentNumber - 1) / 5 * 100 + '%');
-      if (currentNumber === 1) $('#back').hide();
-      else if (currentNumber > 1) $('#back').show();
-      if (currentNumber === numberOfQuestions) {
-          restoreAnswer();
-          $('#nextButton').show();
-          $('#next').show();
-          $('#next').html("Submit");
-          redrawGraph('myDiv', currentNumber-1, SubtypeAnswer, PercentageAnswer);
-          fillTable();
-      }
-      else if (currentNumber > numberOfQuestions) {
-          $('.progress-bar').css('width', (currentNumber) / 5 * 100 + '%');
-          setTimeout(endQuiz, 400);
-      }
-      else {
-          restoreAnswer();
-          $('#nextButton').show();
-          $('#next').show();
-          $('#next').html('Next <i class="fa fa-arrow-right" aria-hidden="true"></i>');
-          redrawGraph('myDiv', currentNumber-1, SubtypeAnswer, PercentageAnswer);
-          fillTable();
-      }
-    }*/
 }
 
 function endQuiz() {
@@ -477,15 +348,9 @@ function endQuiz() {
     if(type){
       $('.quizAnswers1').show();
     }
-    /*else {
-      $('.quizAnswers').show();
-      $('#reviewModal').html('<div id="review" class="modal fade" role="dialog"><div id="modal"></div></div>');
-    }*/
 }
 
 function ammendAnswers(){
-    //need to reset timer at this point
-    //#quiz_title will be timer
     $('.quizAnswers1').hide();
     $('.questionContainer').show();
     $('#next').hide();
@@ -527,52 +392,6 @@ function renderResults() {
     else if((timer-1)%60 === 0) $('#time-spent').html(Math.floor(timer/60)+" minutes");
     else $('#time-spent').html(Math.floor(timer/60)+" minutes and "+(timer-1)%60+" seconds");
   }
-  else {
-    var a = ['#a1', '#a2', '#a3', '#a4', '#a5'];
-    var q = ['#q1', '#q2', '#q3', '#q4', '#q5'];
-    var green = ['#row1:hover {background-color:#dcffd3;}', '#row2:hover {background-color:#dcffd3;}', '#row3:hover {background-color:#dcffd3;}', '#row4:hover {background-color:#dcffd3;}', '#row5:hover {background-color:#dcffd3;}'];
-    var red = ['#row1:hover {background-color:#ffdddd;}', '#row2:hover {background-color:#ffdddd;}', '#row3:hover {background-color:#ffdddd;}', '#row4:hover {background-color:#ffdddd;}', '#row5:hover {background-color:#ffdddd;}']
-    var mark = ['#mark1', '#mark2', '#mark3', '#mark4', '#mark5'];
-    var row = ['#row1', '#row2', '#row3', '#row4', '#row5']
-
-    for (var i = 0; i < Subtypes.length; i++) {
-        $(row[i]).show();
-
-        if (((Subtypes[i][0] === SubtypeAnswer[i][0]) && (Subtypes[i][1] === SubtypeAnswer[i][1]) && (Percentages[i][0] === PercentageAnswer[i][0])) ||
-            ((Subtypes[i][0] === SubtypeAnswer[i][1]) && (Subtypes[i][1] === SubtypeAnswer[i][0]) && (Percentages[i][0] === PercentageAnswer[i][1]))) {
-            score[i] = true;
-        }
-        else {
-            score[i] = false;
-        }
-
-        // YOUR ANSWER
-        if (Subtypes[i][0] != null) {
-            if (Subtypes[i][1] === null) $(q[i]).html("M" + parseInt(Subtypes[i][0] + 1) + " " + Percentages[i][0] + "%");
-            else $(q[i]).html("M" + parseInt(Subtypes[i][0] + 1) + " " + Percentages[i][0] + "%<br>M" + parseInt(Subtypes[i][1] + 1) + " " + Percentages[i][1] + "%");
-        }
-
-        // CORRECT ANSWER
-        if (SubtypeAnswer[i][1] === null) $(a[i]).html("M" + parseInt(SubtypeAnswer[i][0] + 1) + " " + PercentageAnswer[i][0] + "%");
-        else $(a[i]).html("M" + parseInt(SubtypeAnswer[i][0] + 1) + " " + PercentageAnswer[i][0] + "%<br>M" + parseInt(SubtypeAnswer[i][1] + 1) + " " + PercentageAnswer[i][1] + "%");
-
-        var style = document.createElement('style');
-
-        // TICK/GREEN OR CROSS/RED
-        if (score[i]) {
-            $(mark[i]).html('<i class="fa fa-check" aria-hidden="true"></i>');
-            style.appendChild(document.createTextNode(green[i]));
-        }
-        else {
-            $(mark[i]).html('<i class="fa fa-times" aria-hidden="true"></i>');
-            style.appendChild(document.createTextNode(red[i]));
-        }
-        document.getElementsByTagName('head')[0].appendChild(style);
-    }
-    $('#score').html("Score: " + score.reduce(function (a, b) {
-        return a + b;
-    }, 0) + "/" + Subtypes.length);
-  }
 }
 
 function review(questionNo) {
@@ -605,18 +424,6 @@ function review(questionNo) {
         if (Subtypes[questionNo][1] === null) $('#yourAnswer').html("Subtype Present: M" + parseInt(Subtypes[questionNo][0] + 1) + " " + Percentages[questionNo][0] + "%");
         else $('#yourAnswer').html("Subtypes Present: M" + parseInt(Subtypes[questionNo][0] + 1) + " " + Percentages[questionNo][0] + "%, M" + parseInt(Subtypes[questionNo][1] + 1) + " " + Percentages[questionNo][1] + "%");
     }
-    /*else {
-      $('#modal').html('<div class="modal-dialog modal-xl"><div class="modal-content"><div class="modal-header"><h5>Question <span id="question"></span> Review</h5><button type="button" class="close" data-dismiss="modal">&times;</button></div><div class="modal-body"><span id="reviewTable"></span></div><div class="modal-footer"><button class="btn" data-dismiss="modal"><span class="tool-name">Close</span></button></div></div></div>');
-      $('#question').html(questionNo + 1);
-      $('#reviewTable').html('<div id="text"></div><div class="row"><div class="col-sm-6" style="padding:0"><p class="th1" style="text-align:center"><b>YOUR ANSWER WOULD HAVE PRODUCED THESE CURVES</b></p><p id="yourAnswer" style="text-align:center"></p><div class="container"><fieldset class="sectionContainer"><legend>Competition Binding Curve</legend><div class="container"><div id="yourGraph"></div></div></fieldset></div></div><div class="col-sm-6" style="padding:0"><p class="th1" style="text-align:center"><b>THE CORRECT ANSWER PRODUCES THESE CURVES</b></p><p id="correctAnswer" style="text-align:center"></p><div class="container"><fieldset class="sectionContainer"><legend>Competition Binding Curve</legend><div id="correctGraph"></div></fieldset></div></div></div>');
-      graphDelay = setInterval(function () {
-          redrawGraph(correctGraph, questionNo, SubtypeAnswer, PercentageAnswer);
-          redrawGraph(yourGraph, questionNo, Subtypes, Percentages);
-      }, 200);
-
-      if (Subtypes[questionNo][1] === null) $('#yourAnswer').html("Subtype Present: M" + parseInt(Subtypes[questionNo][0] + 1) + " " + Percentages[questionNo][0] + "%");
-      else $('#yourAnswer').html("Subtypes Present: M" + parseInt(Subtypes[questionNo][0] + 1) + " " + Percentages[questionNo][0] + "%, M" + parseInt(Subtypes[questionNo][1] + 1) + " " + Percentages[questionNo][1] + "%");
-    }*/
     if (SubtypeAnswer[questionNo][1] === null) $('#correctAnswer').html("Subtype Present: M" + parseInt(SubtypeAnswer[questionNo][0] + 1) + " " + PercentageAnswer[questionNo][0] + "%");
     else $('#correctAnswer').html("Subtypes Present: M" + parseInt(SubtypeAnswer[questionNo][0] + 1) + " " + PercentageAnswer[questionNo][0] + "%, M" + parseInt(SubtypeAnswer[questionNo][1] + 1) + " " + PercentageAnswer[questionNo][1] + "%");
 
