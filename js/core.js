@@ -190,7 +190,7 @@ function plotGraph(div, data, showlegend, options) {
           y: 10,
           orientation : "h"
         },
-
+        hovermode:'closest'
 
     };
     Plotly.newPlot(div, data, layout, options);
