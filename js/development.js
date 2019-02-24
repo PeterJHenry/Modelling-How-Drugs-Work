@@ -333,7 +333,7 @@ function nextQuestionDev() {
         document.getElementById("restartQuestionDev").style.display = "inline-block";
         document.getElementById("nextDevQuestion").style.display = "none";
         document.getElementById("devQuestion").innerHTML = "<b>" + questionsDev[questionCounterDev] + "</b>";
-        questionCounterDev = 0;
+        //questionCounterDev = 0;
     }
     else {
         questionCounterDev++;
@@ -343,7 +343,28 @@ function nextQuestionDev() {
     }
 }
 
+function prevQuestionDev() {
+    if (!questionCounterDev) { //beginning of questions
+        alert("Already at beginning of questions");
+    }
+    else if(questionCounterDev + 1 == questionsDev.length){
+        document.getElementById("devQuestion").style.display = "inline-block";
+        document.getElementById("nextDevQuestion").style.display = "inline-block";
+        document.getElementById("restartMessageDev").style.display = "none";
+        document.getElementById("restartQuestionDev").style.display = "none";
+        document.getElementById("devQuestion").innerHTML = "<b>" + questionsDev[questionCounterDev] + "</b>";
+        document.getElementById("revealDevAnswer").style.display = "inline-block";
+    }
+    else {
+        questionCounterDev--;
+        document.getElementById("restartMessageDev").style.display = "none";
+        document.getElementById("restartQuestionDev").style.display = "none";
+        document.getElementById("devQuestion").innerHTML = "<b>" + questionsDev[questionCounterDev] + "</b>";
+    }
+}
+
 function restartQuestionDev() {
+    questionCounterDev = 0;
     document.getElementById("devQuestion").style.display = "inline-block";
     document.getElementById("nextDevQuestion").style.display = "inline-block";
     document.getElementById("restartMessageDev").style.display = "none";
