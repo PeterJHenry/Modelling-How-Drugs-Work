@@ -644,7 +644,11 @@
                                 <fieldset class="sectionContainer">
                                     <legend>Questions</legend>
                                     <div id="devQuestion"></div>
-                                    <br><button id="revealDevAnswer" type="button" class="btn" onclick="revealAnswerDev()">Reveal Answer</button>
+                                    <br>
+                                    <div id="restartMessageDev" style="display:none">There are no more questions. Would you like to try again?<br><br></div>
+
+                                    <button id="prevDevQuestion" type="button" class="btn" style="float:left" onclick="prevQuestionDev()">Previous Question</button>
+                                    <button id="revealDevAnswer" type="button" class="btn" onclick="revealAnswerDev()">Reveal Answer</button>
                                     <div id="devAnswerModal" class="modal fade" role="dialog">
                                         <div class="modal-dialog modal-lg">
                                             <div class="modal-content">
@@ -663,14 +667,9 @@
                                         </div>
                                     </div>
                         
-                                    <div id="restartMessageDev" style="display:none">There are no more questions. Would you like to try again?<br><br></div>
                                     <button id="restartQuestionDev" style="display:none" type="button" class="btn" onclick="restartQuestionDev()">Restart</button>
-                                    <div style="padding-top: 20px;">
-                                            <button id="nextDevQuestion" type="button" class="btn" onclick="nextQuestionDev()">Next Question</button>
-                                    </div>
-                                    <div style="padding-top: 20px;">
-                                        <button id="prevDevQuestion" type="button" class="btn" onclick="prevQuestionDev()">Previous Question</button>
-                                    </div>
+                                    <button id="nextDevQuestion" type="button" class="btn" style="float:right" onclick="nextQuestionDev()">Next Question</button>
+                                    
                                 </fieldset>
                             </div>
                         </div>
