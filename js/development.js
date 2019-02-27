@@ -348,6 +348,7 @@ function prevQuestionDev() {
         alert("Already at beginning of questions");
     }
     else if(questionCounterDev + 1 == questionsDev.length){
+        questionCounterDev--;
         document.getElementById("devQuestion").style.display = "inline-block";
         document.getElementById("nextDevQuestion").style.display = "inline-block";
         document.getElementById("restartMessageDev").style.display = "none";
