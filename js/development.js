@@ -318,7 +318,6 @@ var answersDev = [
 ];
 
 var questionCounterDev = 0;
-//document.getElementById("devQuestion").innerHTML = "<b>" + questionsDev[questionCounterDev] + "</b>";
 document.getElementById("devQuestion").innerHTML = questionsDev[questionCounterDev];
 
 
@@ -329,20 +328,18 @@ function revealAnswerDev() {
 
 function nextQuestionDev() {
     if (questionCounterDev + 1 == questionsDev.length) { //end of questions
+        questionCounterDev++;
         document.getElementById("devQuestion").style.display = "none";
         document.getElementById("revealDevAnswer").style.display = "none";
         document.getElementById("restartMessageDev").style.display = "inline-block";
         document.getElementById("restartQuestionDev").style.display = "inline-block";
         document.getElementById("nextDevQuestion").style.display = "none";
-        //document.getElementById("devQuestion").innerHTML = "<b>" + questionsDev[questionCounterDev] + "</b>";
-        document.getElementById("devQuestion").innerHTML = questionsDev[questionCounterDev];
     }
     else {
         questionCounterDev++;
         document.getElementById("restartMessageDev").style.display = "none";
         document.getElementById("restartQuestionDev").style.display = "none";
         document.getElementById("devQuestion").innerHTML = questionsDev[questionCounterDev];
-        //document.getElementById("devQuestion").innerHTML = "<b>" + questionsDev[questionCounterDev] + "</b>";
 
     }
 }
@@ -351,21 +348,13 @@ function prevQuestionDev() {
     if (!questionCounterDev) { //beginning of questions
         alert("Already at beginning of questions");
     }
-    else if(questionCounterDev + 1 == questionsDev.length){
+    else {
         questionCounterDev--;
         document.getElementById("devQuestion").style.display = "inline-block";
         document.getElementById("nextDevQuestion").style.display = "inline-block";
-        document.getElementById("restartMessageDev").style.display = "none";
-        document.getElementById("restartQuestionDev").style.display = "none";
-        //document.getElementById("devQuestion").innerHTML = "<b>" + questionsDev[questionCounterDev] + "</b>";
-        document.getElementById("devQuestion").innerHTML = questionsDev[questionCounterDev];
         document.getElementById("revealDevAnswer").style.display = "inline-block";
-    }
-    else {
-        questionCounterDev--;
         document.getElementById("restartMessageDev").style.display = "none";
         document.getElementById("restartQuestionDev").style.display = "none";
-        //document.getElementById("devQuestion").innerHTML = "<b>" + questionsDev[questionCounterDev] + "</b>";
         document.getElementById("devQuestion").innerHTML = questionsDev[questionCounterDev];
     }
 }
@@ -376,7 +365,6 @@ function restartQuestionDev() {
     document.getElementById("nextDevQuestion").style.display = "inline-block";
     document.getElementById("restartMessageDev").style.display = "none";
     document.getElementById("restartQuestionDev").style.display = "none";
-    //document.getElementById("devQuestion").innerHTML = "<b>" + questionsDev[questionCounterDev] + "</b>";
     document.getElementById("devQuestion").innerHTML = questionsDev[questionCounterDev];
     document.getElementById("revealDevAnswer").style.display = "inline-block";
 }
